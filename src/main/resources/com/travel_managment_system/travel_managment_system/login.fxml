@@ -13,7 +13,7 @@
    <children>
       <ImageView fitHeight="348.0" fitWidth="669.0" layoutX="-1.0" layoutY="1.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../IdeaProjects/Elwensh/src/main/resources/com/example/elwensh/image/julia-solonina-Csja8O0sbOw-unsplash%201.png" />
+            <Image url="@julia-solonina-Csja8O0sbOw-unsplash%201.png" />
          </image>
       </ImageView>
       <Button layoutX="338.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
