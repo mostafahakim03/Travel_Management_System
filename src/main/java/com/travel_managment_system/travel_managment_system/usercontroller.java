@@ -1,21 +1,49 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class usercontroller {
-        @FXML
-        private Button btn1;
-        @FXML
-        private AnchorPane signup_anch;
-        public void btn() throws IOException {
+    @FXML
+    private Label ErrorMessage;
+    @FXML
+    private Button btn1;
+    @FXML
+    private AnchorPane signup_anch;
+    @FXML
+    private TextField TUserText;
+
+    @FXML
+    private TextField TageText;
+
+    @FXML
+    private TextField TidText;
+
+    @FXML
+    private TextField TnameText;
+
+    @FXML
+    private PasswordField TpassText;
+
+    @FXML
+    private TextField TphoneText;
+
+    ArrayList<TourGuide>TourguideAcc=new ArrayList<TourGuide>();
+
+
+    public void btn() throws IOException {
             Parent root= FXMLLoader.load(getClass().getResource("login.fxml"));
             Scene scene =new Scene(root);
             Stage stage=new Stage();
@@ -44,5 +72,23 @@ public class usercontroller {
             stage.show();
             btn1.getScene().getWindow().hide();
 
+        }
+        public void TsubmitSignup() throws IOException {
+        // TourGuide.newidAcc.add(100);
+          TourGuide tourGuide=new TourGuide(TnameText.getText(),TUserText.getText(),TpassText.getText(),TphoneText.getText(),TageText.getText(),TidText.getText());
+          String test =tourGuide.check_signup();
+          if(test.equals("done")){
+              TourguideAcc.add(tourGuide);
+              thomepage();
+          }
+            ErrorMessage.setText(test);
+        }
+        void thomepage() throws IOException {
+            Parent root= FXMLLoader.load(getClass().getResource("THomepage.fxml"));
+            Scene scene =new Scene(root);
+            Stage stage=new Stage();
+            stage.setScene(scene);
+            stage.show();
+            TnameText.getScene().getWindow().hide();
         }
     }
