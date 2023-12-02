@@ -34,8 +34,8 @@ public class Ticket {
     public double returnPrice(int noOFTrips) {
         if (noOFTrips % 2 == 0 && noOFTrips != 0) {
             this.ticket_price = this.ticket_price - (this.ticket_price * 0.15);
-            return ticket_price;
-        } else return ticket_price;
+        }
+        return ticket_price;
     }
 }
 
