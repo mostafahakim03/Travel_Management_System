@@ -10,8 +10,6 @@ public class TourGuide extends User {
     //protected Trip trips[];
     protected float Salary;
 
-    public TourGuide(){
 
-    }
 }
 

@@ -8,5 +8,5 @@ public abstract class User {
 
     int age;
 
-    public abstract void display();
+    //public abstract void display();
 }
