@@ -45,5 +45,4 @@ public class usercontroller {
             btn1.getScene().getWindow().hide();
 
         }
-
     }

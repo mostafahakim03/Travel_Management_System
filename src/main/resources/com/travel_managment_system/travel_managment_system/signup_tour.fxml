@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -18,8 +17,8 @@
       <TextField layoutX="56.0" layoutY="109.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
       <TextField layoutX="56.0" layoutY="252.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
       <TextField layoutX="56.0" layoutY="207.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
+      <TextField layoutX="56.0" layoutY="159.0" prefHeight="26.0" prefWidth="254.0" promptText="password" />
       <TextField layoutX="131.0" layoutY="252.0" prefHeight="26.0" prefWidth="88.0" promptText="ID" />
       <Button layoutX="434.0" layoutY="252.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
-      <PasswordField fx:id="Tpass_text" layoutX="56.0" layoutY="162.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
    </children>
 </AnchorPane>
