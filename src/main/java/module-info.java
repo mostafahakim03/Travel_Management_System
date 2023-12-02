@@ -7,4 +7,6 @@ module com.travel_managment_system.travel_managment_system {
 
     opens com.travel_managment_system.travel_managment_system to javafx.fxml;
     exports com.travel_managment_system.travel_managment_system;
+    exports com.travel_managment_system.travel_managment_system.Itinerary;
+    opens com.travel_managment_system.travel_managment_system.Itinerary to javafx.fxml;
 }
