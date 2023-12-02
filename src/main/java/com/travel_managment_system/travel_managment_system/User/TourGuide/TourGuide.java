@@ -2,7 +2,7 @@ package com.travel_managment_system.travel_managment_system.User.TourGuide;
 
 import com.travel_managment_system.travel_managment_system.User.User;
 
-public class TourGuide extends User {
+public class TourGuide  {
     private int GuideSSN;
     protected static int GuideCounter=0;
     protected boolean Availibility;
