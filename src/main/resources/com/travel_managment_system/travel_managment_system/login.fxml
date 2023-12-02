@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -18,7 +19,6 @@
       </ImageView>
       <Button layoutX="338.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
       <TextField layoutX="206.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <TextField layoutX="207.0" layoutY="117.0" prefHeight="26.0" prefWidth="254.0" promptText="password" />
       <RadioButton layoutX="207.0" layoutY="165.0" mnemonicParsing="false" text="Custmor">
          <toggleGroup>
             <ToggleGroup fx:id="type" />
@@ -32,5 +32,6 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </RadioButton>
+      <PasswordField layoutX="206.0" layoutY="115.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
    </children>
 </AnchorPane>
