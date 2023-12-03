@@ -16,12 +16,12 @@
          </image>
       </ImageView>
       <TextField fx:id="TnameText" layoutX="56.0" layoutY="59.0" prefHeight="26.0" prefWidth="254.0" promptText="Name" />
-      <TextField fx:id="TUserText" layoutX="56.0" layoutY="109.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <TextField fx:id="TageText" layoutX="56.0" layoutY="252.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
-      <TextField fx:id="TphoneText" layoutX="56.0" layoutY="207.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
-      <TextField fx:id="TidText" layoutX="131.0" layoutY="252.0" prefHeight="26.0" prefWidth="88.0" promptText="ID" />
-      <Button layoutX="434.0" layoutY="252.0" mnemonicParsing="false" onAction="#TsubmitSignup" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
+      <TextField fx:id="TUserText" layoutX="56.0" layoutY="103.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
       <PasswordField fx:id="TpassText" layoutX="56.0" layoutY="150.0" prefHeight="25.0" prefWidth="254.0" promptText="Password" />
+      <TextField fx:id="TphoneText" layoutX="53.0" layoutY="195.0" prefHeight="26.0" prefWidth="130.0" promptText="Phone Number" />
+      <TextField fx:id="TageText" layoutX="56.0" layoutY="239.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
+      <TextField fx:id="TidText" layoutX="130.0" layoutY="239.0" prefHeight="26.0" prefWidth="88.0" promptText="ID" />
+      <Button layoutX="434.0" layoutY="252.0" mnemonicParsing="false" onAction="#TsubmitSignup" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
       <Label fx:id="ErrorMessage" layoutX="80.0" layoutY="298.0" prefHeight="17.0" prefWidth="341.0" textFill="RED" />
    </children>
 </AnchorPane>
