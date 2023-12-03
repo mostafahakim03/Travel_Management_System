@@ -1,74 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane hvalue="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="617.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.usercontroller">
-    <content>
-        <AnchorPane prefHeight="868.0" prefWidth="660.0">
-            <children>
-                <Pane layoutX="-1.0" layoutY="298.0" prefHeight="194.0" prefWidth="707.0">
-                    <children>
-                        <Label layoutX="73.0" layoutY="53.0" text="Trip name">
-                            <font>
-                                <Font size="23.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="73.0" layoutY="152.0" text="Time" />
-                        <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
-                    </children>
-                </Pane>
-                <Pane layoutX="-1.0" layoutY="120.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="194.0" prefWidth="707.0">
-                    <children>
-                        <Label layoutX="73.0" layoutY="53.0" text="Trip name">
-                            <font>
-                                <Font size="23.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="73.0" layoutY="152.0" text="Time" />
-                        <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
-                    </children>
-                </Pane>
-                <Pane layoutX="-1.0" layoutY="492.0" prefHeight="194.0" prefWidth="707.0">
-                    <children>
-                        <Label layoutX="73.0" layoutY="53.0" text="Trip name">
-                            <font>
-                                <Font size="23.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="73.0" layoutY="152.0" text="Time" />
-                        <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
-                    </children>
-                </Pane>
-                <Pane layoutX="-1.0" layoutY="673.0" prefHeight="194.0" prefWidth="707.0">
-                    <children>
-                        <Label layoutX="73.0" layoutY="53.0" text="Trip name">
-                            <font>
-                                <Font size="23.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="73.0" layoutY="152.0" text="Time" />
-                        <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
-                    </children>
-                </Pane>
-                <MenuBar layoutX="4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="26.0" prefWidth="698.0" style="-fx-padding: 5px; -fx-background-color: #ffae00;">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Logout" />
-                        <Menu mnemonicParsing="false" text="My Profile" />
-                        <Menu mnemonicParsing="false" text="Home" />
-                    </menus>
-                </MenuBar>
-                <Label layoutX="68.0" layoutY="82.0" text="All Trips">
-                    <font>
-                        <Font size="39.0" />
-                    </font>
-                </Label>
-            </children>
-        </AnchorPane>
-    </content>
-</ScrollPane>
+
+<AnchorPane fx:id="THomepageAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.HomepageController">
+   <children>
+      <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="500.0" prefWidth="707.0" vbarPolicy="ALWAYS">
+          <content>
+              <AnchorPane prefHeight="868.0" prefWidth="660.0">
+                  <children>
+                      <Pane layoutX="-1.0" layoutY="298.0" prefHeight="194.0" prefWidth="707.0">
+                          <children>
+                              <Label layoutX="73.0" layoutY="53.0" text="Trip name">
+                                  <font>
+                                      <Font size="23.0" />
+                                  </font>
+                              </Label>
+                              <Label layoutX="73.0" layoutY="152.0" text="Time" />
+                              <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
+                          </children>
+                      </Pane>
+                      <Pane layoutY="138.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="194.0" prefWidth="707.0">
+                          <children>
+                              <Label layoutX="73.0" layoutY="53.0" text="Trip name">
+                                  <font>
+                                      <Font size="23.0" />
+                                  </font>
+                              </Label>
+                              <Label layoutX="73.0" layoutY="152.0" text="Time" />
+                              <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
+                          </children>
+                      </Pane>
+                      <Pane layoutX="-1.0" layoutY="492.0" prefHeight="194.0" prefWidth="707.0">
+                          <children>
+                              <Label layoutX="73.0" layoutY="53.0" text="Trip name">
+                                  <font>
+                                      <Font size="23.0" />
+                                  </font>
+                              </Label>
+                              <Label layoutX="73.0" layoutY="152.0" text="Time" />
+                              <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
+                          </children>
+                      </Pane>
+                      <Pane layoutX="-1.0" layoutY="673.0" prefHeight="194.0" prefWidth="707.0">
+                          <children>
+                              <Label layoutX="73.0" layoutY="53.0" text="Trip name">
+                                  <font>
+                                      <Font size="23.0" />
+                                  </font>
+                              </Label>
+                              <Label layoutX="73.0" layoutY="152.0" text="Time" />
+                              <Label layoutX="73.0" layoutY="102.0" prefHeight="23.0" prefWidth="73.0" text="Type" />
+                          </children>
+                      </Pane>
+                      <Label layoutX="68.0" layoutY="82.0" text="All Trips">
+                          <font>
+                              <Font size="39.0" />
+                          </font>
+                      </Label>
+                  </children>
+              </AnchorPane>
+          </content>
+      </ScrollPane>
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+        <items>
+          <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
+            <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+            <Button mnemonicParsing="false" onAction="#THomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+        </items>
+      </ToolBar>
+   </children>
+</AnchorPane>
