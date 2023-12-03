@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,15 +10,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class HomepageController {
     @FXML
     private AnchorPane THomepageAnchor;
     @FXML
     private AnchorPane CHomepageAnchor;
+//    private ArrayList<Trip>
 
 
 
@@ -64,5 +69,8 @@ public class HomepageController {
         THomepageAnchor.getScene().getWindow().hide();
 
     }
+    public void setTripsDisplayed()
+    {}
+
 }
 
