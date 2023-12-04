@@ -4,25 +4,87 @@ import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class HomepageController {
+
+public class HomepageController  {
     @FXML
-    private AnchorPane THomepageAnchor;
+    public AnchorPane THomepageAnchor;
     @FXML
-    private AnchorPane CHomepageAnchor;
-//    private ArrayList<Trip>
+    public AnchorPane CHomepageAnchor;
+
+    @FXML
+    private VBox tripsVBox;
+
+
+
+
+
+    public void initialize() throws FileNotFoundException {
+
+
+        ArrayList<Trip> trips = new ArrayList<>();
+        trips.add(new Trip("Luxor",1000,"family","2023-12-5","2023-12-29",20,3000,10000,"src/main/java/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg"));
+        trips.add(new Trip("Alexandria",1001,"couple","2023-12-5","2023-12-28",30,400,7000,"src/main/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg"));
+
+        displayTrips(trips); // Update the ListView with available trips
+    }
+    private void displayTrips(ArrayList<Trip> trips) throws FileNotFoundException {
+        for (Trip trip : trips) {
+            VBox tripBox = createTripVBox(trip);
+            tripsVBox.getChildren().add(tripBox);
+        }
+    }
+    private VBox createTripVBox (Trip trip) throws FileNotFoundException {
+        VBox tripBox = new VBox();
+        VBox detailsBox=new VBox();
+        VBox finalBox=new VBox();
+
+        HBox stylingBox=new HBox();
+
+        FileInputStream imageInput = new FileInputStream(trip.tripImage);
+        Image image = new Image(imageInput);
+        ImageView tripImage= new ImageView(image);
+
+        String PriceText=Double.toString(trip.price);
+        String PaymentText=Double.toString(trip.payment);
+
+        Label tripName=new Label(trip.tripName);
+        Label tripPrice=new Label("from \n"+PriceText+"EGP");
+        Label tripPayment=new Label("from \n"+PaymentText+"EGP");
+        Button viewTrip= new Button("View trip");
+        Label tripID=new Label("ID " + trip.trip_id);
+        Label tripType=new Label("Trip's type " + trip.tripType);
+        Label tripSD=new Label("Start Date: " + trip.start_date);
+        Label tripED=new Label("End Date: " + trip.end_date);
+
+         if (THomepageAnchor.isVisible()) {
+            finalBox.getChildren().addAll(tripPayment, viewTrip);
+        }
+        else if (CHomepageAnchor.isVisible()) {
+            finalBox.getChildren().addAll(tripPrice, viewTrip);
+        }
+
+
+        stylingBox.getChildren().addAll(tripImage, detailsBox,finalBox);
+        detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED);
+        tripBox.getChildren().addAll(stylingBox);
+
+        return tripBox;
+    }
+
 
 
 
@@ -69,8 +131,7 @@ public class HomepageController {
         THomepageAnchor.getScene().getWindow().hide();
 
     }
-    public void setTripsDisplayed()
-    {}
+
 
 }
 

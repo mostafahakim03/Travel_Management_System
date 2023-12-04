@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class usercontroller {
+    ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
     @FXML
     private Label ErrorMessage;
     @FXML
@@ -24,23 +25,16 @@ public class usercontroller {
     private AnchorPane signup_anch;
     @FXML
     private TextField TUserText;
-
     @FXML
     private TextField TageText;
-
     @FXML
     private TextField TidText;
-
     @FXML
     private TextField TnameText;
-
     @FXML
     private PasswordField TpassText;
-
     @FXML
     private TextField TphoneText;
-
-    ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
 
 
     public void btn() throws IOException {
@@ -50,6 +44,7 @@ public class usercontroller {
         stage.setScene(scene);
         stage.show();
         btn1.getScene().getWindow().hide();
+
 
     }
 
@@ -65,6 +60,8 @@ public class usercontroller {
         stage.show();
         btn1.getScene().getWindow().hide();
 
+
+
     }
 
     public void sign_cust() throws IOException {
@@ -74,6 +71,7 @@ public class usercontroller {
         stage.setScene(scene);
         stage.show();
         btn1.getScene().getWindow().hide();
+
 
     }
 
