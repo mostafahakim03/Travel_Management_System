@@ -1,28 +1,34 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
 public class Trip {
-    public static int noOfTrips;
-    private static int numbersOfSeats;
-    private int trip_id;
-    private String tripName;
-    private String start_date;
-    private String end_date;
-    private double price;
-    private String tripType;   // family , couple, general
-    private String packageType;  // silver , golden , platinum
-    private int numbersOfTickets;  // the customer booking
+    public static int noOfTrips = 0;
+    public static int numbersOfSeats;
+    public int trip_id;
+    public String tripName;
+    public String start_date;
+    public String end_date;
+    public double price;
+    public double payment;
+    public String tripImage;
+    public String tripType;   // family , couple, general
+    public String packageType;  // silver , golden , platinum
+    public int numbersOfTickets;  // the customer booking
+
 
 //    tourGuide[] tours = new tourGuide[];
 
-    public Trip(String tripName, int trip_id, String tripType, String start_date, String end_date, int Seats, double price) {
+    public Trip(String tripName, int trip_id, String tripType, String start_date, String end_date, int Seats, double price, double payment, String tripImage) {
         this.tripName = tripName;
         this.trip_id = trip_id;
         this.tripType = tripType;
         this.start_date = start_date;
         this.end_date = end_date;
         this.price = price;
+        this.payment = payment;
+        this.tripImage = tripImage;
         numbersOfSeats = Seats;
         noOfTrips++;
+
     }
 
     public static int getNumbersOfSeats() {
