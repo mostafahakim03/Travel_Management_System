@@ -12,7 +12,7 @@
       <ToolBar layoutX="-4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
          <items>
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
             <Button mnemonicParsing="false" onAction="#THomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
          </items>
       </ToolBar>

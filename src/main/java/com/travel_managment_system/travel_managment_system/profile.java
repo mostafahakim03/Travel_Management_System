@@ -50,6 +50,8 @@ public class profile {
 
     @FXML
     private AnchorPane labanchor2;
+    @FXML
+    private Button profileButton;
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
     System.out.println("Logout pending!");
@@ -85,12 +87,7 @@ public class profile {
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Tprofile.getScene().getWindow().hide();
+        profileButton.setDisable(true);
 
     }
 
