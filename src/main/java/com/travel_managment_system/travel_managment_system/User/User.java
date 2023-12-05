@@ -35,6 +35,24 @@ public abstract class User {
 
         }
 
+    public String getName() {
+        return name;
+    }
 
+    public String getAge() {
+        return age;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getUsername() {
+        return username;
+    }
     //public abstract void display();
 }

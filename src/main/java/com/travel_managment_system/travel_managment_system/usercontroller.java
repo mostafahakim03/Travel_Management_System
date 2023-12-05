@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class usercontroller {
-    ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
+
     @FXML
     private Label ErrorMessage;
     @FXML
@@ -81,20 +81,28 @@ public class usercontroller {
         TourGuide tourGuide = new TourGuide(TnameText.getText(), TUserText.getText(), TpassText.getText(), TphoneText.getText(), TageText.getText(), TidText.getText());
         String test = tourGuide.check_signup();
         if (test.equals("done")) {
-            TourguideAcc.add(tourGuide);
+            TourGuide.TourguideAcc.add(tourGuide);
+            TourGuide.selectedTourGuide=tourGuide;
+            TourGuide.isTourGuide=true;
+            TnameText.getScene().getWindow().hide();
             thomepage();
+
+
+
         }
         ErrorMessage.setText(test);
     }
-
     void thomepage() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        TnameText.getScene().getWindow().hide();
+
+
     }
+
+
 
 
 }

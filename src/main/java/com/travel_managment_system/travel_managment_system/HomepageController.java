@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -77,6 +78,7 @@ public class HomepageController {
         Label tripSD = new Label("Start Date: " + trip.start_date);
         Label tripED = new Label("End Date: " + trip.end_date);
         Button viewTrip = new Button("View trip");
+        Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
@@ -94,12 +96,12 @@ public class HomepageController {
 
         });
 
-        styleVBox(tripImage, viewTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
+        styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
 
-        if (THomepageAnchor.isVisible()) {
-            finalBox.getChildren().addAll(tripPayment, viewTrip);
-        } else if (CHomepageAnchor.isVisible()) {
+        if (TourGuide.isTourGuide) {
+            finalBox.getChildren().addAll(tripPayment, assignTrip);
+        } else {
             finalBox.getChildren().addAll(tripPrice, viewTrip);
         }
 
@@ -111,7 +113,7 @@ public class HomepageController {
         return tripBox;
     }
 
-    public static void styleVBox(ImageView tripImage, Button viewTrip, VBox tripBox, Label tripName,
+    public static void styleVBox(ImageView tripImage, Button viewTrip, Button assignTrip, VBox tripBox, Label tripName,
                                  HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment) {
 
         tripImage.setFitHeight(150);
@@ -125,10 +127,13 @@ public class HomepageController {
 
         tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
         viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
+        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
 
         viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
         viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
 
+        assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
+        assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
         tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
         tripPrice.setStyle("-fx-font-weight:bold;");
         tripPayment.setStyle("-fx-font-weight:bold;");
@@ -151,9 +156,9 @@ public class HomepageController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            if (THomepageAnchor.getScene() != null) {
+            if (TourGuide.isTourGuide) {
                 THomepageAnchor.getScene().getWindow().hide();
-            } else if (CHomepageAnchor.getScene() != null) {
+            } else {
                 CHomepageAnchor.getScene().getWindow().hide();
             }
         }
@@ -165,12 +170,16 @@ public class HomepageController {
 
     public void TProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
+        profile init=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         THomepageAnchor.getScene().getWindow().hide();
+        init.initialize();
 
     }
-}
 
+
+
+}

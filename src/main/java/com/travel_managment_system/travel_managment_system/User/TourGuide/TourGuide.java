@@ -11,9 +11,12 @@ public class TourGuide extends User {
     //protected Trip trips[];
     protected float Salary;
     public static ArrayList<Integer> newidAcc = new ArrayList<Integer>();
+    public static boolean isTourGuide=false;
+    public static ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
+    public static TourGuide selectedTourGuide;
 
     public TourGuide(String name, String username, String pass, String phone, String age, String GuideID) {
-        //super();
+        super();
         this.name = name;
         this.username = username;
         this.pass = pass;
@@ -39,5 +42,10 @@ public class TourGuide extends User {
         return test;
     }
 
+    public float getSalary() {
+        return Salary;
+    }
+
 }
+
 

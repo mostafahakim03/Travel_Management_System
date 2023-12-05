@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,34 +14,34 @@ import java.io.IOException;
 
 public class profile {
     @FXML
-    private Label TAge;
+    private Label TAge=new Label();
 
     @FXML
-    private Label TName;
+    private Label TName=new Label();
 
     @FXML
-    private Label TPassword;
+    private Label TPassword=new Label();
 
     @FXML
-    private Label TPhonenumber;
+    private Label TPhonenumber=new Label();
 
     @FXML
-    private TextField TUserText;
+    private TextField TUserText= new TextField();
 
     @FXML
-    private Label TUsername;
+    private Label TUsername=new Label();
 
     @FXML
-    private TextField TageText;
+    private TextField TageText= new TextField();
 
     @FXML
-    private TextField TnameText;
+    private TextField TnameText= new TextField();
 
     @FXML
-    private TextField TpassText;
+    private TextField TpassText= new TextField();
 
     @FXML
-    private TextField TphoneText;
+    private TextField TphoneText= new TextField();
 
     @FXML
     private AnchorPane Tprofile;
@@ -90,15 +91,32 @@ public class profile {
         profileButton.setDisable(true);
 
     }
+    public void initialize()
+    {
+       TName.setText(TourGuide.selectedTourGuide.getName());
+        TAge.setText(TourGuide.selectedTourGuide.getAge());
+        TPassword.setText(TourGuide.selectedTourGuide.getPass());
+        TPhonenumber.setText(TourGuide.selectedTourGuide.getPhone());
+        TUsername.setText(TourGuide.selectedTourGuide.getUsername());
+
+        TnameText.setText(TourGuide.selectedTourGuide.getName());
+        TageText.setText(TourGuide.selectedTourGuide.getAge());
+        TpassText.setText(TourGuide.selectedTourGuide.getPass());
+        TphoneText.setText(TourGuide.selectedTourGuide.getPhone());
+        TUserText.setText(TourGuide.selectedTourGuide.getUsername());
+    }
 
     @FXML
     void TEdit(ActionEvent event) {
         labanchor.setVisible(true);
         labanchor2.setVisible(false);
+        initialize();
     }
     @FXML
     void TSave(ActionEvent event) {
         labanchor.setVisible(false);
         labanchor2.setVisible(true);
+        initialize();
+
     }
 }
