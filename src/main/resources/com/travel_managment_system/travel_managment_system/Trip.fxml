@@ -57,7 +57,8 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="422.0" mnemonicParsing="false" onAction="#BookingButtonClick" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="422.0"
+                          mnemonicParsing="false" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
