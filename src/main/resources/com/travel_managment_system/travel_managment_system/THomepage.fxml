@@ -12,14 +12,14 @@
    <children>
       <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="500.0" prefWidth="707.0" vbarPolicy="ALWAYS">
           <content>
-              <AnchorPane prefHeight="751.0" prefWidth="694.0">
+              <AnchorPane prefHeight="751.0" prefWidth="694.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="50.0" layoutY="33.0" text="All Trips">
+                  <Label layoutX="40.0" layoutY="35.0" text="All Trips">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <VBox fx:id="tripsVBox" layoutY="98.0" prefHeight="158.0" prefWidth="694.0" />
+                  <VBox fx:id="tripsVBox" layoutX="40.0" layoutY="98.0" prefHeight="158.0" prefWidth="639.0" />
                </children>
               </AnchorPane>
           </content>

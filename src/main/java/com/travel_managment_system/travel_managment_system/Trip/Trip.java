@@ -1,5 +1,7 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
+import java.util.ArrayList;
+
 public class Trip {
     public static int noOfTrips = 0;
     public static int numbersOfSeats;
@@ -13,6 +15,8 @@ public class Trip {
     public String tripType;   // family , couple, general
     public String packageType;  // silver , golden , platinum
     public int numbersOfTickets;  // the customer booking
+
+    public static ArrayList<Trip> trips = new ArrayList<>();
 
 
 //    tourGuide[] tours = new tourGuide[];
