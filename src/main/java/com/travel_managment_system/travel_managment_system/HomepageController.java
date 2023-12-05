@@ -32,25 +32,27 @@ public class HomepageController {
 
     @FXML
     private VBox tripsVBox;
-    boolean ThomeVisible;
+    @FXML
+    private Button HomeButton;
+
 
 
     public void initialize() throws FileNotFoundException {
-
-        Trip.trips.add(new Trip("Luxor", 1000, "family", "2023-12-5", "2023-12-29", 20, 3000, 10000, "src/main/java/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "couple", "2023-12-5", "2023-12-28", 30, 400, 7000, "src/main/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg"));
-
+        Trip.trips.clear();
+        Trip.trips.add(new Trip("Luxor", 1000, "Family", "2023-12-5", "2023-12-29", 20, 3000, 10000, "src/main/java/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg"));
+        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", "2023-12-5", "2023-12-28", 30, 400, 7000, "src/main/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg"));
         displayTrips(Trip.trips); // Update the ListView with available trips
-
     }
 
     private void displayTrips(ArrayList<Trip> trips) throws FileNotFoundException {
+
+
         for (Trip trip : trips) {
+
             VBox tripBox = createTripVBox(trip);
             tripsVBox.getChildren().add(tripBox);
-
-
         }
+
     }
 
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
@@ -157,14 +159,8 @@ public class HomepageController {
         }
     }
 
-    public void THomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        THomepageAnchor.getScene().getWindow().hide();
+    public void HomeClicked(ActionEvent event) throws IOException {
+        HomeButton.setDisable(true);
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
