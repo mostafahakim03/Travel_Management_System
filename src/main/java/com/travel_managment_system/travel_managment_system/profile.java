@@ -5,10 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -16,7 +13,22 @@ import java.io.IOException;
 
 public class profile {
     @FXML
+    private Label TAge;
+
+    @FXML
+    private Label TName;
+
+    @FXML
+    private Label TPassword;
+
+    @FXML
+    private Label TPhonenumber;
+
+    @FXML
     private TextField TUserText;
+
+    @FXML
+    private Label TUsername;
 
     @FXML
     private TextField TageText;
@@ -25,13 +37,20 @@ public class profile {
     private TextField TnameText;
 
     @FXML
-    private PasswordField TpassText;
+    private TextField TpassText;
 
     @FXML
     private TextField TphoneText;
 
     @FXML
     private AnchorPane Tprofile;
+
+    @FXML
+    private AnchorPane labanchor;
+
+    @FXML
+    private AnchorPane labanchor2;
+
     public void logoutButtonClicked(ActionEvent event) throws IOException {
     System.out.println("Logout pending!");
     //alert code
@@ -75,4 +94,14 @@ public class profile {
 
     }
 
+    @FXML
+    void TEdit(ActionEvent event) {
+        labanchor.setVisible(true);
+        labanchor2.setVisible(false);
+    }
+    @FXML
+    void TSave(ActionEvent event) {
+        labanchor.setVisible(false);
+        labanchor2.setVisible(true);
+    }
 }
