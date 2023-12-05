@@ -37,6 +37,7 @@ public class usercontroller {
     private TextField TphoneText;
 
 
+
     public void btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
         Scene scene = new Scene(root);
@@ -94,4 +95,6 @@ public class usercontroller {
         stage.show();
         TnameText.getScene().getWindow().hide();
     }
+
+
 }
