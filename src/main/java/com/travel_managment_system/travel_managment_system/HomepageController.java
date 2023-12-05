@@ -75,9 +75,22 @@ public class HomepageController {
         Label tripSD = new Label("Start Date: " + trip.start_date);
         Label tripED = new Label("End Date: " + trip.end_date);
         Button viewTrip = new Button("View trip");
-//        viewTrip.setOnAction(event -> {
-//            ViewTripDetails(trip);
-//        });
+        viewTrip.setOnAction(event -> {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
+                Parent tripDetailsParent = loader.load();
+                TripController tripDetailsController = loader.getController();
+                tripDetailsController.ViewTripDetails(trip);
+                Scene scene = new Scene(tripDetailsParent);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                THomepageAnchor.getScene().getWindow().hide();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
 
         styleVBox(tripImage, viewTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
