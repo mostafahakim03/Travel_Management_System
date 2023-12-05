@@ -17,7 +17,7 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="707.0">
                <children>
-                  <Label layoutX="382.0" layoutY="174.0" text="Cost">
+                  <Label fx:id="CustomerUser" layoutX="382.0" layoutY="174.0" text="Cost">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -57,8 +57,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="422.0"
-                          mnemonicParsing="false" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="422.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -66,12 +65,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="ChoiceLabel" layoutX="48.0" layoutY="345.0" text="Choose a packege">
+                  <Label fx:id="ChoiceLabel" layoutX="48.0" layoutY="345.0" text="Choose a package">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="numbersOfTicketsInputs" layoutX="373.0" layoutY="422.0" prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
+                  <TextField fx:id="numbersOfTicketsInputs" layoutX="373.0" layoutY="422.0"  prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
                      <font>
                         <Font size="14.0" />
                      </font>
