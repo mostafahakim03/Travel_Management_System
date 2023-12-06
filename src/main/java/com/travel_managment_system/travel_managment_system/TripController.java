@@ -112,7 +112,7 @@ public class TripController implements Initializable {
 
 
 
-    public void Booking(ActionEvent actionEvent) {
+    public void Booking(ActionEvent actionEvent) throws IOException {
 
         int numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
 
@@ -121,8 +121,16 @@ public class TripController implements Initializable {
         }
         else if (tripTypeLabel.getText().equals("couple") && numbersOfTickets % 2 != 0){
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
-        } else
+        } else {
             NoOfTicketsMessageLabel1.setText("");
+            Parent root = FXMLLoader.load(getClass().getResource("servise.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            serviseController serviseController=new serviseController();
+//serviseController.setRoomtype();
+            stage.show();
+        }
 
     }
 

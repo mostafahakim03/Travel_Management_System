@@ -21,14 +21,14 @@ public abstract class User {
             break;}
         }
         if (!test_phone) return "Phone must include only number digits";
-        int phone;
+        int ValidAge;
         try {
-             phone=Integer.parseInt(age);
+             ValidAge=Integer.parseInt(age);
         }
         catch (NumberFormatException e){
-            phone=-1;
+            ValidAge=-1;
         }
-        if(phone==-1||phone<10||phone>99)
+        if(ValidAge==-1||ValidAge<10||ValidAge>99)
         { return "Enter a valid Age";}
 
             return "done";
