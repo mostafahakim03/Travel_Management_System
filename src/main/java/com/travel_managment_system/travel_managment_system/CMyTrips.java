@@ -33,20 +33,20 @@ public class CMyTrips {
 
         HBox stylingBox = new HBox();
 
-        FileInputStream imageInput = new FileInputStream(trip.tripImage);
+        FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
         ImageView tripImage = new ImageView(image);
 
-        String PriceText = Double.toString(trip.price);
-        String PaymentText = Double.toString(trip.payment);
+        String PriceText = Double.toString(trip.getPrice());
+        String PaymentText = Double.toString(trip.getPayment());
 
-        Label tripName = new Label(trip.tripName);
+        Label tripName = new Label(trip.getTripName());
         Label tripPrice = new Label("from \n" + PriceText + "EGP");
         Label tripPayment = new Label("from \n" + PaymentText + "EGP");
-        Label tripID = new Label("ID: " + trip.trip_id);
-        Label tripType = new Label("Trip's type: " + trip.tripType);
-        Label tripSD = new Label("Start Date: " + trip.start_date);
-        Label tripED = new Label("End Date: " + trip.end_date);
+        Label tripID = new Label("ID: " + trip.getTrip_id());
+        Label tripType = new Label("Trip's type: " + trip.getTripType());
+        Label tripSD = new Label("Start Date: " + trip.getStart_date());
+        Label tripED = new Label("End Date: " + trip.getEnd_date());
         Button viewTrip = new Button("View trip");
         viewTrip.setOnAction(event -> {
             try {

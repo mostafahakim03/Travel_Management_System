@@ -49,11 +49,12 @@ public class TripController implements Initializable {
     private String[] packages = {"Silver", "Golden" , "Platinum"};
 
     public void ViewTripDetails(Trip trip){
-        TripNameLabel.setText(trip.tripName);
-        tripTypeLabel.setText(trip.tripType);
-        start_dateLabel.setText(trip.start_date);
-        end_dateLabel.setText(trip.end_date);
-        priceLabel.setText(String.valueOf(trip.price));
+        TripNameLabel.setText(trip.getTripName());
+        tripTypeLabel.setText(trip.getTripType());
+        start_dateLabel.setText(trip.getStart_date());
+        end_dateLabel.setText(trip.getEnd_date());
+        priceLabel.setText(String.valueOf(trip.getPrice()));
+        locationLabel.setText(trip.getLocation());
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
