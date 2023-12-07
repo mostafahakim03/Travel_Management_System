@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class profile {
     @FXML
@@ -105,6 +106,27 @@ public class profile {
         TphoneText.setText(TourGuide.selectedTourGuide.getPhone());
         TUserText.setText(TourGuide.selectedTourGuide.getUsername());
     }
+    public void Update(){
+
+        TourGuide.selectedTourGuide.setName(TnameText.getText());
+        TourGuide.selectedTourGuide.setAge(TageText.getText());
+        TourGuide.selectedTourGuide.setPass(TpassText.getText());
+        TourGuide.selectedTourGuide.setPhone(TphoneText.getText());
+        TourGuide.selectedTourGuide.setUsername(TUserText.getText());
+
+        for (TourGuide tourguide : TourGuide.TourguideAcc) {
+            if(TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())){
+                tourguide.setName(TourGuide.selectedTourGuide.getName());
+                tourguide.setAge(TourGuide.selectedTourGuide.getAge());
+                tourguide.setAge(TourGuide.selectedTourGuide.getAge());
+                tourguide.setPhone(TourGuide.selectedTourGuide.getPhone());
+                tourguide.setUsername(TourGuide.selectedTourGuide.getUsername());
+
+            }
+            break;
+        }
+    }
+
 
     @FXML
     void TEdit(ActionEvent event) {
@@ -116,7 +138,10 @@ public class profile {
     void TSave(ActionEvent event) {
         labanchor.setVisible(false);
         labanchor2.setVisible(true);
+        Update();
         initialize();
 
+
     }
+
 }

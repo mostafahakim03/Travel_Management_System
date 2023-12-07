@@ -17,8 +17,14 @@ public class Trip {
     private int numbersOfTickets;  // the customer booking
     private String location;
 
-    public static ArrayList<Trip> trips = new ArrayList<>();
+//    //Hotel code
+//    String hotelName;
+//    String address;
+//    int numberOfNights;
+//    int numberOfRooms;
+//    private ArrayList<String> arrHotelRoomType = new ArrayList<String>();
 
+    public static ArrayList<Trip> trips = new ArrayList<>();
 
 //    tourGuide[] tours = new tourGuide[];
 
@@ -37,6 +43,7 @@ public class Trip {
         noOfTrips++;
 
     }
+
 
     public static int getNumbersOfSeats() {
         return numbersOfSeats;
@@ -175,4 +182,10 @@ public class Trip {
     public void setLocation(String location) {
         this.location = location;
     }
+
+//    public void fillArr() {
+//        arrHotelRoomType.add("Single");
+//        arrHotelRoomType.add("Douple");
+//        arrHotelRoomType.add("Triple");
+//    }
 }
