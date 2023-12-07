@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 
 public class TripController implements Initializable {
     @FXML
+    public Label locationLabel;
+    @FXML
     private Button BookingButton;
     @FXML
     private Label ChoiceLabel;

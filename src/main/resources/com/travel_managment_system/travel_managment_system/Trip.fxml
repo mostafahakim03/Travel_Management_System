@@ -17,47 +17,47 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="707.0">
                <children>
-                  <Label fx:id="CustomerUser" layoutX="382.0" layoutY="174.0" text="Cost">
+                  <Label fx:id="CustomerUser" layoutX="382.0" layoutY="151.0" text="Cost">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="priceLabel" layoutX="493.0" layoutY="174.0" text="400 EGP" textFill="#fa8b02">
+                  <Label fx:id="priceLabel" layoutX="493.0" layoutY="151.0" text="400 EGP" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="208.0" text="Start Date">
+                  <Label layoutX="380.0" layoutY="216.0" text="Start Date">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="start_dateLabel" layoutX="492.0" layoutY="208.0" text="02-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="start_dateLabel" layoutX="492.0" layoutY="216.0" text="02-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="247.0" text="End Date">
+                  <Label layoutX="380.0" layoutY="255.0" text="End Date">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="end_dateLabel" layoutX="492.0" layoutY="247.0" text="30-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="end_dateLabel" layoutX="492.0" layoutY="255.0" text="30-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="381.0" layoutY="287.0" text="Trip Type">
+                  <Label layoutX="381.0" layoutY="295.0" text="Trip Type">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tripTypeLabel" layoutX="493.0" layoutY="286.0" text="Family" textFill="#fa8b02">
+                  <Label fx:id="tripTypeLabel" layoutX="493.0" layoutY="294.0" text="Family" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="422.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -65,38 +65,48 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="ChoiceLabel" layoutX="48.0" layoutY="345.0" text="Choose a package">
+                  <Label fx:id="ChoiceLabel" layoutX="48.0" layoutY="354.0" text="Choose a package">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="numbersOfTicketsInputs" layoutX="373.0" layoutY="422.0"  prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
+                  <TextField fx:id="numbersOfTicketsInputs" layoutX="373.0" layoutY="431.0" prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="48.0" layoutY="424.0" text="Enter Number of Tickets you want: ">
+                  <Label layoutX="48.0" layoutY="433.0" text="Enter Number of Tickets you want: ">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="TripNameLabel" layoutX="372.0" layoutY="88.0" prefHeight="62.0" prefWidth="334.0" text="Alex Trip">
+                  <Label fx:id="TripNameLabel" layoutX="372.0" layoutY="70.0" prefHeight="62.0" prefWidth="334.0" text="Alex Trip">
                      <font>
                         <Font size="42.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="packageTypeChoice" layoutX="283.0" layoutY="347.0" prefWidth="150.0" />
-                  <Label fx:id="PackageMessageLabel" layoutX="52.0" layoutY="387.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
+                  <ChoiceBox fx:id="packageTypeChoice" layoutX="283.0" layoutY="356.0" prefWidth="150.0" />
+                  <Label fx:id="PackageMessageLabel" layoutX="52.0" layoutY="396.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="48.0" layoutY="468.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
+                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="48.0" layoutY="477.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
                   <ImageView fx:id="imgView" fitHeight="216.0" fitWidth="307.0" layoutX="52.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="379.0" layoutY="183.0" text="Location">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="locationLabel" layoutX="491.0" layoutY="183.0" text="Alexandria" textFill="#fa8b02">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </content>
