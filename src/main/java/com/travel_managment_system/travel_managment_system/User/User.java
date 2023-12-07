@@ -55,4 +55,24 @@ public abstract class User {
         return username;
     }
     //public abstract void display();
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
 }

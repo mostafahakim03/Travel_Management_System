@@ -46,6 +46,33 @@ public class TourGuide extends User {
         return Salary;
     }
 
+    public String getGuideID() {
+        return GuideID;
+    }
+
+    public static int getGuideCounter() {
+        return GuideCounter;
+    }
+
+    public static void setGuideCounter(int guideCounter) {
+        GuideCounter = guideCounter;
+    }
+
+    public boolean isAvailibility() {
+        return Availibility;
+    }
+
+    public void setAvailibility(boolean availibility) {
+        Availibility = availibility;
+    }
+
+    public void setGuideID(String guideID) {
+        GuideID = guideID;
+    }
+
+    public void setSalary(float salary) {
+        Salary = salary;
+    }
 }
 
 
