@@ -15,13 +15,15 @@ public class Trip {
     public String tripType;   // family , couple, general
     public String packageType;  // silver , golden , platinum
     public int numbersOfTickets;  // the customer booking
+    private String location;
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 
 
 //    tourGuide[] tours = new tourGuide[];
 
-    public Trip(String tripName, int trip_id, String tripType, String start_date, String end_date, int Seats, double price, double payment, String tripImage) {
+    public Trip(String tripName, int trip_id, String tripType, String start_date, String end_date, int Seats,
+                double price, double payment, String tripImage, String location) {
         this.tripName = tripName;
         this.trip_id = trip_id;
         this.tripType = tripType;
@@ -30,6 +32,7 @@ public class Trip {
         this.price = price;
         this.payment = payment;
         this.tripImage = tripImage;
+        this.location = location;
         numbersOfSeats = Seats;
         noOfTrips++;
 

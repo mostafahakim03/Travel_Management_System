@@ -1,9 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
-import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -18,45 +16,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
+public class CMyTrips {
 
-public class HomepageController {
-    @FXML
-    public AnchorPane THomepageAnchor;
-    @FXML
-    public AnchorPane CHomepageAnchor;
+    public AnchorPane CMyTrips;
+    public VBox tripsVBox;
 
-    @FXML
-    private VBox tripsVBox;
-    @FXML
-    private Button HomeButton;
-
-
-
-    public void initialize() throws FileNotFoundException {
-        Trip.trips.clear();
-        Trip.trips.add(new Trip("Luxor", 1000, "Family", "2023-12-5", "2023-12-29", 20, 3000, 10000, "src/main/java" +
-                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", "2023-12-5", "2023-12-28", 30, 400, 7000, "src/main" +
-                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria"));
-        displayTrips(Trip.trips); // Update the ListView with available trips
-    }
-
-    private void displayTrips(ArrayList<Trip> trips) throws FileNotFoundException {
-
-
-        for (Trip trip : trips) {
-
-            VBox tripBox = createTripVBox(trip);
-            tripsVBox.getChildren().add(tripBox);
-        }
-
-    }
 
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
         VBox tripBox = new VBox();
@@ -80,7 +48,6 @@ public class HomepageController {
         Label tripSD = new Label("Start Date: " + trip.start_date);
         Label tripED = new Label("End Date: " + trip.end_date);
         Button viewTrip = new Button("View trip");
-        Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
@@ -91,22 +58,22 @@ public class HomepageController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
-                THomepageAnchor.getScene().getWindow().hide();
+                CMyTrips.getScene().getWindow().hide();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
         });
 
-        styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
+        styleVBox(tripImage, viewTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
-
-        if (TourGuide.isTourGuide) {
-            finalBox.getChildren().addAll(tripPayment, assignTrip);
-        } else {
-            finalBox.getChildren().addAll(tripPrice, viewTrip);
-        }
-
+//
+//        if (THomepageAnchor.isVisible()) {
+//            finalBox.getChildren().addAll(tripPayment, viewTrip);
+//        } else if (CHomepageAnchor.isVisible()) {
+//            finalBox.getChildren().addAll(tripPrice, viewTrip);
+//        }
+//
 
         stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
         detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED);
@@ -115,7 +82,8 @@ public class HomepageController {
         return tripBox;
     }
 
-    public static void styleVBox(ImageView tripImage, Button viewTrip, Button assignTrip, VBox tripBox, Label tripName,
+
+    public static void styleVBox(ImageView tripImage, Button viewTrip, VBox tripBox, Label tripName,
                                  HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment) {
 
         tripImage.setFitHeight(150);
@@ -129,19 +97,15 @@ public class HomepageController {
 
         tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
         viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
-        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
 
         viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
         viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
 
-        assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
-        assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
         tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
         tripPrice.setStyle("-fx-font-weight:bold;");
         tripPayment.setStyle("-fx-font-weight:bold;");
 
     }
-
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -158,30 +122,28 @@ public class HomepageController {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            if (TourGuide.isTourGuide) {
-                THomepageAnchor.getScene().getWindow().hide();
-            } else {
-                CHomepageAnchor.getScene().getWindow().hide();
-            }
+//            MyTripPane.getScene().getWindow().hide();
         }
     }
 
-    public void HomeClicked(ActionEvent event) throws IOException {
-        HomeButton.setDisable(true);
-    }
-
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile init=new profile();
+    public void THomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        THomepageAnchor.getScene().getWindow().hide();
-        init.initialize();
-
+//        MyTripPane.getScene().getWindow().hide();
     }
 
+    public void TProfileClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+//        MyTripPane.getScene().getWindow().hide();
 
+    }
 
 }
