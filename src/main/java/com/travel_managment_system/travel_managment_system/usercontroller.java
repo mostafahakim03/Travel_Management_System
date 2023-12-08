@@ -1,8 +1,10 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -20,6 +22,8 @@ public class usercontroller {
     @FXML
     private Label ErrorMessage;
     @FXML
+    private Label CErrorMessage;
+    @FXML
     private Button btn1;
     @FXML
     private AnchorPane signup_anch;
@@ -35,8 +39,23 @@ public class usercontroller {
     private PasswordField TpassText;
     @FXML
     private TextField TphoneText;
+    @FXML
+    private TextField CUserText;
 
+    @FXML
+    private TextField CageText;
 
+    @FXML
+    private TextField CnameText;
+
+    @FXML
+    private PasswordField CpassText;
+
+    @FXML
+    private TextField CphoneText;
+
+    @FXML
+    private AnchorPane Csign;
 
     public void btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -92,7 +111,7 @@ public class usercontroller {
         }
         ErrorMessage.setText(test);
     }
-    void thomepage() throws IOException {
+    public void thomepage() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
         Scene scene = new Scene(root);
         Stage stage = new Stage();
@@ -101,8 +120,26 @@ public class usercontroller {
 
 
     }
+   public void Chomepage() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+       Csign.getScene().getWindow().hide();
 
+    }
 
-
+    public void CsubmitSignup() throws IOException {
+        Customer customer = new Customer(CnameText.getText(),CUserText.getText(),CpassText.getText(),CphoneText.getText(),CageText.getText());
+        String test = customer.check_signup();
+        if (test.equals("done")) {
+            Customer.selectedCustomer = customer;
+            Customer.CoustomerAcc.add(customer);
+            CnameText.getScene().getWindow().hide();
+            Chomepage();
+        }
+        CErrorMessage.setText(test);
+    }
 
 }
