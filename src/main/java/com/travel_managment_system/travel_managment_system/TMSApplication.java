@@ -1,5 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
+import com.travel_managment_system.travel_managment_system.User.Customer.CarCompany;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,7 +17,11 @@ public class TMSApplication extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        CarCompany coma=new CarCompany();
+        CAr car1 =new CAr();
+        coma.AddCAr(car1);
     }
+
 
     public static void main(String[] args) {
         launch();
