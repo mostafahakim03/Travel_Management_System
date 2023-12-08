@@ -39,6 +39,8 @@ public class HomepageController {
     private Button HomeButton;
     @FXML
     private Button ShortCutButton;
+    @FXML
+    private Label NotificationLabel;
 
 
 
@@ -77,6 +79,7 @@ public class HomepageController {
         String PaymentText = Double.toString(trip.getPayment());
 
         Label tripName = new Label(trip.getTripName());
+        Label location= new Label(trip.getLocation());
         Label tripPrice = new Label("from \n" + PriceText + "EGP");
         Label tripPayment = new Label("from \n" + PaymentText + "EGP");
         Label tripID = new Label("ID: " + trip.getTrip_id());
@@ -103,14 +106,14 @@ public class HomepageController {
         });
         assignTrip.setOnAction(event ->{
             for (TourGuide tourguide: TourGuide.TourguideAcc){
-                if(TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())){
-                    tourguide.FillAssignedTrips(trip);
-                    NotificationPane.setVisible(true);
-                    ShortCutButton.setDisable(false);
-                    break;
+                if(TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
+                            tourguide.FillAssignedTrips(trip);
+                            NotificationLabel.setText("Trip was successfully assigned. view all ");
+                            NotificationPane.setVisible(true);
+                            ShortCutButton.setDisable(false);
+                            break;
+                    }
                 }
-            }
-
         });
 
         styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
@@ -124,7 +127,7 @@ public class HomepageController {
 
 
         stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
-        detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED);
+        detailsBox.getChildren().addAll(tripName, location, tripID, tripType, tripSD, tripED);
         tripBox.getChildren().addAll(stylingBox);
 
         return tripBox;
@@ -136,6 +139,7 @@ public class HomepageController {
         tripImage.setFitHeight(150);
         tripImage.setFitWidth(250);
 
+        stylingBox.setAlignment(Pos.CENTER_LEFT);
         stylingBox.setSpacing(50);
         finalBox.setSpacing(20);
         detailsBox.setSpacing(10);
@@ -196,10 +200,19 @@ public class HomepageController {
         profile.initialize();
 
     }
+    public void CProfileClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        CHomepageAnchor.getScene().getWindow().hide();
+        //profile.initialize();
 
+    }
     public void myTripsClicked(ActionEvent event) throws IOException {
         Parent root;
-
         if(TourGuide.isTourGuide) {
             root = FXMLLoader.load(getClass().getResource("TTrips.fxml"));
             THomepageAnchor.getScene().getWindow().hide();
@@ -208,12 +221,11 @@ public class HomepageController {
             root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
             CHomepageAnchor.getScene().getWindow().hide();
         }
-        profile profile=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        profile.initialize();
+
     }
 
 

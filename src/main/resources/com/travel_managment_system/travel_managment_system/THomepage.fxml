@@ -22,12 +22,12 @@
                   <VBox fx:id="tripsVBox" layoutX="40.0" layoutY="113.0" prefHeight="158.0" prefWidth="639.0" />
                   <AnchorPane fx:id="NotificationPane" layoutX="-1.0" prefHeight="42.0" prefWidth="694.0" visible="false">
                      <children>
-                        <Label layoutX="25.0" layoutY="14.0" prefHeight="18.0" prefWidth="286.0" text="Trip was successfully assigned. view all ">
+                        <Label fx:id="NotificationLabel" layoutX="25.0" layoutY="14.0" prefHeight="18.0" prefWidth="286.0" text="Trip was successfully assigned. view all ">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="ShortCutButton" disable="true" layoutX="257.0" layoutY="9.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Assigned Trips" textFill="#2421d1">
+                        <Button fx:id="ShortCutButton" disable="true" layoutX="257.0" layoutY="9.0" mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: transparent;" text="Assigned Trips" textFill="#2421d1">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -42,7 +42,7 @@
         <items>
           <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
             <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
             <Button mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Salary" />
             <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
         </items>
