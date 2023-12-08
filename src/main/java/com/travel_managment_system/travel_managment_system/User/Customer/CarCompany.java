@@ -5,10 +5,17 @@ import java.util.ArrayList;
 public class CarCompany {
     private String Companyname;
 
-
+    public  CarCompany(String companyname){
+        this.Companyname=companyname;
+    }
         public String getCompanyname() {
+
             return Companyname;
         }
+    public void setCompanyname(String companyname) {
+
+            Companyname = companyname;
+    }
 
     public static ArrayList<CarCompany> CarCompany = new ArrayList<CarCompany>();
     public ArrayList<CAr> Car= new ArrayList<CAr>();
@@ -22,7 +29,5 @@ public class CarCompany {
         CarCompany.add(company1);
     }
 
-    public void setCompanyname(String companyname) {
-        Companyname = companyname;
-    }
+
 }

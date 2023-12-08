@@ -162,26 +162,26 @@ public class HomepageController {
     }
 
 
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
+            public void logoutButtonClicked(ActionEvent event) throws IOException {
+                System.out.println("Logout pending!");
+                //alert code
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Logout");
+                alert.setHeaderText("You are logging out...");
+                alert.setContentText("Are you sure you want to logout?");
 
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            if (TourGuide.isTourGuide) {
-                THomepageAnchor.getScene().getWindow().hide();
-            } else {
-                CHomepageAnchor.getScene().getWindow().hide();
-            }
+                if (alert.showAndWait().get() == ButtonType.OK) {
+                    //logging out code
+                    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+                    Scene scene = new Scene(root);
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+                    if (TourGuide.isTourGuide) {
+                        THomepageAnchor.getScene().getWindow().hide();
+                    } else {
+                        CHomepageAnchor.getScene().getWindow().hide();
+                    }
         }
     }
 
