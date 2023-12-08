@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="343.0" prefWidth="622.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.usercontroller">
+<AnchorPane fx:id="Csign" prefHeight="343.0" prefWidth="622.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.usercontroller">
    <children>
       <ImageView fitHeight="348.0" fitWidth="669.0" layoutX="-1.0" layoutY="1.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@julia-solonina-Csja8O0sbOw-unsplash%201.png" />
          </image>
       </ImageView>
-      <Button layoutX="424.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
-      <TextField layoutX="46.0" layoutY="49.0" prefHeight="26.0" prefWidth="254.0" promptText="Name" />
-      <TextField layoutX="46.0" layoutY="99.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <TextField layoutX="46.0" layoutY="242.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
-      <TextField layoutX="46.0" layoutY="197.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
-      <PasswordField layoutX="46.0" layoutY="148.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <Button layoutX="424.0" layoutY="242.0" mnemonicParsing="false" onAction="#CsubmitSignup" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
+      <TextField fx:id="CnameText" layoutX="46.0" layoutY="49.0" prefHeight="26.0" prefWidth="254.0" promptText="Name" />
+      <TextField fx:id="CUserText" layoutX="46.0" layoutY="99.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
+      <TextField fx:id="CageText" layoutX="46.0" layoutY="242.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
+      <TextField fx:id="CphoneText" layoutX="46.0" layoutY="197.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
+      <PasswordField fx:id="CpassText" layoutX="46.0" layoutY="148.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <Label fx:id="CErrorMessage" layoutX="46.0" layoutY="281.0" prefHeight="34.0" prefWidth="254.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
