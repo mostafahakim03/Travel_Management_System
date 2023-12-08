@@ -121,9 +121,9 @@ public class profile {
                 tourguide.setAge(TourGuide.selectedTourGuide.getAge());
                 tourguide.setPhone(TourGuide.selectedTourGuide.getPhone());
                 tourguide.setUsername(TourGuide.selectedTourGuide.getUsername());
-
+                break;
             }
-            break;
+
         }
     }
 

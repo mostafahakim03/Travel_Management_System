@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.User.TourGuide;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.User;
 
 import java.util.ArrayList;
@@ -14,6 +15,16 @@ public class TourGuide extends User {
     public static boolean isTourGuide=false;
     public static ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
     public static TourGuide selectedTourGuide;
+
+    public ArrayList<Trip> getAssignedTrips() {
+        return AssignedTrips;
+    }
+
+    public void FillAssignedTrips(Trip assignedTrips) {
+        AssignedTrips.add(assignedTrips);
+    }
+
+    private ArrayList<Trip> AssignedTrips=new ArrayList<>();
 
     public TourGuide(String name, String username, String pass, String phone, String age, String GuideID) {
         super();

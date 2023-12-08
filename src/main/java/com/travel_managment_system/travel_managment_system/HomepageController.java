@@ -30,11 +30,15 @@ public class HomepageController {
     public AnchorPane THomepageAnchor;
     @FXML
     public AnchorPane CHomepageAnchor;
+    @FXML
+    private AnchorPane NotificationPane;
 
     @FXML
     private VBox tripsVBox;
     @FXML
     private Button HomeButton;
+    @FXML
+    private Button ShortCutButton;
 
 
 
@@ -91,9 +95,20 @@ public class HomepageController {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
-                THomepageAnchor.getScene().getWindow().hide();
+                CHomepageAnchor.getScene().getWindow().hide();
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            }
+
+        });
+        assignTrip.setOnAction(event ->{
+            for (TourGuide tourguide: TourGuide.TourguideAcc){
+                if(TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())){
+                    tourguide.FillAssignedTrips(trip);
+                    NotificationPane.setVisible(true);
+                    ShortCutButton.setDisable(false);
+                    break;
+                }
             }
 
         });
@@ -172,14 +187,33 @@ public class HomepageController {
 
     public void TProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile init=new profile();
+        profile profile=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         THomepageAnchor.getScene().getWindow().hide();
-        init.initialize();
+        profile.initialize();
 
+    }
+
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+
+        if(TourGuide.isTourGuide) {
+            root = FXMLLoader.load(getClass().getResource("TTrips.fxml"));
+            THomepageAnchor.getScene().getWindow().hide();
+        }
+        else {
+            root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+            CHomepageAnchor.getScene().getWindow().hide();
+        }
+        profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        profile.initialize();
     }
 
 
