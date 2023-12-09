@@ -1,15 +1,36 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Trip {
     private static int noOfTrips = 0;
     private static int numbersOfSeats;
     private int trip_id;
     private String tripName;
-    private String start_date;
-    private String end_date;
+    private Date startDate;
+    private Date endDate;
+
     private double price;
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     private double payment;
     private String tripImage;
     private String tripType;   // family , couple, general
@@ -28,13 +49,13 @@ public class Trip {
 
 //    tourGuide[] tours = new tourGuide[];
 
-    public Trip(String tripName, int trip_id, String tripType, String start_date, String end_date, int Seats,
-                double price, double payment, String tripImage,String location) {
+    public Trip(String tripName, int trip_id, String tripType, Date startDate, Date endDate, int Seats,
+                double price, double payment, String tripImage, String location) {
         this.tripName = tripName;
         this.trip_id = trip_id;
         this.tripType = tripType;
-        this.start_date = start_date;
-        this.end_date = end_date;
+        this.startDate =startDate;
+        this.endDate=endDate;
         this.price = price;
         this.payment = payment;
         this.tripImage = tripImage;
@@ -119,21 +140,7 @@ public class Trip {
         this.tripName = tripName;
     }
 
-    public String getStart_date() {
-        return start_date;
-    }
 
-    public void setStart_date(String start_date) {
-        this.start_date = start_date;
-    }
-
-    public String getEnd_date() {
-        return end_date;
-    }
-
-    public void setEnd_date(String end_date) {
-        this.end_date = end_date;
-    }
 
     public double getPrice() {
         return price;

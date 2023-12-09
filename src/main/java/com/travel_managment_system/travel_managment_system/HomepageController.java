@@ -22,6 +22,8 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 
@@ -44,12 +46,14 @@ public class HomepageController {
 
 
 
-    public void initialize() throws FileNotFoundException {
+    public void initialize() throws FileNotFoundException, ParseException {
         Trip.trips.clear();
-        Trip.trips.add(new Trip("Luxor", 1000, "Family", "2023-12-5", "2023-12-29", 20, 3000, 10000, "src/main/java" +
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+        Trip.trips.add(new Trip("Luxor", 1000, "Family",formatter.parse("2023/03/11"), formatter.parse("2023/03/17"), 20, 3000, 10000, "src/main/java" +
                 "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", "2023-12-5", "2023-12-28", 30, 400, 7000, "src/main" +
+        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", formatter.parse("2023/05/03"), formatter.parse("2023/05/14"), 30, 400, 7000, "src/main" +
                 "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria"));
+        Trip.trips.add(new Trip("Hurghada", 1002, "Couple", formatter.parse("2023/05/03"), formatter.parse("2023/05/14"), 30, 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada"));
         displayTrips(Trip.trips); // Update the ListView with available trips
     }
 
@@ -65,6 +69,7 @@ public class HomepageController {
     }
 
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
+
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
         VBox finalBox = new VBox();
@@ -84,8 +89,8 @@ public class HomepageController {
         Label tripPayment = new Label("from \n" + PaymentText + "EGP");
         Label tripID = new Label("ID: " + trip.getTrip_id());
         Label tripType = new Label("Trip's type: " + trip.getTripType());
-        Label tripSD = new Label("Start Date: " + trip.getStart_date());
-        Label tripED = new Label("End Date: " + trip.getEnd_date());
+        Label tripSD = new Label("Start Date: " + trip.getStartDate());
+        Label tripED = new Label("End Date: " + trip.getEndDate());
         Button viewTrip = new Button("View trip");
         Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
@@ -105,15 +110,38 @@ public class HomepageController {
 
         });
         assignTrip.setOnAction(event ->{
-            for (TourGuide tourguide: TourGuide.TourguideAcc){
-                if(TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
-                            tourguide.FillAssignedTrips(trip);
-                            NotificationLabel.setText("Trip was successfully assigned. view all ");
-                            NotificationPane.setVisible(true);
-                            ShortCutButton.setDisable(false);
+            boolean tripAlreadyAssigned = false;
+            boolean tripClashes = false;
+            for (TourGuide tourguide : TourGuide.TourguideAcc) {
+                if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
+                    for (Trip assignedtrips : TourGuide.selectedTourGuide.getAssignedTrips()) {
+                        if (trip == assignedtrips) {
+                            tripAlreadyAssigned = true;
                             break;
+                        } else if (assignedtrips.getStartDate().equals(trip.getStartDate())) {
+                            tripClashes = true;
+                            break;
+                        }
+                    }
+                    if (tripAlreadyAssigned) {
+                        NotificationLabel.setText("You are already assigned to this trip.");
+                        NotificationPane.setVisible(true);
+                        ShortCutButton.setDisable(false);
+                        break;
+                    } else if (tripClashes) {
+                        NotificationLabel.setText("You cannot assign to two trips at the same time.");
+                        NotificationPane.setVisible(true);
+                        ShortCutButton.setDisable(false);
+                        break;
+                    } else {
+                        tourguide.FillAssignedTrips(trip);
+                        NotificationLabel.setText("Trip was successfully assigned.");
+                        NotificationPane.setVisible(true);
+                        ShortCutButton.setDisable(false);
+                        break;
                     }
                 }
+            }
         });
 
         styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);

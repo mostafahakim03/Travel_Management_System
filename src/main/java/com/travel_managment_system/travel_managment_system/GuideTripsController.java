@@ -115,8 +115,8 @@ public class GuideTripsController {
         Label tripPayment = new Label("from \n" + PaymentText + "EGP");
         Label tripID = new Label("ID: " + trip.getTrip_id());
         Label tripType = new Label("Trip's type: " + trip.getTripType());
-        Label tripSD = new Label("Start Date: " + trip.getStart_date());
-        Label tripED = new Label("End Date: " + trip.getEnd_date());
+        Label tripSD = new Label("Start Date: " + trip.getStartDate());
+        Label tripED = new Label("End Date: " + trip.getEndDate());
 
         styleVBox(tripImage, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
