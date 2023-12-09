@@ -24,6 +24,12 @@ public class serviseController implements Initializable {
     private AnchorPane HotelAnchor;
     @FXML
     private ChoiceBox<String> roomtype;
+
+    @FXML
+    private ChoiceBox<String> roomtype1;
+
+    @FXML
+    private ChoiceBox<String> roomtype11;
     private String []roomtypes={"Single","Couple","Triple"};
 
 //private ImageView myimage;
@@ -32,8 +38,11 @@ public class serviseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roomtype.getItems().addAll(roomtypes);
+        roomtype1.getItems().addAll(roomtypes);
+        roomtype11.getItems().addAll(roomtypes);
 
     }
+
 
 //    public void displayimage(){
 //        myimage.setImage(mimage);
@@ -69,15 +78,26 @@ public class serviseController implements Initializable {
         HotelAnchor.getScene().getWindow().hide();
     }
 
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile init=new profile();
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+            root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+            HotelAnchor.getScene().getWindow().hide();
+
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+    }
+    public void CProfileClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
+        //profile profile=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         HotelAnchor.getScene().getWindow().hide();
-        init.initialize();
+        //profile.initialize();
 
     }
 }
