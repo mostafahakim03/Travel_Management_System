@@ -1,5 +1,4 @@
 package com.travel_managment_system.travel_managment_system;
-
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import com.travel_managment_system.travel_managment_system.User.Customer.CarCompany;
 import javafx.application.Application;
@@ -7,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-
 public class TMSApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
