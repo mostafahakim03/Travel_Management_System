@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -18,6 +15,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.spi.ResourceBundleControlProvider;
 
@@ -28,9 +26,17 @@ public class FlightController implements Initializable {
     private AnchorPane FlightAnchor;
     @FXML
     private ImageView Flightview;
+//    @FXML
+//    private ChoiceBox<Integer> Select_seat;
     @FXML
-    private ChoiceBox<String> Select_seat;
-    private  String[] Myseat= {"1"};
+    private ComboBox<Integer> Select_seat;
+    public Integer[] Myseat = new Integer[50];
+
+    public void FillArr(){
+        for(int i=0;i<50;i++){
+            Myseat[i]= i+1;
+        }
+    }
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
         //alert code
@@ -87,7 +93,8 @@ public class FlightController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-         Select_seat.getItems().addAll(Myseat);
+        FillArr();
+            Select_seat.getItems().addAll(Myseat);
     }
 }
 
