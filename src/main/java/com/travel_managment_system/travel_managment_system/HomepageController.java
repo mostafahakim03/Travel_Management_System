@@ -68,7 +68,7 @@ public class HomepageController {
         }
         else {
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> trip.getNumberOfAvailableSeats() < 50)
+                    .filter(trip -> trip.getNumberOfAvailableSeats() <= 50)
                     .collect(Collectors.toCollection(ArrayList::new));
         }
         for (Trip trip : filteredTrips) {

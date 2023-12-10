@@ -52,6 +52,7 @@ public class TripController implements Initializable {
     private String[] packages = {"Silver", "Golden" , "Platinum"};
 
     public void ViewTripDetails(Trip trip) throws FileNotFoundException {
+
         FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
         imgView.setImage(image);
