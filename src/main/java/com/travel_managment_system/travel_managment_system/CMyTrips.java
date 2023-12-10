@@ -122,27 +122,38 @@ public class CMyTrips {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-//            MyTripPane.getScene().getWindow().hide();
+            CMyTrips.getScene().getWindow().hide();
         }
     }
 
-    public void THomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-//        MyTripPane.getScene().getWindow().hide();
-    }
+//    public void THomeClicked(ActionEvent event) throws IOException {
+//        System.out.println("Going home!");
+//        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
+//        Scene scene = new Scene(root);
+//        Stage stage = new Stage();
+//        stage.setScene(scene);
+//        stage.show();
+////        MyTripPane.getScene().getWindow().hide();
+//    }
+public void HomeClicked(ActionEvent event) throws IOException {
+    System.out.println("Going home!");
+    Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
+    Scene scene = new Scene(root);
+    Stage stage = new Stage();
+    stage.setScene(scene);
+    stage.show();
+    CMyTrips.getScene().getWindow().hide();
+}
 
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
+    public void CProfileClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
+        //profile profile=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-//        MyTripPane.getScene().getWindow().hide();
+        CMyTrips.getScene().getWindow().hide();
+        //profile.initialize();
 
     }
 
