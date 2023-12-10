@@ -134,17 +134,28 @@ public class TripController implements Initializable {
     }
 
 
-    public void Booking(ActionEvent actionEvent) {
+    public void Booking(ActionEvent actionEvent) throws IOException {
 
         int numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
 
-        if (tripTypeLabel.getText().equals("family") && numbersOfTickets < 3){
+        if (tripTypeLabel.getText().toLowerCase().equals("family") && numbersOfTickets < 3){
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
         }
-        else if (tripTypeLabel.getText().equals("couple") && numbersOfTickets % 2 != 0){
+        else if (tripTypeLabel.getText().toLowerCase().equals("couple") && numbersOfTickets % 2 != 0){
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
+        }
+        else {
+            NoOfTicketsMessageLabel1.setText("");
+            Parent root = FXMLLoader.load(getClass().getResource("Flight.fxml"));
+            //profile profile=new profile();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            TripHome.getScene().getWindow().hide();
         }
 
     }
+
 
 }
