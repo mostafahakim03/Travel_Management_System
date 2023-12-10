@@ -98,6 +98,8 @@ public class usercontroller {
 
     public void TsubmitSignup() throws IOException {
         TourGuide.newidAcc.add(100);
+        TourGuide.newidAcc.add(101);
+        TourGuide.newidAcc.add(102);
         TourGuide tourGuide = new TourGuide(TnameText.getText(), TUserText.getText(), TpassText.getText(), TphoneText.getText(), TageText.getText(), TidText.getText());
         String test = tourGuide.check_signup();
         if (test.equals("done")) {

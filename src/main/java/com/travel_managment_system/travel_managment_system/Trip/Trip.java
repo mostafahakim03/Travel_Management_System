@@ -21,13 +21,11 @@ public class Trip {
     private int numbersOfTickets;  // the customer booking
     private String location;
     private String Transportation; //bus, flight
-
-    private final static int numOfCustomers=50; //total number of places available.
     private int numberOfAvailableSeats=50;
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 
-    private TourGuide[] tours = new TourGuide[2];
+    private ArrayList<TourGuide>AssignedTourGuides = new ArrayList<>();
 
     boolean isTouGuideComplete=false;
 
@@ -60,7 +58,6 @@ public class Trip {
         this.location = location;
         this.Transportation=Transportation;
         noOfTrips++;
-        numberOfAvailableSeats--;
     }
 
 
@@ -179,20 +176,22 @@ public class Trip {
     public void setLocation(String location) {
         this.location = location;
     }
-    public TourGuide[] getTours() {
-        return tours;
-    }
 
-    public void setTours(TourGuide[] tours) {
-        this.tours = tours;
-    }
 
     public boolean isTouGuideComplete() {
         return isTouGuideComplete;
     }
 
-    public void setTouGuideComplete(boolean touGuideComplete) {
-        isTouGuideComplete = touGuideComplete;
+    public ArrayList<TourGuide> getAssignedTourGuides() {
+        return AssignedTourGuides;
+    }
+
+    public void FillAssignedTourGuides(TourGuide guide) {
+        AssignedTourGuides.add(guide);
+    }
+
+    public void setTouGuideComplete(boolean tourGuideComplete) {
+        isTouGuideComplete = tourGuideComplete;
     }
     public LocalDate getStartDate() {
         return startDate;

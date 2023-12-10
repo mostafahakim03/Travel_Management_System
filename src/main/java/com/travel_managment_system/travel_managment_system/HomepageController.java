@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -59,10 +60,17 @@ public class HomepageController {
 
     private void displayTrips() throws FileNotFoundException {
 
-        ArrayList<Trip> filteredTrips = Trip.trips.stream()
-                .filter(trip -> trip.getNumberOfAvailableSeats() < 50)
-                .collect(Collectors.toCollection(ArrayList::new));
-
+        ArrayList<Trip> filteredTrips;
+        if(User.isTourGuide){
+            filteredTrips = Trip.trips.stream()
+                    .filter(trip -> trip.isTouGuideComplete()==false)
+                    .collect(Collectors.toCollection(ArrayList::new));
+        }
+        else {
+            filteredTrips = Trip.trips.stream()
+                    .filter(trip -> trip.getNumberOfAvailableSeats() < 50)
+                    .collect(Collectors.toCollection(ArrayList::new));
+        }
         for (Trip trip : filteredTrips) {
 
             VBox tripBox = createTripVBox(trip);
@@ -73,6 +81,7 @@ public class HomepageController {
 
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
 
+        System.out.println(trip.getNumberOfAvailableSeats());
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
         VBox finalBox = new VBox();
@@ -132,6 +141,16 @@ public class HomepageController {
                             break;
                         } else {
                             tourguide.FillAssignedTrips(trip);
+                            trip.FillAssignedTourGuides(tourguide);
+
+                            if(trip.getAssignedTourGuides().size()==2)
+                            {
+                                trip.setTouGuideComplete(true);
+                            }
+                            else
+                            {
+                                trip.setTouGuideComplete(false);
+                            }
                             NotificationLabel.setText("Trip was successfully assigned.");
                             NotificationPane.setVisible(true);
                             ShortCutButton.setDisable(false);
