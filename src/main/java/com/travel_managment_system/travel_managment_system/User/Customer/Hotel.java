@@ -5,14 +5,14 @@ import java.util.ArrayList;
 public class Hotel {
     private String HotelName;
     private String Hotellocation;
+       public Hotel(String hotelName , String hotellocation){
+           this.HotelName=hotelName;
+           this.Hotellocation=hotellocation;
+           HotelRoomType.add("Single");
+           HotelRoomType.add("Douple");
+           HotelRoomType.add("Triple");
+       }
     public  ArrayList<String> HotelRoomType = new ArrayList<String>();
-
-    public void FillHotelRoom(){
-        HotelRoomType.add("Single");
-        HotelRoomType.add("Douple");
-        HotelRoomType.add("Triple");
-    }
-
     public String getHotelName() {
         return HotelName;
     }
@@ -21,9 +21,11 @@ public class Hotel {
         this.HotelName = hotelName;
     }
     public String getHotellocation(){
+
         return Hotellocation;
     }
     public void setHotellocation(String hotellocation){
+
         this.Hotellocation=hotellocation;
     }
 }

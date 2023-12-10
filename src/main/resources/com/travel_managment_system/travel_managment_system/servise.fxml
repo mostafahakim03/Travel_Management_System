@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,9 +12,9 @@
 
 <AnchorPane fx:id="HotelAnchor" prefHeight="750.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.serviseController">
    <children>
-      <AnchorPane layoutX="-2.0" layoutY="-2.0" prefHeight="751.0" prefWidth="808.0">
+      <AnchorPane layoutX="40.0" layoutY="-14.0" prefHeight="751.0" prefWidth="808.0">
          <children>
-            <AnchorPane layoutX="6.0" layoutY="111.0" prefHeight="175.0" prefWidth="802.0">
+            <AnchorPane layoutX="6.0" layoutY="110.0" prefHeight="175.0" prefWidth="802.0">
                <children>
                   <ImageView fx:id="LuxorHotel" fitHeight="130.0" fitWidth="224.0" layoutX="37.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -34,7 +35,7 @@
                         <Font name="Arial" size="22.0" />
                      </font>
                   </Label>
-                  <Label alignment="CENTER" layoutX="484.0" layoutY="34.0" prefHeight="26.0" prefWidth="210.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Sonesta San George" textFill="WHITE">
+                  <Label alignment="CENTER" layoutX="478.0" layoutY="34.0" prefHeight="26.0" prefWidth="224.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Sonesta San George" textFill="WHITE">
                      <font>
                         <Font name="Arial" size="22.0" />
                      </font>
@@ -45,12 +46,100 @@
                      </font>
                   </Label>
                   <ChoiceBox fx:id="roomtype" layoutX="478.0" layoutY="123.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+                  <Label alignment="CENTER" layoutX="677.0" layoutY="122.0" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
-            <ToolBar layoutX="3.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="809.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+            <Separator layoutY="286.0" prefHeight="6.0" prefWidth="862.0" style="-fx-background-color: #FA8B02;" />
+            <AnchorPane layoutX="6.0" layoutY="313.0" prefHeight="175.0" prefWidth="802.0">
+               <children>
+                  <ImageView fx:id="LuxorHotel1" fitHeight="163.0" fitWidth="123.0" layoutX="69.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@./hoel2.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="326.0" layoutY="33.0" prefHeight="0.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Hotel Name :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="326.0" layoutY="80.0" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Location :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="325.0" layoutY="121.0" prefHeight="0.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Room Type :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="521.0" layoutY="34.0" prefHeight="26.0" prefWidth="123.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Susanna " textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="270.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Karnak Tepmle St , Luxor" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="roomtype1" layoutX="478.0" layoutY="123.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+                  <Label alignment="CENTER" layoutX="668.0" layoutY="122.0" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Separator layoutY="506.0" prefHeight="6.0" prefWidth="862.0" style="-fx-background-color: #FA8B02;" />
+            <AnchorPane layoutX="6.0" layoutY="529.0" prefHeight="175.0" prefWidth="802.0">
+               <children>
+                  <ImageView fx:id="LuxorHotel11" fitHeight="130.0" fitWidth="224.0" layoutX="37.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@./hotel3.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" layoutX="326.0" layoutY="33.0" prefHeight="0.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Hotel Name :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="326.0" layoutY="80.0" prefHeight="26.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Location :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="325.0" layoutY="121.0" prefHeight="0.0" prefWidth="135.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Room Type :" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="510.0" layoutY="34.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Pyramids Isis" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="168.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Awamiya , Luxor" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="roomtype11" layoutX="478.0" layoutY="123.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+                  <Label alignment="CENTER" layoutX="665.0" layoutY="126.0" prefHeight="26.0" prefWidth="110.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <ToolBar layoutX="-3.0" layoutY="-9.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="868.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
                <items>
                   <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-                  <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+                  <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+                  <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
                   <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
                </items>
             </ToolBar>

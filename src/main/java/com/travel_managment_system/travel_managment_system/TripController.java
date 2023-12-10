@@ -51,8 +51,8 @@ public class TripController implements Initializable {
     public void ViewTripDetails(Trip trip){
         TripNameLabel.setText(trip.getTripName());
         tripTypeLabel.setText(trip.getTripType());
-        start_dateLabel.setText(trip.getStart_date());
-        end_dateLabel.setText(trip.getEnd_date());
+        start_dateLabel.setText(trip.getStartDate().toString());
+        end_dateLabel.setText(trip.getEndDate().toString());
         priceLabel.setText(String.valueOf(trip.getPrice()));
         locationLabel.setText(trip.getLocation());
     }

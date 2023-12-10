@@ -20,18 +20,19 @@
                      </font>
                   </Label>
                   <VBox fx:id="tripsVBox" layoutX="40.0" layoutY="113.0" prefHeight="158.0" prefWidth="639.0" />
-                  <AnchorPane fx:id="NotificationPane" layoutX="-1.0" prefHeight="42.0" prefWidth="694.0" visible="false">
+                  <AnchorPane fx:id="NotificationPane" prefHeight="26.0" prefWidth="694.0" visible="false">
                      <children>
-                        <Label fx:id="NotificationLabel" layoutX="25.0" layoutY="14.0" prefHeight="18.0" prefWidth="286.0" text="Trip was successfully assigned. view all ">
+                        <Label fx:id="NotificationLabel" layoutX="37.0" layoutY="4.0" prefHeight="20.0" prefWidth="656.0" text="Trip was successfully assigned. ">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <Button fx:id="ShortCutButton" disable="true" layoutX="257.0" layoutY="9.0" mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: transparent;" text="Assigned Trips" textFill="#2421d1">
+                        <Button fx:id="ShortCutButton" disable="true" layoutX="83.0" layoutY="26.0" mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: transparent;" text="Assigned Trips" textFill="#2421d1">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Button>
+                        <Label layoutX="42.0" layoutY="32.0" text="View all" />
                      </children>
                   </AnchorPane>
                </children>
