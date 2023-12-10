@@ -63,9 +63,10 @@ public class serviseController implements Initializable {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-                HotelAnchor.getScene().getWindow().hide();
-
+            HotelAnchor.getScene().getWindow().hide();
         }
+
+
     }
 
     public void HomeClicked(ActionEvent event) throws IOException {
@@ -78,17 +79,6 @@ public class serviseController implements Initializable {
         HotelAnchor.getScene().getWindow().hide();
     }
 
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-            root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
-            HotelAnchor.getScene().getWindow().hide();
-
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-
-    }
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
         //profile profile=new profile();
@@ -98,6 +88,17 @@ public class serviseController implements Initializable {
         stage.show();
         HotelAnchor.getScene().getWindow().hide();
         //profile.initialize();
+
+    }
+
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+        HotelAnchor.getScene().getWindow().hide();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
     }
 }

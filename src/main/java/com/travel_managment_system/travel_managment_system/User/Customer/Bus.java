@@ -1,20 +1,19 @@
 package com.travel_managment_system.travel_managment_system.User.Customer;
 
-public class Flight {
-    private String FlightCompanyName;
+public class Bus {
     public static final int numberOfSeats = 50;
+    private int NumberOfBus;
     public int [] arrNumberOfSeats = new int[50];
     public void FillarrSeats(){
         for(int i =0; i<50;i++) {
             arrNumberOfSeats[i] = i+1;
         }
     }
-
-    public String getFlightCompanyName() {
-        return FlightCompanyName;
+    public int getNumberOfBus() {
+        return NumberOfBus;
     }
 
-    public void setFlightCompanyName(String flightCompanyName) {
-        FlightCompanyName = flightCompanyName;
+    public void setNumberOfBus(int numberOfBus) {
+        NumberOfBus = numberOfBus;
     }
 }
