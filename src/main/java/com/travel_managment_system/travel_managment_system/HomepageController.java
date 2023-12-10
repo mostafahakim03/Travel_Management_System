@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -49,11 +50,11 @@ public class HomepageController {
     public void initialize() throws FileNotFoundException, ParseException {
         Trip.trips.clear();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-        Trip.trips.add(new Trip("Luxor", 1000, "Family",formatter.parse("2023/03/11"), formatter.parse("2023/03/17"), 20, 3000, 10000, "src/main/java" +
+        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17), 20, 3000, 10000, "src/main/java" +
                 "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", formatter.parse("2023/05/03"), formatter.parse("2023/05/14"), 30, 400, 7000, "src/main" +
+        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 30, 400, 7000, "src/main" +
                 "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria"));
-        Trip.trips.add(new Trip("Hurghada", 1002, "Couple", formatter.parse("2023/05/03"), formatter.parse("2023/05/14"), 30, 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada"));
+        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 30, 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada"));
         displayTrips(Trip.trips); // Update the ListView with available trips
     }
 
