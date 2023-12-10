@@ -102,6 +102,15 @@ public class TripController implements Initializable {
         stage.show();
         TripHome.getScene().getWindow().hide();
     }
+    public void HomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        TripHome.getScene().getWindow().hide();
+    }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
@@ -110,9 +119,18 @@ public class TripController implements Initializable {
         stage.setScene(scene);
         stage.show();
         TripHome.getScene().getWindow().hide();
+    }
+    public void CProfileClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        TripHome.getScene().getWindow().hide();
+        //profile.initialize();
 
     }
-
 
 
     public void Booking(ActionEvent actionEvent) {
