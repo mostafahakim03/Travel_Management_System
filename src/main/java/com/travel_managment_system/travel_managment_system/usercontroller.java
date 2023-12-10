@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
@@ -135,6 +136,7 @@ public class usercontroller {
         String test = customer.check_signup();
         if (test.equals("done")) {
             Customer.selectedCustomer = customer;
+            User.isTourGuide=false;
             Customer.CoustomerAcc.add(customer);
             CnameText.getScene().getWindow().hide();
             Chomepage();

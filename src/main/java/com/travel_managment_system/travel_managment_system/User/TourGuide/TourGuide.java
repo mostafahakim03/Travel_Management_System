@@ -12,7 +12,7 @@ public class TourGuide extends User {
     //protected Trip trips[];
     protected float Salary;
     public static ArrayList<Integer> newidAcc = new ArrayList<Integer>();
-    public static boolean isTourGuide=false;
+
     public static ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
     public static TourGuide selectedTourGuide;
 

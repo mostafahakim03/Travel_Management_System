@@ -70,11 +70,7 @@ public class profile {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
-        if (Tprofile.getScene() != null) {
-            Tprofile.getScene().getWindow().hide();
-        } //else if (Cprofile.getScene() != null) {
-           // Cprofile.getScene().getWindow().hide();
-       // }
+        Tprofile.getScene().getWindow().hide();
     }
 }
 

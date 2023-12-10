@@ -126,15 +126,6 @@ public class CMyTrips {
         }
     }
 
-//    public void THomeClicked(ActionEvent event) throws IOException {
-//        System.out.println("Going home!");
-//        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-//        Scene scene = new Scene(root);
-//        Stage stage = new Stage();
-//        stage.setScene(scene);
-//        stage.show();
-////        MyTripPane.getScene().getWindow().hide();
-//    }
 public void HomeClicked(ActionEvent event) throws IOException {
     System.out.println("Going home!");
     Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));

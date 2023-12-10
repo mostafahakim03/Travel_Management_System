@@ -7,6 +7,7 @@ public abstract class User {
     protected String phone;
 
     protected String age;
+    public static boolean isTourGuide=false;
 
 
     public String  check_signup() {
