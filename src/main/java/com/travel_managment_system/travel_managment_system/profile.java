@@ -143,5 +143,16 @@ public class profile {
 
 
     }
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+
+            root = FXMLLoader.load(getClass().getResource("TTrips.fxml"));
+            Tprofile.getScene().getWindow().hide();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
 }

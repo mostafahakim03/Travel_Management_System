@@ -7,16 +7,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Tprofile" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.profile">
+<AnchorPane fx:id="Cprofile" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Cprofile">
    <children>
-      <ToolBar layoutX="-4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
-         <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button mnemonicParsing="false" onAction="#THomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
-         </items>
-      </ToolBar>
       <Label layoutX="18.0" layoutY="88.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Name" textFill="#ffae00">
          <font>
             <Font name="System Bold" size="17.0" />
@@ -44,27 +36,27 @@
       </Label>
       <AnchorPane fx:id="labanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
          <children>
-            <Label fx:id="TName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TUsername" layoutX="12.0" layoutY="66.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CUsername" layoutX="12.0" layoutY="66.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TPassword" layoutX="12.0" layoutY="120.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CPassword" layoutX="12.0" layoutY="120.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TPhonenumber" layoutX="12.0" layoutY="175.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CPhonenumber" layoutX="12.0" layoutY="175.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TAge" layoutX="14.0" layoutY="240.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CAge" layoutX="14.0" layoutY="240.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
@@ -73,22 +65,30 @@
       </AnchorPane>
       <AnchorPane fx:id="labanchor" layoutX="99.0" layoutY="63.0" prefHeight="298.0" prefWidth="362.0" visible="false">
          <children>
-            <TextField fx:id="TnameText" layoutX="63.0" layoutY="27.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TUserText" layoutX="63.0" layoutY="77.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TpassText" layoutX="63.0" layoutY="136.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TphoneText" layoutX="60.0" layoutY="192.0" prefHeight="26.0" prefWidth="130.0" />
-            <TextField fx:id="TageText" layoutX="63.0" layoutY="248.0" prefHeight="26.0" prefWidth="48.0" />
+            <TextField fx:id="CnameText" layoutX="63.0" layoutY="27.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="CUserText" layoutX="63.0" layoutY="77.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="CpassText" layoutX="63.0" layoutY="136.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="CphoneText" layoutX="60.0" layoutY="192.0" prefHeight="26.0" prefWidth="130.0" />
+            <TextField fx:id="CageText" layoutX="63.0" layoutY="248.0" prefHeight="26.0" prefWidth="48.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="396.0" layoutY="307.0" mnemonicParsing="false" onAction="#TEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Edit" textFill="WHITE">
+      <Button layoutX="396.0" layoutY="307.0" mnemonicParsing="false" onAction="#CEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Edit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="555.0" layoutY="307.0" mnemonicParsing="false" onAction="#TSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Save" textFill="WHITE">
+      <Button layoutX="555.0" layoutY="307.0" mnemonicParsing="false" onAction="#CSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <ToolBar layoutX="-8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+         <items>
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
+            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
+            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+         </items>
+      </ToolBar>
    </children>
 </AnchorPane>
