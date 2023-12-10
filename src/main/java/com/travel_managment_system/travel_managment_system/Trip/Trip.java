@@ -1,7 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -10,24 +9,24 @@ public class Trip {
     private static int numbersOfSeats;
     private int trip_id;
     private String tripName;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
     private double price;
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -49,7 +48,7 @@ public class Trip {
 
 //    tourGuide[] tours = new tourGuide[];
 
-    public Trip(String tripName, int trip_id, String tripType, Date startDate, Date endDate, int Seats,
+    public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate, int Seats,
                 double price, double payment, String tripImage, String location) {
         this.tripName = tripName;
         this.trip_id = trip_id;
