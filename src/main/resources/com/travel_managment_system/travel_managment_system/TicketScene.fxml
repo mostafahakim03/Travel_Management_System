@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.TicketController">
+   <children>
+      <ImageView fitHeight="473.0" fitWidth="753.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../../../OneDrive/Pictures/Saved%20Pictures/ticketimage.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="19.0" layoutY="23.0" prefHeight="237.0" prefWidth="90.0" rotate="-178.0" text="ticketId">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="tripName" alignment="CENTER" layoutX="299.0" layoutY="47.0" prefHeight="63.0" prefWidth="268.0" text="Trip Name">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="187.0" layoutY="97.0" prefHeight="2.0" prefWidth="494.0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9097744226455688" green="0.42520323395729065" blue="0.18291760981082916" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Separator>
+      <Label fx:id="username" layoutX="187.0" layoutY="100.0" prefHeight="43.0" prefWidth="102.0" text="username">
+         <font>
+            <Font name="System Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Separator layoutX="187.0" layoutY="141.0" prefHeight="2.0" prefWidth="494.0">
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant>
+                     <color>
+                        <Color red="0.9097744226455688" green="0.42520323395729065" blue="0.18291760981082916" />
+                     </color>
+                  </Light.Distant>
+               </light>
+            </Lighting>
+         </effect>
+      </Separator>
+      <Label fx:id="tripPrice" layoutX="522.0" layoutY="107.0" prefHeight="29.0" prefWidth="90.0" text="Trip price">
+         <font>
+            <Font name="Calibri Bold Italic" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="tripDate" alignment="CENTER" layoutX="197.0" layoutY="153.0" prefHeight="29.0" prefWidth="78.0" text="DATE">
+         <font>
+            <Font name="Ebrima Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="178.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripDate">
+         <font>
+            <Font name="Candara Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="376.0" layoutY="153.0" prefHeight="29.0" prefWidth="78.0" text="TIME">
+         <font>
+            <Font name="Ebrima Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="355.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripTime">
+         <font>
+            <Font name="Candara Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="522.0" layoutY="150.0" prefHeight="36.0" prefWidth="119.0" text="LOCATION">
+         <font>
+            <Font name="Ebrima Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="522.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripLocation">
+         <font>
+            <Font name="Candara Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="606.0" layoutY="113.0" />
+   </children>
+</AnchorPane>

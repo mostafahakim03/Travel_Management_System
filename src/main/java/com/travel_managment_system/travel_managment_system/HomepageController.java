@@ -255,7 +255,4 @@ public class HomepageController {
         stage.show();
 
     }
-
-
-
 }
