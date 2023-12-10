@@ -7,11 +7,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,7 +51,11 @@ public class TripController implements Initializable {
     @FXML
     private String[] packages = {"Silver", "Golden" , "Platinum"};
 
-    public void ViewTripDetails(Trip trip){
+    public void ViewTripDetails(Trip trip) throws FileNotFoundException {
+        FileInputStream imageInput = new FileInputStream(trip.getTripImage());
+        Image image = new Image(imageInput);
+        imgView.setImage(image);
+
         TripNameLabel.setText(trip.getTripName());
         tripTypeLabel.setText(trip.getTripType());
         start_dateLabel.setText(trip.getStartDate().toString());
@@ -72,6 +79,7 @@ public class TripController implements Initializable {
         } else if (packageType.equals("Platinum")) {
             PackageMessageLabel.setText("The trip contains the transportation, full-board and activities");
         }
+
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -93,15 +101,6 @@ public class TripController implements Initializable {
         }
     }
 
-    public void THomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        TripHome.getScene().getWindow().hide();
-    }
     public void HomeClicked(ActionEvent event) throws IOException {
         System.out.println("Going home!");
         Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
@@ -112,14 +111,6 @@ public class TripController implements Initializable {
         TripHome.getScene().getWindow().hide();
     }
 
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        TripHome.getScene().getWindow().hide();
-    }
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
         //profile profile=new profile();
@@ -129,6 +120,16 @@ public class TripController implements Initializable {
         stage.show();
         TripHome.getScene().getWindow().hide();
         //profile.initialize();
+
+    }
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+        TripHome.getScene().getWindow().hide();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
@@ -142,8 +143,7 @@ public class TripController implements Initializable {
         }
         else if (tripTypeLabel.getText().equals("couple") && numbersOfTickets % 2 != 0){
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
-        } else
-            NoOfTicketsMessageLabel1.setText("");
+        }
 
     }
 

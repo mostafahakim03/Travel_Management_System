@@ -17,42 +17,42 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="707.0">
                <children>
-                  <Label fx:id="CustomerUser" layoutX="382.0" layoutY="151.0" text="Cost">
+                  <Label fx:id="CustomerUser" layoutX="386.0" layoutY="157.0" text="Cost">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="priceLabel" layoutX="493.0" layoutY="151.0" text="400 EGP" textFill="#fa8b02">
+                  <Label fx:id="priceLabel" layoutX="493.0" layoutY="157.0" text="400 EGP" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="216.0" text="Start Date">
+                  <Label layoutX="380.0" layoutY="229.0" text="Start Date">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="start_dateLabel" layoutX="492.0" layoutY="216.0" text="02-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="start_dateLabel" layoutX="492.0" layoutY="229.0" text="02-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="255.0" text="End Date">
+                  <Label layoutX="384.0" layoutY="268.0" text="End Date">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="end_dateLabel" layoutX="492.0" layoutY="255.0" text="30-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="end_dateLabel" layoutX="492.0" layoutY="268.0" text="30-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="381.0" layoutY="295.0" text="Trip Type">
+                  <Label layoutX="383.0" layoutY="301.0" text="Trip Type">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tripTypeLabel" layoutX="493.0" layoutY="294.0" text="Family" textFill="#fa8b02">
+                  <Label fx:id="tripTypeLabel" layoutX="493.0" layoutY="301.0" text="Family" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="TripNameLabel" layoutX="372.0" layoutY="70.0" prefHeight="62.0" prefWidth="334.0" text="Alex Trip">
+                  <Label fx:id="TripNameLabel" layoutX="41.0" layoutY="74.0" prefHeight="62.0" prefWidth="334.0" text="Alex Trip">
                      <font>
                         <Font size="42.0" />
                      </font>
@@ -96,13 +96,13 @@
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="imgView" fitHeight="216.0" fitWidth="307.0" layoutX="52.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="379.0" layoutY="183.0" text="Location">
+                  <ImageView fx:id="imgView" fitHeight="170.0" fitWidth="308.0" layoutX="41.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="386.0" layoutY="193.0" text="Location">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="locationLabel" layoutX="491.0" layoutY="183.0" text="Alexandria" textFill="#fa8b02">
+                  <Label fx:id="locationLabel" layoutX="492.0" layoutY="193.0" text="Alexandria" textFill="#fa8b02">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -115,6 +115,7 @@
          <items>
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
             <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
             <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
          </items>
       </ToolBar>

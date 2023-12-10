@@ -147,5 +147,15 @@ public void HomeClicked(ActionEvent event) throws IOException {
         //profile.initialize();
 
     }
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+        CMyTrips.getScene().getWindow().hide();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+
+    }
 
 }

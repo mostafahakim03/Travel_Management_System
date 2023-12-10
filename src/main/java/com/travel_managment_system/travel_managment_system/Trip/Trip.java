@@ -1,73 +1,69 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class Trip {
     private static int noOfTrips = 0;
-    private static int numbersOfSeats;
     private int trip_id;
     private String tripName;
     private LocalDate startDate;
     private LocalDate endDate;
 
     private double price;
-
-    public LocalDate getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-        this.startDate = startDate;
-    }
-
-    public LocalDate getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-        this.endDate = endDate;
-    }
-
     private double payment;
     private String tripImage;
     private String tripType;   // family , couple, general
     private String packageType;  // silver , golden , platinum
     private int numbersOfTickets;  // the customer booking
     private String location;
+    private String Transportation; //bus, flight
 
-//    //Hotel code
-//    String hotelName;
-//    String address;
-//    int numberOfNights;
-//    int numberOfRooms;
-//    private ArrayList<String> arrHotelRoomType = new ArrayList<String>();
+    private final static int numOfCustomers=50; //total number of places available.
+    private int numberOfAvailableSeats=50;
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 
-//    tourGuide[] tours = new tourGuide[];
+    private TourGuide[] tours = new TourGuide[2];
 
-    public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate, int Seats,
-                double price, double payment, String tripImage, String location) {
+    boolean isTouGuideComplete=false;
+
+    public String getTransportation() {
+        return Transportation;
+    }
+
+    public void setTransportation(String transportation) {
+        Transportation = transportation;
+    }
+
+    public int getNumberOfAvailableSeats() {
+        return numberOfAvailableSeats;
+    }
+
+    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
+        this.numberOfAvailableSeats = numberOfAvailableSeats;
+    }
+
+    public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate,
+                double price, double payment, String tripImage, String location, String Transportation) {
         this.tripName = tripName;
         this.trip_id = trip_id;
         this.tripType = tripType;
-        this.startDate =startDate;
-        this.endDate=endDate;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.price = price;
         this.payment = payment;
         this.tripImage = tripImage;
         this.location = location;
-        numbersOfSeats = Seats;
+        this.Transportation=Transportation;
         noOfTrips++;
-
+        numberOfAvailableSeats--;
     }
 
 
-    public static int getNumbersOfSeats() {
-        return numbersOfSeats;
-    }
 
     public void FamilyTrip(int numbersOfTickets, String packageType) {
         if (numbersOfTickets >= 3) {
@@ -119,10 +115,6 @@ public class Trip {
         Trip.noOfTrips = noOfTrips;
     }
 
-    public static void setNumbersOfSeats(int numbersOfSeats) {
-        Trip.numbersOfSeats = numbersOfSeats;
-    }
-
     public int getTrip_id() {
         return trip_id;
     }
@@ -138,7 +130,6 @@ public class Trip {
     public void setTripName(String tripName) {
         this.tripName = tripName;
     }
-
 
 
     public double getPrice() {
@@ -188,10 +179,35 @@ public class Trip {
     public void setLocation(String location) {
         this.location = location;
     }
+    public TourGuide[] getTours() {
+        return tours;
+    }
 
-//    public void fillArr() {
-//        arrHotelRoomType.add("Single");
-//        arrHotelRoomType.add("Douple");
-//        arrHotelRoomType.add("Triple");
-//    }
+    public void setTours(TourGuide[] tours) {
+        this.tours = tours;
+    }
+
+    public boolean isTouGuideComplete() {
+        return isTouGuideComplete;
+    }
+
+    public void setTouGuideComplete(boolean touGuideComplete) {
+        isTouGuideComplete = touGuideComplete;
+    }
+    public LocalDate getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
+    public LocalDate getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+        this.endDate = endDate;
+    }
 }
+

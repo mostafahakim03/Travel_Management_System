@@ -22,10 +22,10 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 
 public class HomepageController {
@@ -47,21 +47,23 @@ public class HomepageController {
 
 
 
-    public void initialize() throws FileNotFoundException, ParseException {
+    public void initialize() throws FileNotFoundException {
         Trip.trips.clear();
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
-        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17), 20, 3000, 10000, "src/main/java" +
-                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 30, 400, 7000, "src/main" +
-                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria"));
-        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 30, 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada"));
-        displayTrips(Trip.trips); // Update the ListView with available trips
+        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
+                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
+        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 400, 7000, "src/main" +
+                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
+        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Plane"));
+        displayTrips(); // Update the ListView with available trips
     }
 
-    private void displayTrips(ArrayList<Trip> trips) throws FileNotFoundException {
+    private void displayTrips() throws FileNotFoundException {
 
+        ArrayList<Trip> filteredTrips = Trip.trips.stream()
+                .filter(trip -> trip.getNumberOfAvailableSeats() < 50)
+                .collect(Collectors.toCollection(ArrayList::new));
 
-        for (Trip trip : trips) {
+        for (Trip trip : filteredTrips) {
 
             VBox tripBox = createTripVBox(trip);
             tripsVBox.getChildren().add(tripBox);
@@ -111,35 +113,30 @@ public class HomepageController {
 
         });
         assignTrip.setOnAction(event ->{
-            boolean tripAlreadyAssigned = false;
-            boolean tripClashes = false;
             for (TourGuide tourguide : TourGuide.TourguideAcc) {
                 if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
-                    for (Trip assignedtrips : TourGuide.selectedTourGuide.getAssignedTrips()) {
-                        if (trip == assignedtrips) {
-                            tripAlreadyAssigned = true;
-                            break;
-                        } else if (assignedtrips.getStartDate().equals(trip.getStartDate())) {
-                            tripClashes = true;
-                            break;
-                        }
-                    }
-                    if (tripAlreadyAssigned) {
+
+                    if (tourguide.getAssignedTrips().contains(trip)) {
                         NotificationLabel.setText("You are already assigned to this trip.");
                         NotificationPane.setVisible(true);
                         ShortCutButton.setDisable(false);
                         break;
-                    } else if (tripClashes) {
-                        NotificationLabel.setText("You cannot assign to two trips at the same time.");
-                        NotificationPane.setVisible(true);
-                        ShortCutButton.setDisable(false);
-                        break;
                     } else {
-                        tourguide.FillAssignedTrips(trip);
-                        NotificationLabel.setText("Trip was successfully assigned.");
-                        NotificationPane.setVisible(true);
-                        ShortCutButton.setDisable(false);
-                        break;
+                        boolean tripClashes = tourguide.getAssignedTrips().stream()
+                                .anyMatch(assignedTrip -> assignedTrip.getStartDate().equals(trip.getStartDate()));
+
+                        if (tripClashes) {
+                            NotificationLabel.setText("You cannot assign to two trips at the same time.");
+                            NotificationPane.setVisible(true);
+                            ShortCutButton.setDisable(false);
+                            break;
+                        } else {
+                            tourguide.FillAssignedTrips(trip);
+                            NotificationLabel.setText("Trip was successfully assigned.");
+                            NotificationPane.setVisible(true);
+                            ShortCutButton.setDisable(false);
+                            break;
+                        }
                     }
                 }
             }
