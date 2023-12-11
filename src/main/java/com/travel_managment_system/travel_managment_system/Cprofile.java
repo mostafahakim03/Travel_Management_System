@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,22 +49,60 @@ public class Cprofile {
     private AnchorPane Cprofile;
 
     @FXML
-    private AnchorPane labanchor;
+    private AnchorPane Clabanchor;
 
     @FXML
-    private AnchorPane labanchor2;
+    private AnchorPane Clabanchor2;
 
     @FXML
     private Button profileButton;
 
+    public void initialize2() {
+        CName.setText(Customer.selectedCustomer.getName());
+        CAge.setText(Customer.selectedCustomer.getAge());
+        CPassword.setText(Customer.selectedCustomer.getPass());
+        CPhonenumber.setText(Customer.selectedCustomer.getPhone());
+        CUsername.setText(Customer.selectedCustomer.getUsername());
+
+        CnameText.setText(Customer.selectedCustomer.getName());
+        CageText.setText(Customer.selectedCustomer.getAge());
+        CpassText.setText(Customer.selectedCustomer.getPass());
+        CphoneText.setText(Customer.selectedCustomer.getPhone());
+        CUserText.setText(Customer.selectedCustomer.getUsername());
+    }
+
+    public void Update() {
+
+        Customer.selectedCustomer.setName(CnameText.getText());
+        Customer.selectedCustomer.setAge(CageText.getText());
+        Customer.selectedCustomer.setPass(CpassText.getText());
+        Customer.selectedCustomer.setPhone(CphoneText.getText());
+        Customer.selectedCustomer.setUsername(CUserText.getText());
+
+        for (Customer customer : Customer.CoustomerAcc) {
+           customer.setName(Customer.selectedCustomer.getName());
+            customer.setAge(Customer.selectedCustomer.getAge());
+            customer.setAge(Customer.selectedCustomer.getAge());
+            customer.setPhone(Customer.selectedCustomer.getPhone());
+            customer.setUsername(Customer.selectedCustomer.getUsername());
+        }
+
+    }
+
+
     @FXML
     void CEdit(ActionEvent event) {
-
+        Clabanchor.setVisible(true);
+        Clabanchor2.setVisible(false);
+        initialize2();
     }
 
     @FXML
     void CSave(ActionEvent event) {
-
+        Clabanchor.setVisible(false);
+        Clabanchor2.setVisible(true);
+        Update();
+        initialize2();
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
