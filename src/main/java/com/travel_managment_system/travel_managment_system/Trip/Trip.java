@@ -23,11 +23,13 @@ public class Trip {
     private String Transportation; //bus, flight
     private int numberOfAvailableSeats=50;
 
+    public static Trip selectedTrip;
+
     public static ArrayList<Trip> trips = new ArrayList<>();
 
     private ArrayList<TourGuide>AssignedTourGuides = new ArrayList<>();
 
-    boolean isTouGuideComplete=false;
+    private boolean isTouGuideComplete=false;
 
     public String getTransportation() {
         return Transportation;
@@ -45,6 +47,10 @@ public class Trip {
         this.numberOfAvailableSeats = numberOfAvailableSeats;
     }
 
+    public Trip()
+    {
+
+    }
     public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate,
                 double price, double payment, String tripImage, String location, String Transportation) {
         this.tripName = tripName;
@@ -178,7 +184,7 @@ public class Trip {
     }
 
 
-    public boolean isTouGuideComplete() {
+    public boolean isTourGuideComplete() {
         return isTouGuideComplete;
     }
 

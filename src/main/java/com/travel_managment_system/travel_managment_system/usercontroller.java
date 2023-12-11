@@ -107,22 +107,19 @@ public class usercontroller {
             TourGuide.selectedTourGuide=tourGuide;
             TourGuide.isTourGuide=true;
             TnameText.getScene().getWindow().hide();
-            thomepage();
+            HomepageController homepage=new HomepageController();
+            homepage.thomepage();
+            homepage.initialize();
+
 
 
 
         }
         ErrorMessage.setText(test);
     }
-    public void thomepage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
 
 
-    }
+
    public void Chomepage() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
         Scene scene = new Scene(root);

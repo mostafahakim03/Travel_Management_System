@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,18 +26,33 @@ public class FlightController implements Initializable {
     @FXML
     private AnchorPane FlightAnchor;
     @FXML
+    private AnchorPane AddAnchor;
+    @FXML
     private ImageView Flightview;
 //    @FXML
 //    private ChoiceBox<Integer> Select_seat;
     @FXML
-    private ComboBox<Integer> Select_seat;
+    private ComboBox<Integer> Select_seat=new ComboBox<>();
     public Integer[] Myseat = new Integer[50];
+    public int FnumberOfSeats;
+
+    @FXML
+    private Label alertText;
 
     public void FillArr(){
         for(int i=0;i<50;i++){
             Myseat[i]= i+1;
         }
     }
+    public void trip_flightSwitch() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Flight.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+    }
+
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
         //alert code
@@ -93,8 +109,26 @@ public class FlightController implements Initializable {
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        Select_seat.getItems().clear();
         FillArr();
             Select_seat.getItems().addAll(Myseat);
+        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+
+    }
+
+    public void addSeatNumber(){
+        if(Select_seat.getValue()==null)
+        {
+            alertText.setVisible(true);
+        }
+        else {
+            Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
+            System.out.println(FnumberOfSeats);
+            FnumberOfSeats--;
+            if(FnumberOfSeats==0){
+                AddAnchor.setVisible(false);
+            }
+        }
     }
 }
 

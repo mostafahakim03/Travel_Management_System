@@ -1,4 +1,5 @@
 package com.travel_managment_system.travel_managment_system;
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -51,8 +52,9 @@ public class TripController implements Initializable {
     @FXML
     private String[] packages = {"Silver", "Golden" , "Platinum"};
 
-    public void ViewTripDetails(Trip trip) throws FileNotFoundException {
+    public void ViewTripDetails(Trip trip) throws IOException {
 
+        Trip.selectedTrip=trip;
         FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
         imgView.setImage(image);
@@ -63,6 +65,8 @@ public class TripController implements Initializable {
         end_dateLabel.setText(trip.getEndDate().toString());
         priceLabel.setText(String.valueOf(trip.getPrice()));
         locationLabel.setText(trip.getLocation());
+
+
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -138,6 +142,8 @@ public class TripController implements Initializable {
     public void Booking(ActionEvent actionEvent) throws IOException {
 
         int numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
+        System.out.println(numbersOfTicketsInputs.getText());
+        System.out.println(numbersOfTickets);
 
         if (tripTypeLabel.getText().toLowerCase().equals("family") && numbersOfTickets < 3){
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
@@ -147,13 +153,20 @@ public class TripController implements Initializable {
         }
         else {
             NoOfTicketsMessageLabel1.setText("");
-            Parent root = FXMLLoader.load(getClass().getResource("Flight.fxml"));
-            //profile profile=new profile();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            TripHome.getScene().getWindow().hide();
+            Ticket.selectedTicket=new Ticket();
+            Ticket.selectedTicket.numberOfReservedTickets=numbersOfTickets;
+
+            System.out.println(Trip.selectedTrip.getTransportation());
+            if(Trip.selectedTrip.getTransportation().equals("Plane")) {
+                FlightController flight = new FlightController();
+                flight.trip_flightSwitch();
+                TripHome.getScene().getWindow().hide();
+            }
+            else if (Trip.selectedTrip.getTransportation().equals("Bus")){
+                BusController bus = new BusController();
+                bus.trip_busSwitch();
+                TripHome.getScene().getWindow().hide();
+            }
         }
 
     }

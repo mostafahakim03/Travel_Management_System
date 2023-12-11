@@ -1,34 +1,39 @@
 package com.travel_managment_system.travel_managment_system.Ticket;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
+
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Ticket {
-    public int ticket_id;
+    public static Ticket selectedTicket=new Ticket();
+    public int TicketID=0;
     public String user_name;
-    public int seat_num;
+    public static int numberOfTickets=0;
+    public int numberOfReservedTickets;
     public int trip_id;
     public double ticket_price;
     public Date booking_date;
     public String ticket_type; //platinum , golden , silver
     //    public  String board_Type ;//full or half board
-    public String[] activities = new String[4];
+    public ArrayList <Integer> seatNumber=new ArrayList<>();
 
-    public Ticket(int ticket_id, String user_name, int seat_num, int trip_id, double ticket_price, Date booking_date, String ticket_type, String board_Type, String[] activities) {
-        this.ticket_id = ticket_id;
+    public Ticket(){
+
+    }
+
+    public Ticket(String user_name, int seat_num, int trip_id, double ticket_price, Date booking_date, String ticket_type, String board_Type) {
         this.user_name = user_name;
 //        this.seat_num=seat_num;
         this.trip_id = trip_id;
         this.ticket_price = ticket_price;
         this.booking_date = booking_date;
         this.ticket_type = ticket_type;
+        numberOfTickets++;
+        TicketID=numberOfTickets;
 //        this.board_Type=board_Type;
 //        System.arraycopy(activities, 0, this.activities, 0, 4);
 
-    }
-
-    public void displayTicketDetails() {
-        System.out.println("ticket_id : " + ticket_id + "user_name" + user_name + "seat Number " + seat_num + "trip_id" + trip_id +
-                "ticket_price" + ticket_price + "booking_date" + booking_date + "ticket_type" + ticket_type);
     }
 
     public double returnPrice(int noOFTrips) {

@@ -38,7 +38,7 @@ public class HomepageController {
     private AnchorPane NotificationPane;
 
     @FXML
-    private VBox tripsVBox;
+    private VBox tripsVBox=new VBox();
     @FXML
     private Button HomeButton;
     @FXML
@@ -47,28 +47,38 @@ public class HomepageController {
     private Label NotificationLabel;
 
 
+    public void thomepage() throws IOException {
+        HomepageController homepage=new HomepageController();
+        homepage.displayTrips();
+        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
+    }
     public void initialize() throws FileNotFoundException {
-        Trip.trips.clear();
-        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
-                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
-        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 400, 7000, "src/main" +
-                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
-        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Plane"));
+//        Trip.trips.clear();
+        tripsVBox.getChildren().clear();
+//        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
+//                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
+//        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 400, 7000, "src/main" +
+//                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
+//        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Plane"));
         displayTrips(); // Update the ListView with available trips
     }
 
-    private void displayTrips() throws FileNotFoundException {
+    public void displayTrips() throws FileNotFoundException {
 
-        ArrayList<Trip> filteredTrips;
+        ArrayList<Trip> filteredTrips=new ArrayList<>();
         if(User.isTourGuide){
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> trip.isTouGuideComplete()==false)
+                    .filter(trip -> trip.isTourGuideComplete()==false)
                     .collect(Collectors.toCollection(ArrayList::new));
         }
         else {
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> trip.getNumberOfAvailableSeats() <= 50)
+                    .filter(trip -> trip.getNumberOfAvailableSeats() > 0)
                     .collect(Collectors.toCollection(ArrayList::new));
         }
         for (Trip trip : filteredTrips) {
@@ -79,8 +89,9 @@ public class HomepageController {
 
     }
 
-    private VBox createTripVBox(Trip trip) throws FileNotFoundException {
-
+    public VBox createTripVBox(Trip trip) throws FileNotFoundException {
+        Trip.selectedTrip=new Trip();
+        Trip.selectedTrip=trip;
         System.out.println(trip.getNumberOfAvailableSeats());
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
@@ -151,6 +162,7 @@ public class HomepageController {
                             {
                                 trip.setTouGuideComplete(false);
                             }
+
                             NotificationLabel.setText("Trip was successfully assigned.");
                             NotificationPane.setVisible(true);
                             ShortCutButton.setDisable(false);

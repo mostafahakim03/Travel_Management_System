@@ -1,4 +1,5 @@
 package com.travel_managment_system.travel_managment_system;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import com.travel_managment_system.travel_managment_system.User.Customer.CarCompany;
 import javafx.application.Application;
@@ -7,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.time.LocalDate;
+
 public class TMSApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
@@ -14,13 +17,13 @@ public class TMSApplication extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        CarCompany coma=new CarCompany("Elkrsh");
-        CAr car1 =new CAr("byd",2011);
-        CAr car2 =new CAr("byd",2010);
-        CAr car3 =new CAr("byd",2009);
-        coma.AddCAr(car1);
-        coma.AddCAr(car2);
-        coma.AddCAr(car3);
+
+        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
+                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
+        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 400, 7000, "src/main" +
+                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
+        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Bus"));
+
 
     }
 

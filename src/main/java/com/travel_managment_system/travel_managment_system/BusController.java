@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,12 +24,22 @@ public class BusController implements Initializable {
     @FXML
     private Label BusNumber;
     @FXML
-    private ComboBox<Integer> Select_seat;
+    private ComboBox<Integer> Select_seat= new ComboBox<>();
     public Integer[] Myseat = new Integer[50];
+    public int numberOfSeats;
     public void FillArr(){
         for(int i=0;i<50;i++){
             Myseat[i]= i+1;
         }
+    }
+
+    public void trip_busSwitch() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Bus.fxml"));
+        numberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
