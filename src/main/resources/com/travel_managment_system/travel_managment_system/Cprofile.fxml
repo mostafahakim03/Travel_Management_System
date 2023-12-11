@@ -34,7 +34,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="labanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
+      <AnchorPane fx:id="Clabanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
          <children>
             <Label fx:id="CName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
                <font>
@@ -63,7 +63,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="labanchor" layoutX="99.0" layoutY="63.0" prefHeight="298.0" prefWidth="362.0" visible="false">
+      <AnchorPane fx:id="Clabanchor" layoutX="99.0" layoutY="63.0" prefHeight="298.0" prefWidth="362.0" visible="false">
          <children>
             <TextField fx:id="CnameText" layoutX="63.0" layoutY="27.0" prefHeight="26.0" prefWidth="254.0" />
             <TextField fx:id="CUserText" layoutX="63.0" layoutY="77.0" prefHeight="26.0" prefWidth="254.0" />
