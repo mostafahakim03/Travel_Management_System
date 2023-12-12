@@ -55,7 +55,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="TOURPAne" layoutX="283.0" layoutY="2.0" onMouseDragged="#refresh" onMouseMoved="#refresh" onScrollStarted="#refresh" prefHeight="642.0" prefWidth="728.0">
+      <AnchorPane fx:id="TOURPAne" layoutX="283.0" layoutY="2.0" onMouseDragged="#refresh" onMouseMoved="#refresh" onScrollStarted="#refresh" prefHeight="642.0" prefWidth="728.0" visible="false">
          <children>
             <ScrollPane layoutX="2.0" layoutY="144.0" prefHeight="500.0" prefWidth="599.0" style="-fx-background-color: #FFFFFF;">
                <content>
