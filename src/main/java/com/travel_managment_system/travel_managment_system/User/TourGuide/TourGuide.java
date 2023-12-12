@@ -6,7 +6,6 @@ import com.travel_managment_system.travel_managment_system.User.User;
 import java.util.ArrayList;
 
 public class TourGuide extends User {
-    protected static int GuideCounter = 0;
     protected boolean Availibility;
     protected String GuideID;
     protected Double Salary;
@@ -49,14 +48,6 @@ public class TourGuide extends User {
 
     public String getGuideID() {
         return GuideID;
-    }
-
-    public static int getGuideCounter() {
-        return GuideCounter;
-    }
-
-    public static void setGuideCounter(int guideCounter) {
-        GuideCounter = guideCounter;
     }
 
     public boolean isAvailibility() {

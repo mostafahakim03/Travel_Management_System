@@ -16,11 +16,7 @@ import java.io.IOException;
 
 
 public class Itinerary {
-    @FXML
-    private Button HomeButton;
 
-    @FXML
-    private AnchorPane Itinerary;
 
     private Activities[] activities;
 
@@ -80,58 +76,5 @@ public class Itinerary {
 
 
 
-    @FXML
-    void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        Cprofile Cprofile =new Cprofile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Itinerary.getScene().getWindow().hide();
-        Cprofile.initialize2();
-    }
 
-    @FXML
-    void HomeClicked(ActionEvent event) throws IOException{
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Itinerary.getScene().getWindow().hide();
-    }
-
-    @FXML
-    void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK)  {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            Itinerary.getScene().getWindow().hide();
-
-        }
-    }
-
-    @FXML
-    void myTripsClicked(ActionEvent event) throws IOException{
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
-        Itinerary.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-    }
 }
