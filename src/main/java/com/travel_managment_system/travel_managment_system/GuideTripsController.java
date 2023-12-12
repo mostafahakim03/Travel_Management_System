@@ -74,6 +74,17 @@ public class GuideTripsController {
         TripsAnchor.getScene().getWindow().hide();
         profile.initialize();
     }
+    public void salaryClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("TSalary.fxml"));
+        profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        TripsAnchor.getScene().getWindow().hide();
+        profile.initialize();
+    }
+
 
     @FXML
     private void initialize() {

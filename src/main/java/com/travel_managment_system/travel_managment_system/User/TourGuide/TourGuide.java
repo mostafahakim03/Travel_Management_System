@@ -9,21 +9,11 @@ public class TourGuide extends User {
     protected static int GuideCounter = 0;
     protected boolean Availibility;
     protected String GuideID;
-    //protected Trip trips[];
-    protected float Salary;
+    protected Double Salary;
     public static ArrayList<Integer> newidAcc = new ArrayList<Integer>();
 
     public static ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
     public static TourGuide selectedTourGuide;
-
-    public ArrayList<Trip> getAssignedTrips() {
-        return AssignedTrips;
-    }
-
-    public void FillAssignedTrips(Trip assignedTrips) {
-        AssignedTrips.add(assignedTrips);
-    }
-
     private ArrayList<Trip> AssignedTrips=new ArrayList<>();
 
     public TourGuide(String name, String username, String pass, String phone, String age, String GuideID) {
@@ -53,7 +43,7 @@ public class TourGuide extends User {
         return test;
     }
 
-    public float getSalary() {
+    public Double getSalary() {
         return Salary;
     }
 
@@ -81,8 +71,15 @@ public class TourGuide extends User {
         GuideID = guideID;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(Double salary) {
         Salary = salary;
+    }
+    public ArrayList<Trip> getAssignedTrips() {
+        return AssignedTrips;
+    }
+
+    public void FillAssignedTrips(Trip assignedTrips) {
+        AssignedTrips.add(assignedTrips);
     }
 }
 

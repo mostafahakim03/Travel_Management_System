@@ -23,8 +23,6 @@ import javafx.stage.Stage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
@@ -38,7 +36,7 @@ public class HomepageController {
     private AnchorPane NotificationPane;
 
     @FXML
-    private VBox tripsVBox=new VBox();
+    private VBox tripsVBox = new VBox();
     @FXML
     private Button HomeButton;
     @FXML
@@ -48,7 +46,7 @@ public class HomepageController {
 
 
     public void thomepage() throws IOException {
-        HomepageController homepage=new HomepageController();
+        HomepageController homepage = new HomepageController();
         homepage.displayTrips();
         Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
         Scene scene = new Scene(root);
@@ -57,26 +55,20 @@ public class HomepageController {
         stage.show();
 
     }
+
     public void initialize() throws FileNotFoundException {
-//        Trip.trips.clear();
         tripsVBox.getChildren().clear();
-//        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,03,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
-//                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
-//        Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,05,03), LocalDate.of(2023,05,14), 400, 7000, "src/main" +
-//                "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
-//        Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,05,03) ,LocalDate.of(2023,05,14), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Plane"));
         displayTrips(); // Update the ListView with available trips
     }
 
     public void displayTrips() throws FileNotFoundException {
 
-        ArrayList<Trip> filteredTrips=new ArrayList<>();
-        if(User.isTourGuide){
+        ArrayList<Trip> filteredTrips = new ArrayList<>();
+        if (User.isTourGuide) {
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> trip.isTourGuideComplete()==false)
+                    .filter(trip -> !trip.isTourGuideComplete())
                     .collect(Collectors.toCollection(ArrayList::new));
-        }
-        else {
+        } else {
             filteredTrips = Trip.trips.stream()
                     .filter(trip -> trip.getNumberOfAvailableSeats() > 0)
                     .collect(Collectors.toCollection(ArrayList::new));
@@ -90,14 +82,14 @@ public class HomepageController {
     }
 
     public VBox createTripVBox(Trip trip) throws FileNotFoundException {
-        Trip.selectedTrip=new Trip();
-        Trip.selectedTrip=trip;
+        Trip.selectedTrip = new Trip();
+        Trip.selectedTrip = trip;
         System.out.println(trip.getNumberOfAvailableSeats());
-        VBox tripBox = new VBox();
-        VBox detailsBox = new VBox();
-        VBox finalBox = new VBox();
+        VBox tripBox = new VBox();  //returned VBox
+        VBox detailsBox = new VBox(); //VBox that contains all important details
+        VBox finalBox = new VBox(); //VBox that contains view/assign buttons and the payment/price
 
-        HBox stylingBox = new HBox();
+        HBox stylingBox = new HBox(); //HBox that aligns the detailsBox and finalBox
 
         FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
@@ -107,7 +99,7 @@ public class HomepageController {
         String PaymentText = Double.toString(trip.getPayment());
 
         Label tripName = new Label(trip.getTripName());
-        Label location= new Label(trip.getLocation());
+        Label location = new Label(trip.getLocation());
         Label tripPrice = new Label("from \n" + PriceText + "EGP");
         Label tripPayment = new Label("from \n" + PaymentText + "EGP");
         Label tripID = new Label("ID: " + trip.getTrip_id());
@@ -132,7 +124,7 @@ public class HomepageController {
             }
 
         });
-        assignTrip.setOnAction(event ->{
+        assignTrip.setOnAction(event -> {
             for (TourGuide tourguide : TourGuide.TourguideAcc) {
                 if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
 
@@ -154,14 +146,7 @@ public class HomepageController {
                             tourguide.FillAssignedTrips(trip);
                             trip.FillAssignedTourGuides(tourguide);
 
-                            if(trip.getAssignedTourGuides().size()==2)
-                            {
-                                trip.setTouGuideComplete(true);
-                            }
-                            else
-                            {
-                                trip.setTouGuideComplete(false);
-                            }
+                            trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
 
                             NotificationLabel.setText("Trip was successfully assigned.");
                             NotificationPane.setVisible(true);
@@ -219,36 +204,45 @@ public class HomepageController {
     }
 
 
-            public void logoutButtonClicked(ActionEvent event) throws IOException {
-                System.out.println("Logout pending!");
-                //alert code
-                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Logout");
-                alert.setHeaderText("You are logging out...");
-                alert.setContentText("Are you sure you want to logout?");
+    public void logoutButtonClicked(ActionEvent event) throws IOException {
+        System.out.println("Logout pending!");
+        //alert code
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are logging out...");
+        alert.setContentText("Are you sure you want to logout?");
 
-                if (alert.showAndWait().get() == ButtonType.OK) {
-                    //logging out code
-                    Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-                    Scene scene = new Scene(root);
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.show();
-                    if (TourGuide.isTourGuide) {
-                        THomepageAnchor.getScene().getWindow().hide();
-                    } else {
-                        CHomepageAnchor.getScene().getWindow().hide();
-                    }
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            //logging out code
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            if (TourGuide.isTourGuide) {
+                THomepageAnchor.getScene().getWindow().hide();
+            } else {
+                CHomepageAnchor.getScene().getWindow().hide();
+            }
         }
     }
-
+    public void salaryClicked(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("TSalary.fxml"));
+        profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        THomepageAnchor.getScene().getWindow().hide();
+        profile.initialize();
+    }
     public void HomeClicked(ActionEvent event) throws IOException {
         HomeButton.setDisable(true);
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile profile=new profile();
+        profile profile = new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -257,6 +251,7 @@ public class HomepageController {
         profile.initialize();
 
     }
+
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
         //profile profile=new profile();
@@ -268,13 +263,13 @@ public class HomepageController {
         //profile.initialize();
 
     }
+
     public void myTripsClicked(ActionEvent event) throws IOException {
         Parent root;
-        if(TourGuide.isTourGuide) {
+        if (TourGuide.isTourGuide) {
             root = FXMLLoader.load(getClass().getResource("TTrips.fxml"));
             THomepageAnchor.getScene().getWindow().hide();
-        }
-        else {
+        } else {
             root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
             CHomepageAnchor.getScene().getWindow().hide();
         }

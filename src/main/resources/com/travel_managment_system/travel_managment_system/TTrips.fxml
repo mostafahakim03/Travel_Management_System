@@ -29,7 +29,7 @@
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
             <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
             <Button fx:id="MyTripsButton" mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Salary" />
+            <Button mnemonicParsing="false" onAction="#salaryClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Salary" />
             <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
          </items>
       </ToolBar>
