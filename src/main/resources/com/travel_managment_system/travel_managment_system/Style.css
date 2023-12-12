@@ -1,0 +1,54 @@
+
+.BtnAhomePage{
+-fx-background-color:transparent;
+-fx-border-color: #c38200;
+-fx-font-size: 16px;
+-fx-font-weight:bold;
+-fx-text-fill:#FFFFFF;
+}
+.addtripformBtn{
+-fx-text-fill:#FFFFFF;
+-fx-background-color:#FA8B02;
+-fx-background-radius:40px;
+}
+.addtripformBtn:hover{
+-fx-text-fill:#FA8B02;
+-fx-background-color:#FFFFFF;
+-fx-border-color: #FA8B02;
+-fx-border-radius:40px;
+-fx-border-width:2px 2px 2px 2px;
+}
+.backBTN{
+-fx-background-color:#FFFFFF;
+-fx-border-color: #FA8B02;
+-fx-text-fill:#FA8B02;
+-fx-border-width:2px 2px 2px 2px;
+}
+.backBTN:hover{
+-fx-text-fill:#FFFFFF;
+-fx-background-color:FA8B02;
+}
+.BtnAhomePage:hover{
+-fx-background-color:#c38200;
+}
+.admin{
+-fx-text-fill:#e17000;
+}
+.leftAnch{
+-fx-background-color: #FA8B02;
+-fx-background-radius:0px 80px 0px 0px
+}
+.BTNTOUR{
+-fx-background-color: linear-gradient(to bottom right,#cca400,#cd7e00);
+-fx-background-radius:40px;
+}
+.backAdmin{
+-fx-background-color:#FFFFFF;
+-fx-border-color: linear-gradient(to bottom right,#cca400,#cd7e00);
+
+}
+.textField{
+-fx-background-color:transparent;
+-fx-border-color:linear-gradient(to bottom right,#FA8B02,#FFAE00);
+-fx-border-width:0px 0px 3px 0px;
+}

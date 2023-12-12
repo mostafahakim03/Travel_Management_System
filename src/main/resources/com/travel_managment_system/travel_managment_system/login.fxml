@@ -17,9 +17,9 @@
             <Image url="@julia-solonina-Csja8O0sbOw-unsplash%201.png" />
          </image>
       </ImageView>
-      <Button layoutX="338.0" layoutY="242.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
-      <TextField layoutX="206.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <RadioButton layoutX="207.0" layoutY="165.0" mnemonicParsing="false" text="Custmor">
+      <Button layoutX="338.0" layoutY="242.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
+      <TextField fx:id="LoginUsertext" layoutX="206.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
+      <RadioButton fx:id="LoginRadioCustomer" layoutX="207.0" layoutY="165.0" mnemonicParsing="false" text="Custmor">
          <toggleGroup>
             <ToggleGroup fx:id="type" />
          </toggleGroup>
@@ -27,11 +27,11 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton layoutX="207.0" layoutY="203.0" mnemonicParsing="false" text="Tourguide" toggleGroup="$type">
+      <RadioButton fx:id="LoginRadioTour" layoutX="207.0" layoutY="203.0" mnemonicParsing="false" text="Tourguide" toggleGroup="$type">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </RadioButton>
-      <PasswordField layoutX="206.0" layoutY="115.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <PasswordField fx:id="LoginPasstext" layoutX="206.0" layoutY="115.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
    </children>
 </AnchorPane>

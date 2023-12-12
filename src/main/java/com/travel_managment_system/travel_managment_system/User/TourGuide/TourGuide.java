@@ -81,6 +81,15 @@ public class TourGuide extends User {
     public void FillAssignedTrips(Trip assignedTrips) {
         AssignedTrips.add(assignedTrips);
     }
+    public static void DeleteTour(String id){
+        for (int i=0;i<TourguideAcc.size();i++)
+        {
+            if(TourguideAcc.get(i).GuideID.equals(id)) {
+                TourguideAcc.remove(i);
+                break;
+            }
+        }
+    }
 }
 
 

@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import com.travel_managment_system.travel_managment_system.User.User;
@@ -8,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -57,6 +55,16 @@ public class usercontroller {
 
     @FXML
     private AnchorPane Csign;
+    @FXML
+    private TextField LoginUsertext;
+    @FXML
+    private PasswordField LoginPasstext;
+    @FXML
+    private RadioButton LoginRadioCustomer;
+
+    @FXML
+    private RadioButton LoginRadioTour;
+
 
     public void btn() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
@@ -142,5 +150,23 @@ public class usercontroller {
         }
         CErrorMessage.setText(test);
     }
+    public void checkLogin() throws IOException {
+        if((!LoginRadioCustomer.isSelected())&&(!LoginRadioTour.isSelected())&&LoginPasstext.getText().equals(Admin.getPassword())&&LoginUsertext.getText().equals(Admin.getUsername()))
+        {
+            TourGuide tourGuide=new TourGuide("Mostafa","dosh@gmail","1234","01146","20","10");
+            TourGuide.TourguideAcc.add(tourGuide);
+            tourGuide=new TourGuide("ahmed","ahmed@gmail","1234","01146","20","10");
+            TourGuide.TourguideAcc.add(tourGuide);
+            tourGuide=new TourGuide("desha","desha@gmail","1234","01146","20","10");
+            TourGuide.TourguideAcc.add(tourGuide);
+            ///////////////
+            AHomepage aHomepage=new AHomepage();
+            aHomepage.showAhome();
 
+
+        }
+        /////////////////
+
+
+    }
 }
