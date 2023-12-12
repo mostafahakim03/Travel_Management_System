@@ -23,7 +23,7 @@ public class Itinerary {
     private AnchorPane Itinerary;
 
     private Activities[] activities;
-    private String location;
+
 
     public Itinerary() {
         activities = new Activities[3];
@@ -37,16 +37,11 @@ public class Itinerary {
         this.activities = activities;
     }
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
 
-    }
 
     public class Activities {
+        private String location;
         private String type;
         private String startTime;
         private String endTime;
@@ -73,6 +68,13 @@ public class Itinerary {
 
         public void setEndTime(String endTime) {
             this.endTime = endTime;
+        }
+        public void setLocation(String location) {
+            this.location = location;
+
+        }
+        public String getLocation() {
+            return location;
         }
     }
 
