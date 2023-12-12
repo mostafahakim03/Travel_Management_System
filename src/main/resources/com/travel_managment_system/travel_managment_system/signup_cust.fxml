@@ -17,11 +17,11 @@
          </image>
       </ImageView>
       <Button layoutX="424.0" layoutY="242.0" mnemonicParsing="false" onAction="#CsubmitSignup" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
-      <TextField fx:id="CnameText" layoutX="46.0" layoutY="49.0" prefHeight="26.0" prefWidth="254.0" promptText="Name" />
+      <TextField fx:id="CnameText" layoutX="46.0" layoutY="51.0" prefHeight="26.0" prefWidth="254.0" promptText="Name" />
       <TextField fx:id="CUserText" layoutX="46.0" layoutY="99.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <TextField fx:id="CageText" layoutX="46.0" layoutY="242.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
-      <TextField fx:id="CphoneText" layoutX="46.0" layoutY="197.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
       <PasswordField fx:id="CpassText" layoutX="46.0" layoutY="148.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <TextField fx:id="CphoneText" layoutX="46.0" layoutY="197.0" prefHeight="26.0" prefWidth="163.0" promptText="Phone Number" />
+      <TextField fx:id="CageText" layoutX="46.0" layoutY="242.0" prefHeight="26.0" prefWidth="48.0" promptText="Age" />
       <Label fx:id="CErrorMessage" layoutX="46.0" layoutY="281.0" prefHeight="34.0" prefWidth="254.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />

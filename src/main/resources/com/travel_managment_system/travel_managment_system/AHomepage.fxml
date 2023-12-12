@@ -16,7 +16,7 @@
    <children>
       <AnchorPane layoutX="-1.0" layoutY="95.0" prefHeight="556.0" prefWidth="281.0" styleClass="leftAnch" stylesheets="@Style.css">
          <children>
-            <Button layoutX="17.0" layoutY="97.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@../../../../../../../travel/src/main/resources/com/travel_managment_system/travel_managment_system/Style.css" text="Dashboard">
+            <Button layoutX="17.0" layoutY="97.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Dashboard">
                <font>
                   <Font name="System Italic" size="13.0" />
                </font>
@@ -24,7 +24,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="2em" />
                </graphic>
             </Button>
-            <Button layoutX="18.0" layoutY="390.0" mnemonicParsing="false" onAction="#initializeTrips" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@../../../../../../../travel/src/main/resources/com/travel_managment_system/travel_managment_system/Style.css" text="Trips">
+            <Button layoutX="18.0" layoutY="390.0" mnemonicParsing="false" onAction="#initializeTrips" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Trips">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
@@ -32,7 +32,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="PLANE" size="2.2em" />
                </graphic>
             </Button>
-            <Button fx:id="ATourBTN" layoutX="18.0" layoutY="295.0" mnemonicParsing="false" onAction="#ShowTours" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@../../../../../../../travel/src/main/resources/com/travel_managment_system/travel_managment_system/Style.css" text="Tourguides">
+            <Button fx:id="ATourBTN" layoutX="18.0" layoutY="295.0" mnemonicParsing="false" onAction="#ShowTours" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Tourguides">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
@@ -40,7 +40,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="USER_SECRET" size="2em" wrappingWidth="22.88571548461914" />
                </graphic>
             </Button>
-            <Button layoutX="20.0" layoutY="197.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@../../../../../../../travel/src/main/resources/com/travel_managment_system/travel_managment_system/Style.css" text="Customer">
+            <Button layoutX="20.0" layoutY="197.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Customer">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
@@ -48,7 +48,7 @@
                   <FontAwesomeIcon fill="WHITE" glyphName="USERS" size="2em" wrappingWidth="32.14285755157471" />
                </graphic>
             </Button>
-            <Button layoutX="27.0" layoutY="481.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="123.0" styleClass="BtnAhomePage" text="Logout">
+            <Button layoutX="27.0" layoutY="481.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="123.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Logout">
                <font>
                   <Font name="System Bold" size="10.0" />
                </font>
@@ -78,7 +78,7 @@
                         <VBox fx:id="TripVbox" prefHeight="469.0" prefWidth="714.0" style="-fx-background-color: #FFFFFF;" />
                      </content>
                   </ScrollPane>
-                  <Button layoutX="522.0" layoutY="485.0" mnemonicParsing="false" onAction="#addTrip" prefHeight="38.0" prefWidth="137.0" styleClass="addtripformBtn" stylesheets="@../../../../../../../travel/src/main/resources/com/travel_managment_system/travel_managment_system/Style.css" text="Add New Trip">
+                  <Button layoutX="522.0" layoutY="485.0" mnemonicParsing="false" onAction="#addTrip" prefHeight="38.0" prefWidth="137.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Add New Trip">
                      <font>
                         <Font name="Berlin Sans FB Bold" size="15.0" />
                      </font>
