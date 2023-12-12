@@ -16,34 +16,34 @@ import java.io.IOException;
 public class Cprofile {
 
     @FXML
-    private Label CAge;
+    private Label CAge= new Label();
 
     @FXML
-    private Label CName;
+    private Label CName= new Label();
 
     @FXML
-    private Label CPassword;
+    private Label CPassword= new Label();
 
     @FXML
-    private Label CPhonenumber;
+    private Label CPhonenumber= new Label();
 
     @FXML
-    private TextField CUserText;
+    private TextField CUserText=new TextField();
 
     @FXML
-    private Label CUsername;
+    private Label CUsername= new Label();
 
     @FXML
-    private TextField CageText;
+    private TextField CageText=new TextField();
 
     @FXML
-    private TextField CnameText;
+    private TextField CnameText=new TextField();
 
     @FXML
-    private TextField CpassText;
+    private TextField CpassText=new TextField();
 
     @FXML
-    private TextField CphoneText;
+    private TextField CphoneText=new TextField();
 
     @FXML
     private AnchorPane Cprofile;
@@ -57,53 +57,7 @@ public class Cprofile {
     @FXML
     private Button profileButton;
 
-    public void initialize2() {
-        CName.setText(Customer.selectedCustomer.getName());
-        CAge.setText(Customer.selectedCustomer.getAge());
-        CPassword.setText(Customer.selectedCustomer.getPass());
-        CPhonenumber.setText(Customer.selectedCustomer.getPhone());
-        CUsername.setText(Customer.selectedCustomer.getUsername());
 
-        CnameText.setText(Customer.selectedCustomer.getName());
-        CageText.setText(Customer.selectedCustomer.getAge());
-        CpassText.setText(Customer.selectedCustomer.getPass());
-        CphoneText.setText(Customer.selectedCustomer.getPhone());
-        CUserText.setText(Customer.selectedCustomer.getUsername());
-    }
-
-    public void Update() {
-
-        Customer.selectedCustomer.setName(CnameText.getText());
-        Customer.selectedCustomer.setAge(CageText.getText());
-        Customer.selectedCustomer.setPass(CpassText.getText());
-        Customer.selectedCustomer.setPhone(CphoneText.getText());
-        Customer.selectedCustomer.setUsername(CUserText.getText());
-
-        for (Customer customer : Customer.CoustomerAcc) {
-           customer.setName(Customer.selectedCustomer.getName());
-            customer.setAge(Customer.selectedCustomer.getAge());
-            customer.setAge(Customer.selectedCustomer.getAge());
-            customer.setPhone(Customer.selectedCustomer.getPhone());
-            customer.setUsername(Customer.selectedCustomer.getUsername());
-        }
-
-    }
-
-
-    @FXML
-    void CEdit(ActionEvent event) {
-        Clabanchor.setVisible(true);
-        Clabanchor2.setVisible(false);
-        initialize2();
-    }
-
-    @FXML
-    void CSave(ActionEvent event) {
-        Clabanchor.setVisible(false);
-        Clabanchor2.setVisible(true);
-        Update();
-        initialize2();
-    }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -120,11 +74,8 @@ public class Cprofile {
             Stage stage = new Stage();
             stage.setScene(scene);
             stage.show();
-            if (Cprofile.getScene() != null) {
-                Cprofile.getScene().getWindow().hide();
-            } //else if (Cprofile.getScene() != null) {
-            // Cprofile.getScene().getWindow().hide();
-            // }
+            Cprofile.getScene().getWindow().hide();
+
         }
     }
 
@@ -152,6 +103,52 @@ public class Cprofile {
 
     }
 
+    public void initialize2() {
+        CName.setText(Customer.selectedCustomer.getName());
+        CAge.setText(Customer.selectedCustomer.getAge());
+        CPassword.setText(Customer.selectedCustomer.getPass());
+        CPhonenumber.setText(Customer.selectedCustomer.getPhone());
+        CUsername.setText(Customer.selectedCustomer.getUsername());
 
+        CnameText.setText(Customer.selectedCustomer.getName());
+        CageText.setText(Customer.selectedCustomer.getAge());
+        CpassText.setText(Customer.selectedCustomer.getPass());
+        CphoneText.setText(Customer.selectedCustomer.getPhone());
+        CUserText.setText(Customer.selectedCustomer.getUsername());
+    }
+
+    public void Update() {
+
+        Customer.selectedCustomer.setName(CnameText.getText());
+        Customer.selectedCustomer.setAge(CageText.getText());
+        Customer.selectedCustomer.setPass(CpassText.getText());
+        Customer.selectedCustomer.setPhone(CphoneText.getText());
+        Customer.selectedCustomer.setUsername(CUserText.getText());
+
+        for (Customer customer : Customer.CoustomerAcc) {
+            customer.setName(Customer.selectedCustomer.getName());
+            customer.setAge(Customer.selectedCustomer.getAge());
+            customer.setAge(Customer.selectedCustomer.getAge());
+            customer.setPhone(Customer.selectedCustomer.getPhone());
+            customer.setUsername(Customer.selectedCustomer.getUsername());
+        }
+
+    }
+
+
+    @FXML
+    void CEdit(ActionEvent event) {
+        Clabanchor.setVisible(true);
+        Clabanchor2.setVisible(false);
+        initialize2();
+    }
+
+    @FXML
+    void CSave(ActionEvent event) {
+        Clabanchor.setVisible(false);
+        Clabanchor2.setVisible(true);
+        Update();
+        initialize2();
+    }
 
 }

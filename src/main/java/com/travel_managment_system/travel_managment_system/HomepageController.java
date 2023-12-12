@@ -254,13 +254,13 @@ public class HomepageController {
 
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        //profile profile=new profile();
+        Cprofile Cprofile =new Cprofile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         CHomepageAnchor.getScene().getWindow().hide();
-        //profile.initialize();
+        Cprofile.initialize2();
 
     }
 

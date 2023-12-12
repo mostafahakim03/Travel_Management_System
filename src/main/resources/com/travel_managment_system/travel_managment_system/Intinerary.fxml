@@ -1,24 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="FlightAnchor" prefHeight="530.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.FlightController">
+<AnchorPane fx:id="Itinerary" prefHeight="530.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Itinerary">
    <children>
-      <ToolBar layoutX="-13.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar layoutX="7.0" layoutY="8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="312.0" style="-fx-background-color: #ffae00; -fx-padding: 5px; -fx-border-style: dashed; -fx-border-width: 5px; -fx-border-radius: 45; -fx-border-color: white; -fx-background-radius: 45;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" textFill="WHITE" />
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" textFill="WHITE" />
          </items>
       </ToolBar>
-      <AnchorPane fx:id="AddAnchor" layoutX="-1.0" layoutY="360.0" prefHeight="79.0" prefWidth="696.0">
-         <children>
-            <Label fx:id="alertText" layoutX="58.0" layoutY="49.0" text="You must select your seat number." visible="false" />
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>
