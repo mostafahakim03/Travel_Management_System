@@ -36,27 +36,27 @@
       </Label>
       <AnchorPane fx:id="Clabanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
          <children>
-            <Label fx:id="CName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;" text="name">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="CUsername" layoutX="12.0" layoutY="66.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CUsername" layoutX="12.0" layoutY="66.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;" text="name">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="CPassword" layoutX="12.0" layoutY="120.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CPassword" layoutX="12.0" layoutY="120.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;" text="password">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="CPhonenumber" layoutX="12.0" layoutY="175.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CPhonenumber" layoutX="12.0" layoutY="175.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;" text="password">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="CAge" layoutX="14.0" layoutY="240.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;">
+            <Label fx:id="CAge" layoutX="14.0" layoutY="240.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="age">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>

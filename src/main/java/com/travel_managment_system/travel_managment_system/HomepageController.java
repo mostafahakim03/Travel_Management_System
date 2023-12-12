@@ -260,7 +260,7 @@ public class HomepageController {
         stage.setScene(scene);
         stage.show();
         CHomepageAnchor.getScene().getWindow().hide();
-        Cprofile.initialize2();
+        Cprofile.initialize();
 
     }
 

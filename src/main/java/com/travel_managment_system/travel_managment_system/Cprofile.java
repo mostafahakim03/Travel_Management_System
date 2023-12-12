@@ -49,10 +49,10 @@ public class Cprofile {
     private AnchorPane Cprofile;
 
     @FXML
-    private AnchorPane Clabanchor;
+    private AnchorPane Clabanchor=new AnchorPane();
 
     @FXML
-    private AnchorPane Clabanchor2;
+    private AnchorPane Clabanchor2=new AnchorPane();
 
     @FXML
     private Button profileButton;
@@ -103,18 +103,20 @@ public class Cprofile {
 
     }
 
-    public void initialize2() {
+    public void initialize() {
         CName.setText(Customer.selectedCustomer.getName());
         CAge.setText(Customer.selectedCustomer.getAge());
         CPassword.setText(Customer.selectedCustomer.getPass());
         CPhonenumber.setText(Customer.selectedCustomer.getPhone());
         CUsername.setText(Customer.selectedCustomer.getUsername());
 
+
         CnameText.setText(Customer.selectedCustomer.getName());
         CageText.setText(Customer.selectedCustomer.getAge());
         CpassText.setText(Customer.selectedCustomer.getPass());
         CphoneText.setText(Customer.selectedCustomer.getPhone());
         CUserText.setText(Customer.selectedCustomer.getUsername());
+
     }
 
     public void Update() {
@@ -140,7 +142,7 @@ public class Cprofile {
     void CEdit(ActionEvent event) {
         Clabanchor.setVisible(true);
         Clabanchor2.setVisible(false);
-        initialize2();
+        initialize();
     }
 
     @FXML
@@ -148,7 +150,7 @@ public class Cprofile {
         Clabanchor.setVisible(false);
         Clabanchor2.setVisible(true);
         Update();
-        initialize2();
+        initialize();
     }
 
 }

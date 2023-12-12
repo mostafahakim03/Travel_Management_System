@@ -29,7 +29,7 @@ public class ItineraryController {
         stage.setScene(scene);
         stage.show();
         Itinerary.getScene().getWindow().hide();
-        Cprofile.initialize2();
+        Cprofile.initialize();
     }
 
     @FXML
