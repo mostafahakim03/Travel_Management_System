@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
+import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
 import java.time.LocalDate;
@@ -24,6 +25,7 @@ public class Trip {
     private int numberOfAvailableSeats=50;
 
     public static Trip selectedTrip;
+    private Itinerary itinerary;
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 
@@ -67,6 +69,13 @@ public class Trip {
     }
 
 
+    public Itinerary getItinerary() {
+        return itinerary;
+    }
+
+    public void setItinerary(Itinerary itinerary) {
+        this.itinerary = itinerary;
+    }
 
     public void FamilyTrip(int numbersOfTickets, String packageType) {
         if (numbersOfTickets >= 3) {

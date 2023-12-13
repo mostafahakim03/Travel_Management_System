@@ -1,25 +1,101 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
+import com.travel_managment_system.travel_managment_system.Itinerary.*;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.StackedAreaChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.time.LocalDate;
 
 public class ItineraryController {
-
+    @FXML
+    public ImageView ActivityImg1;
+    @FXML
+    public ImageView ActivityImg2;
+    @FXML
+    public ImageView ActivityImg3;
+    @FXML
+    public Label ActivityLocationLabel1;
+    @FXML
+    public Label StartTimeLabel1;
+    @FXML
+    public Label EndTimeLabel1;
+    @FXML
+    public Label ActivityLocationLabel2;
+    @FXML
+    public Label StartTimeLabel2;
+    @FXML
+    public Label EndTimeLabel2;
+    @FXML
+    public Label ActivityLocationLabel3;
+    @FXML
+    public Label StartTimeLabel3;
+    @FXML
+    public Label EndTimeLabel3;
+    @FXML
+    public Button NextPageButton;
     @FXML
     private Button HomeButton;
-
     @FXML
     private AnchorPane Itinerary;
+
+    public void viewItinetary() throws IOException{
+
+
+        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,12,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
+                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
+
+        Trip trip = Trip.trips.getFirst();
+
+        trip.setItinerary(new Itinerary());
+
+//        FileInputStream imageInput1 = new FileInputStream(trip.getItinerary().getActivities()[0].getImg());
+//        Image image1 = new Image(imageInput1);
+//        ActivityImg1.setImage(image1);
+//
+//        FileInputStream imageInput2 = new FileInputStream(trip.getItinerary().getActivities()[1].getImg());
+//        Image image2 = new Image(imageInput2);
+//        ActivityImg1.setImage(image2);
+//
+//        FileInputStream imageInput3 = new FileInputStream(trip.getItinerary().getActivities()[2].getImg());
+//        Image image3 = new Image(imageInput3);
+//        ActivityImg1.setImage(image3);
+
+        ActivityLocationLabel1.setText(trip.getItinerary().getActivities()[0].getLocation());
+        ActivityLocationLabel2.setText(trip.getItinerary().getActivities()[1].getLocation());
+        ActivityLocationLabel3.setText(trip.getItinerary().getActivities()[2].getLocation());
+
+        StartTimeLabel1.setText(trip.getItinerary().getActivities()[0].getStartTime());
+        StartTimeLabel2.setText(trip.getItinerary().getActivities()[1].getStartTime());
+        StartTimeLabel3.setText(trip.getItinerary().getActivities()[2].getStartTime());
+
+        EndTimeLabel1.setText(trip.getItinerary().getActivities()[0].getEndTime());
+        EndTimeLabel2.setText(trip.getItinerary().getActivities()[1].getEndTime());
+        EndTimeLabel3.setText(trip.getItinerary().getActivities()[2].getEndTime());
+
+    }
+
+    public void  NextButtonPressed(){
+
+
+
+    }
+
     @FXML
     void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
@@ -31,7 +107,6 @@ public class ItineraryController {
         Itinerary.getScene().getWindow().hide();
         Cprofile.initialize();
     }
-
     @FXML
     void HomeClicked(ActionEvent event) throws IOException{
         System.out.println("Going home!");
@@ -42,7 +117,6 @@ public class ItineraryController {
         stage.show();
         Itinerary.getScene().getWindow().hide();
     }
-
     @FXML
     void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -63,7 +137,6 @@ public class ItineraryController {
 
         }
     }
-
     @FXML
     void myTripsClicked(ActionEvent event) throws IOException{
         Parent root;

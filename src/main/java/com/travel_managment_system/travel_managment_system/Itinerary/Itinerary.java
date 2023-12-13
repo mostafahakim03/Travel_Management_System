@@ -16,65 +16,16 @@ import java.io.IOException;
 
 
 public class Itinerary {
-
-
-    private Activities[] activities;
-
-
+    private Activities[] activities = new Activities[3];
     public Itinerary() {
-        activities = new Activities[3];
+        activities[0] = new Activities("Abu Simble","8 AM", "6 PM", "");
+        activities[1] = new Activities("bla bla","9 AM", "7 PM", "");
+        activities[2] = new Activities("bla bla bla","10 AM", "11 PM", "");
     }
-
     public Activities[] getActivities() {
         return activities;
     }
-
     public void setActivities(Activities[] activities) {
         this.activities = activities;
     }
-
-
-
-
-    public class Activities {
-        private String location;
-        private String type;
-        private String startTime;
-        private String endTime;
-
-        public String getType() {
-            return type;
-        }
-
-        public void setType(String type) {
-            this.type = type;
-        }
-
-        public String getStartTime() {
-            return startTime;
-        }
-
-        public void setStartTime(String startTime) {
-            this.startTime = startTime;
-        }
-
-        public String getEndTime() {
-            return endTime;
-        }
-
-        public void setEndTime(String endTime) {
-            this.endTime = endTime;
-        }
-        public void setLocation(String location) {
-            this.location = location;
-
-        }
-        public String getLocation() {
-            return location;
-        }
-    }
-
-
-
-
 }

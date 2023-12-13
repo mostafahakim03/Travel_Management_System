@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -7,8 +8,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Itinerary" prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.ItineraryController">
+<AnchorPane fx:id="Itinerary" prefHeight="685.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.ItineraryController">
    <children>
       <ToolBar layoutX="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
          <items>
@@ -18,23 +20,139 @@
             <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" textFill="WHITE" />
          </items>
       </ToolBar>
-      <ImageView fitHeight="135.0" fitWidth="250.0" layoutX="17.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ActivityImg1" fitHeight="105.0" fitWidth="193.0" layoutX="34.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@activity.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="135.0" fitWidth="250.0" layoutX="22.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ActivityImg2" fitHeight="112.0" fitWidth="193.0" layoutX="39.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@activity2.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="135.0" fitWidth="250.0" layoutX="17.0" layoutY="522.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="ActivityImg3" fitHeight="108.0" fitWidth="193.0" layoutX="42.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@activity3.jpeg" />
          </image>
       </ImageView>
-      <Separator layoutX="35.0" layoutY="467.0" prefHeight="6.0" prefWidth="550.0" style="-fx-background-color: #FA8B02;" />
-      <Separator layoutX="35.0" layoutY="264.0" prefHeight="6.0" prefWidth="550.0" style="-fx-background-color: #FA8B02;" />
-      <Label layoutX="310.0" layoutY="102.0" prefHeight="18.0" prefWidth="98.0" text="Label" />
+      <Separator layoutX="72.0" layoutY="280.0" prefHeight="6.0" prefWidth="455.0" style="-fx-background-color: #FA8B02;" />
+      <Label layoutX="268.0" layoutY="144.0" prefHeight="18.0" prefWidth="98.0" text="Activity 1">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="87.0" prefHeight="50.0" prefWidth="206.0" text="Itinerary">
+         <font>
+            <Font name="Lucida Handwriting Italic" size="30.0" />
+         </font>
+      </Label>
+      <Separator layoutX="73.0" layoutY="453.0" prefHeight="6.0" prefWidth="455.0" style="-fx-background-color: #FA8B02;" />
+      <Label layoutX="268.0" layoutY="182.0" text="Location">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="ActivityLocationLabel1" layoutX="366.0" layoutY="182.0" text="Location" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="205.0" prefHeight="22.0" prefWidth="78.0" text="Start Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="StartTimeLabel1" layoutX="366.0" layoutY="205.0" text="Time1" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="229.0" text="End Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="EndTimeLabel1" layoutX="366.0" layoutY="229.0" text="Time2" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="310.0" prefHeight="18.0" prefWidth="98.0" text="Activity 2">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="348.0" text="Location">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="ActivityLocationLabel2" layoutX="367.0" layoutY="348.0" text="Location" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="371.0" prefHeight="22.0" prefWidth="78.0" text="Start Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="StartTimeLabel2" layoutX="367.0" layoutY="371.0" text="Time1" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="269.0" layoutY="395.0" text="End Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="EndTimeLabel2" layoutX="367.0" layoutY="395.0" text="Time2" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="484.0" prefHeight="18.0" prefWidth="98.0" text="Activity 3">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="522.0" text="Location">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="ActivityLocationLabel3" layoutX="366.0" layoutY="522.0" text="Location" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="545.0" prefHeight="22.0" prefWidth="78.0" text="Start Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="StartTimeLabel3" layoutX="366.0" layoutY="545.0" text="Time1" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="268.0" layoutY="569.0" text="End Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="EndTimeLabel3" layoutX="366.0" layoutY="569.0" text="Time2" textFill="#ffae00">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="NextPageButton" layoutX="476.0" layoutY="616.0" mnemonicParsing="false" onAction="#viewItinetary" style="-fx-background-color: #ffae00; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="-fx-border-radius" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="616.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
