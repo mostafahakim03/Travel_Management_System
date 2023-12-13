@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CarController implements Initializable ,Loadfxml{
+public class CarController implements Initializable {
 
     @FXML
     private ImageView Car1;
@@ -65,25 +65,46 @@ public class CarController implements Initializable ,Loadfxml{
         alert.setContentText("Are you sure you want to logout?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            lodafxmlfile("hello-view.fxml");
+            //logging out code
+            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
             CarAnchor.getScene().getWindow().hide();
         }
     }
     public void HomeClicked(ActionEvent event) throws IOException {
         System.out.println("Going home!");
-        lodafxmlfile("CHomepage.fxml");
+        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
         CarAnchor.getScene().getWindow().hide();
     }
     public void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
+        Parent root;
+        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
         CarAnchor.getScene().getWindow().hide();
-
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
     }
 
 
+
+
+
     public void CProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("Cprofile.fxml");
+        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
         CarAnchor.getScene().getWindow().hide();
         //profile.initialize();
 
@@ -97,7 +118,12 @@ public class CarController implements Initializable ,Loadfxml{
         numOfDays2.getItems().addAll(NumOfRentalDays);
     }
     public void Next() throws IOException {
-        lodafxmlfile("Intinerary.fxml");
+        Parent root = FXMLLoader.load(getClass().getResource("Intinerary.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
         CarAnchor.getScene().getWindow().hide();
 
         ItineraryController itineraryController = new ItineraryController();
