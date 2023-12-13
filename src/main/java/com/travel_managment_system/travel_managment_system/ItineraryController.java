@@ -6,6 +6,7 @@ import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.StackedAreaChart;
@@ -20,9 +21,11 @@ import javafx.stage.Stage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class ItineraryController {
+public class ItineraryController{
     @FXML
     public ImageView ActivityImg1;
     @FXML
@@ -30,23 +33,23 @@ public class ItineraryController {
     @FXML
     public ImageView ActivityImg3;
     @FXML
-    public Label ActivityLocationLabel1;
+    public Label ActivityLocationLabel1 = new Label();
     @FXML
-    public Label StartTimeLabel1;
+    public Label StartTimeLabel1 = new Label();
     @FXML
-    public Label EndTimeLabel1;
+    public Label EndTimeLabel1 = new Label();
     @FXML
-    public Label ActivityLocationLabel2;
+    public Label ActivityLocationLabel2 = new Label();
     @FXML
-    public Label StartTimeLabel2;
+    public Label StartTimeLabel2 = new Label();
     @FXML
-    public Label EndTimeLabel2;
+    public Label EndTimeLabel2 = new Label();
     @FXML
-    public Label ActivityLocationLabel3;
+    public Label ActivityLocationLabel3 = new Label();
     @FXML
-    public Label StartTimeLabel3;
+    public Label StartTimeLabel3 = new Label();
     @FXML
-    public Label EndTimeLabel3;
+    public Label EndTimeLabel3 = new Label();
     @FXML
     public Button NextPageButton;
     @FXML
@@ -54,15 +57,10 @@ public class ItineraryController {
     @FXML
     private AnchorPane Itinerary;
 
-    public void viewItinetary() throws IOException{
+    public void initialize() {
 
-
-        Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,12,11), LocalDate.of(2023,03,17),3000, 10000, "src/main/java" +
-                "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
-
-        Trip trip = Trip.trips.getFirst();
-
-        trip.setItinerary(new Itinerary());
+        Trip.selectedTrip.setItinerary(new Itinerary());
+        Trip trip = Trip.selectedTrip;
 
 //        FileInputStream imageInput1 = new FileInputStream(trip.getItinerary().getActivities()[0].getImg());
 //        Image image1 = new Image(imageInput1);
@@ -147,4 +145,5 @@ public class ItineraryController {
         stage.setScene(scene);
         stage.show();
     }
+
 }
