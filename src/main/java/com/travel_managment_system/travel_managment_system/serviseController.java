@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class serviseController implements Initializable {
+public class serviseController implements Initializable ,Loadfxml {
     @FXML
     private Label Alertmsg;
 
@@ -77,12 +77,7 @@ public class serviseController implements Initializable {
         alert.setContentText("Are you sure you want to logout?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+           lodafxmlfile("hello-view.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
 
@@ -91,46 +86,27 @@ public class serviseController implements Initializable {
 
     public void HomeClicked(ActionEvent event) throws IOException {
         System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+       lodafxmlfile("CHomepage.fxml");
         HotelAnchor.getScene().getWindow().hide();
     }
 
     public void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        //profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Cprofile.fxml");
         HotelAnchor.getScene().getWindow().hide();
         //profile.initialize();
 
     }
 
     public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+        lodafxmlfile("CMyTrips.fxml");
         HotelAnchor.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
 
     }
     public void Next1() throws IOException {
         if(roomtype.getValue()==null){
             Alertmsg.setVisible(true);
         } else {
-            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
-            //profile profile=new profile();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
 
@@ -139,12 +115,7 @@ public class serviseController implements Initializable {
         if(roomtype2.getValue()==null){
             Alertmsg1.setVisible(true);
         } else {
-            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
-            //profile profile=new profile();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+           lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
 
@@ -153,12 +124,7 @@ public class serviseController implements Initializable {
         if(roomtype3.getValue()==null){
             Alertmsg2.setVisible(true);
         } else {
-            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
-            //profile profile=new profile();
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
 

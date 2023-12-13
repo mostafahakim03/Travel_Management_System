@@ -3,7 +3,7 @@ package com.travel_managment_system.travel_managment_system;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class TicketController {
+public class TicketController implements Loadfxml{
     @FXML
     private Label tripName;
     @FXML

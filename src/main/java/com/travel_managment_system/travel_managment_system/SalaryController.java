@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class SalaryController implements Initializable {
+public class SalaryController implements Initializable ,Loadfxml {
 
     private LocalDate thisDate=LocalDate.now();
     private int thisMonth=thisDate.getMonthValue();
@@ -152,33 +152,21 @@ public class SalaryController implements Initializable {
 
 
     public void HomeClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("THomepage.fxml");
         SalaryAnchor.getScene().getWindow().hide();
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile profile = new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Tprofile.fxml");
         SalaryAnchor.getScene().getWindow().hide();
+        profile profile = new profile();
         profile.initialize();
 
     }
 
     public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TTrips.fxml"));
+        lodafxmlfile("TTrips.fxml");
         SalaryAnchor.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void salaryClicked(ActionEvent event) {
@@ -195,11 +183,7 @@ public class SalaryController implements Initializable {
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("hello-view.fxml");
             SalaryAnchor.getScene().getWindow().hide();
         }
     }

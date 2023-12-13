@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class PaymentController {
+public class PaymentController implements Loadfxml {
     @FXML
     private AnchorPane paymentAnchor;
     @FXML
@@ -28,31 +28,18 @@ public class PaymentController {
         alert.setContentText("Are you sure you want to logout?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("hello-view.fxml");
             paymentAnchor.getScene().getWindow().hide();
             }
     }
         public void HomeClicked(ActionEvent event) throws IOException {
             System.out.println("Going home!");
-            Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("CHomepage.fxml");
             paymentAnchor.getScene().getWindow().hide();
         }
 
         public void TProfileClicked(ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(getClass().getResource("CMyProfile.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("CMyProfile.fxml");
             paymentAnchor.getScene().getWindow().hide();
 
         }
@@ -63,13 +50,10 @@ public class PaymentController {
             paymentAnchor.getScene().getWindow().hide();
         }
         else {
-            root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+           lodafxmlfile("CMyTrips.fxml");
             paymentAnchor.getScene().getWindow().hide();
         }
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+
 
     }
 

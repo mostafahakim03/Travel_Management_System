@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class BusController implements Initializable {
+public class BusController implements Initializable , Loadfxml{
     @FXML
     private AnchorPane BusAnchor;
     @FXML
@@ -38,12 +38,8 @@ public class BusController implements Initializable {
     }
 
     public void trip_busSwitch() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Bus.fxml"));
+        lodafxmlfile("Bus.fxml");
         numberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -55,46 +51,26 @@ public class BusController implements Initializable {
         alert.setContentText("Are you sure you want to logout?");
 
         if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+           lodafxmlfile("hello-view.fxml");
             BusAnchor.getScene().getWindow().hide();
         }
     }
     public void HomeClicked(ActionEvent event) throws IOException {
         System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+       lodafxmlfile("CHomepage.fxml");
         BusAnchor.getScene().getWindow().hide();
     }
 
     public void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        //profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Cprofile.fxml");
         BusAnchor.getScene().getWindow().hide();
         //profile.initialize();
 
     }
 
     public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+        lodafxmlfile("CMyTrips.fxml");
         BusAnchor.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -119,12 +95,7 @@ public class BusController implements Initializable {
         }
 }
     public void BNext() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("servise.fxml"));
-        //profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("servise.fxml");
         BusAnchor.getScene().getWindow().hide();
 
     }

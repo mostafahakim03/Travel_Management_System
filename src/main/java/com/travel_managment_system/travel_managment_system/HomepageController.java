@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 
-public class HomepageController {
+public class HomepageController implements Loadfxml{
     @FXML
     public AnchorPane THomepageAnchor;
     @FXML
@@ -48,11 +48,7 @@ public class HomepageController {
     public void thomepage() throws IOException {
         HomepageController homepage = new HomepageController();
         homepage.displayTrips();
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("THomepage.fxml");
 
     }
 
@@ -223,11 +219,7 @@ public class HomepageController {
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+           lodafxmlfile("hello-view.fxml");
             if (TourGuide.isTourGuide) {
                 THomepageAnchor.getScene().getWindow().hide();
             } else {
@@ -237,13 +229,9 @@ public class HomepageController {
     }
 
     public void salaryClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TSalary.fxml"));
-        profile profile = new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+     lodafxmlfile("TSalary.fxml");
         THomepageAnchor.getScene().getWindow().hide();
+        profile profile = new profile();
         profile.initialize();
     }
 
@@ -252,25 +240,17 @@ public class HomepageController {
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile profile = new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Tprofile.fxml");
         THomepageAnchor.getScene().getWindow().hide();
+        profile profile = new profile();
         profile.initialize();
 
     }
 
     public void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        Cprofile Cprofile = new Cprofile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+       lodafxmlfile("Cprofile.fxml");
         CHomepageAnchor.getScene().getWindow().hide();
+        Cprofile Cprofile = new Cprofile();
         Cprofile.initialize();
 
     }

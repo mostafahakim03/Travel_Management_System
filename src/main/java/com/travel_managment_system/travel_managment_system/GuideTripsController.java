@@ -24,7 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GuideTripsController {
+public class GuideTripsController implements Loadfxml{
     @FXML
     private Button MyTripsButton;
     @FXML
@@ -45,33 +45,21 @@ public class GuideTripsController {
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+           lodafxmlfile("hello-view.fxml");
             TripsAnchor.getScene().getWindow().hide();
 
         }
     }
 
     public void HomeClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("THomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("THomepage.fxml");
         TripsAnchor.getScene().getWindow().hide();
     }
 
     public void TProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Tprofile.fxml"));
-        profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Tprofile.fxml");
         TripsAnchor.getScene().getWindow().hide();
+        profile profile=new profile();
         profile.initialize();
     }
     public void salaryClicked(ActionEvent event) throws IOException {
