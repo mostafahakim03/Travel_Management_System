@@ -24,6 +24,8 @@ public class TripController implements Initializable ,Loadfxml{
     @FXML
     public Label locationLabel;
     @FXML
+    public Label checkLabel;
+    @FXML
     private Button BookingButton;
     @FXML
     private Label ChoiceLabel;
@@ -123,15 +125,28 @@ public class TripController implements Initializable ,Loadfxml{
 
     public void Booking(ActionEvent actionEvent) throws IOException {
 
-        int numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
-        System.out.println(numbersOfTicketsInputs.getText());
-        System.out.println(numbersOfTickets);
+        int numbersOfTickets = 0;
+        try {
+            numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
+            System.out.println(numbersOfTicketsInputs.getText());
+        }
+        catch (NumberFormatException e)
+        {
+            System.out.println(e);
+        }
+
+        String packageType = String.valueOf(packageTypeChoice.getValue());
 
         if (tripTypeLabel.getText().toLowerCase().equals("family") && numbersOfTickets < 3){
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
         }
         else if (tripTypeLabel.getText().toLowerCase().equals("couple") && numbersOfTickets % 2 != 0){
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
+        }
+        else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
+//            PackageMessageLabel.setText("You must choose Package");
+//            NoOfTicketsMessageLabel1.setText("You must choose at least 1 ticket");
+            checkLabel.setVisible(true);
         }
         else {
             NoOfTicketsMessageLabel1.setText("");

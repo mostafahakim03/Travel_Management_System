@@ -1,5 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -98,5 +100,7 @@ public class CarController implements Initializable ,Loadfxml{
         lodafxmlfile("Intinerary.fxml");
         CarAnchor.getScene().getWindow().hide();
 
+        ItineraryController itineraryController = new ItineraryController();
+        itineraryController.initialize();
     }
 }
