@@ -146,7 +146,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button fx:id="NextPageButton" layoutX="476.0" layoutY="616.0" mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="-fx-border-radius" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="616.0">
+      <Button fx:id="NextPageButton" layoutX="476.0" layoutY="616.0" mnemonicParsing="false" onAction="#NextButtonPressed" style="-fx-background-color: #ffae00; -fx-background-radius: 20px; -fx-border-radius: 20px;" styleClass="-fx-border-radius" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.topAnchor="616.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

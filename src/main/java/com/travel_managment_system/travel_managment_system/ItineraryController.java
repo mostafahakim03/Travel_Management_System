@@ -88,9 +88,14 @@ public class ItineraryController{
 
     }
 
-    public void  NextButtonPressed(){
+    public void  NextButtonPressed() throws IOException {
 
-
+        Parent root = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        Itinerary.getScene().getWindow().hide();
 
     }
 

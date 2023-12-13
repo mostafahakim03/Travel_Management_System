@@ -37,17 +37,16 @@ public class PaymentController {
             paymentAnchor.getScene().getWindow().hide();
             }
     }
-        public void HomeClicked(ActionEvent event) throws IOException {
-            System.out.println("Going home!");
-            Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            paymentAnchor.getScene().getWindow().hide();
-        }
-
-        public void TProfileClicked(ActionEvent event) throws IOException {
+    public void HomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        paymentAnchor.getScene().getWindow().hide();
+    }
+    public void TProfileClicked(ActionEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("CMyProfile.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
@@ -73,7 +72,18 @@ public class PaymentController {
 
     }
 
+    public void SubmitButton() throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("TicketScene.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        paymentAnchor.getScene().getWindow().hide();
     }
+
+}
 
 
 
