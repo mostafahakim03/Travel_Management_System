@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -22,11 +19,18 @@ public class BusController implements Initializable {
     @FXML
     private AnchorPane BusAnchor;
     @FXML
+    private AnchorPane AddAnchor;
+    @FXML
     private Label BusNumber;
+    @FXML
+    private Button Nextbtn;
+    @FXML
+    private Label alertText;
     @FXML
     private ComboBox<Integer> Select_seat= new ComboBox<>();
     public Integer[] Myseat = new Integer[50];
     public int numberOfSeats;
+    public int BnumberOfSeats;
     public void FillArr(){
         for(int i=0;i<50;i++){
             Myseat[i]= i+1;
@@ -94,8 +98,34 @@ public class BusController implements Initializable {
     }
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
+        Select_seat.getItems().clear();
         FillArr();
         Select_seat.getItems().addAll(Myseat);
+        BnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
     }
+    public void addSeatNumber() {
+        if(Select_seat.getValue()==null)
+        {
+            alertText.setVisible(true);
+        }
+        else {
+            Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
+            System.out.println(BnumberOfSeats);
+            BnumberOfSeats--;
+            if(BnumberOfSeats==0){
+                AddAnchor.setVisible(false);
+                Nextbtn.setVisible(true);
+            }
+        }
+}
+    public void BNext() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("servise.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        BusAnchor.getScene().getWindow().hide();
 
+    }
 }

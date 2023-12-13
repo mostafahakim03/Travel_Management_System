@@ -7,9 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -21,15 +19,37 @@ import java.util.ResourceBundle;
 
 public class serviseController implements Initializable {
     @FXML
+    private Label Alertmsg;
+
+    @FXML
+    private Label Alertmsg1;
+
+    @FXML
+    private Label Alertmsg2;
+
+    @FXML
+    private Button HomeButton;
+
+    @FXML
     private AnchorPane HotelAnchor;
+
+    @FXML
+    private ImageView LuxorHotel;
+
+    @FXML
+    private ImageView LuxorHotel1;
+
+    @FXML
+    private ImageView LuxorHotel11;
+
     @FXML
     private ChoiceBox<String> roomtype;
 
     @FXML
-    private ChoiceBox<String> roomtype1;
+    private ChoiceBox<String> roomtype2;
 
     @FXML
-    private ChoiceBox<String> roomtype11;
+    private ChoiceBox<String> roomtype3;
     private String []roomtypes={"Single","Couple","Triple"};
 
 //private ImageView myimage;
@@ -38,8 +58,8 @@ public class serviseController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roomtype.getItems().addAll(roomtypes);
-        roomtype1.getItems().addAll(roomtypes);
-        roomtype11.getItems().addAll(roomtypes);
+        roomtype2.getItems().addAll(roomtypes);
+        roomtype3.getItems().addAll(roomtypes);
 
     }
 
@@ -99,6 +119,48 @@ public class serviseController implements Initializable {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+
+    }
+    public void Next1() throws IOException {
+        if(roomtype.getValue()==null){
+            Alertmsg.setVisible(true);
+        } else {
+            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
+            //profile profile=new profile();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            HotelAnchor.getScene().getWindow().hide();
+        }
+
+    }
+    public void Next2() throws IOException {
+        if(roomtype2.getValue()==null){
+            Alertmsg1.setVisible(true);
+        } else {
+            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
+            //profile profile=new profile();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            HotelAnchor.getScene().getWindow().hide();
+        }
+
+    }
+    public void Next3() throws IOException {
+        if(roomtype3.getValue()==null){
+            Alertmsg2.setVisible(true);
+        } else {
+            Parent root = FXMLLoader.load(getClass().getResource("Car.fxml"));
+            //profile profile=new profile();
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.show();
+            HotelAnchor.getScene().getWindow().hide();
+        }
 
     }
 }

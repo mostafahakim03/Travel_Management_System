@@ -24,26 +24,40 @@
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="40.0" layoutY="298.0" prefHeight="51.0" prefWidth="230.0" text="Enter your seat number :" textFill="#ffae00">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Button layoutX="556.0" layoutY="319.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="110.0" style="-fx-background-color: #ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
       <Label fx:id="BusNumber" layoutX="83.0" layoutY="125.0">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <ComboBox fx:id="Select_seat" layoutX="296.0" layoutY="308.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="126.0" promptText="Seat Number" style="-fx-background-radius: 45; -fx-border-color: #ffae00; -fx-border-radius: 45;" />
       <ImageView fitHeight="227.0" fitWidth="361.0" layoutX="277.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@R.png" />
          </image>
       </ImageView>
+      <Button fx:id="Nextbtn" layoutX="564.0" layoutY="339.0" mnemonicParsing="false" onAction="#BNext" prefHeight="42.0" prefWidth="101.0" style="-fx-background-color: #ffae00; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="AddAnchor" layoutX="28.0" layoutY="297.0" prefHeight="84.0" prefWidth="579.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="51.0" prefWidth="230.0" text="Enter your seat number :" textFill="#ffae00">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="Select_seat" layoutX="230.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="126.0" promptText="Seat Number" style="-fx-background-radius: 45; -fx-border-color: #ffae00; -fx-border-radius: 45;" />
+            <Button alignment="CENTER" layoutX="403.0" layoutY="10.0" mnemonicParsing="false" onAction="#addSeatNumber" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #ffae00; -fx-background-radius: 45;" text="Add" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="alertText" alignment="CENTER" layoutX="14.0" layoutY="50.0" prefHeight="22.0" prefWidth="241.0" text="You must select your seat number" visible="false">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

@@ -28,6 +28,8 @@ public class FlightController implements Initializable {
     @FXML
     private AnchorPane AddAnchor;
     @FXML
+    private Button Nextbtn;
+    @FXML
     private ImageView Flightview;
 //    @FXML
 //    private ChoiceBox<Integer> Select_seat;
@@ -127,8 +129,20 @@ public class FlightController implements Initializable {
             FnumberOfSeats--;
             if(FnumberOfSeats==0){
                 AddAnchor.setVisible(false);
+                Nextbtn.setVisible(true);
+
             }
         }
+    }
+    public void Next() throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("servise.fxml"));
+        //profile profile=new profile();
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
+        FlightAnchor.getScene().getWindow().hide();
+
     }
 }
 
