@@ -24,13 +24,13 @@ public class Ticket {
 
     public Ticket(String user_name, int seat_num, int trip_id, double ticket_price, Date booking_date, String ticket_type, String board_Type) {
         this.user_name = user_name;
-//        this.seat_num=seat_num;
         this.trip_id = trip_id;
         this.ticket_price = ticket_price;
         this.booking_date = booking_date;
-        this.ticket_type = ticket_type;
+//        this.ticket_type = ticket_type;
         numberOfTickets++;
         TicketID=numberOfTickets;
+//        this.seat_num=seat_num;
 //        this.board_Type=board_Type;
 //        System.arraycopy(activities, 0, this.activities, 0, 4);
 

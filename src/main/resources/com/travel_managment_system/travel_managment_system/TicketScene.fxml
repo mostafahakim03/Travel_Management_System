@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
@@ -11,25 +14,32 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="291.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.TicketController">
+<AnchorPane fx:id="TicketAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="411.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.TicketController">
    <children>
-      <ImageView fitHeight="473.0" fitWidth="753.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ToolBar layoutX="-8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="762.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+         <items>
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" textFill="WHITE" />
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" textFill="WHITE" />
+         </items>
+      </ToolBar>
+      <ImageView fitHeight="291.0" fitWidth="751.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../../../OneDrive/Pictures/Saved%20Pictures/ticketimage.jpg" />
+            <Image url="@./ticketimage.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="19.0" layoutY="23.0" prefHeight="237.0" prefWidth="90.0" rotate="-178.0" text="ticketId">
+      <Label fx:id="ticketIDLabel" alignment="CENTER" layoutX="8.0" layoutY="172.0" prefHeight="43.0" prefWidth="130.0" rotate="-90.8" text="ticketId">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Label fx:id="tripName" alignment="CENTER" layoutX="299.0" layoutY="47.0" prefHeight="63.0" prefWidth="268.0" text="Trip Name">
+      <Label fx:id="tripNameLabel" alignment="CENTER" layoutX="299.0" layoutY="110.0" prefHeight="63.0" prefWidth="268.0" text="Trip Name">
          <font>
             <Font name="System Bold Italic" size="25.0" />
          </font>
       </Label>
-      <Separator layoutX="187.0" layoutY="97.0" prefHeight="2.0" prefWidth="494.0">
+      <Separator layoutX="187.0" layoutY="160.0" prefHeight="2.0" prefWidth="494.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -45,12 +55,12 @@
             </Lighting>
          </effect>
       </Separator>
-      <Label fx:id="username" layoutX="187.0" layoutY="100.0" prefHeight="43.0" prefWidth="102.0" text="username">
+      <Label layoutX="187.0" layoutY="163.0" prefHeight="43.0" prefWidth="102.0" text="username">
          <font>
             <Font name="System Bold Italic" size="19.0" />
          </font>
       </Label>
-      <Separator layoutX="187.0" layoutY="141.0" prefHeight="2.0" prefWidth="494.0">
+      <Separator layoutX="187.0" layoutY="204.0" prefHeight="2.0" prefWidth="494.0">
          <effect>
             <Lighting>
                <bumpInput>
@@ -66,41 +76,51 @@
             </Lighting>
          </effect>
       </Separator>
-      <Label fx:id="tripPrice" layoutX="522.0" layoutY="107.0" prefHeight="29.0" prefWidth="90.0" text="Trip price">
+      <Label layoutX="522.0" layoutY="170.0" prefHeight="29.0" prefWidth="90.0" text="Trip price">
          <font>
             <Font name="Calibri Bold Italic" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="tripDate" alignment="CENTER" layoutX="197.0" layoutY="153.0" prefHeight="29.0" prefWidth="78.0" text="DATE">
+      <Label alignment="CENTER" layoutX="197.0" layoutY="216.0" prefHeight="29.0" prefWidth="78.0" text="DATE">
          <font>
             <Font name="Ebrima Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="178.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripDate">
+      <Label fx:id="tripDateLabel" alignment="CENTER" layoutX="178.0" layoutY="245.0" prefHeight="43.0" prefWidth="119.0" text="tripDate">
          <font>
             <Font name="Candara Bold" size="17.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="376.0" layoutY="153.0" prefHeight="29.0" prefWidth="78.0" text="TIME">
+      <Label alignment="CENTER" layoutX="376.0" layoutY="216.0" prefHeight="29.0" prefWidth="78.0" text="Type">
          <font>
             <Font name="Ebrima Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="355.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripTime">
+      <Label fx:id="tripTypeLabel" alignment="CENTER" layoutX="355.0" layoutY="245.0" prefHeight="43.0" prefWidth="119.0" text="tripType">
          <font>
             <Font name="Candara Bold" size="17.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="522.0" layoutY="150.0" prefHeight="36.0" prefWidth="119.0" text="LOCATION">
+      <Label alignment="CENTER" layoutX="522.0" layoutY="213.0" prefHeight="36.0" prefWidth="119.0" text="LOCATION">
          <font>
             <Font name="Ebrima Bold" size="21.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="522.0" layoutY="182.0" prefHeight="43.0" prefWidth="119.0" text="tripLocation">
+      <Label fx:id="tripLocation" alignment="CENTER" layoutX="522.0" layoutY="245.0" prefHeight="43.0" prefWidth="119.0" text="tripLocation">
          <font>
             <Font name="Candara Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="606.0" layoutY="113.0" />
+      <Label layoutX="606.0" layoutY="176.0" />
+      <Label fx:id="userLabel" layoutX="341.0" layoutY="176.0" text="Label" />
+      <Label fx:id="priceLabel" layoutX="606.0" layoutY="177.0" text="Label" />
+      <Button fx:id="confirmButton" alignment="CENTER" layoutX="341.0" layoutY="359.0" mnemonicParsing="false" style="-fx-background-color: #ffae00; -fx-background-radius: 15px; -fx-border-radius: 15px;" text="Confirm" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
