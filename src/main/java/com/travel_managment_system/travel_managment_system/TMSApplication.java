@@ -1,4 +1,5 @@
 package com.travel_managment_system.travel_managment_system;
+import com.travel_managment_system.travel_managment_system.Files.Files;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import com.travel_managment_system.travel_managment_system.User.Customer.CarCompany;
@@ -28,7 +29,10 @@ public class TMSApplication extends Application {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+       // Files.Read_Tourguide();
         launch();
+
+    //    Files.Write_Tourguide();
     }
 }

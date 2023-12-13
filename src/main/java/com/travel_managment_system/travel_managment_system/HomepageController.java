@@ -31,7 +31,7 @@ public class HomepageController implements Loadfxml{
     @FXML
     public AnchorPane THomepageAnchor;
     @FXML
-    public AnchorPane CHomepageAnchor;
+    public AnchorPane CHomepageAnchor=new AnchorPane();
     @FXML
     private AnchorPane NotificationPane;
 

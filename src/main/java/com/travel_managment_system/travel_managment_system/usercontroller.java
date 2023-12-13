@@ -23,6 +23,8 @@ public class usercontroller {
     @FXML
     private Label CErrorMessage;
     @FXML
+    private Label errorlog;
+    @FXML
     private Button btn1;
     @FXML
     private AnchorPane signup_anch;
@@ -54,7 +56,7 @@ public class usercontroller {
     private TextField CphoneText;
 
     @FXML
-    private AnchorPane Csign;
+    private AnchorPane Csign=new AnchorPane();
     @FXML
     private TextField LoginUsertext;
     @FXML
@@ -164,9 +166,57 @@ public class usercontroller {
             aHomepage.showAhome();
 
 
+        } else if (LoginRadioTour.isSelected()) {
+            for (TourGuide tourguide : TourGuide.TourguideAcc) {
+
+                if (tourguide.getUsername().equals(LoginUsertext.getText())) {
+                      if (tourguide.getPass().equals(LoginPasstext.getText())){
+                          HomepageController homepage=new HomepageController();
+                          homepage.thomepage();
+                          TourGuide.selectedTourGuide=tourguide;
+                          LoginRadioCustomer.getScene().getWindow().hide();
+                          break;
+                          
+                      }
+                      else {
+                            errorlog.setText("Wrong Password");
+                      }
+
+                }
+                else errorlog.setText("Username Not Exist");
+
+
+            }
+        }
+
+        else if (LoginRadioCustomer.isSelected()) {
+            for (Customer customer : Customer.CoustomerAcc) {
+
+                if (customer.getUsername().equals(LoginUsertext.getText())) {
+                    if (customer.getPass().equals(LoginPasstext.getText())){
+
+                       Chomepage();
+                        Customer.selectedCustomer=customer;
+                        LoginRadioCustomer.getScene().getWindow().hide();
+                        break;
+
+                    }
+                    else {
+                        errorlog.setText("Wrong Password");
+                    }
+
+                }
+                else errorlog.setText("Username Not Exist");
+
+
+            }
+        }
+        else {
+           errorlog.setText("Please Check Tourguide or Customer");
         }
         /////////////////
 
 
     }
+
 }
