@@ -125,38 +125,41 @@ public class HomepageController {
 
         });
         assignTrip.setOnAction(event -> {
-            for (TourGuide tourguide : TourGuide.TourguideAcc) {
-                if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
 
-                    if (tourguide.getAssignedTrips().contains(trip)) {
-                        NotificationLabel.setText("You are already assigned to this trip.");
-                        NotificationPane.setVisible(true);
-                        ShortCutButton.setDisable(false);
-                        break;
-                    } else {
-                        boolean tripClashes = tourguide.getAssignedTrips().stream()
-                                .anyMatch(assignedTrip -> assignedTrip.getStartDate().equals(trip.getStartDate()));
+                    Boolean tripClashes = false;
 
-                        if (tripClashes) {
-                            NotificationLabel.setText("You cannot assign to two trips at the same time.");
-                            NotificationPane.setVisible(true);
-                            ShortCutButton.setDisable(false);
-                            break;
-                        } else {
-                            tourguide.FillAssignedTrips(trip);
-                            trip.FillAssignedTourGuides(tourguide);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Trip");
+                    alert.setHeaderText("Trip cannot be added");
+                    alert.show();
 
-                            trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
+                    for (Trip trips : TourGuide.selectedTourGuide.getAssignedTrips()) {
+                        if ((trip.getStartDate().isAfter(trips.getStartDate()) && trip.getStartDate().isBefore(trips.getEndDate())) || (trip.getEndDate().isAfter(trips.getStartDate()) && trip.getEndDate().isBefore(trips.getEndDate()))) {
+                            tripClashes = true;
 
-                            NotificationLabel.setText("Trip was successfully assigned.");
-                            NotificationPane.setVisible(true);
-                            ShortCutButton.setDisable(false);
-                            break;
                         }
                     }
-                }
-            }
-        });
+                    if (TourGuide.selectedTourGuide.getAssignedTrips().contains(trip)) {
+                        alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
+
+                    } else if (tripClashes) {
+                        alert.setContentText("You have time clash between this trip and another.");
+
+                    } else {
+                        for (TourGuide tourguide : TourGuide.TourguideAcc) {
+                            if (tourguide.getGuideID().equals(TourGuide.selectedTourGuide.getGuideID())) {
+                                tourguide.FillAssignedTrips(trip);
+
+                                trip.FillAssignedTourGuides(tourguide);
+                                trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
+
+                                alert.setHeaderText("Trip added");
+                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
+                                break;
+                            }
+                        }
+                    }
+                });
 
         styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
@@ -168,9 +171,15 @@ public class HomepageController {
         }
 
 
-        stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
-        detailsBox.getChildren().addAll(tripName, location, tripID, tripType, tripSD, tripED);
-        tripBox.getChildren().addAll(stylingBox);
+        stylingBox.getChildren().
+
+                addAll(tripImage, detailsBox, finalBox);
+        detailsBox.getChildren().
+
+                addAll(tripName, location, tripID, tripType, tripSD, tripED);
+        tripBox.getChildren().
+
+                addAll(stylingBox);
 
         return tripBox;
     }
@@ -226,9 +235,10 @@ public class HomepageController {
             }
         }
     }
+
     public void salaryClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("TSalary.fxml"));
-        profile profile=new profile();
+        profile profile = new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
@@ -236,6 +246,7 @@ public class HomepageController {
         THomepageAnchor.getScene().getWindow().hide();
         profile.initialize();
     }
+
     public void HomeClicked(ActionEvent event) throws IOException {
         HomeButton.setDisable(true);
     }
@@ -254,7 +265,7 @@ public class HomepageController {
 
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        Cprofile Cprofile =new Cprofile();
+        Cprofile Cprofile = new Cprofile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
