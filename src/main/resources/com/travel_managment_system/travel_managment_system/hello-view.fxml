@@ -37,7 +37,7 @@
             <Font name="Brush Script MT Italic" size="72.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="signup_anch" layoutX="87.0" layoutY="217.0" prefHeight="98.0" prefWidth="267.0">
+      <AnchorPane fx:id="signup_anch" layoutX="87.0" layoutY="217.0" prefHeight="98.0" prefWidth="267.0" visible="false">
          <children>
             <Button fx:id="sign_tour1" layoutX="22.0" layoutY="36.0" mnemonicParsing="false" onAction="#sign_tour" prefHeight="26.0" prefWidth="89.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Tourguide">
                <font>
