@@ -21,31 +21,22 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CarController implements Initializable {
-
     @FXML
     private ImageView Car1;
-
     @FXML
     private ImageView Car2;
-
     @FXML
     private ImageView Car3;
-
     @FXML
     private AnchorPane CarAnchor;
-
     @FXML
     private AnchorPane CarAnchor1;
-
     @FXML
     private Button HomeButton;
-
     @FXML
     private ChoiceBox<Integer> numOfDays = new ChoiceBox<>();
-
     @FXML
     private ChoiceBox<Integer> numOfDays1 = new ChoiceBox<>();
-
     @FXML
     private ChoiceBox<Integer> numOfDays2 =new ChoiceBox<>();
     public Integer[] NumOfRentalDays = new Integer[3];
@@ -54,8 +45,6 @@ public class CarController implements Initializable {
             NumOfRentalDays[i]= i+1;
         }
     }
-
-
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
         //alert code
@@ -93,11 +82,6 @@ public class CarController implements Initializable {
         stage.show();
 
     }
-
-
-
-
-
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
         //profile profile=new profile();
@@ -109,7 +93,6 @@ public class CarController implements Initializable {
         //profile.initialize();
 
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FillArr();
@@ -119,13 +102,11 @@ public class CarController implements Initializable {
     }
     public void Next() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Intinerary.fxml"));
-        //profile profile=new profile();
         Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         CarAnchor.getScene().getWindow().hide();
-
         ItineraryController itineraryController = new ItineraryController();
         itineraryController.initialize();
     }

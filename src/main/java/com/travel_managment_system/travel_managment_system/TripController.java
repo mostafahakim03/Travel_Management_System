@@ -81,10 +81,13 @@ public class TripController implements Initializable {
         ChoiceLabel.setText("You chose : " + packageType);
         if (packageType.equals("Silver")) {
             PackageMessageLabel.setText("The trip contains only the transportation and half-board");
+            Trip.selectedTrip.setPackageType(packageType);
         } else if (packageType.equals("Golden")) {
             PackageMessageLabel.setText("The trip contains the transportation and full-board");
+            Trip.selectedTrip.setPackageType(packageType);
         } else if (packageType.equals("Platinum")) {
             PackageMessageLabel.setText("The trip contains the transportation, full-board and activities");
+            Trip.selectedTrip.setPackageType(packageType);
         }
 
     }
@@ -167,6 +170,7 @@ public class TripController implements Initializable {
             checkLabel.setVisible(true);
         }
         else {
+//            Trip.selectedTrip.setPackageType(packageType);
             NoOfTicketsMessageLabel1.setText("");
             Ticket.selectedTicket=new Ticket();
             Ticket.selectedTicket.numberOfReservedTickets=numbersOfTickets;
