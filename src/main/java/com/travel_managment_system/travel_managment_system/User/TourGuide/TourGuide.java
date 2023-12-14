@@ -3,15 +3,16 @@ package com.travel_managment_system.travel_managment_system.User.TourGuide;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class TourGuide extends User {
-    protected boolean Availibility;
+public class TourGuide extends User implements Serializable {
+    protected boolean Availibility =true;
     protected String GuideID;
     protected Double Salary;
     public static ArrayList<Integer> newidAcc = new ArrayList<Integer>();
 
-    public static ArrayList<TourGuide> TourguideAcc = new ArrayList<TourGuide>();
+    public static ArrayList<TourGuide> TourguideAcc = new ArrayList<>();
     public static TourGuide selectedTourGuide;
     private ArrayList<Trip> AssignedTrips=new ArrayList<>();
 

@@ -16,16 +16,15 @@ public class Atourcontrol {
     private Label Tage;
 
     @FXML
-    private Label Tid,Tname,Tpas,Tphone,Tuser;
+    private Label Tid,Tname,Tpas,Tphone,Tuser,TAssingnedTrips;
 
 
     @FXML
-    private AnchorPane deleteANCH,editANCH;
+    private AnchorPane deleteANCH,editANCH,Available,NOTavailale;
     @FXML
     private Pane ParentANCH;
     @FXML
-    private TextField Tour_IDEdit,Tour_USEREdit,Tour_PASSEdit,Tour_PHONEEdit,Tour_NameEdit,Tour_AgeEdit;
-
+    private TextField Tour_IDEdit,Tour_USEREdit,Tour_PASSEdit,Tour_PHONEEdit,Tour_AgeEdit;
 
 
     public void setdata(TourGuide tourGuide){
@@ -35,14 +34,17 @@ public class Atourcontrol {
         Tphone.setText(tourGuide.getPhone());
         Tage.setText(tourGuide.getAge());
         Tid.setText(tourGuide.getGuideID());
+        TAssingnedTrips.setText(String.valueOf(tourGuide.getAssignedTrips().size()));
+        if(tourGuide.isAvailibility())Available.setVisible(true);
+        else NOTavailale.setVisible(true);
     }
 
     @FXML
     void editTour(ActionEvent event) {
         Tname.setVisible(false);Tid.setVisible(false);Tuser.setVisible(false);
         Tage.setVisible(false);Tphone.setVisible(false);Tpas.setVisible(false);
-        Tour_IDEdit.setVisible(true);Tour_PASSEdit.setVisible(true);Tour_PHONEEdit.setVisible(true);Tour_USEREdit.setVisible(true);Tour_NameEdit.setVisible(true);Tour_AgeEdit.setVisible(true);
-        Tour_IDEdit.setText(Tid.getText());Tour_PASSEdit.setText(Tpas.getText());Tour_PHONEEdit.setText(Tphone.getText());Tour_USEREdit.setText(Tuser.getText());Tour_NameEdit.setText(Tname.getText());Tour_AgeEdit.setText(Tage.getText());
+        Tour_IDEdit.setVisible(true);Tour_PASSEdit.setVisible(true);Tour_PHONEEdit.setVisible(true);Tour_USEREdit.setVisible(true);Tour_AgeEdit.setVisible(true);
+        Tour_IDEdit.setText(Tid.getText());Tour_PASSEdit.setText(Tpas.getText());Tour_PHONEEdit.setText(Tphone.getText());Tour_USEREdit.setText(Tuser.getText());Tour_AgeEdit.setText(Tage.getText());
         editANCH.setVisible(true);
     }
     @FXML
@@ -64,7 +66,7 @@ public class Atourcontrol {
 
         }
 
-        Tour_IDEdit.setVisible(false);Tour_PASSEdit.setVisible(false);Tour_PHONEEdit.setVisible(false);Tour_USEREdit.setVisible(false);Tour_NameEdit.setVisible(false);Tour_AgeEdit.setVisible(false);
+        Tour_IDEdit.setVisible(false);Tour_PASSEdit.setVisible(false);Tour_PHONEEdit.setVisible(false);Tour_USEREdit.setVisible(false);Tour_AgeEdit.setVisible(false);
         Tname.setVisible(true);Tid.setVisible(true);Tuser.setVisible(true);
         Tage.setVisible(true);Tphone.setVisible(true);Tpas.setVisible(true);
 
@@ -77,7 +79,6 @@ public class Atourcontrol {
         Tour_PASSEdit.setVisible(false);
         Tour_PHONEEdit.setVisible(false);
         Tour_USEREdit.setVisible(false);
-        Tour_NameEdit.setVisible(false);
         Tour_AgeEdit.setVisible(false);
         Tname.setVisible(true);
         Tid.setVisible(true);

@@ -3,6 +3,7 @@ package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,33 +27,71 @@ import java.time.LocalDate;
 
 public class AHomepage {
     @FXML
-    private DatePicker TendDate,TstartDate;
+    private DatePicker TendDate, TstartDate;
 
     @FXML
-    private TextField TidText,TnameText,TpayText,TpriceText;
+    private TextField TidText, TnameText, TpayText, TpriceText;
 
     @FXML
-    private ComboBox<String> TLocText=new ComboBox<String>(),TtypeText=new ComboBox<String>();
+    private ComboBox<String> TLocText = new ComboBox<String>(), TtypeText = new ComboBox<String>();
     @FXML
-    private AnchorPane ATripAnch,newTripForm,allTrips;
-
-
-    public static Boolean Refresh=false;
+    private AnchorPane ATripAnch, newTripForm, allTrips, ATourPage = new AnchorPane(), AddnewTOUR = new AnchorPane();
+    @FXML
+    private TextField TaadidText;
 
     @FXML
-    private VBox TouVbox=new VBox(),TripVbox;
+    private TextField TaddUserText;
+
+    @FXML
+    private TextField TaddageText;
+
+    @FXML
+    private TextField TaddnameText;
+
+    @FXML
+    private TextField TaddpassText;
+
+    @FXML
+    private TextField TaddphoneText;
+
+    public static Boolean Refresh = false;
+
+    @FXML
+    private VBox TouVbox = new VBox(), TripVbox;
     @FXML
     private Button ATourBTN;
     @FXML
-    public AnchorPane TOURPAne=new AnchorPane();
-    Boolean TourView= false;
+    public AnchorPane TOURPAne = new AnchorPane();
     @FXML
-    private Label ErrorAddtrip;
+    private AnchorPane AddActiveties;
+
+    @FXML
+    private Spinner<Integer> SpinnerEndHour;
+
+    @FXML
+    private Spinner<Integer> SpinnerEndMin;
+
+    @FXML
+    private Spinner<Integer> SpinnerStartHour;
+
+    @FXML
+    private Spinner<Integer> SpinnerStartMin;
+
+    @FXML
+    private AnchorPane DashAnch,Dashview,ActivetiesView;
+    Boolean TourView = false;
+    @FXML
+    private Label ErrorAddtrip, ErrorAddTour;
 
     @FXML
     private ImageView Tripphoto;
-    String imageSrc ;
-
+    String imageSrc;
+    @FXML
+    private Pane Admin_Page;
+    @FXML
+    private ComboBox<String> EndTimeCompo;
+    @FXML
+    private ComboBox<String> StartTimeCompo;
 
 
     public void showAhome() throws IOException {
@@ -60,31 +100,96 @@ public class AHomepage {
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
+      TourGuide.newidAcc.add(78);
+
+
+
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.seconds(3));
+        fadeTransition.setNode(Admin_Page);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+
+    }
+
+    @FXML
+    void Dashview(ActionEvent event) {
+      ATourPage.setVisible(false);
+      ATripAnch.setVisible(false);
+      DashAnch.setVisible(true);
+    }
+    @FXML
+    void Addactivtie(ActionEvent event) {
+        AddActiveties.setVisible(true);
+        SpinnerValueFactory<Integer>StartHour=new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12);StartHour.setValue(1);
+   SpinnerStartHour.setValueFactory(StartHour);
+        SpinnerValueFactory<Integer>EndHour=new SpinnerValueFactory.IntegerSpinnerValueFactory(1,12);EndHour.setValue(6);
+        SpinnerEndHour.setValueFactory(EndHour);
+        SpinnerValueFactory<Integer>StartMin=new SpinnerValueFactory.IntegerSpinnerValueFactory(0,59);StartMin.setValue(0);
+        SpinnerStartMin.setValueFactory(StartMin);
+        SpinnerValueFactory<Integer>EndMin=new SpinnerValueFactory.IntegerSpinnerValueFactory(0,59);EndMin.setValue(0);
+        SpinnerEndMin.setValueFactory(EndMin);
+        StartTimeCompo.getItems().add("PM");
+        StartTimeCompo.getItems().add("AM");
+            StartTimeCompo.setValue("PM");
+        EndTimeCompo.getItems().add("PM");
+        EndTimeCompo.getItems().add("AM");
+        EndTimeCompo.setValue("PM");
 
 
     }
 
     @FXML
-    void  ShowTours(ActionEvent event) {
+    void ShowTours(ActionEvent event) {
         ATripAnch.setVisible(false);
+        AddnewTOUR.setVisible(false);
+        ATourPage.setVisible(true);
         TouVbox.getChildren().clear();
         TOURPAne.setVisible(true);
-        TourView=true;
-        try
-        {
+        DashAnch.setVisible(false);
+        TourView = true;
+        try {
             for (int j = 0; j < TourGuide.TourguideAcc.size(); j++) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("ATour.fxml"));
                 Pane pane = fxmlLoader.load();
-                Atourcontrol atourcontrol= fxmlLoader.getController();
+                Atourcontrol atourcontrol = fxmlLoader.getController();
                 atourcontrol.setdata(TourGuide.TourguideAcc.get(j));
                 TouVbox.getChildren().add(pane);
+                FadeTransition fadeTransition=new FadeTransition();
+                fadeTransition.setDuration(Duration.seconds(0.5));
+                fadeTransition.setNode(pane);
+                fadeTransition.setFromValue(0);
+                fadeTransition.setToValue(1);
+                fadeTransition.play();
             }
-        }
-        catch(IOException e)
-        {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        Refresh = true;
+    }
+
+    @FXML
+    void AddNEWTOUR(ActionEvent event) {
+        TOURPAne.setVisible(false);
+        AddnewTOUR.setVisible(true);
+  }
+
+    @FXML
+    void SaveNewTour(ActionEvent event) {
+        System.out.println(TaddageText.getText());
+        TourGuide tourGuide = new TourGuide(TaddnameText.getText(), TaddUserText.getText(), TaddpassText.getText(), TaddphoneText.getText(), TaddageText.getText(), TaadidText.getText());
+        String check = tourGuide.check_signup();
+        if (check.equals("done")) {
+
+            TourGuide.TourguideAcc.add(tourGuide);
+            ShowTours(event);
+            Refresh = true;
+        } else {
+            ErrorAddTour.setText(check);
+        }
+
     }
     @FXML
     void refresh(MouseEvent event) {
@@ -107,6 +212,12 @@ public class AHomepage {
                 TripCard tripCard= fxmlLoader.getController();
                 tripCard.setData(Trip.trips.get(j));
                 TripVbox.getChildren().add(pane);
+                FadeTransition fadeTransition=new FadeTransition();
+                fadeTransition.setDuration(Duration.seconds(0.5));
+                fadeTransition.setNode(pane);
+                fadeTransition.setFromValue(0);
+                fadeTransition.setToValue(1);
+                fadeTransition.play();
             }
         }
         catch(IOException e)
@@ -118,9 +229,11 @@ public class AHomepage {
     @FXML
     void initializeTrips(ActionEvent event) {
         TOURPAne.setVisible(false);
+        ATourPage.setVisible(false);
         ATripAnch.setVisible(true);
         allTrips.setVisible(true);
         newTripForm.setVisible(false);
+        DashAnch.setVisible(false);
         showTrips(event);
     }
 
