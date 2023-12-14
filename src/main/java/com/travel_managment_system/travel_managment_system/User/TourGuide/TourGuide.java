@@ -38,13 +38,16 @@ public class TourGuide extends User implements Serializable {
              return "Invalid ID";
             }
             if (TourGuide.newidAcc.contains(id)){
-/*int index=TourGuide.newidAcc.indexOf(id);
-                if(index>-1)*/
                     TourGuide.newidAcc.remove((Integer) id);
                 return "done";}
             else return "Invalid ID";
         }
         return test;
+    }
+    public String check_signup(Boolean T)
+    {
+       String test= super.check_signup();
+       return test;
     }
 
     public Double getSalary() {

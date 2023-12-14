@@ -51,7 +51,10 @@ public class Atourcontrol {
     @FXML
     void saveEditTour(ActionEvent event) {
         TourGuide tourGuide = new TourGuide(Tname.getText(), Tour_USEREdit.getText(), Tour_PASSEdit.getText(), Tour_PHONEEdit.getText(), Tage.getText(), Tour_IDEdit.getText());
-        String test = tourGuide.check_signup();
+      String test;
+       if(Tid.getText().equals(Tour_IDEdit.getText())){test=tourGuide.check_signup(true);}
+        else test = tourGuide.check_signup();
+
         if (test.equals("done")) {
             for (TourGuide T : TourGuide.TourguideAcc) {
                 if (Tid.getText().equals(T.getGuideID())) {
