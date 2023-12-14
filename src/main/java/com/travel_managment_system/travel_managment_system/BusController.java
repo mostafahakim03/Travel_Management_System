@@ -86,7 +86,9 @@ public class BusController implements Initializable , Loadfxml{
             alertText.setVisible(true);
         }
         else {
+            int chosenSeat=Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
+            Select_seat.getItems().remove(chosenSeat-1);
             System.out.println(BnumberOfSeats);
             BnumberOfSeats--;
             if(BnumberOfSeats==0){

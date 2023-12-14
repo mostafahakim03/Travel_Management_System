@@ -103,8 +103,9 @@ public class FlightController implements Initializable ,Loadfxml {
             alertText.setVisible(true);
         }
         else {
+            int chosenSeat=Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
-            System.out.println(FnumberOfSeats);
+            Select_seat.getItems().remove(chosenSeat-1);
             FnumberOfSeats--;
             if(FnumberOfSeats==0){
                 AddAnchor.setVisible(false);

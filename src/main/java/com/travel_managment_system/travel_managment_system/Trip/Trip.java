@@ -1,6 +1,9 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
+import com.travel_managment_system.travel_managment_system.BusController;
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
+import com.travel_managment_system.travel_managment_system.User.Customer.Bus;
+import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
 import java.io.Serializable;
@@ -27,6 +30,25 @@ public class Trip implements Serializable {
 
     public static Trip selectedTrip;
     private Itinerary itinerary;
+
+    private Bus bus;
+    private Flight flight;
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
+    }
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 

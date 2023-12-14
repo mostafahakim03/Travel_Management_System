@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -153,7 +154,7 @@ public class TripController implements Initializable ,Loadfxml{
 //            Trip.selectedTrip.setPackageType(packageType);
             NoOfTicketsMessageLabel1.setText("");
             Customer.selectedCustomer.numberOfReservedTickets=numbersOfTickets;
-            createCustomerTickets(numbersOfTickets);
+
 
             System.out.println(Trip.selectedTrip.getTransportation());
             if(Trip.selectedTrip.getTransportation().equals("Plane")) {
@@ -170,14 +171,7 @@ public class TripController implements Initializable ,Loadfxml{
 
     }
 
-    public void createCustomerTickets(int numberofTickets){
-        for(int i=0; i<numberofTickets; i++)
-        {
-            Ticket ticket= new Ticket(Trip.selectedTrip.getTrip_id());
-            Customer.selectedCustomer.tickets.add(ticket);
-            System.out.println(Customer.selectedCustomer.tickets.get(i).TicketID);
-        }
-    }
+
 
 
 
