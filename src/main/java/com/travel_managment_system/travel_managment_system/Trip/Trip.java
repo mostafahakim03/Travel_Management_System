@@ -4,6 +4,7 @@ import com.travel_managment_system.travel_managment_system.BusController;
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.User.Customer.Bus;
 import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
+import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
 import java.io.Serializable;
@@ -33,6 +34,15 @@ public class Trip implements Serializable {
 
     private Bus bus;
     private Flight flight;
+    private Hotel hotel;
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
 
     public Flight getFlight() {
         return flight;
