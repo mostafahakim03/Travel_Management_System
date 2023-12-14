@@ -1,5 +1,8 @@
 package com.travel_managment_system.travel_managment_system.User;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+
 import java.io.Serializable;
 
 public abstract class User implements Serializable {
@@ -16,6 +19,24 @@ public abstract class User implements Serializable {
         if (name.isEmpty() || username.isEmpty() || pass.isEmpty() || phone.isEmpty() || age.isEmpty()) {
             return "Please Fill All Fields ";
         }
+        boolean user=true;
+        for (int i=0;i<TourGuide.TourguideAcc.size();i++)
+        {
+            if(username.equals(TourGuide.TourguideAcc.get(i).getUsername()))
+            {
+                user=false;
+                break;
+            }
+        }
+        for (int i = 0; i< Customer.CoustomerAcc.size(); i++)
+        {
+            if(username.equals(Customer.CoustomerAcc.get(i).getUsername()))
+            {
+                user=false;
+                break;
+            }
+        }
+        if(!user){return "User Name is already exists";}
         if (phone.length() != 11) return "Phone Number Must be 11 Numbers ";
         boolean test_phone = true;
         for (int i = 0; i < 11; i++) {

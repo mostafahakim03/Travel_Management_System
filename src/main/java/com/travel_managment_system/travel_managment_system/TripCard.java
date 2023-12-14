@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 
 public class TripCard {
     @FXML
-    private Label TId,TendDate,Tlocation,Tname,Tpayment,Tprice,TstartDate,Ttype;
+    private Label TId,TendDate,Tlocation,Tname,Tpayment,Tprice,TstartDate,Ttype,bookedTicket,Transportation;
     @FXML
     private ImageView Timage;
 
@@ -30,5 +30,7 @@ public class TripCard {
         FileInputStream fileInputStream=new FileInputStream(trip.getTripImage());
         Image image=new Image(fileInputStream);
         Timage.setImage(image);
+Transportation.setText(trip.getTransportation());
+        bookedTicket.setText(String.valueOf(50-trip.getNumberOfAvailableSeats()));
     }
 }

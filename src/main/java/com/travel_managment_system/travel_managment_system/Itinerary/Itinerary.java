@@ -18,9 +18,9 @@ import java.io.IOException;
 public class Itinerary {
     private Activities[] activities = new Activities[3];
     public Itinerary() {
-        activities[0] = new Activities("Abu Simble","8 AM", "6 PM", "");
-        activities[1] = new Activities("bla bla","9 AM", "7 PM", "");
-        activities[2] = new Activities("bla bla bla","10 AM", "11 PM", "");
+        activities[0] = new Activities("Abu Simble","8 AM", "6 PM", "",60);
+        activities[1] = new Activities("bla bla","9 AM", "7 PM", "",60);
+        activities[2] = new Activities("bla bla bla","10 AM", "11 PM", "",60);
     }
     public Activities[] getActivities() {
         return activities;

@@ -31,8 +31,8 @@ public class TMSApplication extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-//       Files.read();
+      Files.read();
         launch();
-//Files.write();
+Files.write();
     }
 }

@@ -1,5 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Itinerary.Activities;
+import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
@@ -25,7 +27,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class AHomepage implements Loadfxml {
+public class AHomepage {
     @FXML
     private DatePicker TendDate, TstartDate;
 
@@ -35,6 +37,10 @@ public class AHomepage implements Loadfxml {
     @FXML
     private ComboBox<String> TLocText = new ComboBox<String>(), TtypeText = new ComboBox<String>();
     @FXML
+    private ComboBox<String> add_Transportation;
+    @FXML
+    private ComboBox<Integer> add_Itinerary;
+    @FXML
     private AnchorPane ATripAnch, newTripForm, allTrips, ATourPage = new AnchorPane(), AddnewTOUR = new AnchorPane();
     @FXML
     private TextField TaadidText;
@@ -43,10 +49,17 @@ public class AHomepage implements Loadfxml {
     private TextField TaddUserText;
 
     @FXML
+    private Pane newIDpane;
+
+
+    @FXML
     private TextField TaddageText;
 
     @FXML
     private TextField TaddnameText;
+    @FXML
+    private TextField newTourID_Text;
+
 
     @FXML
     private TextField TaddpassText;
@@ -76,12 +89,16 @@ public class AHomepage implements Loadfxml {
 
     @FXML
     private Spinner<Integer> SpinnerStartMin;
+    @FXML
+    private VBox ActivitiesBox;
+
 
     @FXML
     private AnchorPane DashAnch,Dashview,ActivetiesView;
     Boolean TourView = false;
     @FXML
-    private Label ErrorAddtrip, ErrorAddTour;
+    private Label ErrorAddtrip, ErrorAddTour,ErrorAddActitie;
+
 
     @FXML
     private ImageView Tripphoto;
@@ -92,20 +109,24 @@ public class AHomepage implements Loadfxml {
     private ComboBox<String> EndTimeCompo;
     @FXML
     private ComboBox<String> StartTimeCompo;
+    @FXML
+    private ImageView ActivitieImage;
+    @FXML
+    private ComboBox<String> Activities_Location_compo;
+    int itinerary =3;
+    @FXML
+    private Button add_ActivtiesToTrip;
+    Activities [] activities =new Activities[3];
+
 
 
     public void showAhome() throws IOException {
-        lodafxmlfile("AHomepage.fxml");
-      TourGuide.newidAcc.add(78);
+        Parent root = FXMLLoader.load(getClass().getResource("AHomepage.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
 
-
-
-        FadeTransition fadeTransition=new FadeTransition();
-        fadeTransition.setDuration(Duration.seconds(3));
-        fadeTransition.setNode(Admin_Page);
-        fadeTransition.setFromValue(0);
-        fadeTransition.setToValue(1);
-        fadeTransition.play();
 
     }
 
@@ -114,7 +135,29 @@ public class AHomepage implements Loadfxml {
       ATourPage.setVisible(false);
       ATripAnch.setVisible(false);
       DashAnch.setVisible(true);
+      Dashview.setVisible(true);
+      AddActiveties.setVisible(false);
+      ActivetiesView.setVisible(false);
     }
+    @FXML
+    void Show_Activities(ActionEvent event) throws IOException {
+
+        ActivetiesView.setVisible(true);
+        AddActiveties.setVisible(false);
+        Dashview.setVisible(false);
+ActivitiesBox.getChildren().clear();
+        for (int i=0;i<Activities.Activitties.size();i++) {
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("ActivitieCard.fxml"));
+            Pane pane = fxmlLoader.load();
+           AActivitieCard aActivitieCard = fxmlLoader.getController();
+            aActivitieCard.setData(Activities.Activitties.get(i));
+            ActivitiesBox.getChildren().add(pane);
+        }
+    }
+
     @FXML
     void Addactivtie(ActionEvent event) {
         AddActiveties.setVisible(true);
@@ -132,9 +175,53 @@ public class AHomepage implements Loadfxml {
         EndTimeCompo.getItems().add("PM");
         EndTimeCompo.getItems().add("AM");
         EndTimeCompo.setValue("PM");
-
-
+        ActivitieImage.setImage(null);
+ErrorAddActitie.setText("");
+imageSrc="";
+Activities_Location_compo.getItems().clear();
+Activities_Location_compo.setValue(null);
+Activities_Location_compo.getItems().addAll(Admin.Locations);
     }
+    @FXML
+    void backAddActivties(ActionEvent event) {
+        AddActiveties.setVisible(false);
+    }
+
+    @FXML
+    void importActivtieImage(ActionEvent event) throws IOException {
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\"));
+        File file= fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
+        if(file!=null) {
+            file = Admin.cobyFile(file);
+            String s = file.toString();
+            int index = s.indexOf("src");
+            s = s.substring(index);
+            FileInputStream imageInput = new FileInputStream(s);
+            Image image = new Image(imageInput);
+          ActivitieImage.setImage(image);
+            imageSrc=s;
+
+
+        }
+    }
+    @FXML
+    void saveActivtie(ActionEvent event) throws IOException {
+if(imageSrc.equals(""))ErrorAddActitie.setText("Please Import Photo");
+else if(Activities_Location_compo.getValue()==null)ErrorAddActitie.setText("please Input Location");
+else {
+    String Start=String.valueOf(SpinnerStartHour.getValue())+" : "+String.valueOf(SpinnerStartMin.getValue())+"  "+StartTimeCompo.getValue();
+    String End=String.valueOf(SpinnerEndHour.getValue())+String.valueOf(SpinnerEndMin.getValue())+EndTimeCompo.getValue();
+    Activities activities=new Activities(Activities_Location_compo.getValue(),Start,End,imageSrc,Activities.Activitties.size()+1);
+    Activities.Activitties.add(activities);
+    if(!(Admin.Locations.contains(activities.getLocation())))
+    Admin.Locations.add(activities.getLocation());
+    AddActiveties.setVisible(false);
+Show_Activities(event);
+}
+    }
+
+
 
     @FXML
     void ShowTours(ActionEvent event) {
@@ -170,6 +257,17 @@ public class AHomepage implements Loadfxml {
     void AddNEWTOUR(ActionEvent event) {
         TOURPAne.setVisible(false);
         AddnewTOUR.setVisible(true);
+        Initilaize_AddTOUR_Form();
+  }
+  public void Initilaize_AddTOUR_Form()
+  {
+TaadidText.setText("");
+TaddphoneText.setText("");
+TaddnameText.setText("");
+TaddpassText.setText("");
+TaddUserText.setText("");
+TaddageText.setText("");
+ErrorAddTour.setText("");
   }
 
     @FXML
@@ -257,7 +355,48 @@ public class AHomepage implements Loadfxml {
         TpriceText.setText("");
         TpayText.setText("");
         ErrorAddtrip.setText("");
+        add_Transportation.getItems().clear();
+        add_Transportation.setValue(null);add_Transportation.getItems().addAll("Bus","Plane");
+add_Itinerary.getItems().clear();
+add_Itinerary.setValue(null);
+itinerary=3;
+add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities");
+    }
+    @FXML
+    void showadd_Itinerary(ActionEvent event) {
+        add_ActivtiesToTrip.setVisible(true);
+    }
+    @FXML
+    void addActivtiesToTrip(ActionEvent event) {
+        if(itinerary>0) {
+            for (Activities activ : Activities.Activitties) {
+                if (add_Itinerary.getValue().equals(activ.getId())) {
+                    activities[3 - itinerary] = activ;
+                    break;
+                }
+            }
+            itinerary--;
+            add_Itinerary.getItems().remove(add_Itinerary.getValue());
+            add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities");
+            add_Itinerary.setValue(null);
+            if (itinerary == 0) add_Itinerary.setVisible(false);
+        }
 
+
+    }
+    @FXML
+    void Activties_Location(ActionEvent event) {
+        add_Itinerary.setVisible(true);
+        itinerary=3;
+        activities=new Activities[3];
+        add_Itinerary.getItems().clear();
+        add_Itinerary.setValue(null);
+        add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities");
+        for (Activities a:Activities.Activitties){
+            if(a.getLocation().equals(TLocText.getValue())) {
+                add_Itinerary.getItems().add(a.getId());
+            }
+        }
     }
     @FXML
     void backAddTrip(ActionEvent event) {
@@ -305,7 +444,7 @@ public class AHomepage implements Loadfxml {
         //check price
         double price;
         try {
-            price = Double.parseDouble(TpayText.getText());
+            price = Double.parseDouble(TpriceText.getText());
         } catch (NumberFormatException e) {
             return "please add Valid Price";
         }
@@ -315,9 +454,15 @@ public class AHomepage implements Loadfxml {
         if(TstartDate.getValue().isAfter(TendDate.getValue()))return "Start Date Must be Before or Equal End Date";
         //check image
         if(imageSrc=="")return "Please Import photo";
-        Trip trip=new Trip(TnameText.getText(),id,TtypeText.getValue(),TstartDate.getValue(),TendDate.getValue(),price,pay,imageSrc,TLocText.getValue(),"Bus_test");
+        if(add_Transportation.getValue()==null)return "Please add Transportation";
+        if(itinerary>0)return "Please Input 3 Activities";
+        Trip trip=new Trip(TnameText.getText(),id,TtypeText.getValue(),TstartDate.getValue(),TendDate.getValue(),price,pay,imageSrc,TLocText.getValue(),add_Transportation.getValue());
+        Itinerary trip_itinerary=new Itinerary();
+        trip_itinerary.setActivities(activities);
+        trip.setItinerary(trip_itinerary);
         Trip.trips.add(trip);
         Admin.addLocation(TLocText.getValue());
+
         return "Done";
 
     }
@@ -340,7 +485,78 @@ public class AHomepage implements Loadfxml {
         }
     }
     @FXML
-    void Logout(ActionEvent event) throws IOException {
-        lodafxmlfile("hello-view.fxml");
+    void AddnewTourID(ActionEvent event) {
+        boolean test=true;
+        int  id = -1;
+        try {
+       id  = Integer.parseInt(newTourID_Text.getText());
+
+        }
+        catch (NumberFormatException e)
+        {
+       test=false;
+            Alert alert=new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(newTourID_Text.getScene().getWindow());
+            alert.getDialogPane().setContentText("Invalid ID");
+            alert.getDialogPane().setHeaderText("Error");
+            alert.showAndWait();
+        }
+        if(test) {
+            if (id > 0) {
+                for (TourGuide tourGuide : TourGuide.TourguideAcc) {
+                    if (newTourID_Text.getText().equals(tourGuide.getGuideID())) {
+                        test = false;
+                        break;
+                    }
+                }
+                if (test && !(TourGuide.newidAcc.contains(id)))
+                {
+                    TourGuide.newidAcc.add(id);
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.initOwner(newTourID_Text.getScene().getWindow());
+                    alert.getDialogPane().setContentText("ID Added Successful");
+                    alert.getDialogPane().setHeaderText("Successful");
+                    alert.showAndWait();
+                    newIDpane.setVisible(false);
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.initOwner(newTourID_Text.getScene().getWindow());
+                    alert.getDialogPane().setContentText("ID is already exist");
+                    alert.getDialogPane().setHeaderText("Error");
+                    alert.showAndWait();
+                }
+            }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.initOwner(newTourID_Text.getScene().getWindow());
+                alert.getDialogPane().setContentText("Envaild ID");
+                alert.getDialogPane().setHeaderText("Error");
+                alert.showAndWait();
+            }
+        }
+
+
+
     }
+    @FXML
+    void newIDback(ActionEvent event) {
+newIDpane.setVisible(false);
+    }
+
+    @FXML
+    void OpenNewTour_ID(ActionEvent event) {
+newIDpane.setVisible(true);
+newTourID_Text.setText("");
+    }
+
+    @FXML
+    void Logout(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        Scene scene = new Scene(root);
+        Stage stage=new Stage();
+        stage.setScene(scene);
+        stage.show();
+    }
+
 }
