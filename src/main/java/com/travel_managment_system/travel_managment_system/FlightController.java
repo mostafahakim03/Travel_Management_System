@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -48,7 +49,7 @@ public class FlightController implements Initializable ,Loadfxml {
     }
     public void trip_flightSwitch() throws IOException {
        lodafxmlfile("Flight.fxml");
-        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+        FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -92,7 +93,7 @@ public class FlightController implements Initializable ,Loadfxml {
         Select_seat.getItems().clear();
         FillArr();
             Select_seat.getItems().addAll(Myseat);
-        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+        FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
 
     }
 

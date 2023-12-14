@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -131,14 +132,11 @@ public class TripController implements Initializable ,Loadfxml{
         int numbersOfTickets = 0;
         try {
             numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
-            System.out.println(numbersOfTicketsInputs.getText());
         }
         catch (NumberFormatException e)
         {
             System.out.println(e);
         }
-
-        String packageType = String.valueOf(packageTypeChoice.getValue());
 
         if (tripTypeLabel.getText().toLowerCase().equals("family") && numbersOfTickets < 3){
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
@@ -154,8 +152,8 @@ public class TripController implements Initializable ,Loadfxml{
         else {
 //            Trip.selectedTrip.setPackageType(packageType);
             NoOfTicketsMessageLabel1.setText("");
-            Ticket.selectedTicket=new Ticket();
-            Ticket.selectedTicket.numberOfReservedTickets=numbersOfTickets;
+            Customer.selectedCustomer.numberOfReservedTickets=numbersOfTickets;
+            createCustomerTickets(numbersOfTickets);
 
             System.out.println(Trip.selectedTrip.getTransportation());
             if(Trip.selectedTrip.getTransportation().equals("Plane")) {
@@ -171,6 +169,16 @@ public class TripController implements Initializable ,Loadfxml{
         }
 
     }
+
+    public void createCustomerTickets(int numberofTickets){
+        for(int i=0; i<numberofTickets; i++)
+        {
+            Ticket ticket= new Ticket(Trip.selectedTrip.getTrip_id());
+            Customer.selectedCustomer.tickets.add(ticket);
+            System.out.println(Customer.selectedCustomer.tickets.get(i).TicketID);
+        }
+    }
+
 
 
 }
