@@ -25,7 +25,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-public class ItineraryController{
+public class ItineraryController implements Loadfxml{
     @FXML
     public ImageView ActivityImg1;
     @FXML
@@ -90,34 +90,22 @@ public class ItineraryController{
 
     public void  NextButtonPressed() throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("Payment.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Payment.fxml");
         Itinerary.getScene().getWindow().hide();
 
     }
 
     @FXML
     void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
-        Cprofile Cprofile =new Cprofile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("Cprofile.fxml");
         Itinerary.getScene().getWindow().hide();
+        Cprofile Cprofile =new Cprofile();
         Cprofile.initialize();
     }
     @FXML
     void HomeClicked(ActionEvent event) throws IOException{
         System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("CHomepage.fxml");
         Itinerary.getScene().getWindow().hide();
     }
     @FXML
@@ -131,24 +119,15 @@ public class ItineraryController{
 
         if (alert.showAndWait().get() == ButtonType.OK)  {
             //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
+            lodafxmlfile("hello-view.fxml");
             Itinerary.getScene().getWindow().hide();
 
         }
     }
     @FXML
     void myTripsClicked(ActionEvent event) throws IOException{
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
+       lodafxmlfile("CMyTrips.fxml");
         Itinerary.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
     }
 
 }

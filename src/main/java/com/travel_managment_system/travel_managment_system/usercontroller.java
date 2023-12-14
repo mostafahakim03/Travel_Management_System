@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class usercontroller {
+public class usercontroller implements Loadfxml {
 
     @FXML
     private Label ErrorMessage;
@@ -69,11 +69,7 @@ public class usercontroller {
 
 
     public void btn() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("login.fxml");
         btn1.getScene().getWindow().hide();
 
 
@@ -84,11 +80,7 @@ public class usercontroller {
     }
 
     public void sign_tour() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("signup_tour.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("signup_tour.fxml");
         btn1.getScene().getWindow().hide();
 
 
@@ -96,11 +88,7 @@ public class usercontroller {
     }
 
     public void sign_cust() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("signup_cust.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+       lodafxmlfile("signup_cust.fxml");
         btn1.getScene().getWindow().hide();
 
 
@@ -131,11 +119,7 @@ public class usercontroller {
 
 
    public void Chomepage() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+       lodafxmlfile("CHomepage.fxml");
        Csign.getScene().getWindow().hide();
 
     }

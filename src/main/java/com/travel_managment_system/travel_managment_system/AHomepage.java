@@ -25,7 +25,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class AHomepage {
+public class AHomepage implements Loadfxml {
     @FXML
     private DatePicker TendDate, TstartDate;
 
@@ -95,11 +95,7 @@ public class AHomepage {
 
 
     public void showAhome() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("AHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("AHomepage.fxml");
       TourGuide.newidAcc.add(78);
 
 
@@ -345,10 +341,6 @@ public class AHomepage {
     }
     @FXML
     void Logout(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage=new Stage();
-        stage.setScene(scene);
-        stage.show();
+        lodafxmlfile("hello-view.fxml");
     }
 }
