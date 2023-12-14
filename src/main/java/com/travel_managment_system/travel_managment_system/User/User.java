@@ -1,6 +1,8 @@
 package com.travel_managment_system.travel_managment_system.User;
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User implements Serializable {
     protected String name;
     protected String username;
     protected String pass;

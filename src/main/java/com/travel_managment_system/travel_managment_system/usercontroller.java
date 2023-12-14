@@ -155,13 +155,6 @@ public class usercontroller {
     public void checkLogin() throws IOException {
         if((!LoginRadioCustomer.isSelected())&&(!LoginRadioTour.isSelected())&&LoginPasstext.getText().equals(Admin.getPassword())&&LoginUsertext.getText().equals(Admin.getUsername()))
         {
-            TourGuide tourGuide=new TourGuide("Mostafa","dosh@gmail","1234","01146","20","10");
-            TourGuide.TourguideAcc.add(tourGuide);
-            tourGuide=new TourGuide("ahmed","ahmed@gmail","1234","01146","20","10");
-            TourGuide.TourguideAcc.add(tourGuide);
-            tourGuide=new TourGuide("desha","desha@gmail","1234","01146","20","10");
-            TourGuide.TourguideAcc.add(tourGuide);
-            ///////////////
             AHomepage aHomepage=new AHomepage();
             aHomepage.showAhome();
 
@@ -174,6 +167,7 @@ public class usercontroller {
                           HomepageController homepage=new HomepageController();
                           homepage.thomepage();
                           TourGuide.selectedTourGuide=tourguide;
+                          User.isTourGuide=true;
                           LoginRadioCustomer.getScene().getWindow().hide();
                           break;
                           

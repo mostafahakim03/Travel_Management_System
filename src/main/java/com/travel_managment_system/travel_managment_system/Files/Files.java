@@ -1,20 +1,23 @@
 package com.travel_managment_system.travel_managment_system.Files;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
 import java.io.*;
 import java.util.ArrayList;
 
-public class Files {
-    public static void Read_Tourguide() throws IOException, ClassNotFoundException {
-        File file =new File("UpdateTourguides");
-        ObjectInputStream in=new ObjectInputStream(new FileInputStream(file));
-        TourGuide.TourguideAcc=(ArrayList<TourGuide>) in.readObject();
+import static com.travel_managment_system.travel_managment_system.Trip.Trip.trips;
 
-    }
-    public static void Write_Tourguide() throws IOException {
-        File file =new File("UpdateTourguides");
+public class Files {
+    public static void writeTourguide() throws IOException {
+        File file=new File("Tour_guide");
         ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream(file));
         out.writeObject(TourGuide.TourguideAcc);
+    }
+    public static void readTourguide() throws IOException, ClassNotFoundException {
+        File file = new File("Tour_guide");
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        TourGuide.TourguideAcc = (ArrayList<TourGuide>) in.readObject();
+        file.delete();
     }
 }

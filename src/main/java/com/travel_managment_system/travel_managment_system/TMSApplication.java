@@ -3,6 +3,7 @@ import com.travel_managment_system.travel_managment_system.Files.Files;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import com.travel_managment_system.travel_managment_system.User.Customer.CarCompany;
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -30,9 +31,13 @@ public class TMSApplication extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-       // Files.Read_Tourguide();
+         Files.readTourguide();
+           for (TourGuide tour:TourGuide.TourguideAcc)
+           {
+               System.out.println(tour.getName());
+           }
         launch();
 
-    //    Files.Write_Tourguide();
+        Files.writeTourguide();
     }
 }

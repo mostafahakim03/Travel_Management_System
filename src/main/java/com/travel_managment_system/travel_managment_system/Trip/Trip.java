@@ -3,11 +3,12 @@ package com.travel_managment_system.travel_managment_system.Trip;
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Trip {
+public class Trip implements Serializable {
     private static int noOfTrips = 0;
     private int trip_id;
     private String tripName;
