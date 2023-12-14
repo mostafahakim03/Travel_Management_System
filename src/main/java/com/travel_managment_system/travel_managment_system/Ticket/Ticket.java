@@ -18,6 +18,7 @@ public class Ticket {
     public LocalDate booking_date;
     public ArrayList <Integer> seatNumber=new ArrayList<>();
     public CAr car;
+    public String roomType;
 
 
 

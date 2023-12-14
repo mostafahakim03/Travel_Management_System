@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -106,6 +107,8 @@ public class serviseController implements Initializable ,Loadfxml {
         if(roomtype.getValue()==null){
             Alertmsg.setVisible(true);
         } else {
+            Ticket.selectedTicket.roomType=roomtype.getValue();
+            System.out.println(roomtype.getValue());
             lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
@@ -115,6 +118,7 @@ public class serviseController implements Initializable ,Loadfxml {
         if(roomtype2.getValue()==null){
             Alertmsg1.setVisible(true);
         } else {
+            Ticket.selectedTicket.roomType=roomtype2.getValue();
            lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
@@ -124,6 +128,7 @@ public class serviseController implements Initializable ,Loadfxml {
         if(roomtype3.getValue()==null){
             Alertmsg2.setVisible(true);
         } else {
+            Ticket.selectedTicket.roomType=roomtype3.getValue();
             lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
