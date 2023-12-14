@@ -31,13 +31,8 @@ public class TMSApplication extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-         Files.readTourguide();
-           for (TourGuide tour:TourGuide.TourguideAcc)
-           {
-               System.out.println(tour.getName());
-           }
+       Files.read();
         launch();
-
-        Files.writeTourguide();
+Files.write();
     }
 }

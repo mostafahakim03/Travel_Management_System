@@ -9,6 +9,12 @@ import java.util.ArrayList;
 import static com.travel_managment_system.travel_managment_system.Trip.Trip.trips;
 
 public class Files {
+    public static void read() throws IOException, ClassNotFoundException {
+        readTourguide();
+    }
+    public static void write() throws IOException {
+        writeTourguide();
+    }
     public static void writeTourguide() throws IOException {
         File file=new File("Tour_guide");
         ObjectOutputStream out=new ObjectOutputStream(new FileOutputStream(file));
@@ -20,4 +26,5 @@ public class Files {
         TourGuide.TourguideAcc = (ArrayList<TourGuide>) in.readObject();
         file.delete();
     }
+
 }
