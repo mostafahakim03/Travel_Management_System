@@ -12,14 +12,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class TMSApplication extends Application {
+public class TMSApplication extends Application implements Loadfxml {
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-
+       lodafxmlfile("hello-view.fxml");
         Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023,12,11), LocalDate.of(2023,12,17),3000, 10000, "src/main/java" +
                 "/com/travel_managment_system/travel_managment_system/luxorPhoto.jpg","Luxor","Plane"));
         Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023,12,13), LocalDate.of(2023,12,18), 400, 7000, "src/main" +
@@ -31,8 +27,8 @@ public class TMSApplication extends Application {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-       Files.read();
+      Files.read();
         launch();
-            Files.write();
+Files.write();
     }
 }

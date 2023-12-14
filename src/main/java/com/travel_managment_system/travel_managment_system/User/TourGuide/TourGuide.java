@@ -35,12 +35,19 @@ public class TourGuide extends User implements Serializable {
             try {
                 id = Integer.parseInt(String.valueOf(GuideID));
             } catch (NumberFormatException e) {
-                id = -1;
+             return "Invalid ID";
             }
-            if (newidAcc.contains(id)) return "done";
+            if (TourGuide.newidAcc.contains(id)){
+                    TourGuide.newidAcc.remove((Integer) id);
+                return "done";}
             else return "Invalid ID";
         }
         return test;
+    }
+    public String check_signup(Boolean T)
+    {
+       String test= super.check_signup();
+       return test;
     }
 
     public Double getSalary() {

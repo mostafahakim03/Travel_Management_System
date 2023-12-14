@@ -18,9 +18,14 @@
    <children>
       <Pane fx:id="Admin_Page" layoutX="-1.0" layoutY="2.0">
          <children>
+            <Label contentDisplay="TOP" layoutX="66.0" layoutY="8.0" prefHeight="75.0" prefWidth="182.0" style="-fx-text-fill: #fa8b02;" text="admin" textFill="#fc8805" textOverrun="CLIP">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="37.0" />
+               </font>
+            </Label>
             <AnchorPane layoutY="93.0" prefHeight="556.0" prefWidth="281.0" styleClass="leftAnch" stylesheets="@Style.css">
                <children>
-                  <Button layoutX="17.0" layoutY="97.0" mnemonicParsing="false" onAction="#Dashview" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Dashboard">
+                  <Button layoutX="2.0" layoutY="98.0" mnemonicParsing="false" onAction="#Dashview" prefHeight="60.0" prefWidth="258.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Dashboard">
                      <font>
                         <Font name="System Italic" size="13.0" />
                      </font>
@@ -28,7 +33,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="HOME" size="2em" />
                      </graphic>
                   </Button>
-                  <Button layoutX="18.0" layoutY="390.0" mnemonicParsing="false" onAction="#initializeTrips" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Trips">
+                  <Button layoutX="-1.0" layoutY="390.0" mnemonicParsing="false" onAction="#initializeTrips" prefHeight="60.0" prefWidth="254.0" style="-fx-border-color: #fc8805;" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Trips">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -36,7 +41,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="PLANE" size="2.2em" />
                      </graphic>
                   </Button>
-                  <Button fx:id="ATourBTN" layoutX="18.0" layoutY="295.0" mnemonicParsing="false" onAction="#ShowTours" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Tourguides">
+                  <Button fx:id="ATourBTN" layoutX="2.0" layoutY="295.0" mnemonicParsing="false" onAction="#ShowTours" prefHeight="60.0" prefWidth="252.0" style="-fx-border-color: #fc8805;" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Tourguides">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -44,7 +49,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="USER_SECRET" size="2em" wrappingWidth="22.88571548461914" />
                      </graphic>
                   </Button>
-                  <Button layoutX="20.0" layoutY="197.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="242.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Customer">
+                  <Button layoutX="3.0" layoutY="196.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="257.0" style="-fx-border-color: #fc8805;" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Customer">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -52,7 +57,7 @@
                         <FontAwesomeIcon fill="WHITE" glyphName="USERS" size="2em" wrappingWidth="32.14285755157471" />
                      </graphic>
                   </Button>
-                  <Button layoutX="27.0" layoutY="481.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="123.0" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Logout">
+                  <Button layoutX="27.0" layoutY="481.0" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="123.0" style="-fx-border-color: #fc8805;" styleClass="BtnAhomePage" stylesheets="@Style.css" text="Logout">
                      <font>
                         <Font name="System Bold" size="10.0" />
                      </font>
@@ -72,10 +77,9 @@
                            </content>
                         </ScrollPane>
                         <Button layoutX="632.0" layoutY="467.0" mnemonicParsing="false" onAction="#AddNEWTOUR" prefHeight="29.0" prefWidth="129.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Add New Account" />
-                        <Button layoutX="631.0" layoutY="429.0" mnemonicParsing="false" onAction="#AddNEWTOUR" prefHeight="29.0" prefWidth="129.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Add New ID" />
                      </children>
                   </AnchorPane>
-                  <Label layoutX="36.0" layoutY="15.0" prefHeight="91.0" prefWidth="236.0" style="-fx-text-fill: #fa8b02;" text="TourGuides">
+                  <Label layoutX="36.0" layoutY="15.0" prefHeight="91.0" prefWidth="236.0" style="-fx-text-fill: #fa8b02;" text="TourGuides" textFill="#d6d6d6b8">
                      <font>
                         <Font name="Harlow Solid Italic" size="47.0" />
                      </font>
@@ -169,61 +173,75 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="newTripForm" layoutX="10.0" layoutY="123.0" prefHeight="512.0" prefWidth="724.0" style="-fx-border-color: #FA8B02; -fx-border-width: 5px;" visible="false">
+                  <AnchorPane fx:id="newTripForm" layoutX="10.0" layoutY="123.0" prefHeight="512.0" prefWidth="773.0" style="-fx-border-color: #FA8B02; -fx-border-width: 5px;" visible="false">
                      <children>
-                        <TextField fx:id="TnameText" layoutX="163.0" layoutY="168.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <TextField fx:id="TidText" layoutX="457.0" layoutY="162.0" prefHeight="26.0" prefWidth="172.0" styleClass="textField" stylesheets="@Style.css" />
-                        <DatePicker fx:id="TendDate" editable="false" layoutX="463.0" layoutY="255.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <DatePicker fx:id="TstartDate" editable="false" layoutX="160.0" layoutY="253.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <TextField fx:id="TpriceText" layoutX="156.0" layoutY="327.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <TextField fx:id="TpayText" layoutX="479.0" layoutY="326.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <ComboBox fx:id="TtypeText" layoutX="158.0" layoutY="394.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
-                        <ComboBox fx:id="TLocText" editable="true" layoutX="472.0" layoutY="390.0" prefHeight="26.0" prefWidth="153.0" styleClass="textField" stylesheets="@Style.css" />
-                        <Label layoutX="57.0" layoutY="173.0" prefHeight="26.0" prefWidth="57.0" text="Name">
+                        <TextField fx:id="TnameText" layoutX="537.0" layoutY="56.0" prefHeight="26.0" prefWidth="170.0" styleClass="textField" stylesheets="@Style.css" />
+                        <TextField fx:id="TidText" layoutX="133.0" layoutY="177.0" prefHeight="26.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <DatePicker fx:id="TendDate" editable="false" layoutX="431.0" layoutY="247.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <DatePicker fx:id="TstartDate" editable="false" layoutX="141.0" layoutY="244.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <TextField fx:id="TpriceText" layoutX="145.0" layoutY="304.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <TextField fx:id="TpayText" layoutX="435.0" layoutY="307.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <ComboBox fx:id="TtypeText" layoutX="430.0" layoutY="178.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <ComboBox fx:id="TLocText" editable="true" layoutX="440.0" layoutY="373.0" onAction="#Activties_Location" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <Label layoutX="454.0" layoutY="55.0" prefHeight="26.0" prefWidth="57.0" text="Name">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="408.0" layoutY="168.0" text="ID">
+                        <Label layoutX="83.0" layoutY="183.0" text="ID">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="55.0" layoutY="253.0" text="Start Date">
+                        <Label layoutX="44.0" layoutY="244.0" text="Start Date">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="380.0" layoutY="254.0" text="End Date">
+                        <Label layoutX="348.0" layoutY="246.0" text="End Date">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="52.0" layoutY="325.0" prefHeight="26.0" prefWidth="55.0" text="Price">
+                        <Label layoutX="55.0" layoutY="302.0" prefHeight="26.0" prefWidth="55.0" text="Price">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="386.0" layoutY="327.0" prefHeight="26.0" prefWidth="92.0" text="Payment">
+                        <Label layoutX="349.0" layoutY="308.0" prefHeight="26.0" prefWidth="92.0" text="Payment">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="53.0" layoutY="395.0" text="Trip Type">
+                        <Label layoutX="344.0" layoutY="179.0" text="Trip Type">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Label layoutX="386.0" layoutY="391.0" prefHeight="26.0" prefWidth="92.0" text="Location">
+                        <Label layoutX="354.0" layoutY="374.0" prefHeight="26.0" prefWidth="92.0" text="Location">
                            <font>
                               <Font name="System Bold" size="17.0" />
                            </font>
                         </Label>
-                        <ImageView fx:id="Tripphoto" fitHeight="145.0" fitWidth="229.0" layoutX="23.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                        <FontAwesomeIcon fill="#fa8b02" glyphName="IMAGE" layoutX="76.0" layoutY="101.0" size="7em" />
+                        <ImageView fx:id="Tripphoto" fitHeight="113.0" fitWidth="211.0" layoutX="23.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
                         <Button layoutX="502.0" layoutY="456.0" mnemonicParsing="false" onAction="#saveTrip" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Save" />
                         <Button layoutX="440.0" layoutY="455.0" minWidth="52.0" mnemonicParsing="false" onAction="#backAddTrip" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 40px; -fx-border-radius: 40px;" styleClass="backBTN" stylesheets="@Style.css" text="Back" />
                         <Button layoutX="286.0" layoutY="79.0" mnemonicParsing="false" onAction="#importImage" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Import Photo" />
-                        <Label fx:id="ErrorAddtrip" layoutX="35.0" layoutY="469.0" prefHeight="18.0" prefWidth="356.0" textFill="RED" />
+                        <Label fx:id="ErrorAddtrip" layoutX="35.0" layoutY="476.0" prefHeight="18.0" prefWidth="356.0" textFill="RED" />
+                        <ComboBox fx:id="add_Transportation" layoutX="154.0" layoutY="365.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                        <Label layoutX="25.0" layoutY="367.0" text="Transportation">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="add_Itinerary" layoutX="148.0" layoutY="422.0" onAction="#showadd_Itinerary" prefHeight="28.0" prefWidth="158.0" promptText="Input 3 ID`s Activities" styleClass="textField" stylesheets="@Style.css" />
+                        <Label layoutX="56.0" layoutY="422.0" text="Activities">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="add_ActivtiesToTrip" layoutX="322.0" layoutY="424.0" mnemonicParsing="false" onAction="#addActivtiesToTrip" styleClass="addtripformBtn" text="Add" visible="false" />
                      </children>
                   </AnchorPane>
                   <Label layoutX="59.0" layoutY="18.0" prefHeight="79.0" prefWidth="129.0" style="-fx-text-fill: #fa8b02;" text="Trips" textFill="#fa8b02">
@@ -233,32 +251,27 @@
                   </Label>
                </children>
             </AnchorPane>
-            <Label contentDisplay="TOP" layoutX="66.0" layoutY="8.0" prefHeight="75.0" prefWidth="182.0" style="-fx-text-fill: #fa8b02;" text="admin" textFill="#fc8805" textOverrun="CLIP">
-               <font>
-                  <Font name="Lucida Handwriting Italic" size="37.0" />
-               </font>
-            </Label>
-            <FontAwesomeIcon fill="#fa8b02" glyphName="GEARS" layoutX="17.0" layoutY="28.14285659790039" size="3em" />
-            <AnchorPane fx:id="DashAnch" layoutX="285.0" prefHeight="649.0" prefWidth="783.0">
+            <FontAwesomeIcon fill="#fa8b02" glyphName="GEARS" layoutX="19.0" layoutY="57.14285659790039" size="3em" />
+            <AnchorPane fx:id="DashAnch" layoutX="285.0" prefHeight="649.0" prefWidth="783.0" visible="false">
                <children>
-                  <Label layoutX="52.0" layoutY="48.0" prefHeight="79.0" prefWidth="226.0" style="-fx-text-fill: #fa8b02;" text="Dashboard" textFill="#fa8b02">
+                  <Label layoutX="52.0" layoutY="48.0" prefHeight="79.0" prefWidth="226.0" style="-fx-text-fill: #fa8b02;" text="Dashboard" textFill="#e8e8e8">
                      <font>
                         <Font name="Harlow Solid Italic" size="47.0" />
                      </font>
                   </Label>
-                  <AnchorPane fx:id="Dashview" layoutX="-1.0" layoutY="134.0" prefHeight="512.0" prefWidth="783.0" visible="false">
+                  <AnchorPane fx:id="Dashview" layoutX="-1.0" layoutY="134.0" prefHeight="512.0" prefWidth="783.0">
                      <children>
                         <Button layoutX="75.0" layoutY="84.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="182.0" style="-fx-background-color: #F3F3F3;" stylesheets="@Style.css" text="Button">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Button>
-                        <Button layoutX="278.0" layoutY="223.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="182.0" style="-fx-background-color: #F3F3F3;" stylesheets="@Style.css" text="Button">
+                        <Button layoutX="278.0" layoutY="223.0" mnemonicParsing="false" onAction="#OpenNewTour_ID" prefHeight="121.0" prefWidth="182.0" style="-fx-background-color: #F3F3F3;" stylesheets="@Style.css" text="New Tour Guide ID">
                            <font>
-                              <Font size="20.0" />
+                              <Font size="17.0" />
                            </font>
                         </Button>
-                        <Button layoutX="277.0" layoutY="86.0" mnemonicParsing="false" prefHeight="121.0" prefWidth="182.0" style="-fx-background-color: #F3F3F3;" stylesheets="@Style.css" text="Activties">
+                        <Button layoutX="277.0" layoutY="86.0" mnemonicParsing="false" onAction="#Show_Activities" prefHeight="121.0" prefWidth="182.0" style="-fx-background-color: #F3F3F3;" stylesheets="@Style.css" text="Activties">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -280,7 +293,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="ActivetiesView" layoutX="5.0" layoutY="143.0" prefHeight="501.0" prefWidth="761.0" style="-fx-border-color: #fa8b02; -fx-border-width: 5px;">
+                  <AnchorPane fx:id="ActivetiesView" layoutX="5.0" layoutY="143.0" prefHeight="501.0" prefWidth="761.0" style="-fx-border-color: #fa8b02; -fx-border-width: 5px;" visible="false">
                      <children>
                         <Label layoutX="59.0" layoutY="22.0" prefHeight="34.0" prefWidth="177.0" text="Activeties" textFill="#fa8b02">
                            <font>
@@ -289,16 +302,23 @@
                         </Label>
                         <ScrollPane layoutX="9.0" layoutY="88.0" prefHeight="398.0" prefWidth="467.0" style="-fx-background-color: #ffffff;">
                            <content>
-                              <VBox prefHeight="395.0" prefWidth="458.0" style="-fx-background-color: #ffffff;" />
+                              <VBox fx:id="ActivitiesBox" prefHeight="395.0" prefWidth="458.0" style="-fx-background-color: #ffffff;" />
                            </content>
                         </ScrollPane>
-                        <Button layoutX="570.0" layoutY="435.0" mnemonicParsing="false" onAction="#Addactivtie" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Add Activeties" />
-                        <AnchorPane fx:id="AddActiveties" layoutX="482.0" layoutY="25.0" prefHeight="398.0" prefWidth="267.0">
+                        <Button fx:id="backAddActivties" layoutX="570.0" layoutY="435.0" mnemonicParsing="false" onAction="#Addactivtie" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Add Activeties" />
+                        <AnchorPane fx:id="AddActiveties" layoutX="482.0" layoutY="25.0" prefHeight="450.0" prefWidth="281.0" style="-fx-background-color: #ffffff;" visible="false">
                            <children>
+                              <Pane layoutX="-1.0" prefHeight="453.0" prefWidth="296.0">
+                                 <children>
+                                    <Button layoutX="153.0" layoutY="415.0" mnemonicParsing="false" onAction="#saveActivtie" prefHeight="25.0" prefWidth="69.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Save" />
+                                    <Button layoutX="228.0" layoutY="413.0" mnemonicParsing="false" prefHeight="14.0" prefWidth="57.0" style="-fx-background-radius: 40px; -fx-border-radius: 40px;" styleClass="backBTN" stylesheets="@Style.css" text="back" />
+                                    <Label fx:id="ErrorAddActitie" layoutX="31.0" layoutY="362.0" prefHeight="26.0" prefWidth="172.0" textFill="RED" />
+                                 </children>
+                              </Pane>
                               <Spinner fx:id="SpinnerStartMin" layoutX="141.0" layoutY="216.0" prefHeight="25.0" prefWidth="61.0" style="-fx-border-color: #fa8b02; -fx-border-width: 1.5px; -fx-border-radius: 5px;" />
                               <Spinner fx:id="SpinnerStartHour" layoutX="67.0" layoutY="216.0" prefHeight="25.0" prefWidth="58.0" style="-fx-border-color: #fa8b02; -fx-border-width: 1.5px; -fx-border-radius: 5px;" />
                               <FontAwesomeIcon fill="#fa8b02" glyphName="PHOTO" layoutX="65.0" layoutY="99.0" size="5em" wrappingWidth="69.0" />
-                              <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="ActivitieImage" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
                               <Label layoutY="220.0" text="Start Time : ">
                                  <font>
                                     <Font name="System Bold Italic" size="12.0" />
@@ -323,17 +343,33 @@
                               </Label>
                               <ComboBox fx:id="EndTimeCompo" layoutX="204.0" layoutY="259.0" prefHeight="29.0" prefWidth="74.0" style="-fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-width: 2px;" styleClass="backBTN" stylesheets="@Style.css" visibleRowCount="2" />
                               <ComboBox fx:id="StartTimeCompo" layoutX="204.0" layoutY="216.0" prefHeight="29.0" prefWidth="77.0" style="-fx-background-radius: 8px; -fx-border-radius: 8px; -fx-border-width: 2px;" styleClass="backBTN" stylesheets="@Style.css" visibleRowCount="2" />
-                              <ComboBox editable="true" layoutX="87.0" layoutY="309.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
+                              <ComboBox fx:id="Activities_Location_compo" editable="true" layoutX="87.0" layoutY="309.0" prefWidth="150.0" styleClass="textField" stylesheets="@Style.css" />
                               <Label layoutX="14.0" layoutY="307.0" prefHeight="26.0" prefWidth="58.0" text="Location">
                                  <font>
                                     <Font name="System Bold Italic" size="13.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="24.0" layoutY="159.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Import Photo" />
+                              <Button layoutX="24.0" layoutY="159.0" mnemonicParsing="false" onAction="#importActivtieImage" prefHeight="25.0" prefWidth="150.0" styleClass="addtripformBtn" stylesheets="@Style.css" text="Import Photo" textFill="#a4a4a4" />
                            </children>
                         </AnchorPane>
                      </children>
                   </AnchorPane>
+                  <Pane fx:id="newIDpane" layoutX="13.0" layoutY="136.0" prefHeight="504.0" prefWidth="763.0" style="-fx-background-color: #e8e8e8;" visible="false">
+                     <children>
+                        <Pane layoutX="123.0" layoutY="128.0" prefHeight="247.0" prefWidth="524.0" styleClass="backAdmin">
+                           <children>
+                              <TextField fx:id="newTourID_Text" layoutX="160.0" layoutY="74.0" styleClass="textField" />
+                              <Button layoutX="210.0" layoutY="174.0" mnemonicParsing="false" onAction="#AddnewTourID" prefHeight="25.0" prefWidth="103.0" styleClass="addtripformBtn" text="Add" />
+                              <Label layoutX="30.0" layoutY="19.0" prefHeight="29.0" prefWidth="182.0" text="Add New Tour Guide ID">
+                                 <font>
+                                    <Font name="System Bold Italic" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="326.0" layoutY="174.0" mnemonicParsing="false" onAction="#newIDback" prefHeight="25.0" prefWidth="69.0" style="-fx-border-radius: 40px; -fx-background-radius: 40px;" styleClass="backBTN" text="Back" />
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
                </children>
             </AnchorPane>
          </children>
