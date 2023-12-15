@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -17,94 +18,92 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="707.0">
                <children>
-                  <Label fx:id="CustomerUser" layoutX="386.0" layoutY="157.0" text="Cost">
+                  <Label fx:id="CustomerUser" layoutX="431.0" layoutY="138.0" prefHeight="27.0" prefWidth="42.0" text="Cost">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="priceLabel" layoutX="493.0" layoutY="157.0" text="400 EGP" textFill="#fa8b02">
+                  <Label fx:id="priceLabel" layoutX="543.0" layoutY="138.0" text="400 EGP" textFill="#fa8b02">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="380.0" layoutY="229.0" text="Start Date">
+                  <Label layoutX="429.0" layoutY="222.0" text="Start Date">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="start_dateLabel" layoutX="492.0" layoutY="229.0" text="02-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="start_dateLabel" layoutX="542.0" layoutY="222.0" text="02-JAN-2024" textFill="#fa8b02">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="384.0" layoutY="268.0" text="End Date">
+                  <Label layoutX="431.0" layoutY="267.0" text="End Date">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="end_dateLabel" layoutX="492.0" layoutY="268.0" text="30-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="end_dateLabel" layoutX="542.0" layoutY="267.0" text="30-JAN-2024" textFill="#fa8b02">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="383.0" layoutY="301.0" text="Trip Type">
+                  <Label layoutX="430.0" layoutY="309.0" text="Trip Type">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tripTypeLabel" layoutX="493.0" layoutY="301.0" text="Family" textFill="#fa8b02">
+                  <Label fx:id="tripTypeLabel" layoutX="543.0" layoutY="309.0" text="Family" textFill="#fa8b02">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
                   <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="System Bold" size="15.0" />
+                        <Font name="Berlin Sans FB Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="ChoiceLabel" layoutX="48.0" layoutY="354.0" text="Choose a package">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="numbersOfTicketsInputs" layoutX="373.0" layoutY="431.0" prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
+                  <TextField fx:id="numbersOfTicketsInputs" layoutX="409.0" layoutY="432.0" prefHeight="31.0" prefWidth="57.0" promptText="ex : 3">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label layoutX="48.0" layoutY="433.0" text="Enter Number of Tickets you want: ">
+                  <Label layoutX="51.0" layoutY="430.0" text="Enter Number of Tickets you want: ">
                      <font>
-                        <Font size="19.0" />
+                        <Font name="Segoe Print" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="TripNameLabel" layoutX="41.0" layoutY="74.0" prefHeight="62.0" prefWidth="334.0" text="Alex Trip">
+                  <Label fx:id="TripNameLabel" layoutX="57.0" layoutY="68.0" prefHeight="72.0" prefWidth="320.0" text="Alex Trip">
                      <font>
-                        <Font size="42.0" />
+                        <Font name="Segoe Print Bold" size="42.0" />
                      </font>
                   </Label>
-                  <ChoiceBox fx:id="packageTypeChoice" layoutX="283.0" layoutY="356.0" prefWidth="150.0" />
-                  <Label fx:id="PackageMessageLabel" layoutX="52.0" layoutY="396.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
+                  <ChoiceBox fx:id="packageTypeChoice" layoutX="52.0" layoutY="355.0" prefWidth="150.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></ChoiceBox>
+                  <Label fx:id="PackageMessageLabel" layoutX="52.0" layoutY="395.0" prefHeight="22.0" prefWidth="520.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="48.0" layoutY="477.0" prefHeight="18.0" prefWidth="639.0" textFill="#ff9900">
+                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="54.0" layoutY="477.0" prefHeight="22.0" prefWidth="452.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="imgView" fitHeight="170.0" fitWidth="308.0" layoutX="41.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="386.0" layoutY="193.0" text="Location">
+                  <ImageView fx:id="imgView" fitHeight="193.0" fitWidth="327.0" layoutX="50.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="430.0" layoutY="178.0" text="Location">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="locationLabel" layoutX="492.0" layoutY="193.0" text="Alexandria" textFill="#fa8b02">
+                  <Label fx:id="locationLabel" layoutX="542.0" layoutY="178.0" text="Alexandria" textFill="#fa8b02">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
                   <Label fx:id="checkLabel" layoutX="519.0" layoutY="476.0" prefHeight="22.0" prefWidth="174.0" text="Fill the required fields" textFill="#ff9900" visible="false">
@@ -112,16 +111,33 @@
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="395.0" layoutY="162.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="MAP_MARKER" layoutX="400.0" layoutY="201.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="397.0" layoutY="245.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="397.0" layoutY="289.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="LIST" layoutX="397.0" layoutY="332.0" size="25px" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
-      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="722.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="722.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Button>
          </items>
       </ToolBar>
    </children>

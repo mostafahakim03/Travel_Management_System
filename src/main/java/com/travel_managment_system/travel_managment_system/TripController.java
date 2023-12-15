@@ -20,8 +20,6 @@ public class TripController implements Initializable ,Loadfxml{
     @FXML
     public Label checkLabel;
     @FXML
-    private Label ChoiceLabel;
-    @FXML
     private Label NoOfTicketsMessageLabel1;
     @FXML
     private Label PackageMessageLabel;
@@ -59,18 +57,16 @@ public class TripController implements Initializable ,Loadfxml{
         end_dateLabel.setText(trip.getEndDate().toString());
         priceLabel.setText(String.valueOf(trip.getPrice()));
         locationLabel.setText(trip.getLocation());
-
-
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         packageTypeChoice.getItems().addAll(packages);
         packageTypeChoice.setOnAction(this::getPackage);
+        packageTypeChoice.setValue("Select Package");
     }
 
     public void getPackage(ActionEvent event){
         String packageType = String.valueOf(packageTypeChoice.getValue());
-        ChoiceLabel.setText("You chose : " + packageType);
         if (packageType.equals("Silver")) {
             PackageMessageLabel.setText("The trip contains only the transportation and half-board");
             Trip.selectedTrip.setPackageType(packageType);
