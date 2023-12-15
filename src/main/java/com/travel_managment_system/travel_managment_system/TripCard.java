@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -14,8 +13,6 @@ public class TripCard {
     private Label TId,TendDate,Tlocation,Tname,Tpayment,Tprice,TstartDate,Ttype,bookedTicket,Transportation;
     @FXML
     private ImageView Timage;
-
-
 
     public void setData(Trip trip) throws FileNotFoundException {
 
@@ -30,7 +27,7 @@ public class TripCard {
         FileInputStream fileInputStream=new FileInputStream(trip.getTripImage());
         Image image=new Image(fileInputStream);
         Timage.setImage(image);
-Transportation.setText(trip.getTransportation());
+        Transportation.setText(trip.getTransportation());
         bookedTicket.setText(String.valueOf(50-trip.getNumberOfAvailableSeats()));
     }
 }

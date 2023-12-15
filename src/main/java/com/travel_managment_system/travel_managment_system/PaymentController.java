@@ -5,19 +5,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class PaymentController implements Loadfxml {
     @FXML
     private AnchorPane paymentAnchor;
-    @FXML
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -32,13 +27,13 @@ public class PaymentController implements Loadfxml {
             paymentAnchor.getScene().getWindow().hide();
             }
     }
-        public void HomeClicked(ActionEvent event) throws IOException {
-            System.out.println("Going home!");
-            lodafxmlfile("CHomepage.fxml");
-            paymentAnchor.getScene().getWindow().hide();
-        }
+    public void HomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        lodafxmlfile("CHomepage.fxml");
+        paymentAnchor.getScene().getWindow().hide();
+    }
 
-        public void TProfileClicked(ActionEvent event) throws IOException {
+    public void TProfileClicked(ActionEvent event) throws IOException {
             lodafxmlfile("CMyProfile.fxml");
             paymentAnchor.getScene().getWindow().hide();
 

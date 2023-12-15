@@ -4,11 +4,8 @@ import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -18,8 +15,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -30,12 +25,10 @@ import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
 public class SalaryController implements Initializable ,Loadfxml {
-
     private LocalDate thisDate=LocalDate.now();
     private int thisMonth=thisDate.getMonthValue();
     private int thisYear=thisDate.getYear();
     private int lastDayOfThisMonth=thisDate.lengthOfMonth();
-
     @FXML
     private AnchorPane SalaryAnchor;
     @FXML
@@ -147,9 +140,6 @@ public class SalaryController implements Initializable ,Loadfxml {
         tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
         tripPayment.setStyle("-fx-font-weight:bold; -fx-text-alignment:right;");
     }
-
-
-
 
     public void HomeClicked(ActionEvent event) throws IOException {
         lodafxmlfile("THomepage.fxml");

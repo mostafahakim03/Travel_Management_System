@@ -5,16 +5,9 @@ import com.travel_managment_system.travel_managment_system.User.Customer.Custome
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Cursor;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class usercontroller implements Loadfxml {
 
@@ -71,8 +64,6 @@ public class usercontroller implements Loadfxml {
     public void btn() throws IOException {
         lodafxmlfile("login.fxml");
         btn1.getScene().getWindow().hide();
-
-
     }
 
     public void signup_btn() {
@@ -82,16 +73,11 @@ public class usercontroller implements Loadfxml {
     public void sign_tour() throws IOException {
         lodafxmlfile("signup_tour.fxml");
         btn1.getScene().getWindow().hide();
-
-
-
     }
 
     public void sign_cust() throws IOException {
        lodafxmlfile("signup_cust.fxml");
         btn1.getScene().getWindow().hide();
-
-
     }
 
     public void TsubmitSignup() throws IOException {
@@ -105,20 +91,13 @@ public class usercontroller implements Loadfxml {
             HomepageController homepage=new HomepageController();
             homepage.thomepage();
             homepage.initialize();
-
-
-
-
         }
         ErrorMessage.setText(test);
     }
 
-
-
    public void Chomepage() throws IOException {
        lodafxmlfile("CHomepage.fxml");
        Csign.getScene().getWindow().hide();
-
     }
 
     public void CsubmitSignup() throws IOException {
@@ -133,12 +112,12 @@ public class usercontroller implements Loadfxml {
         }
         CErrorMessage.setText(test);
     }
+
     public void checkLogin() throws IOException {
         if((!LoginRadioCustomer.isSelected())&&(!LoginRadioTour.isSelected())&&LoginPasstext.getText().equals(Admin.getPassword())&&LoginUsertext.getText().equals(Admin.getUsername()))
         {
             AHomepage aHomepage=new AHomepage();
             aHomepage.showAhome();
-
 
         } else if (LoginRadioTour.isSelected()) {
             for (TourGuide tourguide : TourGuide.TourguideAcc) {
@@ -151,47 +130,33 @@ public class usercontroller implements Loadfxml {
                           User.isTourGuide=true;
                           LoginRadioCustomer.getScene().getWindow().hide();
                           break;
-                          
                       }
                       else {
                             errorlog.setText("Wrong Password");
                       }
-
                 }
                 else errorlog.setText("Username Not Exist");
-
-
             }
         }
 
         else if (LoginRadioCustomer.isSelected()) {
             for (Customer customer : Customer.CoustomerAcc) {
-
                 if (customer.getUsername().equals(LoginUsertext.getText())) {
                     if (customer.getPass().equals(LoginPasstext.getText())){
-
                        Chomepage();
                         Customer.selectedCustomer=customer;
                         LoginRadioCustomer.getScene().getWindow().hide();
                         break;
-
                     }
                     else {
                         errorlog.setText("Wrong Password");
                     }
-
                 }
                 else errorlog.setText("Username Not Exist");
-
-
             }
         }
         else {
            errorlog.setText("Please Check Tourguide or Customer");
         }
-        /////////////////
-
-
     }
-
 }

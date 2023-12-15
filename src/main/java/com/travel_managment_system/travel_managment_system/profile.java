@@ -123,7 +123,6 @@ public class profile {
         }
     }
 
-
     @FXML
     void TEdit(ActionEvent event) {
         labanchor.setVisible(true);
