@@ -10,12 +10,4 @@ public class Flight {
             isReserved[i]=false;
         }
     }
-
-    public String getFlightCompanyName() {
-        return FlightCompanyName;
-    }
-
-    public void setFlightCompanyName(String flightCompanyName) {
-        FlightCompanyName = flightCompanyName;
-    }
 }

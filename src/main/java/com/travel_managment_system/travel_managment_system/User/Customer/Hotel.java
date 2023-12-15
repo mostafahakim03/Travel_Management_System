@@ -11,20 +11,8 @@ public class Hotel {
     public String getHotelName() {
         return HotelName;
     }
-    public void setHotelName(String hotelName) {
-        this.HotelName = hotelName;
-    }
     public String getHotellocation(){
         return Hotellocation;
-    }
-    public void setHotellocation(String hotellocation){
-        this.Hotellocation=hotellocation;
-    }
-    public String getRoomType() {
-        return RoomType;
-    }
-    public void setRoomType(String roomType) {
-        RoomType = roomType;
     }
 
 }
