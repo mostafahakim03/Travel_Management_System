@@ -17,8 +17,9 @@ public class Ticket {
     public double ticket_price;
     public LocalDate booking_date;
     public ArrayList <Integer> seatNumber=new ArrayList<>();
-    public CAr car;
+    public CAr car=new CAr();
     public String roomType;
+    public String packageType;
 
 
 
