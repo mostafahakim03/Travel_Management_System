@@ -12,7 +12,8 @@ public class Customer extends User {
     public int numberOfReservedTickets;
     public static ArrayList<Customer> CoustomerAcc = new ArrayList<Customer>();
 
-    public  ArrayList<Ticket> tickets= new ArrayList<>();
+    public ArrayList<Ticket> tickets= new ArrayList<>();
+
     public  Customer(String Name,String customername, String password ,String phone , String Age){
         this.name=Name;
         this.username=customername;

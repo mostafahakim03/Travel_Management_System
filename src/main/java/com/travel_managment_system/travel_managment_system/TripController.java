@@ -4,19 +4,12 @@ import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,8 +19,6 @@ public class TripController implements Initializable ,Loadfxml{
     public Label locationLabel;
     @FXML
     public Label checkLabel;
-    @FXML
-    private Button BookingButton;
     @FXML
     private Label ChoiceLabel;
     @FXML
@@ -126,7 +117,6 @@ public class TripController implements Initializable ,Loadfxml{
 
     }
 
-
     public void Booking(ActionEvent actionEvent) throws IOException {
 
         int numbersOfTickets = 0;
@@ -145,15 +135,12 @@ public class TripController implements Initializable ,Loadfxml{
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
         }
         else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
-//            PackageMessageLabel.setText("You must choose Package");
-//            NoOfTicketsMessageLabel1.setText("You must choose at least 1 ticket");
             checkLabel.setVisible(true);
         }
         else {
-//            Trip.selectedTrip.setPackageType(packageType);
             NoOfTicketsMessageLabel1.setText("");
             Customer.selectedCustomer.numberOfReservedTickets=numbersOfTickets;
-            createCustomerTickets(numbersOfTickets);
+            Ticket.selectedTicket.packageType=packageTypeChoice.getValue();
 
             System.out.println(Trip.selectedTrip.getTransportation());
             if(Trip.selectedTrip.getTransportation().equals("Plane")) {
@@ -169,16 +156,5 @@ public class TripController implements Initializable ,Loadfxml{
         }
 
     }
-
-    public void createCustomerTickets(int numberofTickets){
-        for(int i=0; i<numberofTickets; i++)
-        {
-            Ticket ticket= new Ticket(Trip.selectedTrip.getTrip_id());
-            Customer.selectedCustomer.tickets.add(ticket);
-            System.out.println(Customer.selectedCustomer.tickets.get(i).TicketID);
-        }
-    }
-
-
 
 }

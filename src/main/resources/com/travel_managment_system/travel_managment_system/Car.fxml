@@ -35,12 +35,12 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="478.0" layoutY="34.0" prefHeight="26.0" prefWidth="150.0" text="BMW  M4 " textFill="#ffae00">
+                <Label fx:id="carName1" alignment="CENTER" layoutX="478.0" layoutY="34.0" prefHeight="26.0" prefWidth="150.0" text="BMW  M4 " textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="135.0" text="2022" textFill="#ffae00">
+                <Label fx:id="carModel1" alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="135.0" text="2022" textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>
@@ -61,12 +61,12 @@
                         <Image url="@./nissan.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="484.0" layoutY="34.0" prefHeight="26.0" prefWidth="183.0" text="Nissan Qashqai " textFill="#ffae00">
+                <Label fx:id="carName2" alignment="CENTER" layoutX="484.0" layoutY="34.0" prefHeight="26.0" prefWidth="183.0" text="Nissan Qashqai " textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="135.0" text="2020" textFill="#ffae00">
+                <Label fx:id="carModel2" alignment="CENTER" layoutX="492.0" layoutY="78.0" prefHeight="26.0" prefWidth="135.0" text="2020" textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>
@@ -102,12 +102,12 @@
                         <Image url="@./lada.png" />
                     </image>
                 </ImageView>
-                <Label alignment="CENTER" layoutX="461.0" layoutY="30.0" prefHeight="26.0" prefWidth="135.0" text="Lada" textFill="#ffae00">
+                <Label fx:id="carName3" alignment="CENTER" layoutX="461.0" layoutY="30.0" prefHeight="26.0" prefWidth="135.0" text="Lada" textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>
                 </Label>
-                <Label alignment="CENTER" layoutX="476.0" layoutY="78.0" prefHeight="26.0" prefWidth="110.0" text="2011" textFill="#ffae00">
+                <Label fx:id="carModel3" alignment="CENTER" layoutX="476.0" layoutY="78.0" prefHeight="26.0" prefWidth="110.0" text="2011" textFill="#ffae00">
                     <font>
                         <Font name="Arial" size="22.0" />
                     </font>

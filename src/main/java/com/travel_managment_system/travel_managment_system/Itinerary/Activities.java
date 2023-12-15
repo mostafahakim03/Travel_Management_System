@@ -8,7 +8,7 @@ public class Activities {
     private String endTime;
     private String Img;
     private int Id;
-  public static  ArrayList<Activities>Activitties=new ArrayList<>();
+  public static  ArrayList<Activities>Activitties= new ArrayList<>();
 
     public Activities (String location,String StartTime, String EndTime, String img,int Id){
         this.location = location;
@@ -21,23 +21,12 @@ public class Activities {
     public String getImg() {
         return Img;
     }
-    public void setImg(String img) {
-        Img = img;
-    }
     public String getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
     public String getEndTime() {
         return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
     }
 
     public void setLocation(String location) {

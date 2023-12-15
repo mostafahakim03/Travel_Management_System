@@ -1,10 +1,17 @@
 package com.travel_managment_system.travel_managment_system.User.Customer;
 
+import java.util.ArrayList;
+
 public class CAr {
         private String Carname;
         private int Carmodel;
+        public static ArrayList<CAr> cars=new ArrayList<>();
 
-       public CAr(String carname , int carmodel){
+public CAr()
+{
+
+}
+    public CAr(String carname , int carmodel){
            this.Carname=carname;
            this.Carmodel=carmodel;
        }
