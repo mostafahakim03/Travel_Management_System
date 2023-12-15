@@ -18,7 +18,6 @@ public class Trip implements Serializable {
     private String tripName;
     private LocalDate startDate;
     private LocalDate endDate;
-
     private double price;
     private double payment;
     private String tripImage;
@@ -28,14 +27,11 @@ public class Trip implements Serializable {
     private String location;
     private String Transportation; //bus, flight
     private int numberOfAvailableSeats=50;
-
     public static Trip selectedTrip;
     private Itinerary itinerary;
-
     private Bus bus;
     private Flight flight;
-    private Hotel hotel;
-
+    private Hotel hotel = new Hotel();
     public Hotel getHotel() {
         return hotel;
     }
@@ -100,8 +96,6 @@ public class Trip implements Serializable {
         this.Transportation=Transportation;
         noOfTrips++;
     }
-
-
     public Itinerary getItinerary() {
         return itinerary;
     }

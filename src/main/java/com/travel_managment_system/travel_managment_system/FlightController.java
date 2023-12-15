@@ -1,7 +1,9 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,8 +24,6 @@ import java.util.ResourceBundle;
 import java.util.spi.ResourceBundleControlProvider;
 
 public class FlightController implements Initializable ,Loadfxml {
-
-
     @FXML
     private AnchorPane FlightAnchor;
     @FXML
@@ -38,10 +38,8 @@ public class FlightController implements Initializable ,Loadfxml {
     private ComboBox<Integer> Select_seat=new ComboBox<>();
     public Integer[] Myseat = new Integer[50];
     public int FnumberOfSeats;
-
     @FXML
     private Label alertText;
-
     public void FillArr(){
         for(int i=0;i<50;i++){
             Myseat[i]= i+1;
@@ -51,7 +49,6 @@ public class FlightController implements Initializable ,Loadfxml {
        lodafxmlfile("Flight.fxml");
         FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
     }
-
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
         //alert code
@@ -68,35 +65,27 @@ public class FlightController implements Initializable ,Loadfxml {
 
 
     }
-
     public void HomeClicked(ActionEvent event) throws IOException {
         System.out.println("Going home!");
        lodafxmlfile("CHomepage.fxml");
         FlightAnchor.getScene().getWindow().hide();
     }
-
     public void CProfileClicked(ActionEvent event) throws IOException {
         lodafxmlfile("Cprofile.fxml");
         FlightAnchor.getScene().getWindow().hide();
         //profile.initialize();
-
     }
-
     public void myTripsClicked(ActionEvent event) throws IOException {
        lodafxmlfile("CMyTrips.fxml");
         FlightAnchor.getScene().getWindow().hide();
-
     }
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         Select_seat.getItems().clear();
         FillArr();
-            Select_seat.getItems().addAll(Myseat);
+        Select_seat.getItems().addAll(Myseat);
         FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
-
     }
-
     public void addSeatNumber(){
         if(Select_seat.getValue()==null)
         {
@@ -116,8 +105,9 @@ public class FlightController implements Initializable ,Loadfxml {
     }
     public void Next() throws IOException {
       lodafxmlfile("servise.fxml");
-        FlightAnchor.getScene().getWindow().hide();
 
+
+      FlightAnchor.getScene().getWindow().hide();
     }
 }
 

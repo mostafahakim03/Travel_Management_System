@@ -1,114 +1,74 @@
 package com.travel_managment_system.travel_managment_system;
-
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
-import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class serviseController implements Initializable ,Loadfxml {
     @FXML
-    private Label Alertmsg;
-
+    public AnchorPane HotelAnchor;
     @FXML
-    private Label Alertmsg1;
-
+    public Label hotelNameLabel;
     @FXML
-    private Label Alertmsg2;
-
+    public Label locationLabel;
     @FXML
-    private Button HomeButton;
-
+    public ChoiceBox<String>  roomtype1;
     @FXML
-    private AnchorPane HotelAnchor;
-
+    public Label hotelNameLabel2;
     @FXML
-    private ImageView LuxorHotel;
-
+    public Label locationLabel2;
     @FXML
-    private ImageView LuxorHotel1;
-
+    public ChoiceBox<String>  roomtype2;
     @FXML
-    private ImageView LuxorHotel11;
-
+    public Label hotelNameLabel3;
     @FXML
-    private ChoiceBox<String> roomtype;
-
+    public Label locationLabel3;
     @FXML
-    private ChoiceBox<String> roomtype2;
-
+    public ChoiceBox<String>  roomtype3;
     @FXML
-    private ChoiceBox<String> roomtype3;
-    private String []roomtypes={"Single","Couple","Triple"};
-
-//private ImageView myimage;
-//private Image mimage = new Image(getClass().getResourceAsStream("img.png"));
+    public Label Alertmsg11;
+    @FXML
+    public Label Alertmsg1;
+    @FXML
+    public Label Alertmsg;
+    @FXML
+    public Button HomeButton;
+    private String[] roomtypes={"Single","Couple","Triple"};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        roomtype.getItems().addAll(roomtypes);
+        roomtype1.getItems().addAll(roomtypes);
         roomtype2.getItems().addAll(roomtypes);
         roomtype3.getItems().addAll(roomtypes);
 
-    }
 
+        Hotel hotel = new Hotel("Sonesta San George","Luxor");
+        Hotel hotel2 = new Hotel("Nefertiti Hotel","Luxor");
+        Hotel hotel3 = new Hotel("Iberotel","Luxor");
+        Trip.selectedTrip.setHotel(hotel);
 
-//    public void displayimage(){
-//        myimage.setImage(mimage);
-//    }
-
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-           lodafxmlfile("hello-view.fxml");
-            HotelAnchor.getScene().getWindow().hide();
-        }
-
+        hotelNameLabel.setText(hotel.getHotelName());
+        hotelNameLabel2.setText("Nefertiti Hotel");
+        hotelNameLabel3.setText("Iberotel");
+        locationLabel.setText(hotel.getHotellocation());
+        locationLabel2.setText("Awamiya , Luxor");
+        locationLabel3.setText("Awamiya , Luxor");
 
     }
 
-    public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-       lodafxmlfile("CHomepage.fxml");
-        HotelAnchor.getScene().getWindow().hide();
-    }
-
-    public void CProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("Cprofile.fxml");
-        HotelAnchor.getScene().getWindow().hide();
-        //profile.initialize();
-
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
-        HotelAnchor.getScene().getWindow().hide();
-
-    }
     public void Next1() throws IOException {
-        if(roomtype.getValue()==null){
+        if(roomtype1.getValue()==null){
             Alertmsg.setVisible(true);
         } else {
-            Ticket.selectedTicket.roomType=roomtype.getValue();
-            System.out.println(roomtype.getValue());
+            Ticket.selectedTicket.roomType=roomtype1.getValue();
+            System.out.println(roomtype1.getValue());
             lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
@@ -126,13 +86,42 @@ public class serviseController implements Initializable ,Loadfxml {
     }
     public void Next3() throws IOException {
         if(roomtype3.getValue()==null){
-            Alertmsg2.setVisible(true);
+            Alertmsg1.setVisible(true);
         } else {
             Ticket.selectedTicket.roomType=roomtype3.getValue();
             lodafxmlfile("Car.fxml");
             HotelAnchor.getScene().getWindow().hide();
         }
 
+    }
+
+
+    public void logoutButtonClicked(ActionEvent event) throws IOException {
+        System.out.println("Logout pending!");
+        //alert code
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are logging out...");
+        alert.setContentText("Are you sure you want to logout?");
+
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            lodafxmlfile("hello-view.fxml");
+            HotelAnchor.getScene().getWindow().hide();
+        }
+    }
+    public void HomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        lodafxmlfile("CHomepage.fxml");
+        HotelAnchor.getScene().getWindow().hide();
+    }
+    public void CProfileClicked(ActionEvent event) throws IOException {
+        lodafxmlfile("Cprofile.fxml");
+        HotelAnchor.getScene().getWindow().hide();
+        //profile.initialize();
+    }
+    public void myTripsClicked(ActionEvent event) throws IOException {
+        lodafxmlfile("CMyTrips.fxml");
+        HotelAnchor.getScene().getWindow().hide();
     }
 }
 
