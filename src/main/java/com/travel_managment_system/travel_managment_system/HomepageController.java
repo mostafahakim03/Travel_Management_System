@@ -19,7 +19,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,17 +32,9 @@ public class HomepageController implements Loadfxml{
     @FXML
     public AnchorPane CHomepageAnchor=new AnchorPane();
     @FXML
-    private AnchorPane NotificationPane;
-
-    @FXML
     private VBox tripsVBox = new VBox();
     @FXML
     private Button HomeButton;
-    @FXML
-    private Button ShortCutButton;
-    @FXML
-    private Label NotificationLabel;
-
 
     public void thomepage() throws IOException {
         HomepageController homepage = new HomepageController();

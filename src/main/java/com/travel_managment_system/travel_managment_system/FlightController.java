@@ -1,27 +1,14 @@
 package com.travel_managment_system.travel_managment_system;
-
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
-import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
-import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
-import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.spi.ResourceBundleControlProvider;
 
 public class FlightController implements Initializable ,Loadfxml {
     @FXML
@@ -30,10 +17,6 @@ public class FlightController implements Initializable ,Loadfxml {
     private AnchorPane AddAnchor;
     @FXML
     private Button Nextbtn;
-    @FXML
-    private ImageView Flightview;
-//    @FXML
-//    private ChoiceBox<Integer> Select_seat;
     @FXML
     private ComboBox<Integer> Select_seat=new ComboBox<>();
     public Integer[] Myseat = new Integer[50];

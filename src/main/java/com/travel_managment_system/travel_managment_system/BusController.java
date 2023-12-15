@@ -4,14 +4,9 @@ import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,8 +16,6 @@ public class BusController implements Initializable , Loadfxml{
     private AnchorPane BusAnchor;
     @FXML
     private AnchorPane AddAnchor;
-    @FXML
-    private Label BusNumber;
     @FXML
     private Button Nextbtn;
     @FXML
@@ -61,14 +54,12 @@ public class BusController implements Initializable , Loadfxml{
        lodafxmlfile("CHomepage.fxml");
         BusAnchor.getScene().getWindow().hide();
     }
-
     public void CProfileClicked(ActionEvent event) throws IOException {
         lodafxmlfile("Cprofile.fxml");
         BusAnchor.getScene().getWindow().hide();
         //profile.initialize();
 
     }
-
     public void myTripsClicked(ActionEvent event) throws IOException {
         lodafxmlfile("CMyTrips.fxml");
         BusAnchor.getScene().getWindow().hide();

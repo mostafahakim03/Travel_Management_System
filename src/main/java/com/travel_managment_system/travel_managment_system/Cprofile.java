@@ -1,7 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
-import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,54 +9,37 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Cprofile {
-
     @FXML
     private Label CAge= new Label();
-
     @FXML
     private Label CName= new Label();
-
     @FXML
     private Label CPassword= new Label();
-
     @FXML
     private Label CPhonenumber= new Label();
-
     @FXML
     private TextField CUserText=new TextField();
-
     @FXML
     private Label CUsername= new Label();
-
     @FXML
     private TextField CageText=new TextField();
-
     @FXML
     private TextField CnameText=new TextField();
-
     @FXML
     private TextField CpassText=new TextField();
-
     @FXML
     private TextField CphoneText=new TextField();
-
     @FXML
     private AnchorPane Cprofile;
-
     @FXML
     private AnchorPane Clabanchor=new AnchorPane();
-
     @FXML
     private AnchorPane Clabanchor2=new AnchorPane();
-
     @FXML
     private Button profileButton;
-
-
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -136,8 +118,6 @@ public class Cprofile {
         }
 
     }
-
-
     @FXML
     void CEdit(ActionEvent event) {
         Clabanchor.setVisible(true);

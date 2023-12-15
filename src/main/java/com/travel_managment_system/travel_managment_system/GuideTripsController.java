@@ -18,11 +18,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class GuideTripsController implements Loadfxml{
     @FXML
@@ -72,7 +70,6 @@ public class GuideTripsController implements Loadfxml{
         TripsAnchor.getScene().getWindow().hide();
         profile.initialize();
     }
-
 
     @FXML
     private void initialize() {

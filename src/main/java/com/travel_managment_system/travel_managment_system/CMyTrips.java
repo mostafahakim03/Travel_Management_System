@@ -21,11 +21,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class CMyTrips {
-
     public AnchorPane CMyTrips;
     public VBox tripsVBox;
-
-
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
@@ -81,8 +78,6 @@ public class CMyTrips {
 
         return tripBox;
     }
-
-
     public static void styleVBox(ImageView tripImage, Button viewTrip, VBox tripBox, Label tripName,
                                  HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment) {
 
@@ -125,8 +120,7 @@ public class CMyTrips {
             CMyTrips.getScene().getWindow().hide();
         }
     }
-
-public void HomeClicked(ActionEvent event) throws IOException {
+    public void HomeClicked(ActionEvent event) throws IOException {
     System.out.println("Going home!");
     Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
     Scene scene = new Scene(root);
@@ -135,7 +129,6 @@ public void HomeClicked(ActionEvent event) throws IOException {
     stage.show();
     CMyTrips.getScene().getWindow().hide();
 }
-
     public void CProfileClicked(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Cprofile.fxml"));
         //profile profile=new profile();
