@@ -9,32 +9,32 @@
 
 <AnchorPane fx:id="Cprofile" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Cprofile">
    <children>
-      <Label layoutX="18.0" layoutY="88.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Name" textFill="#ffae00">
+      <Label layoutX="18.0" layoutY="88.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Name" textFill="#fa8b02">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="314.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Age" textFill="#ffae00">
+      <Label layoutX="18.0" layoutY="314.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Age" textFill="#fa8b02">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="143.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  User Name" textFill="#ffae00">
+      <Label layoutX="18.0" layoutY="143.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  User Name" textFill="#fa8b02">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="199.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Password" textFill="#ffae00">
+      <Label layoutX="18.0" layoutY="199.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Password" textFill="#fa8b02">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="256.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Phone Number" textFill="#ffae00">
+      <Label layoutX="16.0" layoutY="256.0" prefHeight="31.0" prefWidth="149.0" style="-fx-background-radius: 45;" text="  Phone Number" textFill="#fa8b02">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="Clabanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
+      <AnchorPane fx:id="Clabanchor2" layoutX="161.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
          <children>
             <Label fx:id="CName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;" text="name">
                <font>
@@ -72,22 +72,34 @@
             <TextField fx:id="CageText" layoutX="63.0" layoutY="248.0" prefHeight="26.0" prefWidth="48.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="396.0" layoutY="307.0" mnemonicParsing="false" onAction="#CEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Edit" textFill="WHITE">
+      <Button layoutX="396.0" layoutY="307.0" mnemonicParsing="false" onAction="#CEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Edit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="555.0" layoutY="307.0" mnemonicParsing="false" onAction="#CSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Save" textFill="WHITE">
+      <Button layoutX="555.0" layoutY="307.0" mnemonicParsing="false" onAction="#CSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <ToolBar layoutX="-8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar layoutX="-8.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="profileButton" mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </items>
       </ToolBar>
    </children>

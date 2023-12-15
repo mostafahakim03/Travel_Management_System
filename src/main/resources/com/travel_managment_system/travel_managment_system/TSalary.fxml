@@ -14,9 +14,9 @@
          <content>
             <AnchorPane prefHeight="751.0" prefWidth="694.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="38.0" layoutY="24.0" text="Monthly Salary" textFill="#ffae00" underline="true">
+                  <Label layoutX="38.0" layoutY="24.0" text="Monthly Salary" textFill="#fa8b02" underline="true">
                      <font>
-                        <Font name="Brush Script MT Italic" size="48.0" />
+                        <Font name="Segoe Print Bold" size="28.0" />
                      </font>
                   </Label>
                   <VBox fx:id="tripsVBox" layoutX="37.0" layoutY="135.0" prefHeight="158.0" prefWidth="660.0" />
@@ -32,12 +32,12 @@
                               <Font name="Lucida Bright Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="salaryLabel" layoutX="462.0" layoutY="32.0" prefHeight="32.0" prefWidth="232.0" text="Salary" textFill="#ffae00">
+                        <Label fx:id="salaryLabel" layoutX="453.0" layoutY="31.0" prefHeight="32.0" prefWidth="232.0" text="Salary" textFill="#fa8b02">
                            <font>
-                              <Font name="Brush Script MT Italic" size="24.0" />
+                              <Font name="Segoe Print Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="collectButton" layoutX="516.0" layoutY="97.0" mnemonicParsing="false" onAction="#CollectButtonClicked" style="-fx-background-color: #ffae00;" text="Collect salary" textFill="WHITE" />
+                        <Button fx:id="collectButton" layoutX="516.0" layoutY="97.0" mnemonicParsing="false" onAction="#CollectButtonClicked" style="-fx-background-color: #FA8B02;" text="Collect salary" textFill="WHITE" />
                         <Label fx:id="notification" layoutX="269.0" layoutY="74.0" prefHeight="15.0" prefWidth="425.0" text="Please wait till the end of the month" visible="false">
                            <font>
                               <Font name="Lucida Bright Italic" size="11.0" />
@@ -49,13 +49,28 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button fx:id="salaryButton" mnemonicParsing="false" onAction="#salaryClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Salary" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="salaryButton" mnemonicParsing="false" onAction="#salaryClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Salary" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </items>
       </ToolBar>
    </children>

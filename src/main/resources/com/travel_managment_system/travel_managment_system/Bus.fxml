@@ -11,17 +11,29 @@
 
 <AnchorPane fx:id="BusAnchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.BusController">
    <children>
-      <ToolBar layoutX="-2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar layoutX="-2.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </items>
       </ToolBar>
-      <Label alignment="CENTER" layoutX="40.0" layoutY="77.0" prefHeight="32.0" prefWidth="154.0" text="Bus Number :" textFill="#ffae00">
+      <Label alignment="CENTER" layoutX="40.0" layoutY="77.0" prefHeight="46.0" prefWidth="222.0" text="Bus Number :" textFill="#ffae00">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="Segoe Print Bold" size="25.0" />
          </font>
       </Label>
       <Label fx:id="BusNumber" layoutX="83.0" layoutY="125.0">
@@ -39,15 +51,15 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <AnchorPane fx:id="AddAnchor" layoutX="28.0" layoutY="297.0" prefHeight="84.0" prefWidth="579.0">
+      <AnchorPane fx:id="AddAnchor" layoutX="63.0" layoutY="297.0" prefHeight="84.0" prefWidth="579.0">
          <children>
-            <Label alignment="CENTER" prefHeight="51.0" prefWidth="230.0" text="Enter your seat number :" textFill="#ffae00">
+            <Label alignment="CENTER" layoutY="16.0" prefHeight="51.0" prefWidth="230.0" text="Enter your seat number :" textFill="#ffae00">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="Segoe Print Bold" size="17.0" />
                </font>
             </Label>
-            <ComboBox fx:id="Select_seat" layoutX="230.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="126.0" promptText="Seat Number" style="-fx-background-radius: 45; -fx-border-color: #ffae00; -fx-border-radius: 45;" />
-            <Button alignment="CENTER" layoutX="403.0" layoutY="10.0" mnemonicParsing="false" onAction="#addSeatNumber" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #ffae00; -fx-background-radius: 45;" text="Add" textFill="WHITE">
+            <ComboBox fx:id="Select_seat" layoutX="241.0" layoutY="25.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="126.0" promptText="Seat Number" style="-fx-background-radius: 45;" />
+            <Button alignment="CENTER" layoutX="438.0" layoutY="21.0" mnemonicParsing="false" onAction="#addSeatNumber" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Add" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

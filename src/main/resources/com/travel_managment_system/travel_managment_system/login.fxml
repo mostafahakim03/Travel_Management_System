@@ -15,23 +15,26 @@
    <children>
       <ImageView fitHeight="348.0" fitWidth="669.0" layoutX="-1.0" layoutY="1.0" opacity="0.47" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@julia-solonina-Csja8O0sbOw-unsplash%201.png" />
+            <Image url="@julia-solonina-Csja8O0sbOw-unsplash 1.png" />
          </image>
       </ImageView>
-      <Button layoutX="460.0" layoutY="274.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE" />
-      <TextField fx:id="LoginUsertext" layoutX="206.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
-      <PasswordField fx:id="LoginPasstext" layoutX="206.0" layoutY="130.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
-      <RadioButton fx:id="LoginRadioCustomer" layoutX="206.0" layoutY="216.0" mnemonicParsing="false" text="Custmor">
+      <Button layoutX="424.0" layoutY="262.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: ffae00; -fx-background-radius: 45;" text="submit" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="19.0" />
+         </font></Button>
+      <TextField fx:id="LoginUsertext" layoutX="132.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
+      <PasswordField fx:id="LoginPasstext" layoutX="132.0" layoutY="130.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <RadioButton fx:id="LoginRadioCustomer" layoutX="132.0" layoutY="216.0" mnemonicParsing="false" text="Custmor">
          <toggleGroup>
             <ToggleGroup fx:id="type" />
          </toggleGroup>
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Segoe Print Bold" size="14.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="LoginRadioTour" layoutX="206.0" layoutY="254.0" mnemonicParsing="false" text="Tourguide" toggleGroup="$type">
+      <RadioButton fx:id="LoginRadioTour" layoutX="132.0" layoutY="254.0" mnemonicParsing="false" text="Tourguide" toggleGroup="$type">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="Segoe Print Bold" size="14.0" />
          </font>
       </RadioButton>
       <Label fx:id="errorlog" layoutX="206.0" layoutY="175.0" prefHeight="26.0" prefWidth="254.0" textFill="RED">

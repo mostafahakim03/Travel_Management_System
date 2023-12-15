@@ -14,9 +14,9 @@
          <content>
             <AnchorPane prefHeight="751.0" prefWidth="694.0">
                <children>
-                  <Label layoutX="50.0" layoutY="33.0" text="All Trips">
+                  <Label layoutX="50.0" layoutY="31.0" text="All Trips">
                      <font>
-                        <Font name="System Bold" size="24.0" />
+                        <Font name="Segoe Print Bold" size="26.0" />
                      </font>
                   </Label>
                   <VBox fx:id="tripsVBox" layoutY="98.0" prefHeight="158.0" prefWidth="694.0" />
@@ -24,12 +24,24 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
          </items>
       </ToolBar>
    </children>
