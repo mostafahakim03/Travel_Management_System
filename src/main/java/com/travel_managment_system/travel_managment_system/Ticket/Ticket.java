@@ -1,18 +1,17 @@
 package com.travel_managment_system.travel_managment_system.Ticket;
 
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
-import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
+
 
 public class Ticket {
     public static Ticket selectedTicket=new Ticket();
     public int TicketID=0;
 
     public static int numberOfTickets=0;
-    //public int numberOfReservedTickets; //counts down in the booking process.
+
     public int trip_id;
     public double ticket_price;
     public LocalDate booking_date;
