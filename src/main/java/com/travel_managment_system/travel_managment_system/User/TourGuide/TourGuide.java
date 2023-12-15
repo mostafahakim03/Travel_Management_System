@@ -44,11 +44,10 @@ public class TourGuide extends User implements Serializable {
         }
         return test;
     }
-    public String check_signup(Boolean T)
-    {
-       String test= super.check_signup();
-       return test;
-    }
+   public String check_signup(Boolean T)
+   {
+   return super.check_signup();
+  }
 
     public Double getSalary() {
         return Salary;

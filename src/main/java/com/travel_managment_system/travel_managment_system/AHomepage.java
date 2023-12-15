@@ -4,6 +4,7 @@ import com.travel_managment_system.travel_managment_system.Itinerary.Activities;
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
@@ -26,8 +27,33 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Optional;
 
 public class AHomepage implements Loadfxml{
+
+    @FXML
+    private AnchorPane Customer_View;
+    @FXML
+    private TextField Customer_AgeText;
+
+    @FXML
+    private TextField Customer_NameText;
+
+    @FXML
+    private TextField Customer_PassText;
+
+    @FXML
+    private TextField Customer_PhoneText;
+
+    @FXML
+    private TextField Customer_UserText;
+    @FXML
+    private Label Error_Add_customer;
+    @FXML
+    private AnchorPane Add_Customer_Pane;
+    @FXML
+    private AnchorPane show_Customer_Pane;
+
     @FXML
     private DatePicker TendDate, TstartDate;
 
@@ -50,6 +76,9 @@ public class AHomepage implements Loadfxml{
 
     @FXML
     private Pane newIDpane;
+    @FXML
+    private VBox Customer_Vbox;
+
 
 
     @FXML
@@ -117,6 +146,7 @@ public class AHomepage implements Loadfxml{
     @FXML
     private Button add_ActivtiesToTrip;
     Activities [] activities =new Activities[3];
+    public static Boolean Refresh_Customer=false;
 
 
 
@@ -132,6 +162,7 @@ public class AHomepage implements Loadfxml{
       Dashview.setVisible(true);
       AddActiveties.setVisible(false);
       ActivetiesView.setVisible(false);
+        Customer_View.setVisible(false);
     }
     @FXML
     void Show_Activities(ActionEvent event) throws IOException {
@@ -200,6 +231,10 @@ Activities_Location_compo.getItems().addAll(Admin.Locations);
         }
     }
     @FXML
+    void back_add_Activitie(ActionEvent event) {
+AddActiveties.setVisible(false);
+    }
+    @FXML
     void saveActivtie(ActionEvent event) throws IOException {
 if(imageSrc.equals(""))ErrorAddActitie.setText("Please Import Photo");
 else if(Activities_Location_compo.getValue()==null)ErrorAddActitie.setText("please Input Location");
@@ -219,6 +254,7 @@ Show_Activities(event);
 
     @FXML
     void ShowTours(ActionEvent event) {
+        Customer_View.setVisible(false);
         ATripAnch.setVisible(false);
         AddnewTOUR.setVisible(false);
         ATourPage.setVisible(true);
@@ -268,14 +304,14 @@ ErrorAddTour.setText("");
     void SaveNewTour(ActionEvent event) {
         System.out.println(TaddageText.getText());
         TourGuide tourGuide = new TourGuide(TaddnameText.getText(), TaddUserText.getText(), TaddpassText.getText(), TaddphoneText.getText(), TaddageText.getText(), TaadidText.getText());
-        String check = tourGuide.check_signup();
-        if (check.equals("done")) {
+        String test=Admin.Check_Add_or_edit_tour(tourGuide,true);
+        if (test.equals("done")) {
 
-            TourGuide.TourguideAcc.add(tourGuide);
+           Admin.add_Tour(tourGuide);
             ShowTours(event);
             Refresh = true;
         } else {
-            ErrorAddTour.setText(check);
+            ErrorAddTour.setText(test);
         }
 
     }
@@ -285,6 +321,11 @@ ErrorAddTour.setText("");
             ShowTours(new ActionEvent());
             System.out.println("yes");
             Refresh = false;
+        }
+        if(Refresh_Customer)
+        {
+            Show_Customer();
+            Refresh_Customer=false;
         }
     }
     @FXML
@@ -322,6 +363,7 @@ ErrorAddTour.setText("");
         allTrips.setVisible(true);
         newTripForm.setVisible(false);
         DashAnch.setVisible(false);
+            Customer_View.setVisible(false);
         showTrips(event);
     }
 
@@ -545,8 +587,70 @@ newTourID_Text.setText("");
     }
 
     @FXML
+    void Customer_View(ActionEvent event) {
+        Customer_View.setVisible(true);
+        show_Customer_Pane.setVisible(true);
+        Add_Customer_Pane.setVisible(false);
+        ATourPage.setVisible(false);
+        ATripAnch.setVisible(false);
+        DashAnch.setVisible(false);
+        Show_Customer();
+    }
+    public void Show_Customer() {
+
+        Customer_Vbox.getChildren().clear();
+        try {
+            for (int j = 0; j < Customer.CoustomerAcc.size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Customer_Card.fxml"));
+                Pane pane = fxmlLoader.load();
+                Customer_Card customerCard = fxmlLoader.getController();
+                customerCard.Set_data(Customer.CoustomerAcc.get(j));
+                Customer_Vbox.getChildren().add(pane);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+        @FXML
+    void AddNewCust(ActionEvent event) {
+show_Customer_Pane.setVisible(false);
+Add_Customer_Pane.setVisible(true);
+////---initilaize Add Customer Form----\\\\\\\\
+        Customer_NameText.setText("");
+        Customer_AgeText.setText("");
+        Customer_PassText.setText("");
+        Customer_PhoneText.setText("");
+        Customer_UserText.setText("");
+        Error_Add_customer.setText("");
+    }
+
+    @FXML
+    void Save_add_new_Customer(ActionEvent event) {
+        Customer customer=new Customer(Customer_NameText.getText(),Customer_UserText.getText(),Customer_PassText.getText(),Customer_PhoneText.getText(),Customer_AgeText.getText());
+     String check=customer.check_signup();
+     if(check.equals("done"))
+     {
+         Customer_View(event);
+         Customer.CoustomerAcc.add(customer);
+         Show_Customer();
+
+     }
+     else Error_Add_customer.setText(check);
+    }
+    @FXML
+    void Back_from_add_customer(ActionEvent event) {
+     Customer_View(event);
+    }
+
+    @FXML
     void Logout(ActionEvent event) throws IOException {
-      lodafxmlfile("AHomepage.fxml");
+      Optional<ButtonType> result= Admin.confirmation_alert(newTourID_Text.getScene().getWindow(),"Are you sure ?","Log out");
+    if(result.get()==ButtonType.OK) {
+        lodafxmlfile("hello-view.fxml");
+        newTripForm.getScene().getWindow().hide();
+    }
     }
 
 }

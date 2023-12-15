@@ -1,9 +1,16 @@
 package com.travel_managment_system.travel_managment_system.User.Admin;
 
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Admin {
     public static ArrayList<String> Locations=new ArrayList<>();
@@ -42,5 +49,52 @@ public class Admin {
     }
 
 
+public static Optional<ButtonType> confirmation_alert(Window window,String content,String Header)
+{
+    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+    alert.initOwner(window);
+    alert.getDialogPane().setContentText(content);
+    alert.getDialogPane().setHeaderText(Header);
+   return alert.showAndWait();
+
+}
+public static void Error_Alert(Window window,String content,String Header)
+{
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.initOwner(window);
+    alert.getDialogPane().setContentText(content);
+    alert.getDialogPane().setHeaderText(Header);
+    alert.showAndWait();
+}
+public static String Check_Add_or_edit_tour(TourGuide tourGuide,Boolean add)
+{
+    String test = tourGuide.check_signup(true);
+    if(add) {
+        if (test.equals("done")) {
+            boolean exist = false;
+            for (TourGuide T : TourGuide.TourguideAcc) {
+                if (tourGuide.getGuideID().equals(T.getGuideID())) {
+                    exist = true;
+                    break;
+                }
+            }
+            if (exist) return "ID is already exist";
+            else {
+                try {
+                    int id = Integer.parseInt(tourGuide.getGuideID());
+                    if (TourGuide.newidAcc.contains((Integer) id)) TourGuide.newidAcc.remove((Integer) id);
+                } catch (NumberFormatException e) {
+                    return "Invalid ID";
+                }
+            }
+        }
+    }
+   return test;
+
+}
+public static void add_Tour(TourGuide tourGuide)
+{
+    TourGuide.TourguideAcc.add(tourGuide);
+}
 
 }

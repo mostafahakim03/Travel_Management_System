@@ -1,15 +1,18 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class Atourcontrol {
 
@@ -38,6 +41,7 @@ public class Atourcontrol {
         TAssingnedTrips.setText(String.valueOf(tourGuide.getAssignedTrips().size()));
         if(tourGuide.isAvailibility())Available.setVisible(true);
         else NOTavailale.setVisible(true);
+        disEditAnch(new ActionEvent());
     }
 
     @FXML
@@ -48,12 +52,20 @@ public class Atourcontrol {
         Tour_IDEdit.setText(Tid.getText());Tour_PASSEdit.setText(Tpas.getText());Tour_PHONEEdit.setText(Tphone.getText());Tour_USEREdit.setText(Tuser.getText());Tour_AgeEdit.setText(Tage.getText());
         editANCH.setVisible(true);
     }
+
     @FXML
     void saveEditTour(ActionEvent event) {
-        TourGuide tourGuide = new TourGuide(Tname.getText(), Tour_USEREdit.getText(), Tour_PASSEdit.getText(), Tour_PHONEEdit.getText(), Tage.getText(), Tour_IDEdit.getText());
-      String test;
-       if(Tid.getText().equals(Tour_IDEdit.getText())){test=tourGuide.check_signup(true);}
-        else test = tourGuide.check_signup();
+        TourGuide tourGuide;
+        if(Tuser.getText().equals(Tour_USEREdit.getText()))
+            tourGuide = new TourGuide(Tname.getText(), "-1", Tour_PASSEdit.getText(), Tour_PHONEEdit.getText(), Tage.getText(), Tour_IDEdit.getText());
+     else
+            tourGuide = new TourGuide(Tname.getText(), Tour_USEREdit.getText(), Tour_PASSEdit.getText(), Tour_PHONEEdit.getText(), Tage.getText(), Tour_IDEdit.getText());
+
+        String test;
+if(Tid.getText().equals(Tour_IDEdit.getText()))
+      test =Admin.Check_Add_or_edit_tour(tourGuide,false);
+else test=Admin.Check_Add_or_edit_tour(tourGuide,true);
+
 
         if (test.equals("done")) {
             for (TourGuide T : TourGuide.TourguideAcc) {
@@ -131,7 +143,13 @@ public class Atourcontrol {
     }
     @FXML
     void inDeleteAnch(ActionEvent event) {
-        deleteANCH.setVisible(true);
+     //   deleteANCH.setVisible(true);
+        Optional<ButtonType> check= Admin.confirmation_alert(Tname.getScene().getWindow(),"Are You Sure","Delete Account");
+        if(check.get()==ButtonType.OK)
+        {
+            TourGuide.DeleteTour(Tid.getText());
+            AHomepage.Refresh=true;
+        }
     }
 
 
