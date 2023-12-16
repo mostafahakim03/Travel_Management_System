@@ -73,9 +73,7 @@ public class HomepageController implements Loadfxml{
     }
 
     public VBox createTripVBox(Trip trip) throws FileNotFoundException {
-        Trip.selectedTrip = new Trip();
         Trip.selectedTrip = trip;
-        System.out.println(trip.getNumberOfAvailableSeats());
         VBox tripBox = new VBox();  //returned VBox
         VBox detailsBox = new VBox(); //VBox that contains all important details
         VBox finalBox = new VBox(); //VBox that contains view/assign buttons and the payment/price

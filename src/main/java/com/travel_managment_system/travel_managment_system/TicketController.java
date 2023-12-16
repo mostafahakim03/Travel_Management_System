@@ -57,7 +57,7 @@ public class TicketController implements Loadfxml{
     private Label TripIDLabel = new Label();
 
     @FXML
-    private ImageView tripImage;
+    private ImageView tripImage=new ImageView();
 
     @FXML
     private Label BookingDate=new Label();
@@ -68,9 +68,6 @@ public class TicketController implements Loadfxml{
         Trip trip = Trip.selectedTrip;
 
         Ticket.selectedTicket.ticket_price=Ticket.selectedTicket.numberOfReservedTickets* Trip.selectedTrip.getPrice();
-        System.out.println(Ticket.numberOfTickets);
-        System.out.println(Trip.selectedTrip.getPrice());
-        System.out.println(Ticket.selectedTicket.ticket_price);
 
         ticketIDLabel.setText(String.valueOf(Ticket.selectedTicket.TicketID));
         tripNameLabel.setText(trip.getTripName());

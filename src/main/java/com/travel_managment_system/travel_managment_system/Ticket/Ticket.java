@@ -27,8 +27,6 @@ public class Ticket implements Serializable {
 
     public Ticket(){
         this.booking_date = LocalDate.now();
-        numberOfTickets++;
-        TicketID=numberOfTickets;
     }
 //    public double returnPrice(int noOFTrips) {
 //        if (Customer.selectedCustomer.checkDiscount()) {

@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system.Trip;
 
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.Customer.Bus;
 import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
 import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
@@ -30,6 +31,7 @@ public class Trip implements Serializable {
 
     public static Trip selectedTrip;
     private Itinerary itinerary;
+    public ArrayList <Ticket> tickets= new ArrayList<>();
 
     public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
         this.numberOfAvailableSeats = numberOfAvailableSeats;

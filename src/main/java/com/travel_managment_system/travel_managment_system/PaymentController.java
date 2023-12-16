@@ -59,6 +59,7 @@ public class PaymentController implements Loadfxml {
                 break;
             }
         }
+        Trip.selectedTrip.tickets.add(Ticket.selectedTicket);
         for (Trip trip: Trip.trips) {
             if (trip.getTrip_id()==Trip.selectedTrip.getTrip_id()){
                 if(trip.getTransportation()=="Plane"){

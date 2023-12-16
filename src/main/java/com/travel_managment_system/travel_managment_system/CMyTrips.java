@@ -24,7 +24,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class CMyTrips {
+public class CMyTrips implements Loadfxml {
 
     public AnchorPane CMyTrips;
     public VBox tripsVBox;
@@ -42,13 +42,18 @@ public class CMyTrips {
 
 
         for (Trip trip : Customer.selectedCustomer.myTrips) {
+            for(Ticket ticket: Customer.selectedCustomer.tickets){
+                if(trip.getTrip_id()==ticket.trip_id){
+                VBox tripBox = createTripVBox(trip,ticket);
+                tripsVBox.getChildren().add(tripBox);
+                }
+            }
 
-            VBox tripBox = createTripVBox(trip);
-            tripsVBox.getChildren().add(tripBox);
+
         }
 
     }
-    private VBox createTripVBox(Trip trip) throws FileNotFoundException {
+    private VBox createTripVBox(Trip trip,Ticket ticket) throws FileNotFoundException {
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
         VBox finalBox = new VBox();
@@ -59,7 +64,8 @@ public class CMyTrips {
         Image image = new Image(imageInput);
         ImageView tripImage = new ImageView(image);
 
-        String PriceText = Double.toString(Ticket.selectedTicket.ticket_price);
+
+        String PriceText = Double.toString(ticket.ticket_price);
 
         Label tripName = new Label(trip.getTripName());
         Label tripPrice = new Label("from \n" + PriceText + "EGP");
@@ -71,17 +77,15 @@ public class CMyTrips {
         Button viewTrip = new Button("View trip");
         viewTrip.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("TicketScene.fxml"));
-                Parent tripDetailsParent = loader.load();
                 for (Trip trips: Customer.selectedCustomer.myTrips) {
                     if(trip.getTrip_id()== trips.getTrip_id()){
                         Trip.selectedTrip=trips;
+                        Ticket.selectedTicket=ticket;
                     }
                 }
-                Scene scene = new Scene(tripDetailsParent);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
+                TicketController ticketController=new TicketController();
+                ticketController.initialize();
+                lodafxmlfile("TicketScene.fxml");
                 CMyTrips.getScene().getWindow().hide();
             } catch (IOException e) {
                 throw new RuntimeException(e);

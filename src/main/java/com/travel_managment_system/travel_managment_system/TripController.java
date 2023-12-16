@@ -133,23 +133,27 @@ public class TripController implements Initializable ,Loadfxml{
         else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
             checkLabel.setVisible(true);
         }
+       else if(Customer.selectedCustomer.myTrips.contains(Trip.selectedTrip))
+        {
+            NoOfTicketsMessageLabel1.setText(("You already reserved in this trips one. Find in more trips at home."));
+        }
         else {
-            NoOfTicketsMessageLabel1.setText("");
-            Ticket.selectedTicket.numberOfReservedTickets=numbersOfTickets;
-            Ticket.selectedTicket.packageType=packageTypeChoice.getValue();
-            Ticket.selectedTicket.trip_id=Trip.selectedTrip.getTrip_id();
+                NoOfTicketsMessageLabel1.setText("");
+                Ticket.selectedTicket.numberOfReservedTickets = numbersOfTickets;
+                Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
+                Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
+                Ticket.selectedTicket.TicketID=Trip.selectedTrip.tickets.size()+1;
 
-            System.out.println(Trip.selectedTrip.getTransportation());
-            if(Trip.selectedTrip.getTransportation().equals("Plane")) {
-                FlightController flight = new FlightController();
-                flight.trip_flightSwitch();
-                TripHome.getScene().getWindow().hide();
-            }
-            else if (Trip.selectedTrip.getTransportation().equals("Bus")){
-                BusController bus = new BusController();
-                bus.trip_busSwitch();
-                TripHome.getScene().getWindow().hide();
-            }
+                if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+                    FlightController flight = new FlightController();
+                    flight.trip_flightSwitch();
+                    TripHome.getScene().getWindow().hide();
+                } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+                    BusController bus = new BusController();
+                    bus.trip_busSwitch();
+                    TripHome.getScene().getWindow().hide();
+                }
+
         }
 
     }
