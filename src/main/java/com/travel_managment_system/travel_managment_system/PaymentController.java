@@ -69,6 +69,7 @@ public class PaymentController implements Loadfxml {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
         Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
+//        Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
         Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
@@ -93,6 +94,7 @@ public class PaymentController implements Loadfxml {
                 }
             }
         }
+
 
     }
 

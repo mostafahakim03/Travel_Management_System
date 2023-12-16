@@ -99,7 +99,7 @@ public class HomepageController implements Loadfxml{
         Label tripSD = new Label("Start Date: " + trip.getStartDate());
         Label tripED = new Label("End Date: " + trip.getEndDate());
         Label tripTransportation = new Label("Transportation: "+trip.getTransportation());
-        Label tripRemainingSeats=new Label(Integer.toString(trip.tickets.size()) +" / 50");
+        Label tripRemainingSeats=new Label(Integer.toString(50-Trip.selectedTrip.getNumberOfAvailableSeats())  +" / 50");
         Label tripRemainingTourGuides=new Label(Integer.toString(trip.getAssignedTourGuides().size()) +" / 2");
         Button viewTrip = new Button("View trip");
         Button assignTrip = new Button("Assign Trip");

@@ -14,7 +14,7 @@
             <content>
                 <AnchorPane prefHeight="751.0" prefWidth="694.0">
                     <children>
-                        <Label layoutX="50.0" layoutY="27.0" text="All Trips">
+                        <Label layoutX="50.0" layoutY="27.0" text="MY Trips">
                             <font>
                                 <Font name="Segoe Print Bold" size="25.0" />
                             </font>

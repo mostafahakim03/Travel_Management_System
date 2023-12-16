@@ -62,14 +62,18 @@ public class TicketController implements Loadfxml{
     @FXML
     private Label BookingDate=new Label();
 
+    @FXML
+    private Label DiscountLabel;
+
 
 
     public void initialize() throws FileNotFoundException {
         Trip trip = Trip.selectedTrip;
-
-
-        Ticket.selectedTicket.ticket_price=Ticket.selectedTicket.numberOfReservedTickets* Trip.selectedTrip.getPrice();
-
+        double overallPrice=Ticket.selectedTicket.numberOfReservedTickets*Trip.selectedTrip.getPrice();
+        Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
+        if(Ticket.selectedTicket.ticket_price<(overallPrice)){
+            DiscountLabel.setVisible(true);
+        }
         ticketIDLabel.setText(String.valueOf(Ticket.selectedTicket.TicketID));
         tripNameLabel.setText(trip.getTripName());
         TripIDLabel.setText(String.valueOf(Ticket.selectedTicket.trip_id));
@@ -82,8 +86,6 @@ public class TicketController implements Loadfxml{
         packageType.setText(Ticket.selectedTicket.packageType);
         BookingDate.setText(String.valueOf(Ticket.selectedTicket.booking_date));
         userLabel.setText(Customer.selectedCustomer.getUsername());
-
-
 
         for(int i=0; i<Ticket.selectedTicket.numberOfReservedTickets;i++){
             Label seatnum= new Label();

@@ -60,7 +60,7 @@
                   </Label>
                   <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="Berlin Sans FB Bold" size="15.0" />
+                        <Font name="Berlin Sans FB" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />

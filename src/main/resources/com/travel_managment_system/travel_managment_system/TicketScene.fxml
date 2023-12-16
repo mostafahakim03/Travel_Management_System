@@ -18,63 +18,72 @@
 
 <AnchorPane fx:id="TicketAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.TicketController">
    <children>
-      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="66.0" prefWidth="762.0" style="-fx-background-color: #ffae00; -fx-padding: 5px;">
+      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="66.0" prefWidth="762.0" style="-fx-background-color: fa8b02; -fx-padding: 5px;">
          <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Logout" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Profile" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="My Trips" textFill="WHITE" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #ffae00; -fx-padding: 12px;" text="Home" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="Logout" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="My Profile" textFill="WHITE" />
+            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="My Trips" textFill="WHITE" />
+            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="Home" textFill="WHITE" />
          </items>
       </ToolBar>
       <ScrollPane hbarPolicy="NEVER" layoutX="-8.0" layoutY="65.0" prefHeight="690.0" prefWidth="751.0" vbarPolicy="ALWAYS">
          <content>
             <AnchorPane prefHeight="772.0" prefWidth="757.0">
                <children>
-                  <AnchorPane prefHeight="256.0" prefWidth="750.0">
+                  <AnchorPane prefHeight="303.0" prefWidth="750.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="70.0" prefWidth="290.0" text="Trip Details">
                            <font>
-                              <Font size="36.0" />
+                              <Font name="Segoe Print Bold" size="36.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="84.0" text="Package Type:">
+                        <Label layoutX="28.0" layoutY="100.0" text="Package Type:">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="180.0" text="Hotel details:">
+                        <Label layoutX="27.0" layoutY="218.0" text="Hotel details:">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="26.0" layoutY="154.0" text="Car details:">
+                        <Label layoutX="27.0" layoutY="180.0" text="Car details:">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="22.0" layoutY="123.0" text="Seat numbers:">
+                        <Label layoutX="27.0" layoutY="138.0" text="Seat numbers:">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="packageType" layoutX="143.0" layoutY="84.0" text="type">
+                        <Label fx:id="packageType" layoutX="169.0" layoutY="100.0" text="type" textFill="#fa8b02">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <HBox fx:id="seatNumberHBox" layoutX="143.0" layoutY="123.0" prefHeight="31.0" prefWidth="287.0" />
-                        <Label fx:id="carDetails" layoutX="127.0" layoutY="158.0" text="carDetails" />
-                        <Label fx:id="hotelDetails" layoutX="127.0" layoutY="184.0" text="hotelDetails" />
-                        <ImageView fx:id="tripImage" fitHeight="183.0" fitWidth="230.0" layoutX="430.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label layoutX="26.0" layoutY="206.0" text="Booking Date">
+                        <HBox fx:id="seatNumberHBox" layoutX="169.0" layoutY="143.0" prefHeight="31.0" prefWidth="287.0" />
+                        <Label fx:id="carDetails" layoutX="144.0" layoutY="180.0" text="carDetails" textFill="#fa8b02">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="Segoe Print" size="18.0" />
+                           </font></Label>
+                        <Label fx:id="hotelDetails" layoutX="157.0" layoutY="218.0" text="hotelDetails" textFill="#fa8b02">
+                           <font>
+                              <Font name="Segoe Print" size="18.0" />
+                           </font></Label>
+                        <ImageView fx:id="tripImage" fitHeight="151.0" fitWidth="254.0" layoutX="448.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label layoutX="23.0" layoutY="258.0" text="Booking Date:">
+                           <font>
+                              <Font name="Segoe Print" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="BookingDate" layoutX="127.0" layoutY="210.0" text=".." />
+                        <Label fx:id="BookingDate" layoutX="164.0" layoutY="258.0" text=".." textFill="#fa8b02">
+                           <font>
+                              <Font name="Segoe Print" size="18.0" />
+                           </font></Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane layoutX="-1.0" layoutY="256.0" prefHeight="280.0" prefWidth="751.0">
+                  <AnchorPane layoutX="-1.0" layoutY="316.0" prefHeight="280.0" prefWidth="751.0">
                      <children>
                         <ImageView fitHeight="291.0" fitWidth="751.0" layoutX="-1.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -181,7 +190,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="628.0" layoutY="583.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ConfirmButtonClicked" style="-fx-background-color: #ffae00; -fx-background-radius: 15px; -fx-border-radius: 15px;" text="Confirm" textFill="WHITE">
+                  <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="637.0" layoutY="661.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ConfirmButtonClicked" style="-fx-background-color: #ffae00; -fx-background-radius: 15px; -fx-border-radius: 15px;" text="Confirm" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>
@@ -189,6 +198,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Label fx:id="DiscountLabel" layoutX="14.0" layoutY="626.0" prefHeight="26.0" prefWidth="701.0" text="Congrats! You've just earned 15% off this trip's price by reserving tickets in the last two consecutive trips!" visible="false">
+                     <font>
+                        <Font name="Segoe Print Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </content>

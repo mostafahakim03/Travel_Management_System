@@ -16,7 +16,7 @@ public class Ticket implements Serializable {
     public static int numberOfTickets = 0;
     public int numberOfReservedTickets;
     public int trip_id;
-    public double ticket_price;
+    public double ticket_price=0;
     public LocalDate booking_date;
     public ArrayList<Integer> seatNumber = new ArrayList<>();
     public CAr car = new CAr();
