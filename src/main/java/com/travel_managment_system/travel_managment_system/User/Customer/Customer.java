@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Customer extends User implements Serializable {
     public int NumberOfTrip;
     public static Customer selectedCustomer;
-    public int numberOfReservedTickets;
+//    public int numberOfReservedTickets;
     public static ArrayList<Customer> CoustomerAcc = new ArrayList<Customer>();
 
     public ArrayList<Ticket> tickets= new ArrayList<>();

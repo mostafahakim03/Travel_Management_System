@@ -31,8 +31,8 @@ public class Trip implements Serializable {
     public static Trip selectedTrip;
     private Itinerary itinerary;
 
-    private Bus bus;
-    private Flight flight;
+    public Bus bus=new Bus();
+    public Flight flight= new Flight();
     private Hotel hotel=new Hotel();
 
     public void setHotel(Hotel hotel) {

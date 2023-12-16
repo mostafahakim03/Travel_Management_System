@@ -40,7 +40,7 @@ public class BusController implements Initializable , Loadfxml{
 
     public void trip_busSwitch() throws IOException {
         lodafxmlfile("Bus.fxml");
-        numberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
+        numberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -78,7 +78,7 @@ public class BusController implements Initializable , Loadfxml{
         Select_seat.getItems().clear();
         FillArr();
         Select_seat.getItems().addAll(Myseat);
-        BnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
+        BnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
     }
     public void addSeatNumber() {
         if(Select_seat.getValue()==null)
@@ -88,8 +88,7 @@ public class BusController implements Initializable , Loadfxml{
         else {
             int chosenSeat=Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
-            Select_seat.getItems().remove(chosenSeat-1);
-            System.out.println(BnumberOfSeats);
+            Select_seat.getItems().remove((Integer)Select_seat.getValue());
             BnumberOfSeats--;
             if(BnumberOfSeats==0){
                 AddAnchor.setVisible(false);

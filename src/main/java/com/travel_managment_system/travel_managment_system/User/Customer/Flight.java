@@ -1,14 +1,16 @@
 package com.travel_managment_system.travel_managment_system.User.Customer;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Flight implements Serializable {
+    public ArrayList<Integer> Seats = new ArrayList<>();
+
     private String FlightCompanyName;
-    public int [] arrNumberOfSeats = new int[50];
     public Boolean [] isReserved=new Boolean[50];
     public void FillarrSeats(){
         for(int i =0; i<50;i++) {
-            arrNumberOfSeats[i] = i+1;
+            Seats.add(i+1);
             isReserved[i]=false;
         }
     }

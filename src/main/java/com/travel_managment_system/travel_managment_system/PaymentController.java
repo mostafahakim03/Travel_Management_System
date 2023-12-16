@@ -3,6 +3,7 @@ package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -52,20 +53,19 @@ public class PaymentController implements Loadfxml {
         Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
-                customer.numberOfReservedTickets=Customer.selectedCustomer.numberOfReservedTickets;
                 customer.tickets.add(Ticket.selectedTicket);
-                System.out.println(customer.tickets.get(0).TicketID + " "+ customer.tickets.get(0).car.getCarname() + " "+customer.tickets.get(0).car.getCarmodel()+" "+customer.tickets.get(0).seatNumber);
                 customer.myTrips=Customer.selectedCustomer.myTrips;
                 break;
             }
         }
-        if(Trip.selectedTrip.getTransportation()=="Plane"){
-            FlightController flightController=new FlightController();
-            flightController.AvailableSeats.stream()
-                    .filter(trip -> Ticket.selectedTicket.seatNumber==flightController.Seats)
-                    .collect(Collectors.toCollection(ArrayList::new));
-            System.out.println(flightController.AvailableSeats);
+        for (Trip trip: Trip.trips) {
+            if (trip.getTrip_id()==Trip.selectedTrip.getTrip_id()){
+                for (Integer seat: Ticket.selectedTicket.seatNumber) {
+                    trip.flight.Seats.remove(seat);
+                }
+            }
         }
+
 
 
 

@@ -13,7 +13,7 @@ public class Ticket implements Serializable {
     public int TicketID=0;
 
     public static int numberOfTickets=0;
-
+    public int numberOfReservedTickets;
     public int trip_id;
     public double ticket_price;
     public LocalDate booking_date;

@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,21 +30,16 @@ public class FlightController implements Initializable ,Loadfxml {
 //    private ChoiceBox<Integer> Select_seat;
     @FXML
     private ComboBox<Integer> Select_seat=new ComboBox<>();
-    public ArrayList<Integer> Seats = new ArrayList<>();
-    public ArrayList<Integer> AvailableSeats = Seats;
+
     public int FnumberOfSeats;
 
     @FXML
     private Label alertText;
 
-    public void FillArr(){
-        for(int i=0;i<50;i++){
-            Seats.add(i + 1);
-        }
-    }
+
     public void trip_flightSwitch() throws IOException {
        lodafxmlfile("Flight.fxml");
-        FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
+        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
     }
 
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -85,9 +81,9 @@ public class FlightController implements Initializable ,Loadfxml {
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         Select_seat.getItems().clear();
-        FillArr();
-            Select_seat.getItems().addAll(AvailableSeats);
-        FnumberOfSeats= Customer.selectedCustomer.numberOfReservedTickets;
+        Trip.selectedTrip.flight.FillarrSeats();
+            Select_seat.getItems().addAll(Trip.selectedTrip.flight.Seats);
+        FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
 
     }
 

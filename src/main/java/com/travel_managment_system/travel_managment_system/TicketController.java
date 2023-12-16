@@ -67,7 +67,10 @@ public class TicketController implements Loadfxml{
     public void initialize() throws FileNotFoundException {
         Trip trip = Trip.selectedTrip;
 
-        Ticket.selectedTicket.ticket_price=Ticket.numberOfTickets* Trip.selectedTrip.getPrice();
+        Ticket.selectedTicket.ticket_price=Ticket.selectedTicket.numberOfReservedTickets* Trip.selectedTrip.getPrice();
+        System.out.println(Ticket.numberOfTickets);
+        System.out.println(Trip.selectedTrip.getPrice());
+        System.out.println(Ticket.selectedTicket.ticket_price);
 
         ticketIDLabel.setText(String.valueOf(Ticket.selectedTicket.TicketID));
         tripNameLabel.setText(trip.getTripName());
@@ -75,7 +78,7 @@ public class TicketController implements Loadfxml{
         tripDateLabel.setText(trip.getStartDate().toString());
         tripTypeLabel.setText(trip.getTripType());
         priceLabel.setText(String.valueOf(Ticket.selectedTicket.ticket_price));
-        numOfTickets.setText(String.valueOf(Customer.selectedCustomer.numberOfReservedTickets));
+        numOfTickets.setText(String.valueOf(Ticket.selectedTicket.numberOfReservedTickets));
         carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
         hotelDetails.setText(Ticket.selectedTicket.roomType);
         packageType.setText(Ticket.selectedTicket.packageType);
@@ -84,7 +87,7 @@ public class TicketController implements Loadfxml{
 
 
 
-        for(int i=0; i<Customer.selectedCustomer.numberOfReservedTickets;i++){
+        for(int i=0; i<Ticket.selectedTicket.numberOfReservedTickets;i++){
             Label seatnum= new Label();
             seatnum.setText(String.valueOf(Ticket.selectedTicket.seatNumber.get(i)+"    "));
             seatNumberHBox.getChildren().add(seatnum);
@@ -95,9 +98,10 @@ public class TicketController implements Loadfxml{
         tripImage.setImage(image);
 
     }
-@FXML
+    @FXML
     public void ConfirmButtonClicked() throws IOException {
         lodafxmlfile("CMyTrips.fxml");
+        TicketAnchor.getScene().getWindow().hide();
     }
     @FXML
     void CProfileClicked(ActionEvent event) throws IOException {
