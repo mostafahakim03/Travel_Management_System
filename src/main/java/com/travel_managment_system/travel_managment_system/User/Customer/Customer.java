@@ -24,12 +24,19 @@ public class Customer extends User implements Serializable {
         this.phone=phone;
         this.age=Age;
     }
-//    public boolean checkDiscount() {
-//        if (myTrips.size() % 2 == 0 && myTrips.size()!= 0) {
-//            return true;}
-//           else
-//        {return false;}
-//    }
+    public double checkDiscount(int numberofTickets , double tripPrice) {
+
+        double overallPrice=numberofTickets*tripPrice;
+
+        if (myTrips.size() % 2 == 0 && myTrips.size()!= 0) {
+            System.out.println("Discount applied , whoo hoo!!");
+            return  overallPrice- (overallPrice * 0.15);
+        }
+        else {
+            return overallPrice;
+        }
+
+    }
 
 
 

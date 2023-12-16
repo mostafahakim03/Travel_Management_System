@@ -67,6 +67,7 @@ public class TicketController implements Loadfxml{
     public void initialize() throws FileNotFoundException {
         Trip trip = Trip.selectedTrip;
 
+
         Ticket.selectedTicket.ticket_price=Ticket.selectedTicket.numberOfReservedTickets* Trip.selectedTrip.getPrice();
 
         ticketIDLabel.setText(String.valueOf(Ticket.selectedTicket.TicketID));

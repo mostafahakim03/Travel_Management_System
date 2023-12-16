@@ -68,8 +68,8 @@ public class PaymentController implements Loadfxml {
     public void SubmitButton() throws IOException {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
-        Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
         Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
+        Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
                 customer.tickets.add(Ticket.selectedTicket);

@@ -1,6 +1,8 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
@@ -50,6 +52,7 @@ public class HomepageController implements Loadfxml{
     public void initialize() throws FileNotFoundException {
         tripsVBox.getChildren().clear();
         displayTrips(); // Update the ListView with available trips
+
     }
 
     public void displayTrips() throws FileNotFoundException {

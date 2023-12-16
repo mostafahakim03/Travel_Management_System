@@ -115,6 +115,7 @@ public class TripController implements Initializable ,Loadfxml{
 
     public void Booking(ActionEvent actionEvent) throws IOException {
 
+
         int numbersOfTickets = 0;
         try {
             numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
@@ -139,6 +140,7 @@ public class TripController implements Initializable ,Loadfxml{
         }
         else {
                 NoOfTicketsMessageLabel1.setText("");
+                Ticket.selectedTicket=new Ticket();
                 Ticket.selectedTicket.numberOfReservedTickets = numbersOfTickets;
                 Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
                 Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();

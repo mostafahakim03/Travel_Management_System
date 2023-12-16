@@ -10,28 +10,21 @@ import java.util.ArrayList;
 
 
 public class Ticket implements Serializable {
-    public static Ticket selectedTicket=new Ticket();
-    public int TicketID=0;
+    public static Ticket selectedTicket = new Ticket();
+    public int TicketID = 0;
 
-    public static int numberOfTickets=0;
+    public static int numberOfTickets = 0;
     public int numberOfReservedTickets;
     public int trip_id;
     public double ticket_price;
     public LocalDate booking_date;
-    public ArrayList <Integer> seatNumber=new ArrayList<>();
-    public CAr car=new CAr();
+    public ArrayList<Integer> seatNumber = new ArrayList<>();
+    public CAr car = new CAr();
     public String roomType;
     public String packageType;
 
 
-
-    public Ticket(){
+    public Ticket() {
         this.booking_date = LocalDate.now();
     }
-//    public double returnPrice(int noOFTrips) {
-//        if (Customer.selectedCustomer.checkDiscount()) {
-//            this.ticket_price = this.ticket_price - (this.ticket_price * 0.15);
-//        }
-//        return ticket_price;
-//    }
 }

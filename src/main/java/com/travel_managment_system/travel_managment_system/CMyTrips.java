@@ -40,15 +40,13 @@ public class CMyTrips implements Loadfxml {
     }
     public void displayTrips() throws FileNotFoundException {
 
-
-        for (Trip trip : Customer.selectedCustomer.myTrips) {
-            for(Ticket ticket: Customer.selectedCustomer.tickets){
+        for(Ticket ticket: Customer.selectedCustomer.tickets){
+        for (Trip trip : Trip.trips) {
                 if(trip.getTrip_id()==ticket.trip_id){
                 VBox tripBox = createTripVBox(trip,ticket);
                 tripsVBox.getChildren().add(tripBox);
                 }
             }
-
 
         }
 
