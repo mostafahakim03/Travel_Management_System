@@ -30,22 +30,6 @@ public class serviseController implements Initializable ,Loadfxml {
     @FXML
     public ChoiceBox<String>  roomtype1;
     @FXML
-    public Label hotelNameLabel2;
-    @FXML
-    public Label locationLabel2;
-    @FXML
-    public ChoiceBox<String>  roomtype2;
-    @FXML
-    public Label hotelNameLabel3;
-    @FXML
-    public Label locationLabel3;
-    @FXML
-    public ChoiceBox<String>  roomtype3;
-    @FXML
-    public Label Alertmsg11;
-    @FXML
-    public Label Alertmsg1;
-    @FXML
     public Label Alertmsg;
     @FXML
     public Button HomeButton;
@@ -55,18 +39,10 @@ public class serviseController implements Initializable ,Loadfxml {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roomtype1.getItems().addAll(roomtypes);
-        roomtype2.getItems().addAll(roomtypes);
-        roomtype3.getItems().addAll(roomtypes);
         Hotel hotel = new Hotel("Sonesta San George","Luxor");
-        Hotel hotel2 = new Hotel("Nefertiti Hotel","Luxor");
-        Hotel hotel3 = new Hotel("Iberotel","Luxor");
         Trip.selectedTrip.setHotel(hotel);
         hotelNameLabel.setText(hotel.getHotelName());
-        hotelNameLabel2.setText("Nefertiti Hotel");
-        hotelNameLabel3.setText("Iberotel");
         locationLabel.setText(hotel.getHotellocation());
-        locationLabel2.setText("Awamiya , Luxor");
-        locationLabel3.setText("Awamiya , Luxor");
     }
 
 
@@ -81,26 +57,8 @@ public class serviseController implements Initializable ,Loadfxml {
         }
 
     }
-    public void Next2() throws IOException {
-        if(roomtype2.getValue()==null){
-            Alertmsg1.setVisible(true);
-        } else {
-            Ticket.selectedTicket.roomType=roomtype2.getValue();
-           lodafxmlfile("Car.fxml");
-            HotelAnchor.getScene().getWindow().hide();
-        }
 
-    }
-    public void Next3() throws IOException {
-        if(roomtype3.getValue()==null){
-            Alertmsg1.setVisible(true);
-        } else {
-            Ticket.selectedTicket.roomType=roomtype3.getValue();
-            lodafxmlfile("Car.fxml");
-            HotelAnchor.getScene().getWindow().hide();
-        }
 
-    }
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
         //alert code
