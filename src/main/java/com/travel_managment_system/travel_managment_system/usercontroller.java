@@ -56,7 +56,7 @@ public class usercontroller implements Loadfxml {
     private TextField CphoneText;
 
     @FXML
-    private AnchorPane Csign=new AnchorPane();
+    private AnchorPane Csign;
     @FXML
     private TextField LoginUsertext;
     @FXML

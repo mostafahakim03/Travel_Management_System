@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
@@ -30,6 +31,7 @@ public class CMyTrips {
 
     @FXML
     private void initialize() {
+        tripsVBox.getChildren().clear();
         try {
             displayTrips();
         } catch (FileNotFoundException e) {
@@ -57,12 +59,11 @@ public class CMyTrips {
         Image image = new Image(imageInput);
         ImageView tripImage = new ImageView(image);
 
-        String PriceText = Double.toString(trip.getPrice());
-        String PaymentText = Double.toString(trip.getPayment());
+        String PriceText = Double.toString(Ticket.selectedTicket.ticket_price);
 
         Label tripName = new Label(trip.getTripName());
         Label tripPrice = new Label("from \n" + PriceText + "EGP");
-        Label tripPayment = new Label("from \n" + PaymentText + "EGP");
+
         Label tripID = new Label("ID: " + trip.getTrip_id());
         Label tripType = new Label("Trip's type: " + trip.getTripType());
         Label tripSD = new Label("Start Date: " + trip.getStartDate());
@@ -70,10 +71,13 @@ public class CMyTrips {
         Button viewTrip = new Button("View trip");
         viewTrip.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("TicketScene.fxml"));
                 Parent tripDetailsParent = loader.load();
-                TripController tripDetailsController = loader.getController();
-                tripDetailsController.ViewTripDetails(trip);
+                for (Trip trips: Customer.selectedCustomer.myTrips) {
+                    if(trip.getTrip_id()== trips.getTrip_id()){
+                        Trip.selectedTrip=trips;
+                    }
+                }
                 Scene scene = new Scene(tripDetailsParent);
                 Stage stage = new Stage();
                 stage.setScene(scene);
@@ -85,16 +89,9 @@ public class CMyTrips {
 
         });
 
-        styleVBox(tripImage, viewTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
+        styleVBox(tripImage, viewTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice);
 
-//
-//        if (THomepageAnchor.isVisible()) {
-//            finalBox.getChildren().addAll(tripPayment, viewTrip);
-//        } else if (CHomepageAnchor.isVisible()) {
-//            finalBox.getChildren().addAll(tripPrice, viewTrip);
-//        }
-//
-
+        finalBox.getChildren().addAll(tripPrice,viewTrip);
         stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
         detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED);
         tripBox.getChildren().addAll(stylingBox);
@@ -104,7 +101,7 @@ public class CMyTrips {
 
 
     public static void styleVBox(ImageView tripImage, Button viewTrip, VBox tripBox, Label tripName,
-                                 HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment) {
+                                 HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice) {
 
         tripImage.setFitHeight(150);
         tripImage.setFitWidth(250);
@@ -123,7 +120,6 @@ public class CMyTrips {
 
         tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
         tripPrice.setStyle("-fx-font-weight:bold;");
-        tripPayment.setStyle("-fx-font-weight:bold;");
 
     }
 
