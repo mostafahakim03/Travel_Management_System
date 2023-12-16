@@ -58,6 +58,7 @@ public class Customer_Card {
     private AnchorPane editANCH;
     public void Set_data(Customer customer)
     {
+        //
 Name.setText(customer.getName());
 User_Name.setText(customer.getUsername());
 Pass.setText(customer.getPass());
