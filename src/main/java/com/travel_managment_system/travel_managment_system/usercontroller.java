@@ -138,6 +138,7 @@ public class usercontroller implements Loadfxml {
         {
             AHomepage aHomepage=new AHomepage();
             aHomepage.showAhome();
+            LoginRadioCustomer.getScene().getWindow().hide();
 
 
         } else if (LoginRadioTour.isSelected()) {

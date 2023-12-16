@@ -95,6 +95,9 @@ public class HomepageController implements Loadfxml{
         Label tripType = new Label("Trip's type: " + trip.getTripType());
         Label tripSD = new Label("Start Date: " + trip.getStartDate());
         Label tripED = new Label("End Date: " + trip.getEndDate());
+        Label tripTransportation = new Label("Transportation: "+trip.getTransportation());
+        Label tripRemainingSeats=new Label(Integer.toString(trip.tickets.size()) +" / 50");
+        Label tripRemainingTourGuides=new Label(Integer.toString(trip.getAssignedTourGuides().size()) +" / 2");
         Button viewTrip = new Button("View trip");
         Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
@@ -142,11 +145,19 @@ public class HomepageController implements Loadfxml{
                                 trip.FillAssignedTourGuides(tourguide);
                                 trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
 
-                                alert.setHeaderText("Trip added");
-                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
+//                                alert.setHeaderText("Trip added");
+//                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
+                                    try {
+                                        lodafxmlfile("THomepage.fxml");
+                                        THomepageAnchor.getScene().getWindow().hide();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+
                                 break;
                             }
                         }
+
                     }
                 });
 
@@ -154,21 +165,15 @@ public class HomepageController implements Loadfxml{
 
 
         if (TourGuide.isTourGuide) {
-            finalBox.getChildren().addAll(tripPayment, assignTrip);
+            finalBox.getChildren().addAll(tripPayment,tripRemainingTourGuides, assignTrip);
         } else {
-            finalBox.getChildren().addAll(tripPrice, viewTrip);
+            finalBox.getChildren().addAll(tripPrice,tripRemainingSeats, viewTrip);
         }
 
 
-        stylingBox.getChildren().
-
-                addAll(tripImage, detailsBox, finalBox);
-        detailsBox.getChildren().
-
-                addAll(tripName, location, tripID, tripType, tripSD, tripED);
-        tripBox.getChildren().
-
-                addAll(stylingBox);
+        stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
+        detailsBox.getChildren().addAll(tripName, location, tripID, tripType, tripSD, tripED,tripTransportation);
+        tripBox.getChildren().addAll(stylingBox);
 
         return tripBox;
     }
