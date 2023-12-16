@@ -19,7 +19,7 @@
                         <Font name="Segoe Print Bold" size="26.0" />
                      </font>
                   </Label>
-                  <VBox fx:id="tripsVBox" layoutY="98.0" prefHeight="158.0" prefWidth="694.0" />
+                  <VBox fx:id="tripsVBox" layoutX="50.0" layoutY="99.0" prefHeight="158.0" prefWidth="607.0" />
                </children>
             </AnchorPane>
          </content>
