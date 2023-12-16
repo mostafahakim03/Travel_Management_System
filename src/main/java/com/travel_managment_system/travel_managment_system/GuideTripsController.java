@@ -116,6 +116,7 @@ public class GuideTripsController implements Loadfxml{
         Label tripType = new Label("Trip's type: " + trip.getTripType());
         Label tripSD = new Label("Start Date: " + trip.getStartDate());
         Label tripED = new Label("End Date: " + trip.getEndDate());
+        Label tripTransportation = new Label("Transportation: "+trip.getTransportation());
 
         styleVBox(tripImage, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 

@@ -74,6 +74,7 @@ public class CMyTrips implements Loadfxml {
         Label tripType = new Label("Trip's type: " + trip.getTripType());
         Label tripSD = new Label("Start Date: " + trip.getStartDate());
         Label tripED = new Label("End Date: " + trip.getEndDate());
+        Label tripTransportation = new Label("Transportation: "+trip.getTransportation());
         Button viewTrip = new Button("View trip");
         viewTrip.setOnAction(event -> {
             try {
@@ -97,7 +98,7 @@ public class CMyTrips implements Loadfxml {
 
         finalBox.getChildren().addAll(tripPrice,viewTrip);
         stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
-        detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED);
+        detailsBox.getChildren().addAll(tripName, tripID, tripType, tripSD, tripED,tripTransportation);
         tripBox.getChildren().addAll(stylingBox);
 
         return tripBox;

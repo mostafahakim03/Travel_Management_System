@@ -47,6 +47,17 @@ public class PaymentController implements Loadfxml {
             paymentAnchor.getScene().getWindow().hide();
     }
 
+    public void CancelTrip() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Cancelling trip");
+        alert.setHeaderText("All information you just entered will not be saved!");
+        alert.setContentText("Are you sure you want to cancel the trip?");
+        if (alert.showAndWait().get() == ButtonType.OK){
+            lodafxmlfile("CHomepage.fxml");
+            paymentAnchor.getScene().getWindow().hide();
+        }
+    }
+
     public void SubmitButton() throws IOException {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
