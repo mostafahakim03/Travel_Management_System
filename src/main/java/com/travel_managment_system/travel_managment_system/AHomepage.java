@@ -382,7 +382,7 @@ ErrorAddTour.setText("");
         TLocText.setValue("");
         TtypeText.setValue("");
         TtypeText.getItems().clear();
-        TtypeText.getItems().addAll("Family","Couble","General");
+        TtypeText.getItems().addAll("Family","Couple","General");
         imageSrc ="";
         TstartDate.setValue(LocalDate.now());
         TendDate.setValue(LocalDate.now());

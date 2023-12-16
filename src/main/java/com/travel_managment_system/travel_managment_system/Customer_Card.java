@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
@@ -62,8 +63,12 @@ User_Name.setText(customer.getUsername());
 Pass.setText(customer.getPass());
 Phone.setText(customer.getPhone());
 Age.setText(customer.getAge());
-Tickets.setText(String.valueOf(customer.getNumberOfTrip()));
-dis_edit();
+int num_Tickets=0;
+        for (Ticket tickets:customer.tickets)
+        {
+            num_Tickets+=tickets.numberOfReservedTickets;
+        }
+        Tickets.setText(String.valueOf(num_Tickets));dis_edit();
     }
     public void dis_edit(){
         Phone_text.setVisible(false);

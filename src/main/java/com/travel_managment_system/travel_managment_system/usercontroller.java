@@ -117,7 +117,7 @@ public class usercontroller implements Loadfxml {
 
    public void Chomepage() throws IOException {
        lodafxmlfile("CHomepage.fxml");
-       LoginUsertext.getScene().getWindow().hide();
+
 
     }
 
