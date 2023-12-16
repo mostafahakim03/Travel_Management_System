@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -17,6 +19,11 @@ import java.util.stream.Collectors;
 public class PaymentController implements Loadfxml {
     @FXML
     private AnchorPane paymentAnchor;
+
+    @FXML
+    TextField visaNumberTextField= new TextField();
+    @FXML
+    Label alertLabel=new Label() ;
     @FXML
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -62,24 +69,24 @@ public class PaymentController implements Loadfxml {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
         Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
-        Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats()-Ticket.selectedTicket.numberOfReservedTickets);
+        Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
                 customer.tickets.add(Ticket.selectedTicket);
-                customer.myTrips=Customer.selectedCustomer.myTrips;
+                customer.myTrips = Customer.selectedCustomer.myTrips;
                 break;
             }
         }
         Trip.selectedTrip.tickets.add(Ticket.selectedTicket);
-        for (Trip trip: Trip.trips) {
-            if (trip.getTrip_id()==Trip.selectedTrip.getTrip_id()){
-                if(trip.getTransportation()=="Plane"){
-                    for (Integer seat: Ticket.selectedTicket.seatNumber) {
+        for (Trip trip : Trip.trips) {
+            if (trip.getTrip_id() == Trip.selectedTrip.getTrip_id()) {
+                if (trip.getTransportation() == "Plane") {
+                    for (Integer seat : Ticket.selectedTicket.seatNumber) {
                         trip.flight.Seats.remove(seat);
                     }
 
                 }
-                if(trip.getTransportation()=="Bus") {
+                if (trip.getTransportation() == "Bus") {
                     for (Integer seat : Ticket.selectedTicket.seatNumber) {
                         trip.bus.Seats.remove(seat);
                     }
@@ -87,7 +94,7 @@ public class PaymentController implements Loadfxml {
             }
         }
 
-
+    }
 
 
     }
