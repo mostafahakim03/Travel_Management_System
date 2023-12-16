@@ -4,10 +4,11 @@ import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Customer extends User {
+public class Customer extends User implements Serializable {
     public int NumberOfTrip;
     public static Customer selectedCustomer;
     public int numberOfReservedTickets;

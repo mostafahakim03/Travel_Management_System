@@ -1,7 +1,9 @@
 package com.travel_managment_system.travel_managment_system.Itinerary;
 
 
-public class Itinerary {
+import java.io.Serializable;
+
+public class Itinerary implements Serializable {
     private Activities[] activities = new Activities[3];
     public Itinerary() {
         activities[0] = new Activities("Abu Simble","8 AM", "6 PM", "",60);

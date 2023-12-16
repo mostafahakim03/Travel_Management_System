@@ -1,8 +1,9 @@
 package com.travel_managment_system.travel_managment_system.User.Customer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CAr {
+public class CAr  implements Serializable {
         private String Carname;
         private int Carmodel;
         public static ArrayList<CAr> cars=new ArrayList<>();

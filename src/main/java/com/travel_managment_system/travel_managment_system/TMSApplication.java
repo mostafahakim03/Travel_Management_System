@@ -19,8 +19,9 @@ public class TMSApplication extends Application implements Loadfxml {
 
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-//        Files.read();
+       Files.read();
         launch();
    Files.write();
+
     }
 }

@@ -1,8 +1,9 @@
 package com.travel_managment_system.travel_managment_system.Itinerary;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Activities {
+public class Activities implements Serializable {
     private String location;
     private String startTime;
     private String endTime;

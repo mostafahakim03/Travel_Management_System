@@ -3,11 +3,12 @@ package com.travel_managment_system.travel_managment_system.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
 
-public class Ticket {
+public class Ticket implements Serializable {
     public static Ticket selectedTicket=new Ticket();
     public int TicketID=0;
 
