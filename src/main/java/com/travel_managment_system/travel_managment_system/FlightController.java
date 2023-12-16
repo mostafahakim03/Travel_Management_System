@@ -99,7 +99,7 @@ public class FlightController implements Initializable ,Loadfxml {
         else {
             int chosenSeat=Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
-            Select_seat.getItems().remove(chosenSeat-1);
+            Select_seat.getItems().remove((Integer)Select_seat.getValue());
             FnumberOfSeats--;
             if(FnumberOfSeats==0){
                 AddAnchor.setVisible(false);

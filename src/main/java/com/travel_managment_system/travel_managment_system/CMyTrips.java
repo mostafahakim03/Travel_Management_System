@@ -1,7 +1,10 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -25,7 +28,24 @@ public class CMyTrips {
     public AnchorPane CMyTrips;
     public VBox tripsVBox;
 
+    @FXML
+    private void initialize() {
+        try {
+            displayTrips();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    public void displayTrips() throws FileNotFoundException {
 
+
+        for (Trip trip : Customer.selectedCustomer.myTrips) {
+
+            VBox tripBox = createTripVBox(trip);
+            tripsVBox.getChildren().add(tripBox);
+        }
+
+    }
     private VBox createTripVBox(Trip trip) throws FileNotFoundException {
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();

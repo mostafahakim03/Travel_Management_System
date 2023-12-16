@@ -137,6 +137,7 @@ public class TripController implements Initializable ,Loadfxml{
             NoOfTicketsMessageLabel1.setText("");
             Customer.selectedCustomer.numberOfReservedTickets=numbersOfTickets;
             Ticket.selectedTicket.packageType=packageTypeChoice.getValue();
+            Ticket.selectedTicket.trip_id=Trip.selectedTrip.getTrip_id();
 
             System.out.println(Trip.selectedTrip.getTransportation());
             if(Trip.selectedTrip.getTransportation().equals("Plane")) {

@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Ticket;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 
 import java.time.LocalDate;
@@ -27,8 +28,6 @@ public class Ticket {
         numberOfTickets++;
         TicketID=numberOfTickets;
     }
-
-
     public double returnPrice(int noOFTrips) {
         if (noOFTrips % 2 == 0 && noOFTrips != 0) {
             this.ticket_price = this.ticket_price - (this.ticket_price * 0.15);

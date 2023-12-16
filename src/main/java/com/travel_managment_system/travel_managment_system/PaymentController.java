@@ -49,12 +49,13 @@ public class PaymentController implements Loadfxml {
     public void SubmitButton() throws IOException {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
-
+        Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
                 customer.numberOfReservedTickets=Customer.selectedCustomer.numberOfReservedTickets;
                 customer.tickets.add(Ticket.selectedTicket);
                 System.out.println(customer.tickets.get(0).TicketID + " "+ customer.tickets.get(0).car.getCarname() + " "+customer.tickets.get(0).car.getCarmodel()+" "+customer.tickets.get(0).seatNumber);
+                customer.myTrips=Customer.selectedCustomer.myTrips;
                 break;
             }
         }
