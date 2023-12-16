@@ -24,11 +24,11 @@ public class Customer extends User implements Serializable {
         this.phone=phone;
         this.age=Age;
     }
-//    public Boolean CheeckDiscount(int NumberOfTrip , String Triptype ){
-//        if (NumberOfTrip%2 ==0 && Triptype.equals("Family")){
-//            return true;
-//        }
-//        else return false;
+//    public boolean checkDiscount() {
+//        if (myTrips.size() % 2 == 0 && myTrips.size()!= 0) {
+//            return true;}
+//           else
+//        {return false;}
 //    }
 
 

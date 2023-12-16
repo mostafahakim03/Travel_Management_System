@@ -31,6 +31,10 @@ public class Trip implements Serializable {
     public static Trip selectedTrip;
     private Itinerary itinerary;
 
+    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
+        this.numberOfAvailableSeats = numberOfAvailableSeats;
+    }
+
     public Bus bus=new Bus();
     public Flight flight= new Flight();
     private Hotel hotel=new Hotel();

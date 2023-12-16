@@ -1,6 +1,7 @@
 package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,14 +30,10 @@ public class BusController implements Initializable , Loadfxml{
     private Label alertText;
     @FXML
     private ComboBox<Integer> Select_seat= new ComboBox<>();
-    public Integer[] Myseat = new Integer[50];
+
     public int numberOfSeats;
     public int BnumberOfSeats;
-    public void FillArr(){
-        for(int i=0;i<50;i++){
-            Myseat[i]= i+1;
-        }
-    }
+
 
     public void trip_busSwitch() throws IOException {
         lodafxmlfile("Bus.fxml");
@@ -76,8 +73,8 @@ public class BusController implements Initializable , Loadfxml{
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         Select_seat.getItems().clear();
-        FillArr();
-        Select_seat.getItems().addAll(Myseat);
+        Trip.selectedTrip.bus.FillarrSeats();
+        Select_seat.getItems().addAll(Trip.selectedTrip.bus.Seats);
         BnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
     }
     public void addSeatNumber() {
@@ -86,7 +83,6 @@ public class BusController implements Initializable , Loadfxml{
             alertText.setVisible(true);
         }
         else {
-            int chosenSeat=Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
             Select_seat.getItems().remove((Integer)Select_seat.getValue());
             BnumberOfSeats--;

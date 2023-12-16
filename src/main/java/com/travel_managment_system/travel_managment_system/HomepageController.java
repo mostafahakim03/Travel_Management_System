@@ -29,20 +29,15 @@ import java.util.stream.Collectors;
 
 public class HomepageController implements Loadfxml{
     @FXML
-    public AnchorPane THomepageAnchor;
+    public AnchorPane THomepageAnchor=new AnchorPane();
     @FXML
     public AnchorPane CHomepageAnchor=new AnchorPane();
-    @FXML
-    private AnchorPane NotificationPane;
 
     @FXML
     private VBox tripsVBox = new VBox();
     @FXML
-    private Button HomeButton;
-    @FXML
-    private Button ShortCutButton;
-    @FXML
-    private Label NotificationLabel;
+    private Button HomeButton=new Button();
+
 
 
     public void thomepage() throws IOException {

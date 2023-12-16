@@ -51,6 +51,7 @@ public class PaymentController implements Loadfxml {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
         Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
+        Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats()-Ticket.selectedTicket.numberOfReservedTickets);
         for (Customer customer : Customer.CoustomerAcc) {
             if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
                 customer.tickets.add(Ticket.selectedTicket);
@@ -60,8 +61,16 @@ public class PaymentController implements Loadfxml {
         }
         for (Trip trip: Trip.trips) {
             if (trip.getTrip_id()==Trip.selectedTrip.getTrip_id()){
-                for (Integer seat: Ticket.selectedTicket.seatNumber) {
-                    trip.flight.Seats.remove(seat);
+                if(trip.getTransportation()=="Plane"){
+                    for (Integer seat: Ticket.selectedTicket.seatNumber) {
+                        trip.flight.Seats.remove(seat);
+                    }
+
+                }
+                if(trip.getTransportation()=="Bus") {
+                    for (Integer seat : Ticket.selectedTicket.seatNumber) {
+                        trip.bus.Seats.remove(seat);
+                    }
                 }
             }
         }
