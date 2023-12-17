@@ -8,11 +8,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="Itinerary" prefHeight="623.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.ItineraryController">
    <children>
-      <ToolBar layoutX="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
+      <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="-10.0" prefHeight="71.0" prefWidth="601.0" />
+      <ToolBar layoutX="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
          <items>
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
                <font>
