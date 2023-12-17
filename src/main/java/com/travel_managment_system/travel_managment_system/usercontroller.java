@@ -4,12 +4,14 @@ import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import com.travel_managment_system.travel_managment_system.User.User;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -67,6 +69,12 @@ public class usercontroller implements Loadfxml {
     @FXML
     private RadioButton LoginRadioTour;
 
+    @FXML
+    private AnchorPane sign_up;
+    @FXML
+    private AnchorPane log;
+    @FXML
+    private AnchorPane Tsign;
 
     public void btn() throws IOException {
         lodafxmlfile("login.fxml");
@@ -145,24 +153,24 @@ public class usercontroller implements Loadfxml {
             for (TourGuide tourguide : TourGuide.TourguideAcc) {
 
                 if (tourguide.getUsername().equals(LoginUsertext.getText())) {
-                      if (tourguide.getPass().equals(LoginPasstext.getText())){
-                          TourGuide.selectedTourGuide=tourguide;
-                          User.isTourGuide=true;
-                          HomepageController homepage=new HomepageController();
-                          homepage.thomepage();
-                          homepage.initialize();
-                          LoginRadioCustomer.getScene().getWindow().hide();
-                          break;
-                          
-                      }
-                      else {
-                            errorlog.setText("Wrong Password");
-                      }
+                    if (tourguide.getPass().equals(LoginPasstext.getText())) {
+                        TourGuide.selectedTourGuide = tourguide;
+                        User.isTourGuide = true;
+                        HomepageController homepage = new HomepageController();
+                        homepage.thomepage();
+                        homepage.initialize();
+                        LoginRadioCustomer.getScene().getWindow().hide();
+                        break;
 
+                    } else {
+                        errorlog.setText("Wrong Password");
+                        sign_up.setVisible(false);
+                    }
+
+                } else {
+                    errorlog.setText("Username Not Exist");
+                    sign_up.setVisible(true);
                 }
-                else errorlog.setText("Username Not Exist");
-
-
             }
         }
 
@@ -180,11 +188,14 @@ public class usercontroller implements Loadfxml {
                     }
                     else {
                         errorlog.setText("Wrong Password");
+                        sign_up.setVisible(false);
                     }
 
                 }
-                else errorlog.setText("Username Not Exist");
-
+                else {
+                    errorlog.setText("Username Not Exist");
+                    sign_up.setVisible(true);
+                }
 
             }
         }
@@ -195,5 +206,30 @@ public class usercontroller implements Loadfxml {
 
 
     }
+    @FXML
+    public void signup (ActionEvent event) throws IOException {
+        if (LoginRadioCustomer.isSelected()) {
+            lodafxmlfile("signup_cust.fxml");
+            log.getScene().getWindow().hide();
+        } else {
+            lodafxmlfile("signup_tour.fxml");
+            log.getScene().getWindow().hide();
+        }
+    }
 
+    @FXML
+   public void backlog(ActionEvent event) throws IOException {
+        lodafxmlfile("hello-view.fxml");
+        log.getScene().getWindow().hide();
+    }
+    @FXML
+    public void backcust(ActionEvent event) throws IOException {
+        lodafxmlfile("hello-view.fxml");
+        Csign.getScene().getWindow().hide();
+    }
+    @FXML
+    public void backtour(ActionEvent event) throws IOException {
+        lodafxmlfile("hello-view.fxml");
+        Tsign.getScene().getWindow().hide();
+    }
 }
