@@ -26,6 +26,9 @@ public class FlightController implements Initializable ,Loadfxml {
     private Button Nextbtn;
     @FXML
     private ImageView Flightview;
+
+    @FXML
+    private ProgressBar progressBar;
 //    @FXML
 //    private ChoiceBox<Integer> Select_seat;
     @FXML
@@ -84,7 +87,7 @@ public class FlightController implements Initializable ,Loadfxml {
         Trip.selectedTrip.flight.FillarrSeats();
             Select_seat.getItems().addAll(Trip.selectedTrip.flight.Seats);
         FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
-
+        progressBar.setStyle("-fx-accent: #FA8B02;");
     }
 
     public void addSeatNumber(){

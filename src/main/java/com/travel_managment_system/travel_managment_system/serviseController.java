@@ -26,7 +26,11 @@ public class serviseController implements Initializable ,Loadfxml {
     @FXML
     public Label hotelNameLabel;
     @FXML
+    private ProgressBar progressBar2;
+    @FXML
     public Label locationLabel;
+
+
     @FXML
     public ChoiceBox<String>  roomtype1;
     @FXML
@@ -43,6 +47,7 @@ public class serviseController implements Initializable ,Loadfxml {
         Trip.selectedTrip.setHotel(hotel);
         hotelNameLabel.setText(hotel.getHotelName());
         locationLabel.setText(hotel.getHotellocation());
+        progressBar2.setStyle("-fx-accent: #FA8B02;");
     }
 
 

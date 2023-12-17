@@ -5,17 +5,20 @@ import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class PaymentController implements Loadfxml {
+public class PaymentController implements Loadfxml , Initializable {
     @FXML
     private AnchorPane paymentAnchor;
+
+    @FXML
+    private ProgressBar progressBar4;
 
     @FXML
     TextField visaNumberTextField = new TextField();
@@ -102,6 +105,11 @@ public class PaymentController implements Loadfxml {
         }
 
 
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        progressBar4.setStyle("-fx-accent: #FA8B02;");
     }
 }
 

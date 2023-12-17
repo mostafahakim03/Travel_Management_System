@@ -32,6 +32,9 @@ public class CarController implements Initializable , Loadfxml{
     private AnchorPane CarAnchor1;
     @FXML
     private Button HomeButton;
+
+    @FXML
+    private ProgressBar progressBar3;
     @FXML
     private ChoiceBox<Integer> numOfDays = new ChoiceBox<>();
     @FXML
@@ -110,7 +113,7 @@ public class CarController implements Initializable , Loadfxml{
         carModel1.setText(carModelString1);
         carModel2.setText(carModelString2);
         carModel3.setText(carModelString3);
-
+        progressBar3.setStyle("-fx-accent: #FA8B02;");
 
 
     }
