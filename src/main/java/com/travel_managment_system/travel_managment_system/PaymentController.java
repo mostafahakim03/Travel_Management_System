@@ -69,6 +69,11 @@ public class PaymentController implements Loadfxml {
     }
 
     public void SubmitButton() throws IOException {
+        if(visaNumberTextField.getText().isEmpty() || visaNumberTextField.getCharacters().length() !=16)
+        { alertLabel.setVisible(true);
+        }
+        else
+    {
         lodafxmlfile("TicketScene.fxml");
         paymentAnchor.getScene().getWindow().hide();
         Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);

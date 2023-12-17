@@ -30,13 +30,13 @@ public class TicketController implements Loadfxml{
     @FXML
     public Label userLabel=new Label();
     @FXML
-    public Label priceLabel;
+    public Label priceLabel = new Label();
     @FXML
     public Label tripNameLabel=new Label();
     @FXML
     public Button confirmButton=new Button();
     @FXML
-    public AnchorPane TicketAnchor;
+    public AnchorPane TicketAnchor = new AnchorPane();
     @FXML
     public Label tripTypeLabel=new Label();
     @FXML
