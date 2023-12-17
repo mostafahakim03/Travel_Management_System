@@ -195,15 +195,15 @@ public class HomepageController implements Loadfxml{
         detailsBox.setAlignment(Pos.BOTTOM_LEFT);
 
         tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
-        viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
-        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
+        viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
+        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:##fa8b02; -fx-border-width:2px; -fx-border-color:##fa8b02;");
 
-        viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
-        viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
+        viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
+        viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
 
-        assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
-        assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
-        tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
+        assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
+        assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
+        tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #fa8b02;");
         tripPrice.setStyle("-fx-font-weight:bold;");
         tripPayment.setStyle("-fx-font-weight:bold;");
 

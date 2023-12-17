@@ -121,7 +121,7 @@ public class GuideTripsController implements Loadfxml{
         styleVBox(tripImage, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
         stylingBox.getChildren().addAll(tripImage, detailsBox, tripPayment);
-        detailsBox.getChildren().addAll(tripName, location,tripID, tripType, tripSD, tripED);
+        detailsBox.getChildren().addAll(tripName, location,tripID, tripType, tripSD, tripED,tripTransportation);
         tripBox.getChildren().addAll(stylingBox);
 
         return tripBox;

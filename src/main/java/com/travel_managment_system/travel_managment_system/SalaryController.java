@@ -81,11 +81,11 @@ public class SalaryController implements Initializable ,Loadfxml {
         TourGuide.selectedTourGuide.setSalary(calculateSalary);
         salaryLabel.setText(Double.toString((calculateSalary))+"EGP");
 
-        collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
-        collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;");
+        collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
+        collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
 
-        collectButton.setOnMouseEntered(e -> collectButton.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#ffae00; "));
-        collectButton.setOnMouseExited(e -> collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#ffae00; -fx-border-width:2px; -fx-border-color:#ffae00;"));
+        collectButton.setOnMouseEntered(e -> collectButton.setStyle("-fx-background-color: #ffae00; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
+        collectButton.setOnMouseExited(e -> collectButton.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
 
         tripsVBox.getChildren().add(salaryBox);
 

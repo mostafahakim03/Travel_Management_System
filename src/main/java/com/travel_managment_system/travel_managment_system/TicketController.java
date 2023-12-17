@@ -79,7 +79,7 @@ public class TicketController implements Loadfxml{
         TripIDLabel.setText(String.valueOf(Ticket.selectedTicket.trip_id));
         tripDateLabel.setText(trip.getStartDate().toString());
         tripTypeLabel.setText(trip.getTripType());
-        priceLabel.setText(String.valueOf(Ticket.selectedTicket.ticket_price));
+        priceLabel.setText(String.valueOf(Ticket.selectedTicket.ticket_price)+ "EGP");
         numOfTickets.setText(String.valueOf(Ticket.selectedTicket.numberOfReservedTickets));
         carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
         hotelDetails.setText(Ticket.selectedTicket.roomType);
@@ -88,8 +88,10 @@ public class TicketController implements Loadfxml{
         userLabel.setText(Customer.selectedCustomer.getUsername());
 
         for(int i=0; i<Ticket.selectedTicket.numberOfReservedTickets;i++){
+
             Label seatnum= new Label();
             seatnum.setText(String.valueOf(Ticket.selectedTicket.seatNumber.get(i)+"    "));
+            seatnum.setStyle("-fx-font-family: Segoe Print; -fx-text-fill:#fa8b02; -fx-font-size:18px;");
             seatNumberHBox.getChildren().add(seatnum);
         }
 
