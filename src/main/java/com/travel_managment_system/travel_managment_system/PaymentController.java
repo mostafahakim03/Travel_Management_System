@@ -24,6 +24,10 @@ public class PaymentController implements Loadfxml , Initializable {
     TextField visaNumberTextField = new TextField();
     @FXML
     Label alertLabel = new Label();
+    @FXML
+    private Label DiscountLabel;
+    @FXML
+    private Label paymentLabel;
 
     @FXML
     public void logoutButtonClicked(ActionEvent event) throws IOException {
@@ -58,6 +62,7 @@ public class PaymentController implements Loadfxml , Initializable {
     }
 
     public void CancelTrip() throws IOException {
+
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Cancelling trip");
         alert.setHeaderText("All information you just entered will not be saved!");
@@ -72,9 +77,11 @@ public class PaymentController implements Loadfxml , Initializable {
         if (visaNumberTextField.getText().isEmpty() || visaNumberTextField.getCharacters().length() != 16) {
             alertLabel.setVisible(true);
         } else {
-
             Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
-            Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
+            double overallPrice=Ticket.selectedTicket.numberOfReservedTickets*Trip.selectedTrip.getPrice();
+            if(Ticket.selectedTicket.ticket_price<(overallPrice)){
+            DiscountLabel.setVisible(true);
+        }
             Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
             lodafxmlfile("TicketScene.fxml");
             paymentAnchor.getScene().getWindow().hide();
@@ -111,6 +118,7 @@ public class PaymentController implements Loadfxml , Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         progressBar4.setStyle("-fx-accent: #FA8B02;");
+        paymentLabel.setText("This trip will cost you: " + Ticket.selectedTicket.ticket_price + " EGP");
     }
 }
 

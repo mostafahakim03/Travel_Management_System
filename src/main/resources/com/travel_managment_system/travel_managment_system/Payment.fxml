@@ -26,30 +26,40 @@
                 <Font name="Segoe Print Bold" size="36.0" />
             </font>
         </Label>
-        <Label fx:id="visaNumberLabel" alignment="CENTER" layoutX="60.0" layoutY="160.0" prefHeight="51.0" prefWidth="137.0" text="Card number:">
+        <Label fx:id="visaNumberLabel" alignment="CENTER" layoutX="66.0" layoutY="195.0" prefHeight="51.0" prefWidth="137.0" text="Card number:">
             <font>
                 <Font name="Segoe Print" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="visaNumberTextField" layoutX="205.0" layoutY="173.0" />
-        <Button fx:id="SubmitButtonID" layoutX="260.0" layoutY="311.0" mnemonicParsing="false" onAction="#SubmitButton" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Save Trip" textFill="WHITE">
+        <TextField fx:id="visaNumberTextField" layoutX="205.0" layoutY="208.0" />
+        <Button fx:id="SubmitButtonID" layoutX="260.0" layoutY="293.0" mnemonicParsing="false" onAction="#SubmitButton" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Save Trip" textFill="WHITE">
             <font>
                 <Font name="Berlin Sans FB" size="20.0" />
             </font>
         </Button>
-        <ImageView fitHeight="179.0" fitWidth="272.0" layoutX="395.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="179.0" fitWidth="272.0" layoutX="398.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@visaCard.jpg" />
             </image>
         </ImageView>
-      <Button layoutX="84.0" layoutY="311.0" mnemonicParsing="false" onAction="#CancelTrip" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Cancel Trip" textFill="#fafafa">
+      <Button layoutX="84.0" layoutY="293.0" mnemonicParsing="false" onAction="#CancelTrip" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Cancel Trip" textFill="#fafafa">
          <font>
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="alertLabel" layoutX="35.0" layoutY="211.0" text="Please enter a correct card number." textFill="#bc0f0f" visible="false" />
-      <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="34.0" layoutY="196.0" size="25px" text="" />
-      <ProgressBar fx:id="progressBar4" layoutX="72.0" layoutY="371.0" prefWidth="200.0" progress="1.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+      <Label fx:id="alertLabel" layoutX="66.0" layoutY="239.0" prefHeight="35.0" prefWidth="188.0" text="Please enter a correct card number." textFill="#bc0f0f" />
+      <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="34.0" layoutY="230.0" size="25px" text="" />
+      <ProgressBar fx:id="progressBar4" layoutX="241.0" layoutY="118.0" prefWidth="200.0" progress="1.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+      <Label fx:id="DiscountLabel" layoutX="15.0" layoutY="364.0" prefHeight="26.0" prefWidth="701.0" text="Congrats! You've just earned 15% off this trip's price by reserving tickets in the last two consecutive trips!" visible="false">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="paymentLabel" layoutX="29.0" layoutY="149.0" text="Label">
+         <font>
+            <Font name="Segoe Print" size="14.0" />
+         </font>
+      </Label>
 
     </children>
 </AnchorPane>
