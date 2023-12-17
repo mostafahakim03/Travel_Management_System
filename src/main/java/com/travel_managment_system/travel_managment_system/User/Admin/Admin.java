@@ -1,13 +1,21 @@
 package com.travel_managment_system.travel_managment_system.User.Admin;
 
+import com.travel_managment_system.travel_managment_system.FlightController;
+import com.travel_managment_system.travel_managment_system.NavBar;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import javafx.animation.FadeTransition;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.stage.Stage;
+import javafx.scene.control.ToolBar;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Optional;
@@ -16,6 +24,7 @@ public class Admin {
     public static ArrayList<String> Locations=new ArrayList<>();
     private static String Username="admin";
     private static String Password="1234";
+    public static Boolean Refresh_admin=false;
 
 
     public static String getUsername() {
@@ -97,4 +106,22 @@ public static void add_Tour(TourGuide tourGuide)
     TourGuide.TourguideAcc.add(tourGuide);
 }
 
+    public static void fade(AnchorPane anchorPane){
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(anchorPane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+    }
+    public static void fade(Pane pane){
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1500));
+        fadeTransition.setNode(pane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.play();
+    }
+
 }
+

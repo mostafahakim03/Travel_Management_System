@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,6 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +19,9 @@ import java.util.ResourceBundle;
 
 public class FlightController implements Initializable ,Loadfxml {
 
-
+    @FXML
+    private HBox Nav_Box;
+    ///////////////////////////////////////
     @FXML
     private AnchorPane FlightAnchor;
     @FXML
@@ -63,7 +67,7 @@ public class FlightController implements Initializable ,Loadfxml {
     }
 
     public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
+
        lodafxmlfile("CHomepage.fxml");
         FlightAnchor.getScene().getWindow().hide();
     }
@@ -88,6 +92,14 @@ public class FlightController implements Initializable ,Loadfxml {
             Select_seat.getItems().addAll(Trip.selectedTrip.flight.Seats);
         FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
         progressBar.setStyle("-fx-accent: #FA8B02;");
+
+  Admin admin=new Admin();
+
+        try {
+          Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void addSeatNumber(){
