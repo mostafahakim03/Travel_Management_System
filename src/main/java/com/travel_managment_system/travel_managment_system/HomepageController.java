@@ -196,7 +196,7 @@ public class HomepageController implements Loadfxml{
 
         tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
         viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
-        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:##fa8b02; -fx-border-width:2px; -fx-border-color:##fa8b02;");
+        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
 
         viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
         viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));

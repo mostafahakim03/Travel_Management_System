@@ -735,7 +735,6 @@ Add_Customer_Pane.setVisible(true);
     }
     @FXML
     void Add_Hotel_Form(ActionEvent event) {
-        Admin.Locations.add("Tanta");
        Hotel_Form.setVisible(true);
        Add_Hotel_Image.setImage(null);
        Add_Hotel_Name.setText("");
