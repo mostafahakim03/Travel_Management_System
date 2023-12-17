@@ -5,11 +5,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="Tprofile" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.profile">
    <children>
-      <ToolBar layoutX="-4.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
+      <ToolBar layoutX="-5.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="707.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
          <items>
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout">
                <font>
@@ -106,5 +107,6 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="1.0" prefHeight="51.0" prefWidth="708.0" />
    </children>
 </AnchorPane>

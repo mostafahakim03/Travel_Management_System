@@ -5,6 +5,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -48,5 +49,6 @@
                </font></Button>
          </items>
       </ToolBar>
+      <HBox fx:id="Nav_Box" prefHeight="54.0" prefWidth="707.0" />
    </children>
 </AnchorPane>
