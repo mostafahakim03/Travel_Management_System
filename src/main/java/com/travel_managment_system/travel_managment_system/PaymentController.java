@@ -3,7 +3,6 @@ package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
-import com.travel_managment_system.travel_managment_system.User.Customer.Flight;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -13,8 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class PaymentController implements Loadfxml {
     @FXML
@@ -69,44 +66,43 @@ public class PaymentController implements Loadfxml {
     }
 
     public void SubmitButton() throws IOException {
-        if(visaNumberTextField.getText().isEmpty() || visaNumberTextField.getCharacters().length() !=16)
-        { alertLabel.setVisible(true);
-        }
-        else
-    {
-        lodafxmlfile("TicketScene.fxml");
-        paymentAnchor.getScene().getWindow().hide();
-        Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
+        if (visaNumberTextField.getText().isEmpty() || visaNumberTextField.getCharacters().length() != 16) {
+            alertLabel.setVisible(true);
+        } else {
+            lodafxmlfile("TicketScene.fxml");
+            paymentAnchor.getScene().getWindow().hide();
+            Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
 //        Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
-        Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
-        for (Customer customer : Customer.CoustomerAcc) {
-            if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
-                customer.tickets.add(Ticket.selectedTicket);
-                customer.myTrips = Customer.selectedCustomer.myTrips;
-                break;
+            Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
+            for (Customer customer : Customer.CoustomerAcc) {
+                if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
+                    customer.tickets.add(Ticket.selectedTicket);
+                    customer.myTrips = Customer.selectedCustomer.myTrips;
+                    break;
+                }
             }
-        }
-        Trip.selectedTrip.tickets.add(Ticket.selectedTicket);
-        for (Trip trip : Trip.trips) {
-            if (trip.getTrip_id() == Trip.selectedTrip.getTrip_id()) {
-                if (trip.getTransportation() == "Plane") {
-                    for (Integer seat : Ticket.selectedTicket.seatNumber) {
-                        trip.flight.Seats.remove(seat);
-                    }
+            Trip.selectedTrip.tickets.add(Ticket.selectedTicket);
+            for (Trip trip : Trip.trips) {
+                if (trip.getTrip_id() == Trip.selectedTrip.getTrip_id()) {
+                    if (trip.getTransportation() == "Plane") {
+                        for (Integer seat : Ticket.selectedTicket.seatNumber) {
+                            trip.flight.Seats.remove(seat);
+                        }
 
-                }
-                if (trip.getTransportation() == "Bus") {
-                    for (Integer seat : Ticket.selectedTicket.seatNumber) {
-                        trip.bus.Seats.remove(seat);
+                    }
+                    if (trip.getTransportation() == "Bus") {
+                        for (Integer seat : Ticket.selectedTicket.seatNumber) {
+                            trip.bus.Seats.remove(seat);
+                        }
                     }
                 }
             }
+
+
         }
 
 
     }
-
-
 }
 
 
