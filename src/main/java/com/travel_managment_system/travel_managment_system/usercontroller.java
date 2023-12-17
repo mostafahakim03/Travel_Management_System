@@ -146,10 +146,11 @@ public class usercontroller implements Loadfxml {
 
                 if (tourguide.getUsername().equals(LoginUsertext.getText())) {
                       if (tourguide.getPass().equals(LoginPasstext.getText())){
-                          HomepageController homepage=new HomepageController();
-                          homepage.thomepage();
                           TourGuide.selectedTourGuide=tourguide;
                           User.isTourGuide=true;
+                          HomepageController homepage=new HomepageController();
+                          homepage.thomepage();
+                          homepage.initialize();
                           LoginRadioCustomer.getScene().getWindow().hide();
                           break;
                           
@@ -170,9 +171,9 @@ public class usercontroller implements Loadfxml {
 
                 if (customer.getUsername().equals(LoginUsertext.getText())) {
                     if (customer.getPass().equals(LoginPasstext.getText())){
-
-                       Chomepage();
+                        User.isTourGuide=false;
                         Customer.selectedCustomer=customer;
+                       Chomepage();
                         LoginRadioCustomer.getScene().getWindow().hide();
                         break;
 
