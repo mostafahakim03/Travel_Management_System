@@ -16,8 +16,6 @@ public class TMSApplication extends Application implements Loadfxml {
                 "/java/com/travel_managment_system/travel_managment_system/Alexandria.jpeg","Alexandria", "Bus"));
         Trip.trips.add(new Trip("Hurghada", 1002, "Couple",LocalDate.of(2023,5,15) ,LocalDate.of(2023,5,18), 400, 7000, "src/main/resources/com/travel_managment_system/travel_managment_system/Hurghada.png","Hurghada","Bus"));
     }
-
-
     public static void main(String[] args) throws IOException, ClassNotFoundException {
            Files.read();
         launch();
