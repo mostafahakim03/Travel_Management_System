@@ -47,7 +47,7 @@
             <Font name="Berlin Sans FB" size="20.0" />
          </font>
       </Button>
-      <Label fx:id="alertLabel" layoutX="66.0" layoutY="239.0" prefHeight="35.0" prefWidth="188.0" text="Please enter a correct card number." textFill="#bc0f0f" />
+      <Label fx:id="alertLabel" layoutX="66.0" layoutY="239.0" prefHeight="35.0" prefWidth="188.0" text="Please enter a correct card number." textFill="#bc0f0f" visible="false" />
       <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="34.0" layoutY="230.0" size="25px" text="" />
       <ProgressBar fx:id="progressBar4" layoutX="241.0" layoutY="118.0" prefWidth="200.0" progress="1.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
       <Label fx:id="DiscountLabel" layoutX="15.0" layoutY="364.0" prefHeight="26.0" prefWidth="701.0" text="Congrats! You've just earned 15% off this trip's price by reserving tickets in the last two consecutive trips!" visible="false">

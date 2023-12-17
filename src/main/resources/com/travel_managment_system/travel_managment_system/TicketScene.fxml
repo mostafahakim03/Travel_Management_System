@@ -198,11 +198,6 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Label fx:id="DiscountLabel" layoutX="14.0" layoutY="626.0" prefHeight="26.0" prefWidth="701.0" text="Congrats! You've just earned 15% off this trip's price by reserving tickets in the last two consecutive trips!" visible="false">
-                     <font>
-                        <Font name="Segoe Print Bold" size="12.0" />
-                     </font>
-                  </Label>
                </children>
             </AnchorPane>
          </content>
