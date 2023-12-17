@@ -72,11 +72,12 @@ public class PaymentController implements Loadfxml , Initializable {
         if (visaNumberTextField.getText().isEmpty() || visaNumberTextField.getCharacters().length() != 16) {
             alertLabel.setVisible(true);
         } else {
+
+            Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
+            Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
+            Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
             lodafxmlfile("TicketScene.fxml");
             paymentAnchor.getScene().getWindow().hide();
-            Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
-//        Ticket.selectedTicket.ticket_price=Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets,Trip.selectedTrip.getPrice());
-            Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
             for (Customer customer : Customer.CoustomerAcc) {
                 if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
                     customer.tickets.add(Ticket.selectedTicket);
