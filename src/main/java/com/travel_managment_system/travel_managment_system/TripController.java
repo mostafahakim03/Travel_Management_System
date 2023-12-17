@@ -1,4 +1,5 @@
 package com.travel_managment_system.travel_managment_system;
+
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
@@ -9,12 +10,13 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TripController implements Initializable ,Loadfxml{
+public class TripController implements Initializable, Loadfxml {
     @FXML
     public Label locationLabel;
     @FXML
@@ -42,11 +44,11 @@ public class TripController implements Initializable ,Loadfxml{
     @FXML
     private Label tripTypeLabel;
     @FXML
-    private String[] packages = {"Silver", "Golden" , "Platinum"};
+    private final String[] packages = {"Silver", "Golden", "Platinum"};
 
     public void ViewTripDetails(Trip trip) throws IOException {
 
-        Trip.selectedTrip=trip;
+        Trip.selectedTrip = trip;
         FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
         imgView.setImage(image);
@@ -58,6 +60,7 @@ public class TripController implements Initializable ,Loadfxml{
         priceLabel.setText(String.valueOf(trip.getPrice()));
         locationLabel.setText(trip.getLocation());
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         packageTypeChoice.getItems().addAll(packages);
@@ -65,7 +68,7 @@ public class TripController implements Initializable ,Loadfxml{
         packageTypeChoice.setValue("Select Package");
     }
 
-    public void getPackage(ActionEvent event){
+    public void getPackage(ActionEvent event) {
         String packageType = String.valueOf(packageTypeChoice.getValue());
         if (packageType.equals("Silver")) {
             PackageMessageLabel.setText("The trip contains only the transportation and half-board");
@@ -106,6 +109,7 @@ public class TripController implements Initializable ,Loadfxml{
         //profile.initialize();
 
     }
+
     public void myTripsClicked(ActionEvent event) throws IOException {
         lodafxmlfile("CMyTrips.fxml");
         TripHome.getScene().getWindow().hide();
@@ -119,42 +123,39 @@ public class TripController implements Initializable ,Loadfxml{
         int numbersOfTickets = 0;
         try {
             numbersOfTickets = Integer.parseInt(numbersOfTicketsInputs.getText());
-        }
-        catch (NumberFormatException e)
-        {
+        } catch (NumberFormatException e) {
             System.out.println(e);
         }
 
-        if (tripTypeLabel.getText().toLowerCase().equals("family") && numbersOfTickets < 3){
+        if (tripTypeLabel.getText().equalsIgnoreCase("family") && numbersOfTickets < 3) {
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
-        }
-        else if (tripTypeLabel.getText().toLowerCase().equals("couple") && numbersOfTickets % 2 != 0){
+        } else if (tripTypeLabel.getText().equalsIgnoreCase("couple") && numbersOfTickets % 2 != 0) {
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
-        }
-        else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
+        } else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
             checkLabel.setVisible(true);
-        }
-       else if(Customer.selectedCustomer.myTrips.contains(Trip.selectedTrip))
-        {
+        } else if (Customer.selectedCustomer.myTrips.contains(Trip.selectedTrip)) {
             NoOfTicketsMessageLabel1.setText(("You already reserved in this trips one. Find in more trips at home."));
-        }
-        else {
-                NoOfTicketsMessageLabel1.setText("");
-                Ticket.selectedTicket=new Ticket();
-                Ticket.selectedTicket.numberOfReservedTickets = numbersOfTickets;
-                Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
-                Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
-                Ticket.selectedTicket.TicketID=Trip.selectedTrip.tickets.size()+1;
+        } else {
 
-                if (Trip.selectedTrip.getTransportation().equals("Plane")) {
-                    FlightController flight = new FlightController();
-                    flight.trip_flightSwitch();
-                    TripHome.getScene().getWindow().hide();
-                } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
-                    BusController bus = new BusController();
-                    bus.trip_busSwitch();
-                    TripHome.getScene().getWindow().hide();
-                }
+
+            NoOfTicketsMessageLabel1.setText("");
+            Ticket.selectedTicket = new Ticket();
+            Ticket.selectedTicket.numberOfReservedTickets = numbersOfTickets;
+            Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
+            Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
+            Ticket.selectedTicket.TicketID = Trip.selectedTrip.tickets.size() + 1;
+
+            Ticket.selectedTicket.ticket_price = Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice());
+
+            if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+                FlightController flight = new FlightController();
+                flight.trip_flightSwitch();
+                TripHome.getScene().getWindow().hide();
+            } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+                BusController bus = new BusController();
+                bus.trip_busSwitch();
+                TripHome.getScene().getWindow().hide();
+            }
 
         }
 
