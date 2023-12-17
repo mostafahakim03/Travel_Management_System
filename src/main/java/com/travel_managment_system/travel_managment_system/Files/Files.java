@@ -27,7 +27,7 @@ public class Files {
         File file = new File("Tour_guide");
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
         TourGuide.TourguideAcc = (ArrayList<TourGuide>) in.readObject();
-        file.delete();
+
     }
 
     public static void writeCustomer() throws IOException {
@@ -39,7 +39,7 @@ public class Files {
         File file = new File("Customer");
         ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
        Customer.CoustomerAcc= (ArrayList<Customer>) in.readObject();
-        file.delete();
+
     }
 
 

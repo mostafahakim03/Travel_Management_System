@@ -23,13 +23,23 @@
 
 .backBTN{
 -fx-background-color:#FFFFFF;
--fx-border-color: #FA8B02;
+-fx-border-color: linear-gradient(to bottom right,#FA8B02,#FFAE00);
 -fx-text-fill:#FA8B02;
--fx-border-width:2px 2px 2px 2px;
+-fx-border-width:2px;
 }
 .backBTN:hover{
 -fx-text-fill:#FFFFFF;
--fx-background-color:FA8B02;
+-fx-background-color:#FA8B02;
+}
+.DashButton{
+-fx-background-color:#FFFFFF;
+-fx-border-color: linear-gradient(to bottom right,#FA8B02,#FFAE00);
+-fx-text-fill:#FA8B02;
+-fx-border-width:4px;
+}
+.DashButton:hover{
+-fx-text-fill:#FFFFFF;
+-fx-background-color:#FA8B02;
 }
 .BtnAhomePage:hover{
 -fx-background-color:#ff9728;

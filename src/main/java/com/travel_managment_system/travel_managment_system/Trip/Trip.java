@@ -31,15 +31,16 @@ public class Trip implements Serializable {
 
     public static Trip selectedTrip;
     private Itinerary itinerary;
-    public ArrayList <Ticket> tickets= new ArrayList<>();
 
-    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
-        this.numberOfAvailableSeats = numberOfAvailableSeats;
-    }
+  public ArrayList<Ticket>tickets=new ArrayList<>();
 
     public Bus bus=new Bus();
     public Flight flight= new Flight();
     private Hotel hotel=new Hotel();
+
+    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
+        this.numberOfAvailableSeats = numberOfAvailableSeats;
+    }
 
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
@@ -149,5 +150,8 @@ public class Trip implements Serializable {
         return endDate;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
 }
 

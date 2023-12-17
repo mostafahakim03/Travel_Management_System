@@ -21,9 +21,10 @@ public class PaymentController implements Loadfxml {
     private AnchorPane paymentAnchor;
 
     @FXML
-    TextField visaNumberTextField= new TextField();
+    TextField visaNumberTextField = new TextField();
     @FXML
-    Label alertLabel=new Label() ;
+    Label alertLabel = new Label();
+
     @FXML
     public void logoutButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Logout pending!");
@@ -36,22 +37,24 @@ public class PaymentController implements Loadfxml {
         if (alert.showAndWait().get() == ButtonType.OK) {
             lodafxmlfile("hello-view.fxml");
             paymentAnchor.getScene().getWindow().hide();
-            }
+        }
     }
-        public void HomeClicked(ActionEvent event) throws IOException {
-            System.out.println("Going home!");
-            lodafxmlfile("CHomepage.fxml");
-            paymentAnchor.getScene().getWindow().hide();
-        }
 
-        public void TProfileClicked(ActionEvent event) throws IOException {
-            lodafxmlfile("CMyProfile.fxml");
-            paymentAnchor.getScene().getWindow().hide();
+    public void HomeClicked(ActionEvent event) throws IOException {
+        System.out.println("Going home!");
+        lodafxmlfile("CHomepage.fxml");
+        paymentAnchor.getScene().getWindow().hide();
+    }
 
-        }
+    public void TProfileClicked(ActionEvent event) throws IOException {
+        lodafxmlfile("CMyProfile.fxml");
+        paymentAnchor.getScene().getWindow().hide();
+
+    }
+
     public void myTripsClicked(ActionEvent event) throws IOException {
-           lodafxmlfile("CMyTrips.fxml");
-            paymentAnchor.getScene().getWindow().hide();
+        lodafxmlfile("CMyTrips.fxml");
+        paymentAnchor.getScene().getWindow().hide();
     }
 
     public void CancelTrip() throws IOException {
@@ -59,7 +62,7 @@ public class PaymentController implements Loadfxml {
         alert.setTitle("Cancelling trip");
         alert.setHeaderText("All information you just entered will not be saved!");
         alert.setContentText("Are you sure you want to cancel the trip?");
-        if (alert.showAndWait().get() == ButtonType.OK){
+        if (alert.showAndWait().get() == ButtonType.OK) {
             lodafxmlfile("CHomepage.fxml");
             paymentAnchor.getScene().getWindow().hide();
         }
@@ -99,9 +102,10 @@ public class PaymentController implements Loadfxml {
     }
 
 
-    }
+}
 
-    }
+
+
 
 
 

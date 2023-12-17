@@ -39,7 +39,7 @@ public class serviseController implements Initializable ,Loadfxml {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         roomtype1.getItems().addAll(roomtypes);
-        Hotel hotel = new Hotel("Sonesta San George","Luxor");
+        Hotel hotel = new Hotel("Sonesta San George","Luxor","");
         Trip.selectedTrip.setHotel(hotel);
         hotelNameLabel.setText(hotel.getHotelName());
         locationLabel.setText(hotel.getHotellocation());

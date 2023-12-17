@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="128.0" prefWidth="173.0" style="-fx-border-width: 5px; -fx-border-radius: 10px; -fx-background-radius: 10px;" styleClass="backAdmin" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Hotel_Card">
+   <children>
+      <ImageView fx:id="Hotel_image" fitHeight="75.0" fitWidth="131.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="Name" layoutX="43.0" layoutY="103.0" text="Name" />
+      <Label fx:id="Location" layoutX="116.0" layoutY="102.0" text="Location" />
+      <FontAwesomeIcon fill="#fc8805" glyphName="BUILDING" layoutX="20.0" layoutY="117.0" size="1.5em" text="" />
+      <FontAwesomeIcon fill="#fc8805" glyphName="MAP_MARKER" layoutX="100.0" layoutY="118.0" size="1.75em" />
+   </children>
+</Pane>

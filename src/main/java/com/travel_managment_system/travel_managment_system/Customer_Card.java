@@ -69,7 +69,8 @@ int num_Tickets=0;
         {
             num_Tickets+=tickets.numberOfReservedTickets;
         }
-        Tickets.setText(String.valueOf(num_Tickets));dis_edit();
+        Tickets.setText(String.valueOf(num_Tickets));
+        dis_edit();
     }
     public void dis_edit(){
         Phone_text.setVisible(false);

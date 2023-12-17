@@ -6,13 +6,16 @@ import java.util.ArrayList;
 public class Hotel implements Serializable {
     private String HotelName;
     private String Hotellocation;
+    public String HotelImage;
     private String RoomType;
+  public static   ArrayList<Hotel>Hotels=new ArrayList<>();
     public Hotel()
     {}
 
-       public Hotel(String hotelName , String hotellocation){
+       public Hotel(String hotelName , String hotellocation,String HotelImage){
            this.HotelName=hotelName;
            this.Hotellocation=hotellocation;
+           this.HotelImage=HotelImage;
        }
 
     public String getHotelName() {
@@ -35,5 +38,13 @@ public class Hotel implements Serializable {
     }
     public void setRoomType(String roomType) {
         RoomType = roomType;
+    }
+
+    public void setHotelImage(String hotelImage) {
+        HotelImage = hotelImage;
+    }
+
+    public String getHotelImage() {
+        return HotelImage;
     }
 }

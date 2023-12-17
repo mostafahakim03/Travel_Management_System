@@ -5,11 +5,13 @@ import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
@@ -30,6 +33,26 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public class AHomepage implements Loadfxml{
+    @FXML
+    private ListView<Integer> Guide_ID=new ListView<>();
+    @FXML
+    private ComboBox<String> Trip_Hotel;
+    @FXML
+    private GridPane Hotel_grid=new GridPane();
+
+    @FXML
+    private AnchorPane Hotel_Page;
+
+    @FXML
+    private AnchorPane Hotel_Form;
+    @FXML
+    private ImageView Add_Hotel_Image;
+
+    @FXML
+    private ComboBox<String> Add_Hotel_Location;
+
+    @FXML
+    private TextField Add_Hotel_Name;
 
     @FXML
     private AnchorPane Customer_View;
@@ -163,6 +186,7 @@ public class AHomepage implements Loadfxml{
       AddActiveties.setVisible(false);
       ActivetiesView.setVisible(false);
         Customer_View.setVisible(false);
+        Hotel_Page.setVisible(false);
     }
     @FXML
     void Show_Activities(ActionEvent event) throws IOException {
@@ -240,7 +264,7 @@ if(imageSrc.equals(""))ErrorAddActitie.setText("Please Import Photo");
 else if(Activities_Location_compo.getValue()==null)ErrorAddActitie.setText("please Input Location");
 else {
     String Start=String.valueOf(SpinnerStartHour.getValue())+" : "+String.valueOf(SpinnerStartMin.getValue())+"  "+StartTimeCompo.getValue();
-    String End=String.valueOf(SpinnerEndHour.getValue())+String.valueOf(SpinnerEndMin.getValue())+EndTimeCompo.getValue();
+    String End=String.valueOf(SpinnerEndHour.getValue())+" : "+String.valueOf(SpinnerEndMin.getValue())+"  "+EndTimeCompo.getValue();
     Activities activities=new Activities(Activities_Location_compo.getValue(),Start,End,imageSrc,Activities.Activitties.size()+1);
     Activities.Activitties.add(activities);
     if(!(Admin.Locations.contains(activities.getLocation())))
@@ -397,6 +421,8 @@ add_Itinerary.getItems().clear();
 add_Itinerary.setValue(null);
 itinerary=3;
 add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities");
+Trip_Hotel.getItems().clear();
+Trip_Hotel.setValue("");
     }
     @FXML
     void showadd_Itinerary(ActionEvent event) {
@@ -404,24 +430,33 @@ add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities
     }
     @FXML
     void addActivtiesToTrip(ActionEvent event) {
-        if(itinerary>0) {
-            for (Activities activ : Activities.Activitties) {
-                if (add_Itinerary.getValue().equals(activ.getId())) {
-                    activities[3 - itinerary] = activ;
-                    break;
+
+            if (itinerary > 0&&add_Itinerary.getValue()!=null) {
+                for (Activities activ : Activities.Activitties) {
+                    if (add_Itinerary.getValue().equals(activ.getId())) {
+                        activities[3 - itinerary] = activ;
+                        break;
+                    }
                 }
+                itinerary--;
+                add_Itinerary.getItems().remove(add_Itinerary.getValue());
+                add_Itinerary.setPromptText("Input " + String.valueOf(itinerary) + " ID`s Activities");
+                if (itinerary == 0) add_Itinerary.setVisible(false);
             }
-            itinerary--;
-            add_Itinerary.getItems().remove(add_Itinerary.getValue());
-            add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities");
-            add_Itinerary.setValue(null);
-            if (itinerary == 0) add_Itinerary.setVisible(false);
-        }
+
 
 
     }
     @FXML
     void Activties_Location(ActionEvent event) {
+        Trip_Hotel.getItems().clear();
+        Trip_Hotel.setValue("");
+      for (Hotel hotel:Hotel.Hotels)
+      {
+          if(hotel.getHotellocation().equals(TLocText.getValue())) {
+              Trip_Hotel.getItems().add(hotel.getHotelName());
+          }
+      }
         add_Itinerary.setVisible(true);
         itinerary=3;
         activities=new Activities[3];
@@ -496,6 +531,15 @@ add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities
         Itinerary trip_itinerary=new Itinerary();
         trip_itinerary.setActivities(activities);
         trip.setItinerary(trip_itinerary);
+        if(Trip_Hotel.getValue().equals(""))return "please Input Hotel";
+     for (Hotel hotel:Hotel.Hotels)
+     {
+         if(hotel.getHotelName().equals(Trip_Hotel.getValue()))
+         {
+             trip.setHotel(hotel);
+             break;
+         }
+     }
         Trip.trips.add(trip);
         Admin.addLocation(TLocText.getValue());
 
@@ -531,11 +575,7 @@ add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities
         catch (NumberFormatException e)
         {
        test=false;
-            Alert alert=new Alert(Alert.AlertType.ERROR);
-            alert.initOwner(newTourID_Text.getScene().getWindow());
-            alert.getDialogPane().setContentText("Invalid ID");
-            alert.getDialogPane().setHeaderText("Error");
-            alert.showAndWait();
+            Admin.Error_Alert(newTourID_Text.getScene().getWindow(),"Invalid ID","Error");
         }
         if(test) {
             if (id > 0) {
@@ -548,12 +588,14 @@ add_Itinerary.setPromptText("Input "+String.valueOf(itinerary)+" ID`s Activities
                 if (test && !(TourGuide.newidAcc.contains(id)))
                 {
                     TourGuide.newidAcc.add(id);
+
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.initOwner(newTourID_Text.getScene().getWindow());
                     alert.getDialogPane().setContentText("ID Added Successful");
                     alert.getDialogPane().setHeaderText("Successful");
                     alert.showAndWait();
-                    newIDpane.setVisible(false);
+                    Add_to_List_id();
+
                 }
                 else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -582,6 +624,7 @@ newIDpane.setVisible(false);
 
     @FXML
     void OpenNewTour_ID(ActionEvent event) {
+        Add_to_List_id();
 newIDpane.setVisible(true);
 newTourID_Text.setText("");
     }
@@ -651,6 +694,90 @@ Add_Customer_Pane.setVisible(true);
         lodafxmlfile("hello-view.fxml");
         newTripForm.getScene().getWindow().hide();
     }
+  }
+
+    @FXML
+    void Add_Hotel(ActionEvent event) throws IOException {
+         if(Add_Hotel_Name.getText().equals(""))
+             Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(),"Please Add Hotel Name","Error");
+       else  if(Add_Hotel_Location.getValue().equals(""))
+             Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(),"Please Add Hotel Location","Error");
+        else if(imageSrc.equals(""))
+             Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(),"Please Add Hotel Image","Error");
+        else {
+             Hotel hotel=new Hotel(Add_Hotel_Name.getText(),Add_Hotel_Location.getValue(),imageSrc);
+            if(!(Admin.Locations.contains(Add_Hotel_Location.getValue())))
+            { Admin.Locations.add(Add_Hotel_Location.getValue());}
+             Hotel.Hotels.add(hotel);
+             Hotel_Form.setVisible(false);
+             show_Hotels();
+         }
+
+    }
+    @FXML
+    void Import_Hotel_Image(ActionEvent event) throws IOException {
+        FileChooser fileChooser=new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\"));
+        File file= fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
+        if(file!=null) {
+            file = Admin.cobyFile(file);
+            String s = file.toString();
+            int index = s.indexOf("src");
+            s = s.substring(index);
+            FileInputStream imageInput = new FileInputStream(s);
+            Image image = new Image(imageInput);
+           Add_Hotel_Image.setImage(image);
+            imageSrc=s;
+
+
+        }
+
+    }
+    @FXML
+    void Add_Hotel_Form(ActionEvent event) {
+        Admin.Locations.add("Tanta");
+       Hotel_Form.setVisible(true);
+       Add_Hotel_Image.setImage(null);
+       Add_Hotel_Name.setText("");
+       imageSrc="";
+       Add_Hotel_Location.getItems().clear();
+       Add_Hotel_Location.setValue("");
+       Add_Hotel_Location.getItems().addAll(Admin.Locations);
+    }
+    @FXML
+    void Hotel_Page(ActionEvent event) throws IOException {
+        show_Hotels();
+     Hotel_Form.setVisible(false);
+     Hotel_Page.setVisible(true);
+     Dashview.setVisible(false);
+    }
+    public void show_Hotels() throws IOException {
+
+        int col=0,row=1;
+        for (int i=0;i<Hotel.Hotels.size();i++) {
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("Hotel_Card.fxml"));
+            Pane pane = fxmlLoader.load();
+            Hotel_Card hotelCard = fxmlLoader.getController();
+            hotelCard.set_data(Hotel.Hotels.get(i));
+            if(col==4)
+            {
+                col=0;
+                row++;
+            }
+            Hotel_grid.add(pane,col++,row);
+            GridPane.setMargin(pane,new Insets(10));
+        }
+    }
+    @FXML
+    void Back_Add_Hotel(ActionEvent event) {
+Hotel_Form.setVisible(false);
+    }
+    public void Add_to_List_id(){
+        Guide_ID.getItems().clear();
+        Guide_ID.getItems().addAll(TourGuide.newidAcc);
     }
 
 }
