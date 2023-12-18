@@ -119,6 +119,15 @@ public class Admin {
         fadeTransition.play();
     }
 
+   public  static FadeTransition fade_Screen(double start, double end,AnchorPane parent){
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(5000));
+        fadeTransition.setNode(parent);
+        fadeTransition.setFromValue(start);
+        fadeTransition.setToValue(end);
+        fadeTransition.play();
+        return fadeTransition;
 
+    }
 }
 
