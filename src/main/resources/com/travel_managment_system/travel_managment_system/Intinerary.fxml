@@ -36,17 +36,17 @@
       </ToolBar>
       <ImageView fx:id="ActivityImg1" fitHeight="105.0" fitWidth="193.0" layoutX="71.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@activity.jpg" />
+            <Image url="@Images/activity.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="ActivityImg2" fitHeight="112.0" fitWidth="193.0" layoutX="71.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@activity2.jpg" />
+            <Image url="@Images/activity2.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="ActivityImg3" fitHeight="108.0" fitWidth="193.0" layoutX="74.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@activity3.jpeg" />
+            <Image url="@Images/activity3.jpeg" />
          </image>
       </ImageView>
       <Separator layoutX="72.0" layoutY="255.0" prefHeight="6.0" prefWidth="455.0" style="-fx-background-color: #FA8B02;" />

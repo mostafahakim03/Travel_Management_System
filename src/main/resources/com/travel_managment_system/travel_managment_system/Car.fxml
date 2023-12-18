@@ -19,7 +19,7 @@
             <children>
                 <ImageView fx:id="Car1" fitHeight="105.0" fitWidth="202.0" layoutX="30.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@bmw2.png" />
+                        <Image url="@Images/bmw.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="273.0" layoutY="70.0" prefHeight="26.0" prefWidth="135.0" text="Car Model :">
@@ -61,7 +61,7 @@
             <children>
                 <ImageView fx:id="Car2" fitHeight="165.0" fitWidth="202.0" layoutX="26.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@nissan2.png" />
+                        <Image url="@Images/nissan.png" />
                     </image>
                 </ImageView>
                 <Label fx:id="carName2" layoutX="409.0" layoutY="25.0" prefHeight="26.0" prefWidth="183.0" text="Nissan Qashqai " textFill="#fa8b02">
@@ -101,7 +101,7 @@
             <children>
                 <ImageView fx:id="Car3" fitHeight="110.0" fitWidth="202.0" layoutX="10.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@lada2.png" />
+                        <Image url="@Images/lada.png" />
                     </image>
                 </ImageView>
                 <Label fx:id="carName3" layoutX="395.0" layoutY="27.0" prefHeight="26.0" prefWidth="135.0" text="Lada" textFill="#fa8b02">

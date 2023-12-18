@@ -36,7 +36,7 @@
       </ToolBar>
       <ImageView fx:id="Flightview" fitHeight="300.0" fitWidth="408.0" layoutX="253.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 0;">
          <image>
-            <Image url="@flight2.png" />
+            <Image url="@Images/flight.png" />
          </image>
       </ImageView>
       <Label alignment="CENTER" layoutX="38.0" layoutY="93.0" prefHeight="46.0" prefWidth="163.0" text="Egypt Air" textFill="#fa8b02">

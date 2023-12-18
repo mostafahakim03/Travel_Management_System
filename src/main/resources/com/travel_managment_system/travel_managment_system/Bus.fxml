@@ -44,7 +44,7 @@
       </Label>
       <ImageView fitHeight="227.0" fitWidth="361.0" layoutX="277.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@R.png" />
+            <Image url="@Images/Bus.png" />
          </image>
       </ImageView>
       <Button fx:id="Nextbtn" layoutX="564.0" layoutY="339.0" mnemonicParsing="false" onAction="#BNext" prefHeight="42.0" prefWidth="101.0" style="-fx-background-color: #ffae00; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">

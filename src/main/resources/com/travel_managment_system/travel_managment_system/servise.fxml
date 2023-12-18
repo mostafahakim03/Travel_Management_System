@@ -18,7 +18,7 @@
             <ProgressBar fx:id="progressBar2" layoutX="47.0" layoutY="466.0" prefWidth="200.0" progress="0.5" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
             <ImageView fitHeight="219.0" fitWidth="325.0" layoutX="30.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Hotel4.png" />
+                  <Image url="@Images/Hotel4.png" />
                </image>
             </ImageView>
             <Label layoutX="30.0" layoutY="405.0" prefHeight="26.0" prefWidth="135.0" text="Location :">
@@ -59,7 +59,7 @@
             </Button>
             <ImageView fitHeight="216.0" fitWidth="394.0" layoutX="421.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@room2.png" />
+                  <Image url="@Images/room.png" />
                </image>
             </ImageView>
          </children>

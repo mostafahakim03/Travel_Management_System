@@ -40,7 +40,7 @@
         </Button>
         <ImageView fitHeight="179.0" fitWidth="272.0" layoutX="398.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@visaCard.jpg" />
+                <Image url="@Images/visaCard.jpg" />
             </image>
         </ImageView>
       <Button layoutX="84.0" layoutY="293.0" mnemonicParsing="false" onAction="#CancelTrip" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Cancel Trip" textFill="#fafafa">

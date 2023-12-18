@@ -83,10 +83,10 @@ public class TripController implements Initializable, Loadfxml {
             PackageMessageLabel.setText("The trip contains only the transportation and half-board");
             Trip.selectedTrip.setPackageType(packageType);
         } else if (packageType.equals("Golden")) {
-            PackageMessageLabel.setText("The trip contains the transportation and full-board");
+            PackageMessageLabel.setText("The trip contains the transportation and full-board.The price will increase by 10% over the sum.");
             Trip.selectedTrip.setPackageType(packageType);
         } else if (packageType.equals("Platinum")) {
-            PackageMessageLabel.setText("The trip contains the transportation, full-board and activities");
+            PackageMessageLabel.setText("The trip contains the transportation, full-board and activities. The price will increase by 25% over the sum.");
             Trip.selectedTrip.setPackageType(packageType);
         }
 
