@@ -154,7 +154,7 @@ public class TripController implements Initializable, Loadfxml {
             Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
             Ticket.selectedTicket.TicketID = Trip.selectedTrip.tickets.size() + 1;
 
-            Ticket.selectedTicket.ticket_price = Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice());
+            Ticket.selectedTicket.ticket_price = Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType);
 
             if (Trip.selectedTrip.getTransportation().equals("Plane")) {
                 FlightController flight = new FlightController();

@@ -24,9 +24,14 @@ public class Customer extends User implements Serializable {
         this.phone=phone;
         this.age=Age;
     }
-    public double checkDiscount(int numberofTickets , double tripPrice) {
-
-        double overallPrice=numberofTickets*tripPrice;
+    public double checkDiscount(int numberofTickets , double tripPrice, String packageType) {
+        double overallPrice=numberofTickets * tripPrice;
+        if(packageType.equals("Platinum")) {
+             overallPrice= overallPrice+(overallPrice*0.25);
+        }
+        else if(packageType.equals("Golden")) {
+            overallPrice= overallPrice+(overallPrice*0.1);
+        }
 
         if (myTrips.size() % 2 == 0 && myTrips.size()!= 0) {
             System.out.println("Discount applied , whoo hoo!!");
