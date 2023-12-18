@@ -5,23 +5,24 @@ import java.util.ArrayList;
 
 public class Activities implements Serializable {
     private String location;
-    private String startTime;
-    private String endTime;
-    private String Img;
-    private int Id;
-  public static  ArrayList<Activities>Activitties= new ArrayList<>();
+    private final String startTime;
+    private final String endTime;
+    private final String Img;
+    private final int Id;
+    public static ArrayList<Activities> Activitties = new ArrayList<>();
 
-    public Activities (String location,String StartTime, String EndTime, String img,int Id){
+    public Activities(String location, String StartTime, String EndTime, String img, int Id) {
         this.location = location;
         this.startTime = StartTime;
         this.endTime = EndTime;
         this.Img = img;
-        this.Id=Id;
+        this.Id = Id;
     }
 
     public String getImg() {
         return Img;
     }
+
     public String getStartTime() {
         return startTime;
     }

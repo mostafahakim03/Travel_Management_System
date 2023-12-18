@@ -9,50 +9,38 @@ import java.util.ArrayList;
 
 
 public class Customer extends User implements Serializable {
-    public int NumberOfTrip;
     public static Customer selectedCustomer;
-//    public int numberOfReservedTickets;
     public static ArrayList<Customer> CoustomerAcc = new ArrayList<Customer>();
 
-    public ArrayList<Ticket> tickets= new ArrayList<>();
-    public ArrayList<Trip> myTrips=new ArrayList<>();
+    public ArrayList<Ticket> tickets = new ArrayList<>();
+    public ArrayList<Trip> myTrips = new ArrayList<>();
 
-    public  Customer(String Name,String customername, String password ,String phone , String Age){
-        this.name=Name;
-        this.username=customername;
-        this.pass=password;
-        this.phone=phone;
-        this.age=Age;
+    public Customer(String Name, String customername, String password, String phone, String Age) {
+        this.name = Name;
+        this.username = customername;
+        this.pass = password;
+        this.phone = phone;
+        this.age = Age;
     }
-    public Customer(){};
-    public double checkDiscount(int numberofTickets , double tripPrice, String packageType) {
-        double overallPrice=numberofTickets * tripPrice;
-        if(packageType.equals("Platinum")) {
-             overallPrice= overallPrice+(overallPrice*0.25);
-        }
-        else if(packageType.equals("Golden")) {
-            overallPrice= overallPrice+(overallPrice*0.1);
+
+    public Customer() {
+    }
+
+    public double checkDiscount(int numberofTickets, double tripPrice, String packageType) {
+        double overallPrice = numberofTickets * tripPrice;
+        if (packageType.equals("Platinum")) {
+            overallPrice = overallPrice + (overallPrice * 0.25);
+        } else if (packageType.equals("Golden")) {
+            overallPrice = overallPrice + (overallPrice * 0.1);
         }
 
-        if (myTrips.size() % 2 == 0 && myTrips.size()!= 0) {
+        if (myTrips.size() % 2 == 0 && myTrips.size() != 0) {
             System.out.println("Discount applied , whoo hoo!!");
-            return  overallPrice- (overallPrice * 0.15);
-        }
-        else {
+            return overallPrice - (overallPrice * 0.15);
+        } else {
             return overallPrice;
         }
 
-    }
-
-
-
-
-    public int getNumberOfTrip() {
-        return NumberOfTrip;
-    }
-
-    public void setNumberOfTrip(int numberOfTrip) {
-        NumberOfTrip = numberOfTrip;
     }
 }
 

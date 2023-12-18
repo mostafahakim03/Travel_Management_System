@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="log" prefHeight="343.0" prefWidth="622.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.UserController">
+   <children>
+      <ImageView fitHeight="348.0" fitWidth="669.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/LoginBackground.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="424.0" layoutY="262.0" mnemonicParsing="false" onAction="#checkLogin" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: #fa8b02; -fx-background-radius: 45;" text="submit" textFill="WHITE">
+         <font>
+            <Font name="Berlin Sans FB" size="19.0" />
+         </font></Button>
+      <TextField fx:id="LoginUsertext" layoutX="132.0" layoutY="63.0" prefHeight="26.0" prefWidth="254.0" promptText="Username" />
+      <PasswordField fx:id="LoginPasstext" layoutX="132.0" layoutY="130.0" prefHeight="26.0" prefWidth="254.0" promptText="Password" />
+      <RadioButton fx:id="LoginRadioCustomer" layoutX="132.0" layoutY="216.0" mnemonicParsing="false" text="Custmor" textFill="WHITE">
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup>
+         <font>
+            <Font name="Segoe Print Bold" size="14.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="LoginRadioTour" layoutX="132.0" layoutY="254.0" mnemonicParsing="false" text="Tourguide" textFill="WHITE" toggleGroup="$type">
+         <font>
+            <Font name="Segoe Print Bold" size="14.0" />
+         </font>
+      </RadioButton>
+      <Label fx:id="errorlog" layoutX="132.0" layoutY="177.0" prefHeight="26.0" prefWidth="254.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="sign_up" layoutX="343.0" layoutY="177.0" prefHeight="34.0" prefWidth="86.0" visible="false">
+         <children>
+            <Button mnemonicParsing="false" onAction="#signup" style="-fx-background-color: transparent;" text="Sign Up" textFill="BLUE" underline="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button layoutX="47.0" layoutY="14.0" mnemonicParsing="false" onAction="#backlog" prefHeight="41.0" prefWidth="21.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="ANGLE_DOUBLE_LEFT" size="3em" text="" />
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>

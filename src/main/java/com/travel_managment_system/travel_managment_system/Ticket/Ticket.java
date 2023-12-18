@@ -1,8 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Ticket;
 
-import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
-import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -16,7 +14,7 @@ public class Ticket implements Serializable {
     public static int numberOfTickets = 0;
     public int numberOfReservedTickets;
     public int trip_id;
-    public double ticket_price=0;
+    public double ticket_price = 0;
     public LocalDate booking_date;
     public ArrayList<Integer> seatNumber = new ArrayList<>();
     public CAr car = new CAr();

@@ -27,16 +27,16 @@ public class Trip implements Serializable {
     private int numbersOfTickets;  // the customer booking
     private String location;
     private String Transportation; //bus, flight
-    private int numberOfAvailableSeats=50;
+    private int numberOfAvailableSeats = 50;
 
     public static Trip selectedTrip;
     private Itinerary itinerary;
 
-  public ArrayList<Ticket>tickets=new ArrayList<>();
+    public ArrayList<Ticket> tickets = new ArrayList<>();
 
-    public Bus bus=new Bus();
-    public Flight flight= new Flight();
-    private Hotel hotel=new Hotel();
+    public Bus bus = new Bus();
+    public Flight flight = new Flight();
+    private Hotel hotel = new Hotel();
 
     public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
         this.numberOfAvailableSeats = numberOfAvailableSeats;
@@ -48,9 +48,9 @@ public class Trip implements Serializable {
 
     public static ArrayList<Trip> trips = new ArrayList<>();
 
-    private ArrayList<TourGuide>AssignedTourGuides = new ArrayList<>();
+    private final ArrayList<TourGuide> AssignedTourGuides = new ArrayList<>();
 
-    private boolean isTouGuideComplete=false;
+    private boolean isTouGuideComplete = false;
 
     public String getTransportation() {
         return Transportation;
@@ -60,10 +60,10 @@ public class Trip implements Serializable {
         return numberOfAvailableSeats;
     }
 
-    public Trip()
-    {
+    public Trip() {
 
     }
+
     public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate,
                 double price, double payment, String tripImage, String location, String Transportation) {
         this.tripName = tripName;
@@ -75,7 +75,7 @@ public class Trip implements Serializable {
         this.payment = payment;
         this.tripImage = tripImage;
         this.location = location;
-        this.Transportation=Transportation;
+        this.Transportation = Transportation;
         noOfTrips++;
     }
 
@@ -142,6 +142,7 @@ public class Trip implements Serializable {
     public void setTouGuideComplete(boolean tourGuideComplete) {
         isTouGuideComplete = tourGuideComplete;
     }
+
     public LocalDate getStartDate() {
         return startDate;
     }

@@ -7,14 +7,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class TourGuide extends User implements Serializable {
-    protected boolean Availibility =true;
+    protected boolean Availibility = true;
     protected String GuideID;
     protected Double Salary;
     public static ArrayList<Integer> newidAcc = new ArrayList<Integer>();
-
     public static ArrayList<TourGuide> TourguideAcc = new ArrayList<>();
     public static TourGuide selectedTourGuide;
-    private ArrayList<Trip> AssignedTrips=new ArrayList<>();
+    private final ArrayList<Trip> AssignedTrips = new ArrayList<>();
 
     public TourGuide(String name, String username, String pass, String phone, String age, String GuideID) {
         super();
@@ -35,19 +34,19 @@ public class TourGuide extends User implements Serializable {
             try {
                 id = Integer.parseInt(String.valueOf(GuideID));
             } catch (NumberFormatException e) {
-             return "Invalid ID";
+                return "Invalid ID";
             }
-            if (TourGuide.newidAcc.contains(id)){
-                    TourGuide.newidAcc.remove((Integer) id);
-                return "done";}
-            else return "Invalid ID";
+            if (TourGuide.newidAcc.contains(id)) {
+                TourGuide.newidAcc.remove((Integer) id);
+                return "done";
+            } else return "Invalid ID";
         }
         return test;
     }
-   public String check_signup(Boolean T)
-   {
-   return super.check_signup();
-  }
+
+    public String check_signup(Boolean T) {
+        return super.check_signup();
+    }
 
     public Double getSalary() {
         return Salary;
@@ -72,6 +71,7 @@ public class TourGuide extends User implements Serializable {
     public void setSalary(Double salary) {
         Salary = salary;
     }
+
     public ArrayList<Trip> getAssignedTrips() {
         return AssignedTrips;
     }
@@ -79,10 +79,10 @@ public class TourGuide extends User implements Serializable {
     public void FillAssignedTrips(Trip assignedTrips) {
         AssignedTrips.add(assignedTrips);
     }
-    public static void DeleteTour(String id){
-        for (int i=0;i<TourguideAcc.size();i++)
-        {
-            if(TourguideAcc.get(i).GuideID.equals(id)) {
+
+    public static void DeleteTour(String id) {
+        for (int i = 0; i < TourguideAcc.size(); i++) {
+            if (TourguideAcc.get(i).GuideID.equals(id)) {
                 TourguideAcc.remove(i);
                 break;
             }

@@ -7,11 +7,12 @@ public class Flight implements Serializable {
     public ArrayList<Integer> Seats = new ArrayList<>();
 
     private String FlightCompanyName;
-    public Boolean [] isReserved=new Boolean[50];
-    public void FillarrSeats(){
-        for(int i =0; i<50;i++) {
-            Seats.add(i+1);
-            isReserved[i]=false;
+    public Boolean[] isReserved = new Boolean[50];
+
+    public void FillarrSeats() {
+        for (int i = 0; i < 50; i++) {
+            Seats.add(i + 1);
+            isReserved[i] = false;
         }
     }
 

@@ -76,7 +76,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.travel_managment_system.travel_managment_system/com.travel_managment_system.travel_managment_system.TMSApplication
+                                com.travel_managment_system.travel_managment_system/com.travel_managment_system.travel_managment_system.Controllers.TMSApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
