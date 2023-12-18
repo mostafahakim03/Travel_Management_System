@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class TMSApplication extends Application implements Loadfxml {
     @Override
     public void start(Stage stage) throws IOException {
-        lodafxmlfile("Uhello-view.fxml");
+        lodafxmlfile("screen.fxml");
         Trip.trips.add(new Trip("Luxor", 1000, "Family", LocalDate.of(2023, 12, 11), LocalDate.of(2023, 12, 17), 3000, 10000, "src/main/resources" +
                 "/com/travel_managment_system/travel_managment_system/Images/luxorPhoto.jpg", "Luxor", "Plane"));
         Trip.trips.add(new Trip("Alexandria", 1001, "Couple", LocalDate.of(2023, 12, 13), LocalDate.of(2023, 12, 18), 400, 7000, "src/main" +
@@ -20,7 +20,7 @@ public class TMSApplication extends Application implements Loadfxml {
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        //Files.read();
+        Files.read();
         launch();
         Files.write();
 
