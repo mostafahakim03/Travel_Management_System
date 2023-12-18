@@ -86,7 +86,7 @@
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></ChoiceBox>
-                  <Label fx:id="PackageMessageLabel" layoutX="52.0" layoutY="395.0" prefHeight="22.0" prefWidth="520.0" textFill="#ff9900">
+                  <Label fx:id="PackageMessageLabel" layoutX="51.0" layoutY="395.0" prefHeight="22.0" prefWidth="658.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
