@@ -3,6 +3,7 @@ package com.travel_managment_system.travel_managment_system;
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ButtonType;
@@ -11,9 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
 import java.util.Optional;
 
-public class Customer_Card {
+public class Customer_Card implements Loadfxml{
 
     @FXML
     private Label Age;
@@ -54,11 +56,14 @@ public class Customer_Card {
     @FXML
     private AnchorPane deleteANCH;
 
+
     @FXML
     private AnchorPane editANCH;
+    private Customer Customer_Card;
+
     public void Set_data(Customer customer)
     {
-        //
+        Customer_Card=customer;
 Name.setText(customer.getName());
 User_Name.setText(customer.getUsername());
 Pass.setText(customer.getPass());
@@ -146,4 +151,16 @@ dis_edit();
 }
 else Admin.Error_Alert(Phone.getScene().getWindow(),check,"Error");
     }
+    @FXML
+    void Booking(ActionEvent event) throws IOException {
+        Optional<ButtonType> check = Admin.confirmation_alert(Phone.getScene().getWindow(), "Are you sure book a ticket?", "Booking");
+        if (check.get() == ButtonType.OK) {
+            Customer.selectedCustomer = Customer_Card;
+            User.isTourGuide=false;
+            lodafxmlfile("CHomepage.fxml");
+            Phone.getScene().getWindow().hide();
+        }
+
+    }
+
 }

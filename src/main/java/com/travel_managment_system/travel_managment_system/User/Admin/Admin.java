@@ -4,6 +4,7 @@ import com.travel_managment_system.travel_managment_system.FlightController;
 import com.travel_managment_system.travel_managment_system.NavBar;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -24,7 +25,8 @@ public class Admin {
     public static ArrayList<String> Locations=new ArrayList<>();
     private static String Username="admin";
     private static String Password="1234";
-    public static Boolean Refresh_admin=false;
+    public static Boolean Refresh_admin=false,Admin_is_Opned=false;
+
 
 
     public static String getUsername() {
@@ -122,6 +124,7 @@ public static void add_Tour(TourGuide tourGuide)
         fadeTransition.setToValue(0);
         fadeTransition.play();
     }
+
 
 }
 

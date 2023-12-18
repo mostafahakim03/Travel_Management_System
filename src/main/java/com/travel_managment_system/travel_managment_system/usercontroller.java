@@ -19,6 +19,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class usercontroller implements Loadfxml {
+    @FXML
+    private AnchorPane Login_Page;
 
     @FXML
     private Label ErrorMessage;
@@ -144,10 +146,10 @@ public class usercontroller implements Loadfxml {
     public void checkLogin() throws IOException {
         if((!LoginRadioCustomer.isSelected())&&(!LoginRadioTour.isSelected())&&LoginPasstext.getText().equals(Admin.getPassword())&&LoginUsertext.getText().equals(Admin.getUsername()))
         {
+            Admin.Admin_is_Opned=true;
             AHomepage aHomepage=new AHomepage();
             aHomepage.showAhome();
             LoginRadioCustomer.getScene().getWindow().hide();
-
 
         } else if (LoginRadioTour.isSelected()) {
             for (TourGuide tourguide : TourGuide.TourguideAcc) {

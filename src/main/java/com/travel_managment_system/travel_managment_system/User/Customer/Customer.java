@@ -24,6 +24,7 @@ public class Customer extends User implements Serializable {
         this.phone=phone;
         this.age=Age;
     }
+    public Customer(){};
     public double checkDiscount(int numberofTickets , double tripPrice, String packageType) {
         double overallPrice=numberofTickets * tripPrice;
         if(packageType.equals("Platinum")) {

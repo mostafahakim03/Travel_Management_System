@@ -703,6 +703,7 @@ public class AHomepage implements Loadfxml {
     void Logout(ActionEvent event) throws IOException {
         Optional<ButtonType> result = Admin.confirmation_alert(newTourID_Text.getScene().getWindow(), "Are you sure ?", "Log out");
         if (result.get() == ButtonType.OK) {
+            Admin.Admin_is_Opned=false;
             lodafxmlfile("hello-view.fxml");
             newTripForm.getScene().getWindow().hide();
         }

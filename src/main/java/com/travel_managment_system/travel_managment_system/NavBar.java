@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,10 +16,22 @@ public class NavBar implements Loadfxml{
     private Button HomeButton;
     @FXML
     private Button Salary;
+    @FXML
+    private Button MyProfile_btn;
+
+    @FXML
+    private Button MyTrip_btn;
+
 
     public void set(){
         if(User.isTourGuide)Salary.setVisible(true);
-
+if(Admin.Admin_is_Opned)dis_Button();
+    }
+    public void dis_Button(){
+     Salary.setDisable(true);
+     MyTrip_btn.setDisable(true);
+     MyProfile_btn.setDisable(true);
+     HomeButton.setDisable(true);
     }
 
     @FXML
@@ -49,6 +62,11 @@ public class NavBar implements Loadfxml{
 
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
+            if(Admin.Admin_is_Opned) {
+                AHomepage aHomepage=new AHomepage();
+                aHomepage.showAhome();
+            }
+            else
             lodafxmlfile("hello-view.fxml");
             HomeButton.getScene().getWindow().hide();
         }
