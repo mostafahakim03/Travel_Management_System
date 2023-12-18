@@ -29,8 +29,7 @@ public class Atourcontrol {
     private Pane ParentANCH;
     @FXML
     private TextField Tour_IDEdit, Tour_USEREdit, Tour_PASSEdit, Tour_PHONEEdit, Tour_AgeEdit;
-
-
+    TourGuide tourGuide;
     public void setdata(TourGuide tourGuide) {
         Tname.setText(tourGuide.getName());
         Tuser.setText(tourGuide.getUsername());
@@ -42,6 +41,7 @@ public class Atourcontrol {
         if (tourGuide.isAvailibility()) Available.setVisible(true);
         else NOTavailale.setVisible(true);
         disEditAnch(new ActionEvent());
+        this.tourGuide=tourGuide;
     }
 
     @FXML
@@ -157,6 +157,19 @@ public class Atourcontrol {
         if (check.get() == ButtonType.OK) {
             TourGuide.DeleteTour(Tid.getText());
             AHomepage.Refresh = true;
+        }
+    }
+    @FXML
+    void Assign_to_trip(ActionEvent event) throws IOException {
+        Optional<ButtonType> check= Admin.confirmation_alert(Tname.getScene().getWindow(),"Are You Sure","Assign Trip");
+        if(check.get()==ButtonType.OK)
+        {
+            TourGuide.selectedTourGuide=tourGuide;
+            TourGuide.isTourGuide=true;
+            TGHomepageController homepage=new TGHomepageController();
+            homepage.thomepage();
+            homepage.initialize();
+            Tid.getScene().getWindow().hide();
         }
     }
 
