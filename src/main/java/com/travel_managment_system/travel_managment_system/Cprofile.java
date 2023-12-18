@@ -9,11 +9,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Cprofile {
+public class Cprofile implements Loadfxml {
+    @FXML
+    private HBox Nav_Box;
 
     @FXML
     private Label CAge= new Label();
@@ -87,6 +90,7 @@ public class Cprofile {
         stage.setScene(scene);
         stage.show();
         Cprofile.getScene().getWindow().hide();
+
     }
 
     public void CProfileClicked(ActionEvent event) throws IOException {
@@ -103,7 +107,7 @@ public class Cprofile {
 
     }
 
-    public void initialize() {
+    public void initialize() throws IOException {
         CName.setText(Customer.selectedCustomer.getName());
         CAge.setText(Customer.selectedCustomer.getAge());
         CPassword.setText(Customer.selectedCustomer.getPass());
@@ -116,6 +120,9 @@ public class Cprofile {
         CpassText.setText(Customer.selectedCustomer.getPass());
         CphoneText.setText(Customer.selectedCustomer.getPhone());
         CUserText.setText(Customer.selectedCustomer.getUsername());
+
+        Nav_Box.getChildren().clear();
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 
     }
 
@@ -139,14 +146,14 @@ public class Cprofile {
 
 
     @FXML
-    void CEdit(ActionEvent event) {
+    void CEdit(ActionEvent event) throws IOException {
         Clabanchor.setVisible(true);
         Clabanchor2.setVisible(false);
         initialize();
     }
 
     @FXML
-    void CSave(ActionEvent event) {
+    void CSave(ActionEvent event) throws IOException {
         Clabanchor.setVisible(false);
         Clabanchor2.setVisible(true);
         Update();

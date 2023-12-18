@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -18,6 +19,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class BusController implements Initializable , Loadfxml{
+    @FXML
+    private HBox Nav_Box;
     @FXML
     private AnchorPane BusAnchor;
     @FXML
@@ -76,6 +79,11 @@ public class BusController implements Initializable , Loadfxml{
         Trip.selectedTrip.bus.FillarrSeats();
         Select_seat.getItems().addAll(Trip.selectedTrip.bus.Seats);
         BnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
+        try {
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
     public void addSeatNumber() {
         if(Select_seat.getValue()==null)

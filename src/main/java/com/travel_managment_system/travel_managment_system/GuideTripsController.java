@@ -26,6 +26,8 @@ import java.util.ArrayList;
 
 public class GuideTripsController implements Loadfxml{
     @FXML
+    private HBox Nav_Box;
+    @FXML
     private Button MyTripsButton;
     @FXML
     private AnchorPane TripsAnchor;
@@ -63,24 +65,24 @@ public class GuideTripsController implements Loadfxml{
         profile.initialize();
     }
     public void salaryClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TSalary.fxml"));
+        lodafxmlfile("TSalary.fxml");
         profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
         TripsAnchor.getScene().getWindow().hide();
         profile.initialize();
     }
 
 
     @FXML
-    private void initialize() {
+    private void initialize() throws IOException {
         try {
             displayTrips();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+
     }
 
     public void displayTrips() throws FileNotFoundException {

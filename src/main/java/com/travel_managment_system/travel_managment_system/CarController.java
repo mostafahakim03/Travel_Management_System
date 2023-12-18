@@ -13,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CarController implements Initializable , Loadfxml{
+    @FXML
+    private HBox Nav_Box;
     @FXML
     private ImageView Car1;
     @FXML
@@ -114,6 +117,11 @@ public class CarController implements Initializable , Loadfxml{
         carModel2.setText(carModelString2);
         carModel3.setText(carModelString3);
         progressBar3.setStyle("-fx-accent: #FA8B02;");
+        try {
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
 
     }

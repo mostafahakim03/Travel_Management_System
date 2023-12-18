@@ -25,18 +25,22 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class CMyTrips implements Loadfxml {
+    @FXML
+    private HBox Nav_Box;
 
     public AnchorPane CMyTrips;
     public VBox tripsVBox;
 
     @FXML
-    private void initialize() {
+    private void initialize()  throws IOException{
         tripsVBox.getChildren().clear();
         try {
             displayTrips();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+
     }
     public void displayTrips() throws FileNotFoundException {
 

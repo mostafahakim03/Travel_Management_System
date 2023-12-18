@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="CarAnchor" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.CarController">
@@ -136,7 +137,7 @@
                 </Label>
             </children>
         </AnchorPane>
-        <ToolBar layoutX="-4.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="868.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
+        <ToolBar layoutX="-4.0" layoutY="-1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="868.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
             <items>
                 <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
                <font>
@@ -157,5 +158,6 @@
             </items>
         </ToolBar>
       <Separator layoutX="88.0" layoutY="455.0" prefHeight="6.0" prefWidth="695.0" style="-fx-background-color: #FA8B02;" />
+      <HBox fx:id="Nav_Box" layoutX="-4.0" layoutY="-4.0" prefHeight="68.0" prefWidth="869.0" />
     </children>
 </AnchorPane>

@@ -24,6 +24,8 @@ import java.io.IOException;
 
 public class TicketController implements Loadfxml{
     @FXML
+    private HBox Nav_Box=new HBox();
+    @FXML
     public Label ticketIDLabel=new Label();
     @FXML
     public Label tripDateLabel=new Label();
@@ -66,7 +68,7 @@ public class TicketController implements Loadfxml{
 
 
 
-    public void initialize() throws FileNotFoundException {
+    public void initialize() throws IOException {
         Trip trip = Trip.selectedTrip;
 
         ticketIDLabel.setText(String.valueOf(Ticket.selectedTicket.TicketID));
@@ -81,6 +83,7 @@ public class TicketController implements Loadfxml{
         packageType.setText(Ticket.selectedTicket.packageType);
         BookingDate.setText(String.valueOf(Ticket.selectedTicket.booking_date));
         userLabel.setText(Customer.selectedCustomer.getUsername());
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 
         for(int i=0; i<Ticket.selectedTicket.numberOfReservedTickets;i++){
 

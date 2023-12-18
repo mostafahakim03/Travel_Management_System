@@ -31,6 +31,8 @@ import java.util.stream.Collectors;
 
 public class HomepageController implements Loadfxml{
     @FXML
+    private HBox Nav_Box=new HBox();
+    @FXML
     public AnchorPane THomepageAnchor=new AnchorPane();
     @FXML
     public AnchorPane CHomepageAnchor=new AnchorPane();
@@ -49,9 +51,10 @@ public class HomepageController implements Loadfxml{
 
     }
 
-    public void initialize() throws FileNotFoundException {
+    public void initialize() throws FileNotFoundException ,IOException{
         tripsVBox.getChildren().clear();
         displayTrips(); // Update the ListView with available trips
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 
     }
 

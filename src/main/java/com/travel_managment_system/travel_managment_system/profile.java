@@ -8,12 +8,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class profile {
+public class profile implements Loadfxml{
+    @FXML
+    private HBox Nav_Box=new HBox();
     @FXML
     private Label TAge=new Label();
 
@@ -88,7 +91,7 @@ public class profile {
         profileButton.setDisable(true);
 
     }
-    public void initialize()
+    public void initialize()throws IOException
     {
        TName.setText(TourGuide.selectedTourGuide.getName());
         TAge.setText(TourGuide.selectedTourGuide.getAge());
@@ -101,6 +104,9 @@ public class profile {
         TpassText.setText(TourGuide.selectedTourGuide.getPass());
         TphoneText.setText(TourGuide.selectedTourGuide.getPhone());
         TUserText.setText(TourGuide.selectedTourGuide.getUsername());
+      Nav_Box.getChildren().clear();
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+
     }
     public void Update(){
 
@@ -125,13 +131,13 @@ public class profile {
 
 
     @FXML
-    void TEdit(ActionEvent event) {
+    void TEdit(ActionEvent event) throws IOException {
         labanchor.setVisible(true);
         labanchor2.setVisible(false);
         initialize();
     }
     @FXML
-    void TSave(ActionEvent event) {
+    void TSave(ActionEvent event) throws IOException {
         labanchor.setVisible(false);
         labanchor2.setVisible(true);
         Update();

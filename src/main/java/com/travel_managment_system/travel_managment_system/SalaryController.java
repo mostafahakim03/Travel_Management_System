@@ -29,7 +29,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class SalaryController implements Initializable ,Loadfxml {
+public class SalaryController implements  Loadfxml,Initializable {
+    @FXML
+    private HBox Nav_Box;
 
     private LocalDate thisDate=LocalDate.now();
     private int thisMonth=thisDate.getMonthValue();
@@ -53,6 +55,7 @@ public class SalaryController implements Initializable ,Loadfxml {
     @FXML
     private Label notification;
 
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tripsVBox.getChildren().clear();
@@ -61,6 +64,12 @@ public class SalaryController implements Initializable ,Loadfxml {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
+        try {
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void DisplayMonthlyTrips() throws FileNotFoundException {

@@ -93,7 +93,7 @@ public class FlightController implements Initializable ,Loadfxml {
         FnumberOfSeats= Ticket.selectedTicket.numberOfReservedTickets;
         progressBar.setStyle("-fx-accent: #FA8B02;");
 
-  Admin admin=new Admin();
+
 
         try {
           Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));

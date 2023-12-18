@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -17,6 +18,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TripController implements Initializable, Loadfxml {
+    @FXML
+    private HBox Nav_Box=new HBox();
     @FXML
     public Label locationLabel;
     @FXML
@@ -66,6 +69,12 @@ public class TripController implements Initializable, Loadfxml {
         packageTypeChoice.getItems().addAll(packages);
         packageTypeChoice.setOnAction(this::getPackage);
         packageTypeChoice.setValue("Select Package");
+        try {
+            Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public void getPackage(ActionEvent event) {

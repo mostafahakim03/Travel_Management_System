@@ -9,11 +9,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="paymentAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="422.0" prefWidth="681.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.PaymentController">
     <children>
-        <ToolBar layoutX="-27.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
+        <ToolBar layoutX="-27.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
             <items>
                 <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" />
                 <Button mnemonicParsing="false" onAction="#TProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" />
@@ -60,6 +61,7 @@
             <Font name="Segoe Print" size="14.0" />
          </font>
       </Label>
+      <HBox fx:id="Nav_Box" prefHeight="51.0" prefWidth="681.0" />
 
     </children>
 </AnchorPane>

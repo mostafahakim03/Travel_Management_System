@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="HotelAnchor" prefHeight="603.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.serviseController">
@@ -63,7 +64,7 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <ToolBar layoutX="-7.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="882.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;">
+      <ToolBar layoutX="-7.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="882.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
          <items>
             <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
                <font>
@@ -83,5 +84,6 @@
                </font></Button>
          </items>
       </ToolBar>
+      <HBox fx:id="Nav_Box" layoutX="-3.0" layoutY="-3.0" prefHeight="67.0" prefWidth="877.0" />
    </children>
 </AnchorPane>

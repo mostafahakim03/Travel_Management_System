@@ -23,6 +23,7 @@ public interface Loadfxml {
         fxmlLoader.setLocation(resource);
         ToolBar toolBar = fxmlLoader.load();
         NavBar navBar = fxmlLoader.getController();
+        navBar.set();
         return toolBar;
 
     }

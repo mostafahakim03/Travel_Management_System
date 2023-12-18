@@ -17,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.FileInputStream;
@@ -26,6 +27,8 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class ItineraryController implements Loadfxml{
+    @FXML
+    private HBox Nav_Box=new HBox();
     @FXML
     public ImageView ActivityImg1;
     @FXML
@@ -57,7 +60,7 @@ public class ItineraryController implements Loadfxml{
     @FXML
     private AnchorPane Itinerary;
 
-    public void initialize() {
+    public void initialize() throws IOException {
 
         Trip.selectedTrip.setItinerary(new Itinerary());
         Trip trip = Trip.selectedTrip;
@@ -85,6 +88,8 @@ public class ItineraryController implements Loadfxml{
         EndTimeLabel1.setText(trip.getItinerary().getActivities()[0].getEndTime());
         EndTimeLabel2.setText(trip.getItinerary().getActivities()[1].getEndTime());
         EndTimeLabel3.setText(trip.getItinerary().getActivities()[2].getEndTime());
+
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 
     }
 

@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system;
 
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -12,17 +13,29 @@ import java.io.IOException;
 public class NavBar implements Loadfxml{
     @FXML
     private Button HomeButton;
+    @FXML
+    private Button Salary;
 
+    public void set(){
+        if(User.isTourGuide)Salary.setVisible(true);
 
+    }
 
     @FXML
     void CProfileClicked(ActionEvent event) throws IOException {
+        if(User.isTourGuide) {
+            lodafxmlfile("Tprofile.fxml");
+            profile profile = new profile();
+            profile.initialize();
+        }else
             lodafxmlfile("Cprofile.fxml");
             HomeButton.getScene().getWindow().hide();
     }
 
     @FXML
     void HomeClicked(ActionEvent event) throws IOException {
+        if(User.isTourGuide)   lodafxmlfile("THomepage.fxml");
+        else
         lodafxmlfile("CHomepage.fxml");
         HomeButton.getScene().getWindow().hide();
     }
@@ -43,7 +56,16 @@ public class NavBar implements Loadfxml{
 
     @FXML
     void myTripsClicked(ActionEvent event) throws IOException {
+      if(User.isTourGuide)   lodafxmlfile("TTrips.fxml");
+      else
         lodafxmlfile("CMyTrips.fxml");
+        HomeButton.getScene().getWindow().hide();
+    }
+    @FXML
+    void salaryClicked(ActionEvent event) throws IOException {
+        lodafxmlfile("TSalary.fxml");
+        profile profile=new profile();
+        profile.initialize();
         HomeButton.getScene().getWindow().hide();
     }
 

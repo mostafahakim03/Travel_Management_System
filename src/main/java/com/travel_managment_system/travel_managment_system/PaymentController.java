@@ -8,12 +8,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PaymentController implements Loadfxml , Initializable {
+public class PaymentController implements Loadfxml ,Initializable {
+    @FXML
+    private HBox Nav_Box=new HBox();
     @FXML
     private AnchorPane paymentAnchor;
 
@@ -115,11 +118,17 @@ public class PaymentController implements Loadfxml , Initializable {
 
     }
 
-    @Override
+@Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         progressBar4.setStyle("-fx-accent: #FA8B02;");
         paymentLabel.setText("This trip will cost you: " + Ticket.selectedTicket.ticket_price + " EGP");
+    try {
+        Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
+    } catch (IOException e) {
+        throw new RuntimeException(e);
     }
+
+}
 }
 
 
