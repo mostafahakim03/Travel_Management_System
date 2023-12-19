@@ -110,15 +110,5 @@ public class Admin {
         fadeTransition.play();
     }
 
-    public static void fade(Pane pane) {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1500));
-        fadeTransition.setNode(pane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
-    }
-
-
 }
 
