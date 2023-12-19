@@ -4,12 +4,21 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="856.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.NavBar">
+<ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="63.0" prefWidth="877.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.NavBar">
    <items>
+      <ImageView fx:id="logo" fitHeight="53.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/سواح2.png" />
+         </image>
+      </ImageView>
       <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -24,21 +33,10 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Button>
       <Button fx:id="Salary" mnemonicParsing="false" onAction="#salaryClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Salary" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Button>
-      <AnchorPane prefHeight="0.0" prefWidth="236.0" />
-      <ImageView fx:id="logo" fitHeight="53.0" fitWidth="84.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../Images/سواح.png" />
-         </image>
-      </ImageView>
    </items>
 </ToolBar>
