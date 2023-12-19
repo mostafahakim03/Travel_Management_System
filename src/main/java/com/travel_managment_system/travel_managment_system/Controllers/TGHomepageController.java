@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 
-public class TGHomepageController implements Loadfxml {
+public class TGHomepageController extends ParentController implements Loadfxml {
     @FXML
     private HBox Nav_Box = new HBox();
     @FXML

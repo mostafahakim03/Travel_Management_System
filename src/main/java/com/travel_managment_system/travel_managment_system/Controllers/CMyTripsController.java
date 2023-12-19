@@ -57,7 +57,7 @@ public class CMyTripsController implements Loadfxml {
 
     }
 
-    private VBox createTripVBox(Trip trip, Ticket ticket) throws FileNotFoundException {
+    public VBox createTripVBox(Trip trip, Ticket ticket) throws FileNotFoundException {
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
         VBox finalBox = new VBox();

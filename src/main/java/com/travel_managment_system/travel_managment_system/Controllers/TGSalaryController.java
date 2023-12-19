@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class TGSalaryController implements Loadfxml, Initializable {
+public class TGSalaryController extends ParentController implements Loadfxml, Initializable {
     @FXML
     private HBox Nav_Box;
 
@@ -33,11 +33,6 @@ public class TGSalaryController implements Loadfxml, Initializable {
     private final int thisMonth = thisDate.getMonthValue();
     private final int thisYear = thisDate.getYear();
     private final int lastDayOfThisMonth = thisDate.lengthOfMonth();
-
-    @FXML
-    private AnchorPane SalaryAnchor;
-    @FXML
-    private Button salaryButton;
     @FXML
     private VBox tripsVBox;
     @FXML
@@ -56,7 +51,7 @@ public class TGSalaryController implements Loadfxml, Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         tripsVBox.getChildren().clear();
         try {
-            DisplayMonthlyTrips();
+            displayTrips();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -68,7 +63,8 @@ public class TGSalaryController implements Loadfxml, Initializable {
 
     }
 
-    public void DisplayMonthlyTrips() throws FileNotFoundException {
+    @Override
+    public void displayTrips() throws FileNotFoundException {
 
         ArrayList<Trip> monthlyTrips = TourGuide.selectedTourGuide.getAssignedTrips().stream()
                 .filter(trip -> (trip.getStartDate().isAfter(LocalDate.of(thisYear, thisMonth, 1))))
@@ -80,7 +76,7 @@ public class TGSalaryController implements Loadfxml, Initializable {
         Double calculateSalary = 0.0;
         for (Trip trip : monthlyTrips) {
             calculateSalary = calculateSalary + trip.getPayment();
-            VBox tripBox = createVBox(trip);
+            VBox tripBox = createTripVBox(trip);
             tripsVBox.getChildren().add(tripBox);
         }
         TourGuide.selectedTourGuide.setSalary(calculateSalary);
@@ -109,7 +105,7 @@ public class TGSalaryController implements Loadfxml, Initializable {
 
     }
 
-    public VBox createVBox(Trip trip) throws FileNotFoundException {
+    public VBox createTripVBox(Trip trip) throws FileNotFoundException {
         VBox tripBox = new VBox(); //returned VBox
         VBox detailsBox = new VBox(); //VBox that contains the trips relevant details
         HBox aligningBox = new HBox(); //HBox that styles all components horizontally
@@ -149,5 +145,6 @@ public class TGSalaryController implements Loadfxml, Initializable {
         tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: ffae00;");
         tripPayment.setStyle("-fx-font-weight:bold; -fx-text-alignment:right;");
     }
+
 
 }

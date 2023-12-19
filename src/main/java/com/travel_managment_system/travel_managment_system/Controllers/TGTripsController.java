@@ -19,13 +19,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class TGTripsController implements Loadfxml {
+public class TGTripsController extends ParentController implements Loadfxml {
     @FXML
     private HBox Nav_Box;
-    @FXML
-    private Button MyTripsButton;
-    @FXML
-    private AnchorPane TripsAnchor;
     @FXML
     private VBox tripsVBox;
 
@@ -53,7 +49,7 @@ public class TGTripsController implements Loadfxml {
 
     }
 
-    private VBox createTripVBox(Trip trip) throws FileNotFoundException {
+    public VBox createTripVBox(Trip trip) throws FileNotFoundException {
         VBox tripBox = new VBox();
         VBox detailsBox = new VBox();
         VBox finalBox = new VBox();
