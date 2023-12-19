@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Controllers;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -109,7 +110,14 @@ public class UTProfileController implements Loadfxml {
     }
 
     public void Update() {
-
+        TourGuide tourGuide1;
+        if (TUsername.getText().equals(TUserText.getText()))
+         tourGuide1=new TourGuide(TnameText.getText(),"-1",TpassText.getText(),TphoneText.getText(),TageText.getText(),TourGuide.selectedTourGuide.getGuideID());
+     else
+            tourGuide1=new TourGuide(TnameText.getText(),TUserText.getText(),TpassText.getText(),TphoneText.getText(),TageText.getText(),TourGuide.selectedTourGuide.getGuideID());
+        String check=tourGuide1.check_signup(true);
+      if(check.equals("done"))
+      {
         TourGuide.selectedTourGuide.setName(TnameText.getText());
         TourGuide.selectedTourGuide.setAge(TageText.getText());
         TourGuide.selectedTourGuide.setPass(TpassText.getText());
@@ -125,8 +133,9 @@ public class UTProfileController implements Loadfxml {
                 tourguide.setUsername(TourGuide.selectedTourGuide.getUsername());
                 break;
             }
-
         }
+        }
+      else Admin.Error_Alert(TAge.getScene().getWindow(),check,"Error");
     }
 
 

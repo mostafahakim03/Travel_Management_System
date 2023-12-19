@@ -53,7 +53,7 @@ public abstract class User implements Serializable {
         } catch (NumberFormatException e) {
             ValidAge = -1;
         }
-        if (ValidAge == -1 || ValidAge < 10 || ValidAge > 99) {
+        if (ValidAge == -1 || ValidAge < 16 || ValidAge > 99) {
             return "Enter a valid Age";
         }
 
