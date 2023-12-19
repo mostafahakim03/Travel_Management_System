@@ -4,7 +4,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.text.Font?>
 
-<ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="708.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.NavBar">
+<ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="866.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.NavBar">
    <items>
       <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
          <font>

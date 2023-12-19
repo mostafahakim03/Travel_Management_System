@@ -45,14 +45,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="Nextbtn" layoutX="557.0" layoutY="72.0" mnemonicParsing="false" onAction="#BNext" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
          </children>
       </AnchorPane>
       <HBox fx:id="Nav_Box" layoutX="-2.0" layoutY="-1.0" prefHeight="65.0" prefWidth="866.0" />
       <ProgressBar fx:id="busprogressBar" layoutX="69.0" layoutY="548.0" prefHeight="32.0" prefWidth="370.0" progress="0.25" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+      <Button fx:id="Nextbtn" layoutX="597.0" layoutY="544.0" mnemonicParsing="false" onAction="#BNext" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

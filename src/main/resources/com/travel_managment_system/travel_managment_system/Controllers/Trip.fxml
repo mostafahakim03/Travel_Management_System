@@ -7,17 +7,16 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="TripHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TripController">
+<AnchorPane fx:id="TripHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TripController">
    <children>
-      <ScrollPane layoutX="-7.0" layoutY="-9.0" prefHeight="517.0" prefWidth="722.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="513.0" prefWidth="707.0">
+      <ScrollPane layoutX="14.0" layoutY="66.0" prefHeight="568.0" prefWidth="829.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="829.0">
                <children>
                   <Label fx:id="CustomerUser" layoutX="431.0" layoutY="138.0" prefHeight="27.0" prefWidth="42.0" text="Cost">
                      <font>
@@ -59,9 +58,9 @@
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
-                        <Font name="Berlin Sans FB" size="15.0" />
+                        <Font name="Berlin Sans FB" size="23.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -85,7 +84,8 @@
                   <ChoiceBox fx:id="packageTypeChoice" layoutX="52.0" layoutY="355.0" prefWidth="150.0">
                      <cursor>
                         <Cursor fx:constant="HAND" />
-                     </cursor></ChoiceBox>
+                     </cursor>
+                  </ChoiceBox>
                   <Label fx:id="PackageMessageLabel" layoutX="51.0" layoutY="395.0" prefHeight="22.0" prefWidth="658.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
@@ -119,28 +119,8 @@
                   <FontAwesomeIcon fill="#fa8b02" glyphName="LIST" layoutX="397.0" layoutY="332.0" size="25px" />
                </children>
             </AnchorPane>
-        </content>
+         </content>
       </ScrollPane>
-      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="51.0" prefWidth="722.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
-         <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-         </items>
-      </ToolBar>
-      <HBox fx:id="Nav_Box" prefHeight="56.0" prefWidth="718.0" />
+      <HBox fx:id="Nav_Box" layoutX="-1.0" prefHeight="66.0" prefWidth="866.0" />
    </children>
 </AnchorPane>
