@@ -7,81 +7,81 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Tprofile" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.UTProfileController">
+<AnchorPane fx:id="Tprofile" prefHeight="638.0" prefWidth="856.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.UTProfileController">
    <children>
-      <Label layoutX="18.0" layoutY="84.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Name" textFill="#fa8b02">
+      <Label layoutX="18.0" layoutY="134.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Name" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="310.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Age" textFill="#fa8b02">
+      <Label layoutX="26.0" layoutY="372.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Age" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="139.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  User Name" textFill="#fa8b02">
+      <Label layoutX="18.0" layoutY="189.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  User Name" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="18.0" layoutY="195.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Password" textFill="#fa8b02">
+      <Label layoutX="18.0" layoutY="247.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;" text="  Password" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="16.0" layoutY="252.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 45;" text="  Phone Number" textFill="#fa8b02">
+      <Label layoutX="16.0" layoutY="309.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-radius: 45;" text="  Phone Number" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="labanchor2" layoutX="146.0" layoutY="76.0" prefHeight="298.0" prefWidth="307.0">
+      <AnchorPane fx:id="labanchor2" layoutX="208.0" layoutY="84.0" prefHeight="376.0" prefWidth="526.0">
          <children>
-            <Label fx:id="TName" layoutX="17.0" layoutY="14.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="TName" layoutX="12.0" layoutY="53.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TUsername" layoutX="12.0" layoutY="66.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
+            <Label fx:id="TUsername" layoutX="12.0" layoutY="107.0" prefHeight="26.0" prefWidth="282.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TPassword" layoutX="12.0" layoutY="120.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="TPassword" layoutX="12.0" layoutY="158.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TPhonenumber" layoutX="12.0" layoutY="175.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
+            <Label fx:id="TPhonenumber" layoutX="12.0" layoutY="221.0" prefHeight="34.0" prefWidth="263.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-            <Label fx:id="TAge" layoutX="14.0" layoutY="240.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;">
+            <Label fx:id="TAge" layoutX="14.0" layoutY="289.0" prefHeight="26.0" prefWidth="130.0" style="-fx-background-radius: 45;">
                <font>
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="labanchor" layoutX="99.0" layoutY="63.0" prefHeight="298.0" prefWidth="362.0" visible="false">
+      <AnchorPane fx:id="labanchor" layoutX="184.0" layoutY="81.0" prefHeight="384.0" prefWidth="534.0" visible="false">
          <children>
-            <TextField fx:id="TnameText" layoutX="63.0" layoutY="27.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TUserText" layoutX="63.0" layoutY="77.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TpassText" layoutX="63.0" layoutY="136.0" prefHeight="26.0" prefWidth="254.0" />
-            <TextField fx:id="TphoneText" layoutX="60.0" layoutY="192.0" prefHeight="26.0" prefWidth="130.0" />
-            <TextField fx:id="TageText" layoutX="63.0" layoutY="248.0" prefHeight="26.0" prefWidth="48.0" />
+            <TextField fx:id="TnameText" layoutX="63.0" layoutY="53.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="TUserText" layoutX="63.0" layoutY="108.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="TpassText" layoutX="63.0" layoutY="165.0" prefHeight="26.0" prefWidth="254.0" />
+            <TextField fx:id="TphoneText" layoutX="63.0" layoutY="232.0" prefHeight="26.0" prefWidth="130.0" />
+            <TextField fx:id="TageText" layoutX="63.0" layoutY="290.0" prefHeight="26.0" prefWidth="48.0" />
          </children>
       </AnchorPane>
-      <Button layoutX="396.0" layoutY="307.0" mnemonicParsing="false" onAction="#TEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Edit" textFill="WHITE">
+      <Button layoutX="507.0" layoutY="499.0" mnemonicParsing="false" onAction="#TEdit" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Edit" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="555.0" layoutY="307.0" mnemonicParsing="false" onAction="#TSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Save" textFill="WHITE">
+      <Button layoutX="678.0" layoutY="499.0" mnemonicParsing="false" onAction="#TSave" prefHeight="40.0" prefWidth="114.0" style="-fx-background-radius: 45; -fx-background-color: #FA8B02;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="1.0" prefHeight="51.0" prefWidth="708.0" />
+      <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="1.0" prefHeight="51.0" prefWidth="856.0" />
    </children>
 </AnchorPane>

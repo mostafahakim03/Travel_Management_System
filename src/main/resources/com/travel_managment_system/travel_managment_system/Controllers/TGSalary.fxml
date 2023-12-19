@@ -8,36 +8,40 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="SalaryAnchor" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TGSalaryController">
+<AnchorPane fx:id="SalaryAnchor" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TGSalaryController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="500.0" prefWidth="707.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="650.0" prefWidth="866.0" vbarPolicy="ALWAYS">
          <content>
-            <AnchorPane prefHeight="751.0" prefWidth="694.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="638.0" prefWidth="865.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="38.0" layoutY="24.0" text="Monthly Salary" textFill="#fa8b02" underline="true">
+                  <Label layoutX="52.0" layoutY="42.0" text="Monthly Salary" textFill="#fa8b02" underline="true">
                      <font>
                         <Font name="Segoe Print Bold" size="28.0" />
                      </font>
                   </Label>
-                  <VBox fx:id="tripsVBox" layoutX="37.0" layoutY="135.0" prefHeight="158.0" prefWidth="660.0" />
-                  <Label fx:id="numOfMonthlyTrips" layoutX="37.0" layoutY="88.0" prefHeight="35.0" prefWidth="620.0" text="label">
+                  <VBox fx:id="tripsVBox" layoutX="52.0" layoutY="160.0" prefHeight="158.0" prefWidth="660.0" />
+                  <Label fx:id="numOfMonthlyTrips" layoutX="52.0" layoutY="115.0" prefHeight="35.0" prefWidth="620.0" text="label">
                      <font>
                         <Font name="Lucida Bright Italic" size="15.0" />
                      </font>
                   </Label>
-                  <AnchorPane fx:id="salaryBox" layoutX="1.0" layoutY="293.0" prefHeight="200.0" prefWidth="694.0">
+                  <AnchorPane fx:id="salaryBox" layoutX="1.0" layoutY="424.0" prefHeight="200.0" prefWidth="865.0">
                      <children>
-                        <Label layoutX="269.0" layoutY="39.0" text="Your salary this month is:">
+                        <Label layoutX="441.0" layoutY="65.0" text="Your salary this month is:">
                            <font>
                               <Font name="Lucida Bright Italic" size="14.0" />
                            </font>
                         </Label>
-                        <Label fx:id="salaryLabel" layoutX="453.0" layoutY="31.0" prefHeight="32.0" prefWidth="232.0" text="Salary" textFill="#fa8b02">
+                        <Label fx:id="salaryLabel" layoutX="620.0" layoutY="58.0" prefHeight="32.0" prefWidth="232.0" text="Salary" textFill="#fa8b02">
                            <font>
                               <Font name="Segoe Print Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Button fx:id="collectButton" layoutX="516.0" layoutY="97.0" mnemonicParsing="false" onAction="#CollectButtonClicked" style="-fx-background-color: #FA8B02;" text="Collect salary" textFill="WHITE" />
+                        <Button fx:id="collectButton" layoutX="642.0" layoutY="119.0" mnemonicParsing="false" onAction="#CollectButtonClicked" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02;" text="Collect salary" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
                         <Label fx:id="notification" layoutX="269.0" layoutY="74.0" prefHeight="15.0" prefWidth="425.0" text="Please wait till the end of the month" visible="false">
                            <font>
                               <Font name="Lucida Bright Italic" size="11.0" />
@@ -49,6 +53,6 @@
             </AnchorPane>
          </content>
       </ScrollPane>
-      <HBox fx:id="Nav_Box" prefHeight="54.0" prefWidth="708.0" />
+      <HBox fx:id="Nav_Box" prefHeight="54.0" prefWidth="865.0" />
    </children>
 </AnchorPane>
