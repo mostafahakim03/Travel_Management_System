@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system.Controllers;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -122,8 +123,7 @@ public class TripController implements Initializable, Loadfxml {
             Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
             Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
             Ticket.selectedTicket.TicketID = Trip.selectedTrip.tickets.size() + 1;
-
-            Ticket.selectedTicket.ticket_price = Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType);
+            Ticket.selectedTicket.ticket_price = Admin.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType,Customer.selectedCustomer);
 
             for (Ticket ticket: Customer.selectedCustomer.tickets) {
                 if(ticket == Ticket.selectedTicket){
