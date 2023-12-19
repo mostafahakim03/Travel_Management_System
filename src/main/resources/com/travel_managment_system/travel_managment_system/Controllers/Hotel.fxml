@@ -63,6 +63,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <HBox fx:id="Nav_Box" layoutY="-1.0" prefHeight="75.0" prefWidth="885.0" />
+      <HBox fx:id="Nav_Box" layoutX="-4.0" prefHeight="75.0" prefWidth="886.0" />
    </children>
 </AnchorPane>
