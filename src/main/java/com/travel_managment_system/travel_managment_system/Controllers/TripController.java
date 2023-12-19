@@ -129,6 +129,7 @@ public class TripController implements Initializable, Loadfxml {
                 if(ticket == Ticket.selectedTicket){
                     if(Customer.selectedCustomer.checkTicket(ticket.TicketID)) {
                         checkTicket.setVisible(true);
+                        checkLabel.setVisible(true);
                         if (Trip.selectedTrip.getTransportation().equals("Plane")) {
                             FlightController flight = new FlightController();
                             flight.trip_flightSwitch();

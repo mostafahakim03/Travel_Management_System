@@ -134,13 +134,17 @@ public class TGHomepageController implements Loadfxml {
 
                 }
             }
-            if (TourGuide.selectedTourGuide.getAssignedTrips().contains(trip)) {
-                alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
+            boolean existTrip=false;
+            for (Trip assignedTrips: TourGuide.selectedTourGuide.getAssignedTrips()) {
+                if (assignedTrips.getTrip_id()==trip.getTrip_id()) {
+                    alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
+                       existTrip=true;
+                }
+                } if (tripClashes) {
+                    alert.setContentText("You have time clash between this trip and another.");
 
-            } else if (tripClashes) {
-                alert.setContentText("You have time clash between this trip and another.");
-
-            } else {
+                }
+            if (!existTrip){
                 for (TourGuide tourguide : TourGuide.TourguideAcc) {
                     if (tourguide.getGuideID().equals(TourGuide.selectedTourGuide.getGuideID())) {
                         tourguide.FillAssignedTrips(trip);
@@ -148,8 +152,8 @@ public class TGHomepageController implements Loadfxml {
                         trip.FillAssignedTourGuides(tourguide);
                         trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
 
-//                                alert.setHeaderText("Trip added");
-//                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
+                        //                                alert.setHeaderText("Trip added");
+                        //                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
                         try {
                             lodafxmlfile("TGHomepage.fxml");
                             THomepageAnchor.getScene().getWindow().hide();
