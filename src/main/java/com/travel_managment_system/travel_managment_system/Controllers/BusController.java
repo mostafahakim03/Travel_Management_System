@@ -27,6 +27,8 @@ public class BusController implements Initializable, Loadfxml {
     @FXML
     private Label alertText;
     @FXML
+    private ProgressBar busprogressBar;
+    @FXML
     private ComboBox<Integer> Select_seat = new ComboBox<>();
 
     public int numberOfSeats;
@@ -76,6 +78,7 @@ public class BusController implements Initializable, Loadfxml {
         Trip.selectedTrip.bus.FillarrSeats();
         Select_seat.getItems().addAll(Trip.selectedTrip.bus.Seats);
         BnumberOfSeats = Ticket.selectedTicket.numberOfReservedTickets;
+        busprogressBar.setStyle("-fx-accent: #FA8B02;");
         try {
             Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
         } catch (IOException e) {
