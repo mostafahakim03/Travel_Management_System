@@ -47,7 +47,7 @@
             <Font name="Segoe Print Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="paymentLabel" layoutX="44.0" layoutY="157.0" prefHeight="39.0" prefWidth="389.0" text="Label">
+      <Label fx:id="paymentLabel" layoutX="44.0" layoutY="157.0" prefHeight="39.0" prefWidth="391.0" text="Label">
          <font>
             <Font name="Segoe Print" size="14.0" />
          </font>
