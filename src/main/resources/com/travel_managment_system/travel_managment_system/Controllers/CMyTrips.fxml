@@ -12,14 +12,14 @@
       <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="-5.0" prefHeight="60.0" prefWidth="866.0" />
         <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="585.0" prefWidth="865.0" vbarPolicy="ALWAYS">
             <content>
-                <AnchorPane prefHeight="751.0" prefWidth="694.0">
+                <AnchorPane prefHeight="751.0" prefWidth="852.0">
                     <children>
                         <Label layoutX="50.0" layoutY="27.0" text="MY Trips">
                             <font>
-                                <Font name="Segoe Print Bold" size="25.0" />
+                                <Font name="Segoe Print Bold" size="30.0" />
                             </font>
                         </Label>
-                        <VBox fx:id="tripsVBox" layoutY="98.0" prefHeight="158.0" prefWidth="694.0" />
+                        <VBox fx:id="tripsVBox" layoutX="79.0" layoutY="112.0" prefHeight="158.0" prefWidth="694.0" />
                     </children>
                 </AnchorPane>
             </content>

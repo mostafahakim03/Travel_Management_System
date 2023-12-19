@@ -14,51 +14,51 @@
 
 <AnchorPane fx:id="TripHome" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TripController">
    <children>
-      <ScrollPane layoutX="14.0" layoutY="66.0" prefHeight="568.0" prefWidth="829.0">
+      <ScrollPane layoutX="-6.0" layoutY="55.0" prefHeight="595.0" prefWidth="883.0">
          <content>
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="564.0" prefWidth="829.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="574.0" prefWidth="866.0">
                <children>
-                  <Label fx:id="CustomerUser" layoutX="431.0" layoutY="138.0" prefHeight="27.0" prefWidth="42.0" text="Cost">
+                  <Label fx:id="CustomerUser" layoutX="505.0" layoutY="138.0" prefHeight="27.0" prefWidth="42.0" text="Cost">
                      <font>
                         <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="priceLabel" layoutX="543.0" layoutY="138.0" text="400 EGP" textFill="#fa8b02">
+                  <Label fx:id="priceLabel" layoutX="617.0" layoutY="138.0" text="400 EGP" textFill="#fa8b02">
                      <font>
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="429.0" layoutY="222.0" text="Start Date">
+                  <Label layoutX="503.0" layoutY="222.0" text="Start Date">
                      <font>
                         <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="start_dateLabel" layoutX="542.0" layoutY="222.0" text="02-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="start_dateLabel" layoutX="616.0" layoutY="222.0" text="02-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="431.0" layoutY="267.0" text="End Date">
+                  <Label layoutX="505.0" layoutY="267.0" text="End Date">
                      <font>
                         <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="end_dateLabel" layoutX="542.0" layoutY="267.0" text="30-JAN-2024" textFill="#fa8b02">
+                  <Label fx:id="end_dateLabel" layoutX="616.0" layoutY="267.0" text="30-JAN-2024" textFill="#fa8b02">
                      <font>
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="430.0" layoutY="309.0" text="Trip Type">
+                  <Label layoutX="504.0" layoutY="309.0" text="Trip Type">
                      <font>
                         <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="tripTypeLabel" layoutX="543.0" layoutY="309.0" text="Family" textFill="#fa8b02">
+                  <Label fx:id="tripTypeLabel" layoutX="617.0" layoutY="309.0" text="Family" textFill="#fa8b02">
                      <font>
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="550.0" layoutY="431.0" mnemonicParsing="false" onAction="#Booking" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="BookingButton" alignment="CENTER" layoutX="638.0" layoutY="426.0" mnemonicParsing="false" onAction="#Booking" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Book Now" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Berlin Sans FB" size="23.0" />
                      </font>
@@ -76,7 +76,7 @@
                         <Font name="Segoe Print" size="19.0" />
                      </font>
                   </Label>
-                  <Label fx:id="TripNameLabel" layoutX="57.0" layoutY="68.0" prefHeight="72.0" prefWidth="320.0" text="Alex Trip">
+                  <Label fx:id="TripNameLabel" layoutX="55.0" layoutY="42.0" prefHeight="72.0" prefWidth="320.0" text="Alex Trip">
                      <font>
                         <Font name="Segoe Print Bold" size="42.0" />
                      </font>
@@ -97,26 +97,31 @@
                      </font>
                   </Label>
                   <ImageView fx:id="imgView" fitHeight="193.0" fitWidth="327.0" layoutX="50.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label layoutX="430.0" layoutY="178.0" text="Location">
+                  <Label layoutX="504.0" layoutY="178.0" text="Location">
                      <font>
                         <Font name="Segoe Print" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="locationLabel" layoutX="542.0" layoutY="178.0" text="Alexandria" textFill="#fa8b02">
+                  <Label fx:id="locationLabel" layoutX="616.0" layoutY="178.0" text="Alexandria" textFill="#fa8b02">
                      <font>
                         <Font name="Segoe Print Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="checkLabel" layoutX="519.0" layoutY="476.0" prefHeight="22.0" prefWidth="174.0" text="Fill the required fields" textFill="#ff9900" visible="false">
+                  <Label fx:id="checkLabel" alignment="CENTER" layoutX="615.0" layoutY="488.0" prefHeight="22.0" prefWidth="174.0" text="Fill the required fields" textFill="#ff9900" visible="false">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
-                  <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="395.0" layoutY="162.0" size="25px" />
-                  <FontAwesomeIcon fill="#fa8b02" glyphName="MAP_MARKER" layoutX="400.0" layoutY="201.0" size="25px" />
-                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="397.0" layoutY="245.0" size="25px" />
-                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="397.0" layoutY="289.0" size="25px" />
-                  <FontAwesomeIcon fill="#fa8b02" glyphName="LIST" layoutX="397.0" layoutY="332.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="MONEY" layoutX="469.0" layoutY="162.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="MAP_MARKER" layoutX="474.0" layoutY="201.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="471.0" layoutY="245.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="CALENDAR" layoutX="471.0" layoutY="289.0" size="25px" />
+                  <FontAwesomeIcon fill="#fa8b02" glyphName="LIST" layoutX="471.0" layoutY="332.0" size="25px" />
+                  <Label fx:id="checkTicket" layoutX="453.0" layoutY="71.0" prefHeight="39.0" prefWidth="390.0" text="You have been assigned to this trip before" textFill="#fa8b02" visible="false">
+                     <font>
+                        <Font name="Segoe Print" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </content>

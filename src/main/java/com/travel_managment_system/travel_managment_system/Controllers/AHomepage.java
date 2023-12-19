@@ -504,7 +504,7 @@ public class AHomepage implements Loadfxml {
     @FXML
     void saveTrip(ActionEvent event) {
         String check = Check_add_Trip();
-        if (check == "Done") {
+        if (check .equals( "Done")) {
             initializeTrips(event);
         } else ErrorAddtrip.setText(check);
     }

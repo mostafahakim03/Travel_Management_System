@@ -42,6 +42,15 @@ public class Customer extends User implements Serializable {
         }
 
     }
+
+    public boolean checkTicket(int id){
+        for (Ticket t:tickets) {
+            if(t.TicketID == id){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 

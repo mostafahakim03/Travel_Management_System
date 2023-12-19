@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 
 public class TripController implements Initializable, Loadfxml {
     @FXML
+    public Label checkTicket;
+    @FXML
     private HBox Nav_Box = new HBox();
     @FXML
     public Label locationLabel;
@@ -123,15 +125,22 @@ public class TripController implements Initializable, Loadfxml {
 
             Ticket.selectedTicket.ticket_price = Customer.selectedCustomer.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType);
 
-            if (Trip.selectedTrip.getTransportation().equals("Plane")) {
-                FlightController flight = new FlightController();
-                flight.trip_flightSwitch();
-                TripHome.getScene().getWindow().hide();
-            } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
-                BusController bus = new BusController();
-                bus.trip_busSwitch();
-                TripHome.getScene().getWindow().hide();
-            }
+            for (Ticket ticket: Customer.selectedCustomer.tickets) {
+                if(ticket == Ticket.selectedTicket){
+                    if(Customer.selectedCustomer.checkTicket(ticket.TicketID)) {
+                        checkTicket.setVisible(true);
+                        if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+                            FlightController flight = new FlightController();
+                            flight.trip_flightSwitch();
+                            TripHome.getScene().getWindow().hide();
+                        } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+                            BusController bus = new BusController();
+                            bus.trip_busSwitch();
+                            TripHome.getScene().getWindow().hide();
+                        }
+                    }
+                    }
+                }
 
         }
 

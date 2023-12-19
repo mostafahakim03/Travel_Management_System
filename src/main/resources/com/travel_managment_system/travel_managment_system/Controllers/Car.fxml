@@ -136,11 +136,11 @@
                               <Font name="Segoe Print Bold" size="17.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="52.0" layoutY="-2.0" prefHeight="6.0" prefWidth="695.0" style="-fx-background-color: #FA8B02;" />
-                        <Separator prefHeight="6.0" prefWidth="695.0" style="-fx-background-color: #FA8B02;" />
+                        <Separator layoutX="52.0" layoutY="2.0" prefHeight="6.0" prefWidth="695.0" style="-fx-background-color: #FA8B02;" />
                      </children>
                   </AnchorPane>
                   <ProgressBar fx:id="progressBar3" layoutX="65.0" layoutY="544.0" prefHeight="32.0" prefWidth="370.0" progress="0.75" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+                  <Separator layoutX="94.0" layoutY="186.0" prefHeight="6.0" prefWidth="695.0" style="-fx-background-color: #FA8B02;" />
                </children>
             </AnchorPane>
          </content>
