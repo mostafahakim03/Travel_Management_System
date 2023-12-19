@@ -5,7 +5,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
@@ -18,14 +17,6 @@
 
 <AnchorPane fx:id="TicketAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TicketController">
    <children>
-      <ToolBar layoutX="-6.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="66.0" prefWidth="762.0" style="-fx-background-color: fa8b02; -fx-padding: 5px;" visible="false">
-         <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="Logout" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="My Profile" textFill="WHITE" />
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="My Trips" textFill="WHITE" />
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: fa8b02; -fx-padding: 12px;" text="Home" textFill="WHITE" />
-         </items>
-      </ToolBar>
       <ScrollPane hbarPolicy="NEVER" layoutX="-8.0" layoutY="65.0" prefHeight="690.0" prefWidth="751.0" vbarPolicy="ALWAYS">
          <content>
             <AnchorPane prefHeight="772.0" prefWidth="757.0">
@@ -107,11 +98,6 @@
                                     <Shadow />
                                  </bumpInput>
                                  <light>
-                                    <Light.Distant>
-                                       <color>
-                                          <Color red="0.9097744226455688" green="0.42520323395729065" blue="0.18291760981082916" />
-                                       </color>
-                                    </Light.Distant>
                                  </light>
                               </Lighting>
                            </effect>
@@ -128,11 +114,7 @@
                                     <Shadow />
                                  </bumpInput>
                                  <light>
-                                    <Light.Distant>
-                                       <color>
-                                          <Color red="0.9097744226455688" green="0.42520323395729065" blue="0.18291760981082916" />
-                                       </color>
-                                    </Light.Distant>
+
                                  </light>
                               </Lighting>
                            </effect>

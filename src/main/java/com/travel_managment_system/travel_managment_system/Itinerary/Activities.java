@@ -9,7 +9,7 @@ public class Activities implements Serializable {
     private final String endTime;
     private final String Img;
     private final int Id;
-    public static ArrayList<Activities> Activitties = new ArrayList<>();
+    public static ArrayList<Activities> activities = new ArrayList<>();
 
     public Activities(String location, String StartTime, String EndTime, String img, int Id) {
         this.location = location;

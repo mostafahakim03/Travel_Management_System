@@ -196,14 +196,14 @@ public class AHomepage implements Loadfxml {
         AddActiveties.setVisible(false);
         Dashview.setVisible(false);
         ActivitiesBox.getChildren().clear();
-        for (int i = 0; i < Activities.Activitties.size(); i++) {
+        for (int i = 0; i < Activities.activities.size(); i++) {
 
 
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("ActivitiesCard.fxml"));
             Pane pane = fxmlLoader.load();
             AActivitiesCard aActivitiesCard = fxmlLoader.getController();
-            aActivitiesCard.setData(Activities.Activitties.get(i));
+            aActivitiesCard.setData(Activities.activities.get(i));
             ActivitiesBox.getChildren().add(pane);
         }
     }
@@ -273,8 +273,8 @@ public class AHomepage implements Loadfxml {
         else {
             String Start = SpinnerStartHour.getValue() + " : " + SpinnerStartMin.getValue() + "  " + StartTimeCompo.getValue();
             String End = SpinnerEndHour.getValue() + " : " + SpinnerEndMin.getValue() + "  " + EndTimeCompo.getValue();
-            Activities activities = new Activities(Activities_Location_compo.getValue(), Start, End, imageSrc, Activities.Activitties.size() + 1);
-            Activities.Activitties.add(activities);
+            Activities activities = new Activities(Activities_Location_compo.getValue(), Start, End, imageSrc, Activities.activities.size() + 1);
+            Activities.activities.add(activities);
             if (!(Admin.Locations.contains(activities.getLocation())))
                 Admin.Locations.add(activities.getLocation());
             AddActiveties.setVisible(false);
@@ -442,7 +442,7 @@ public class AHomepage implements Loadfxml {
     void addActivtiesToTrip(ActionEvent event) {
 
         if (itinerary > 0 && add_Itinerary.getValue() != null) {
-            for (Activities activ : Activities.Activitties) {
+            for (Activities activ : Activities.activities) {
                 if (add_Itinerary.getValue().equals(activ.getId())) {
                     activities[3 - itinerary] = activ;
                     break;
@@ -472,7 +472,7 @@ public class AHomepage implements Loadfxml {
         add_Itinerary.getItems().clear();
         add_Itinerary.setValue(null);
         add_Itinerary.setPromptText("Input " + itinerary + " ID`s Activities");
-        for (Activities a : Activities.Activitties) {
+        for (Activities a : Activities.activities) {
             if (a.getLocation().equals(TLocText.getValue())) {
                 add_Itinerary.getItems().add(a.getId());
             }
