@@ -15,6 +15,8 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import static com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide.TourguideAcc;
+
 public class Admin {
     public static ArrayList<String> Locations = new ArrayList<>();
     private static String Username = "admin";
@@ -98,7 +100,7 @@ public class Admin {
     }
 
     public static void add_Tour(TourGuide tourGuide) {
-        TourGuide.TourguideAcc.add(tourGuide);
+        TourguideAcc.add(tourGuide);
     }
 
     public static void fade(AnchorPane anchorPane) {
@@ -108,6 +110,15 @@ public class Admin {
         fadeTransition.setFromValue(0);
         fadeTransition.setToValue(1);
         fadeTransition.play();
+    }
+
+    public static void DeleteTour(String id) {
+        for (int i = 0; i < TourguideAcc.size(); i++) {
+            if (TourguideAcc.get(i).getGuideID().equals(id)) {
+                TourguideAcc.remove(i);
+                break;
+            }
+        }
     }
 
 }

@@ -3,7 +3,6 @@ package com.travel_managment_system.travel_managment_system.Controllers;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import com.travel_managment_system.travel_managment_system.User.User;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -11,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -38,7 +36,7 @@ public class TGHomepageController implements Loadfxml {
     @FXML
     private VBox tripsVBox = new VBox();
     @FXML
-    private Button HomeButton = new Button();
+    private final Button HomeButton = new Button();
 
 
     public void thomepage() throws IOException {
@@ -131,20 +129,16 @@ public class TGHomepageController implements Loadfxml {
             for (Trip trips : TourGuide.selectedTourGuide.getAssignedTrips()) {
                 if ((trip.getStartDate().isAfter(trips.getStartDate()) && trip.getStartDate().isBefore(trips.getEndDate())) || (trip.getEndDate().isAfter(trips.getStartDate()) && trip.getEndDate().isBefore(trips.getEndDate()))) {
                     tripClashes = true;
-
+                    break;
                 }
             }
-            boolean existTrip=false;
-            for (Trip assignedTrips: TourGuide.selectedTourGuide.getAssignedTrips()) {
-                if (assignedTrips.getTrip_id()==trip.getTrip_id()) {
-                    alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
-                       existTrip=true;
-                }
-                } if (tripClashes) {
-                    alert.setContentText("You have time clash between this trip and another.");
+            if (TourGuide.selectedTourGuide.checkExists(TourGuide.selectedTourGuide.getAssignedTrips())) {
+                alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
+            }
+            else if (tripClashes) {
+                alert.setContentText("You have time clash between this trip and another.");
 
-                }
-            if (!existTrip){
+            } else {
                 for (TourGuide tourguide : TourGuide.TourguideAcc) {
                     if (tourguide.getGuideID().equals(TourGuide.selectedTourGuide.getGuideID())) {
                         tourguide.FillAssignedTrips(trip);
@@ -163,53 +157,55 @@ public class TGHomepageController implements Loadfxml {
 
                         break;
                     }
+
+
                 }
+            }});
 
+            styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
+
+
+            if (TourGuide.isTourGuide) {
+                finalBox.getChildren().addAll(tripPayment, tripRemainingTourGuides, assignTrip);
+            } else {
+                finalBox.getChildren().addAll(tripPrice, tripRemainingSeats, viewTrip);
             }
-        });
-
-        styleVBox(tripImage, viewTrip, assignTrip, tripBox, tripName, stylingBox, finalBox, detailsBox, tripPrice, tripPayment);
 
 
-        if (TourGuide.isTourGuide) {
-            finalBox.getChildren().addAll(tripPayment, tripRemainingTourGuides, assignTrip);
-        } else {
-            finalBox.getChildren().addAll(tripPrice, tripRemainingSeats, viewTrip);
+            stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
+            detailsBox.getChildren().addAll(tripName, location, tripID, tripType, tripSD, tripED, tripTransportation);
+            tripBox.getChildren().addAll(stylingBox);
+
+            return tripBox;
+
+    }
+
+        public static void styleVBox (ImageView tripImage, Button viewTrip, Button assignTrip, VBox tripBox, Label
+        tripName,
+                HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment){
+
+            tripImage.setFitHeight(150);
+            tripImage.setFitWidth(250);
+
+            stylingBox.setAlignment(Pos.CENTER_LEFT);
+            stylingBox.setSpacing(50);
+            finalBox.setSpacing(20);
+            detailsBox.setSpacing(10);
+            finalBox.setAlignment(Pos.BOTTOM_CENTER);
+            detailsBox.setAlignment(Pos.BOTTOM_LEFT);
+
+            tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
+            viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
+            assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
+
+            viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
+            viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
+
+            assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
+            assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
+            tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #fa8b02;");
+            tripPrice.setStyle("-fx-font-weight:bold;");
+            tripPayment.setStyle("-fx-font-weight:bold;");
+
         }
-
-
-        stylingBox.getChildren().addAll(tripImage, detailsBox, finalBox);
-        detailsBox.getChildren().addAll(tripName, location, tripID, tripType, tripSD, tripED, tripTransportation);
-        tripBox.getChildren().addAll(stylingBox);
-
-        return tripBox;
     }
-
-    public static void styleVBox(ImageView tripImage, Button viewTrip, Button assignTrip, VBox tripBox, Label tripName,
-                                 HBox stylingBox, VBox finalBox, VBox detailsBox, Label tripPrice, Label tripPayment) {
-
-        tripImage.setFitHeight(150);
-        tripImage.setFitWidth(250);
-
-        stylingBox.setAlignment(Pos.CENTER_LEFT);
-        stylingBox.setSpacing(50);
-        finalBox.setSpacing(20);
-        detailsBox.setSpacing(10);
-        finalBox.setAlignment(Pos.BOTTOM_CENTER);
-        detailsBox.setAlignment(Pos.BOTTOM_LEFT);
-
-        tripName.setStyle("-fx-font-weight:bold; -fx-font-size:20px");
-        viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
-        assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;");
-
-        viewTrip.setOnMouseEntered(e -> viewTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
-        viewTrip.setOnMouseExited(e -> viewTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
-
-        assignTrip.setOnMouseEntered(e -> assignTrip.setStyle("-fx-background-color: #fa8b02; -fx-text-fill: white; -fx-border-width:2px; -fx-border-color:#fa8b02; "));
-        assignTrip.setOnMouseExited(e -> assignTrip.setStyle("-fx-background-color:#ffffff; -fx-text-fill:#fa8b02; -fx-border-width:2px; -fx-border-color:#fa8b02;"));
-        tripBox.setStyle("-fx-padding:20px 0px 20px 0px; -fx-border-style: solid; -fx-border-width: 0px 0px 1px 0px; -fx-border-color: #fa8b02;");
-        tripPrice.setStyle("-fx-font-weight:bold;");
-        tripPayment.setStyle("-fx-font-weight:bold;");
-
-    }
-}
