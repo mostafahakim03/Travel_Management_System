@@ -70,7 +70,10 @@ public class TicketController implements Loadfxml {
         tripTypeLabel.setText(trip.getTripType());
         priceLabel.setText(Ticket.selectedTicket.ticket_price + "EGP");
         numOfTickets.setText(String.valueOf(Ticket.selectedTicket.numberOfReservedTickets));
-        carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
+        if(Ticket.selectedTicket.car.getCarname() != null && Ticket.selectedTicket.car.getCarmodel() != 0){
+            carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
+        }
+        else carDetails.setText("There is no car ");
         hotelDetails.setText(Ticket.selectedTicket.roomType);
         packageType.setText(Ticket.selectedTicket.packageType);
         BookingDate.setText(String.valueOf(Ticket.selectedTicket.booking_date));

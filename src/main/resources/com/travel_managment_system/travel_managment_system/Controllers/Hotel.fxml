@@ -61,6 +61,11 @@
                   <Image url="@../Images/room.png" />
                </image>
             </ImageView>
+            <Label fx:id="showAlert" layoutX="591.0" layoutY="355.0" prefHeight="28.0" prefWidth="224.0" text="You must choose room type" textFill="#fa8b02" visible="false">
+               <font>
+                  <Font name="Segoe Print" size="15.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <HBox fx:id="Nav_Box" layoutX="-4.0" prefHeight="75.0" prefWidth="886.0" />

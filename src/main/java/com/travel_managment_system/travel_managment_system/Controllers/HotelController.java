@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 
 public class HotelController implements Initializable, Loadfxml {
     @FXML
+    private Label showAlert;
+    @FXML
     private HBox Nav_Box;
     @FXML
     public AnchorPane HotelAnchor;
@@ -69,7 +71,7 @@ public class HotelController implements Initializable, Loadfxml {
 
     public void Next1() throws IOException {
         if (roomtype1.getValue() == null) {
-            Alertmsg.setVisible(true);
+            showAlert.setVisible(true);
         } else {
             Ticket.selectedTicket.roomType = roomtype1.getValue();
             System.out.println(roomtype1.getValue());

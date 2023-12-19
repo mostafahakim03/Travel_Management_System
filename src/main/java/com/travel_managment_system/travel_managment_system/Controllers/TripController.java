@@ -142,6 +142,19 @@ public class TripController implements Initializable, Loadfxml {
                     }
                 }
 
+            if(numbersOfTickets != 0 && String.valueOf(packageTypeChoice.getValue()) != "Select Package"){
+                System.out.println(numbersOfTickets);
+                System.out.println(String.valueOf(packageTypeChoice.getValue()));
+                if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+                    FlightController flight = new FlightController();
+                    flight.trip_flightSwitch();
+                    TripHome.getScene().getWindow().hide();
+                } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+                    BusController bus = new BusController();
+                    bus.trip_busSwitch();
+                    TripHome.getScene().getWindow().hide();
+                }
+            }
         }
 
     }
