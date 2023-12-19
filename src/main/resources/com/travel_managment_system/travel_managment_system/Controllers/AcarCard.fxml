@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="175.0" prefWidth="802.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.AcarCard">
+<AnchorPane prefHeight="147.0" prefWidth="808.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.AcarCard">
    <children>
-      <ImageView fx:id="Car1" fitHeight="105.0" fitWidth="202.0" layoutX="30.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="CarImageView" fitHeight="105.0" fitWidth="202.0" layoutX="30.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/bmw.png" />
          </image>
@@ -23,24 +24,26 @@
             <Font name="Segoe Print Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="carName1" layoutX="403.0" layoutY="41.0" prefHeight="26.0" prefWidth="150.0" text="BMW  M4 " textFill="#fa8b02">
+      <Label fx:id="carName" layoutX="403.0" layoutY="41.0" prefHeight="26.0" prefWidth="150.0" text="BMW  M4 " textFill="#fa8b02">
          <font>
             <Font name="Segoe Print" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="carModel1" layoutX="403.0" layoutY="88.0" prefHeight="26.0" prefWidth="135.0" text="2022" textFill="#fa8b02">
+      <Label fx:id="carModel" layoutX="403.0" layoutY="88.0" prefHeight="26.0" prefWidth="135.0" text="2022" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print" size="18.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="next_anch" layoutX="237.0" layoutY="106.0" prefHeight="78.0" prefWidth="563.0">
+      <AnchorPane fx:id="next_anch" layoutX="245.0" layoutY="42.0" prefHeight="78.0" prefWidth="563.0">
          <children>
-            <Label alignment="CENTER" layoutX="399.0" layoutY="12.0" onMouseClicked="#Next" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Next" textFill="WHITE">
+            <Label alignment="CENTER" layoutX="343.0" layoutY="14.0" onMouseClicked="#Next" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" text="Next" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="20.0" />
                </font>
             </Label>
          </children>
       </AnchorPane>
+      <FontAwesomeIcon fill="#fa8b02" glyphName="CAR" layoutX="239.0" layoutY="64.0" size="1.5em" />
+      <FontAwesomeIcon fill="#fa8b02" glyphName="CLOCK_ALT" layoutX="244.0" layoutY="109.0" size="1.5em" />
    </children>
 </AnchorPane>

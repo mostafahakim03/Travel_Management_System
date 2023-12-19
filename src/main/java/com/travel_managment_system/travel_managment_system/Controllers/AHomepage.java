@@ -352,7 +352,7 @@ public class AHomepage implements Loadfxml {
         String test = Admin.Check_Add_or_edit_tour(tourGuide, true);
         if (test.equals("done")) {
 
-            Admin.add_Tour(tourGuide);
+            Admin.add_User(tourGuide);
             ShowTours(event);
             Refresh = true;
         } else {
@@ -702,7 +702,7 @@ public class AHomepage implements Loadfxml {
         String check = customer.check_signup();
         if (check.equals("done")) {
             Customer_View(event);
-            Customer.CoustomerAcc.add(customer);
+            Admin.add_User(customer);
             Show_Customer();
 
         } else Error_Add_customer.setText(check);

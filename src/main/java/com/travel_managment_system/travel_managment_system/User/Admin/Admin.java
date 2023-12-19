@@ -100,8 +100,29 @@ public class Admin {
 
     }
 
-    public static void add_Tour(TourGuide tourGuide) {
-        TourguideAcc.add(tourGuide);
+    public static void add_User(User user) {
+
+        if(user instanceof TourGuide)
+        {
+            TourguideAcc.add((TourGuide) user);
+        }
+        else if(user instanceof Customer)Customer.CoustomerAcc.add((Customer) user);
+    }
+    public static double checkDiscount(int numberofTickets, double tripPrice, String packageType,Customer customer) {
+        double overallPrice = numberofTickets * tripPrice;
+        if (packageType.equals("Platinum")) {
+            overallPrice = overallPrice + (overallPrice * 0.25);
+        } else if (packageType.equals("Golden")) {
+            overallPrice = overallPrice + (overallPrice * 0.1);
+        }
+
+        if (customer.myTrips.size() % 2 == 0 && !customer.myTrips.isEmpty()) {
+            System.out.println("Discount applied , whoo hoo!!");
+            return overallPrice - (overallPrice * 0.15);
+        } else {
+            return overallPrice;
+        }
+
     }
 
     public static void fade(AnchorPane anchorPane) {

@@ -66,7 +66,7 @@ public class FlightController implements Initializable, Loadfxml {
         if (Select_seat.getValue() == null) {
             alertText.setVisible(true);
         } else {
-            int chosenSeat = Select_seat.getValue();
+            //int chosenSeat = Select_seat.getValue();
             Ticket.selectedTicket.seatNumber.add(Select_seat.getValue());
             Select_seat.getItems().remove(Select_seat.getValue());
             FnumberOfSeats--;

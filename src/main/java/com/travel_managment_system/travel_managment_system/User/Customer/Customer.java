@@ -26,22 +26,7 @@ public class Customer extends User implements Serializable {
     public Customer() {
     }
 
-    public double checkDiscount(int numberofTickets, double tripPrice, String packageType) {
-        double overallPrice = numberofTickets * tripPrice;
-        if (packageType.equals("Platinum")) {
-            overallPrice = overallPrice + (overallPrice * 0.25);
-        } else if (packageType.equals("Golden")) {
-            overallPrice = overallPrice + (overallPrice * 0.1);
-        }
 
-        if (myTrips.size() % 2 == 0 && myTrips.size() != 0) {
-            System.out.println("Discount applied , whoo hoo!!");
-            return overallPrice - (overallPrice * 0.15);
-        } else {
-            return overallPrice;
-        }
-
-    }
 
     public boolean checkTicket(int id){
         for (Ticket t:tickets) {

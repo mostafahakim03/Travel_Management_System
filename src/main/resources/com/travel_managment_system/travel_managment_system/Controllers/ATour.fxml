@@ -28,13 +28,6 @@
       <Button layoutX="476.0" layoutY="164.0" mnemonicParsing="false" onAction="#inDeleteAnch" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Delete" />
       <Button layoutX="357.0" layoutY="164.0" mnemonicParsing="false" onAction="#Assign_to_trip" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Assign Trip" />
       <Button layoutX="435.0" layoutY="164.0" mnemonicParsing="false" onAction="#editTour" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Edit" />
-      <AnchorPane fx:id="deleteANCH" layoutX="279.0" layoutY="157.0" prefHeight="39.0" prefWidth="248.0" style="-fx-background-radius: 40px; -fx-background-color: #ffffff;" visible="false">
-         <children>
-            <Label layoutX="14.0" layoutY="11.0" text="Are You Sure ?" />
-            <Button layoutX="106.0" layoutY="7.0" mnemonicParsing="false" onAction="#ActionOnTour" styleClass="addtripformBtn" stylesheets="@../Style.css" text="YES" />
-            <Button layoutX="152.0" layoutY="7.0" mnemonicParsing="false" onAction="#disDeleteAnch" style="-fx-background-radius: 40px; -fx-border-radius: 40px;" styleClass="backBTN" stylesheets="@../Style.css" text="NO" textFill="WHITE" />
-         </children>
-      </AnchorPane>
       <FontAwesomeIcon fill="#fa8b02" glyphName="USER" layoutX="21.0" layoutY="42.0" size="2.2em" />
       <FontAwesomeIcon fill="#fa8b02" glyphName="ENVELOPE_SQUARE" layoutX="21.0" layoutY="110.0" size="1.5em" />
       <FontAwesomeIcon fill="#fa8b02" glyphName="LOCK" layoutX="22.0" layoutY="148.0" size="1.75em" />
