@@ -48,6 +48,8 @@ public class TourGuide extends User implements Serializable {
         return super.check_signup();
     }
 
+
+
     public Double getSalary() {
         return Salary;
     }

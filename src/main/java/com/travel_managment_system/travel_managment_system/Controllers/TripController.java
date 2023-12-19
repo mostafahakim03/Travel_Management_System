@@ -111,8 +111,8 @@ public class TripController implements Initializable, Loadfxml {
             NoOfTicketsMessageLabel1.setText("Tickets must be Even number");
         } else if (packageTypeChoice.getValue() == null || numbersOfTickets == 0) {
             checkLabel.setVisible(true);
-        } else if (Customer.selectedCustomer.myTrips.contains(Trip.selectedTrip)) {
-            NoOfTicketsMessageLabel1.setText(("You already reserved in this trips one. Find in more trips at home."));
+        } else if (Customer.selectedCustomer.checkExists(Customer.selectedCustomer.myTrips)) {
+            NoOfTicketsMessageLabel1.setText(("You already reserved in this trips once. Find in more trips at home."));
         } else {
 
 

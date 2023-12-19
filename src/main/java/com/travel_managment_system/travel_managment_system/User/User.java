@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.User;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.animation.FadeTransition;
@@ -7,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public abstract class User implements Serializable {
     protected String name;
@@ -59,6 +61,19 @@ public abstract class User implements Serializable {
 
         return "done";
 
+    }
+
+    public boolean checkExists(ArrayList<Trip> assignedTrips ) {
+        Boolean checks=false;
+        for (Trip assignedTrip: assignedTrips) {
+            if(assignedTrip.getTrip_id()==Trip.selectedTrip.getTrip_id())
+            {
+                checks=true;
+            }
+            else
+                checks=false;
+        }
+        return checks;
     }
 
     public String getName() {
