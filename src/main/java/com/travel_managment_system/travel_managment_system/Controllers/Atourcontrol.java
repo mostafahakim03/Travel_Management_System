@@ -141,7 +141,7 @@ public class Atourcontrol {
         //   deleteANCH.setVisible(true);
         Optional<ButtonType> check = Admin.confirmation_alert(Tname.getScene().getWindow(), "Are You Sure", "Delete Account");
         if (check.get() == ButtonType.OK) {
-          Admin.DeleteTour(Tid.getText());
+          Admin.DeleteUser(tourGuide);
             AHomepage.Refresh = true;
         }
     }
