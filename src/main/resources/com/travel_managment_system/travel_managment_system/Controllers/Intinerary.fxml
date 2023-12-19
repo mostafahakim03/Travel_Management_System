@@ -4,7 +4,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,26 +13,6 @@
 <AnchorPane fx:id="Itinerary" prefHeight="623.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.ItineraryController">
    <children>
       <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="-10.0" prefHeight="71.0" prefWidth="601.0" />
-      <ToolBar layoutX="1.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="62.0" prefWidth="600.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
-         <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-         </items>
-      </ToolBar>
       <ImageView fx:id="ActivityImg1" fitHeight="105.0" fitWidth="193.0" layoutX="71.0" layoutY="138.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Images/activity.jpg" />

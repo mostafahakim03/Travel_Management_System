@@ -4,7 +4,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,26 +13,6 @@
 <AnchorPane fx:id="FlightAnchor" prefHeight="530.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.FlightController">
    <children>
       <HBox fx:id="Nav_Box" layoutX="-3.0" layoutY="-7.0" prefHeight="66.0" prefWidth="699.0" />
-      <ToolBar layoutX="-11.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="712.0" style="-fx-background-color: #FA8B02; -fx-padding: 5px;" visible="false">
-         <items>
-            <Button mnemonicParsing="false" onAction="#logoutButtonClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Logout" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#CProfileClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Profile" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button mnemonicParsing="false" onAction="#myTripsClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="My Trips" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-            <Button fx:id="HomeButton" mnemonicParsing="false" onAction="#HomeClicked" style="-fx-background-color: #FA8B02; -fx-padding: 12px;" text="Home" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="14.0" />
-               </font></Button>
-         </items>
-      </ToolBar>
       <ImageView fx:id="Flightview" fitHeight="300.0" fitWidth="408.0" layoutX="253.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 0;">
          <image>
             <Image url="@../Images/flight.png" />
