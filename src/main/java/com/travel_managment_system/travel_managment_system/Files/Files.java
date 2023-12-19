@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Files;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 
@@ -42,6 +43,22 @@ public class Files {
         Customer.CoustomerAcc = (ArrayList<Customer>) in.readObject();
 
     }
+
+    public static void writeTrip() throws IOException {
+        File file = new File("Trips");
+        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file));
+        out.writeObject(Trip.trips);
+    }
+
+    public static void readTrip() throws IOException, ClassNotFoundException {
+        File file = new File("Trips");
+        ObjectInputStream in = new ObjectInputStream(new FileInputStream(file));
+        Trip.trips = (ArrayList<Trip>) in.readObject();
+
+    }
+
+
+
 
 
 }

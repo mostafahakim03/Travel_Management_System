@@ -10,40 +10,40 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="FlightAnchor" prefHeight="530.0" prefWidth="683.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.FlightController">
+<AnchorPane fx:id="FlightAnchor" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.FlightController">
    <children>
-      <HBox fx:id="Nav_Box" layoutX="-3.0" layoutY="-7.0" prefHeight="66.0" prefWidth="699.0" />
-      <ImageView fx:id="Flightview" fitHeight="300.0" fitWidth="408.0" layoutX="253.0" layoutY="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 0;">
+      <HBox fx:id="Nav_Box" layoutY="-3.0" prefHeight="72.0" prefWidth="866.0" />
+      <ImageView fx:id="Flightview" fitHeight="293.0" fitWidth="611.0" layoutX="283.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" style="-fx-rotate: 0;">
          <image>
             <Image url="@../Images/flight.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="38.0" layoutY="93.0" prefHeight="46.0" prefWidth="163.0" text="Egypt Air" textFill="#fa8b02">
+      <Label alignment="CENTER" layoutX="28.0" layoutY="105.0" prefHeight="118.0" prefWidth="222.0" text="Egypt Air" textFill="#fa8b02">
          <font>
             <Font name="Segoe Print Bold" size="30.0" />
          </font>
       </Label>
-      <Button fx:id="Nextbtn" layoutX="531.0" layoutY="439.0" mnemonicParsing="false" onAction="#Next" prefHeight="42.0" prefWidth="91.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-      </Button>
-      <AnchorPane fx:id="AddAnchor" layoutY="359.0" prefHeight="79.0" prefWidth="696.0">
+      <AnchorPane fx:id="AddAnchor" layoutX="12.0" layoutY="424.0" prefHeight="118.0" prefWidth="856.0">
          <children>
-            <Button layoutX="462.0" layoutY="13.0" mnemonicParsing="false" onAction="#addSeatNumber" prefHeight="24.0" prefWidth="78.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Add" textFill="WHITE">
+            <Button layoutX="576.0" layoutY="23.0" mnemonicParsing="false" onAction="#addSeatNumber" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Add" textFill="WHITE">
                <font>
                   <Font name="Berlin Sans FB" size="19.0" />
                </font>
             </Button>
-            <ComboBox fx:id="Select_seat" layoutX="285.0" layoutY="17.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="126.0" promptText="Seat Number" style="-fx-background-radius: 45;" />
-            <Label alignment="CENTER" layoutX="46.0" layoutY="7.0" prefHeight="51.0" prefWidth="230.0" text="Enter your seat number :" textFill="#fa8b02">
+            <ComboBox fx:id="Select_seat" layoutX="347.0" layoutY="24.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="32.0" prefWidth="175.0" promptText="Seat Number" style="-fx-background-radius: 45;" />
+            <Label alignment="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="51.0" prefWidth="317.0" text="Enter your seat number :" textFill="#fa8b02">
                <font>
-                  <Font name="Segoe Print Bold" size="17.0" />
+                  <Font name="Segoe Print Bold" size="23.0" />
                </font>
             </Label>
             <Label fx:id="alertText" layoutX="58.0" layoutY="49.0" text="You must select your seat number." visible="false" />
+            <Button fx:id="Nextbtn" layoutX="576.0" layoutY="67.0" mnemonicParsing="false" onAction="#Next" prefHeight="39.0" prefWidth="150.0" style="-fx-background-color: #FA8B02; -fx-background-radius: 45;" text="Next" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
          </children>
       </AnchorPane>
-      <ProgressBar fx:id="progressBar" layoutX="53.0" layoutY="451.0" prefWidth="200.0" progress="0.25" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
+      <ProgressBar fx:id="progressBar" layoutX="63.0" layoutY="560.0" prefHeight="32.0" prefWidth="370.0" progress="0.25" style="-fx-background-color: #FA8B02; -fx-background-radius: 10px;" />
    </children>
 </AnchorPane>

@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="CMyTrips" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.CMyTripsController">
+<AnchorPane fx:id="CMyTrips" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.CMyTripsController">
     <children>
       <HBox fx:id="Nav_Box" layoutX="-1.0" layoutY="-5.0" prefHeight="60.0" prefWidth="708.0" />
-        <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="500.0" prefWidth="707.0" vbarPolicy="ALWAYS">
+        <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="51.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="585.0" prefWidth="865.0" vbarPolicy="ALWAYS">
             <content>
                 <AnchorPane prefHeight="751.0" prefWidth="694.0">
                     <children>
