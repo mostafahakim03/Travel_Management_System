@@ -86,12 +86,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </ChoiceBox>
-                  <Label fx:id="PackageMessageLabel" layoutX="51.0" layoutY="395.0" prefHeight="22.0" prefWidth="658.0" textFill="#ff9900">
+                  <Label fx:id="PackageMessageLabel" layoutX="48.0" layoutY="395.0" prefHeight="22.0" prefWidth="757.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="54.0" layoutY="477.0" prefHeight="22.0" prefWidth="452.0" textFill="#ff9900">
+                  <Label fx:id="NoOfTicketsMessageLabel1" layoutX="54.0" layoutY="477.0" prefHeight="22.0" prefWidth="749.0" textFill="#ff9900">
                      <font>
                         <Font name="System Italic" size="15.0" />
                      </font>
