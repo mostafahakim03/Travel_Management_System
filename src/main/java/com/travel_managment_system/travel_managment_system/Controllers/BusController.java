@@ -40,38 +40,6 @@ public class BusController implements Initializable, Loadfxml {
         numberOfSeats = Ticket.selectedTicket.numberOfReservedTickets;
     }
 
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            lodafxmlfile("Uhello-view.fxml");
-            BusAnchor.getScene().getWindow().hide();
-        }
-    }
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        lodafxmlfile("CHomepage.fxml");
-        BusAnchor.getScene().getWindow().hide();
-    }
-
-    public void CProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("UCprofile.fxml");
-        BusAnchor.getScene().getWindow().hide();
-        //profile.initialize();
-
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
-        BusAnchor.getScene().getWindow().hide();
-    }
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         Select_seat.getItems().clear();

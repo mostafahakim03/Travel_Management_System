@@ -48,63 +48,11 @@ public class UCProfileController implements Loadfxml {
     private TextField CphoneText = new TextField();
 
     @FXML
-    private AnchorPane Cprofile;
-
-    @FXML
     private AnchorPane Clabanchor = new AnchorPane();
 
     @FXML
     private AnchorPane Clabanchor2 = new AnchorPane();
 
-    @FXML
-    private Button profileButton;
-
-
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("Uhello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            Cprofile.getScene().getWindow().hide();
-
-        }
-    }
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Cprofile.getScene().getWindow().hide();
-
-    }
-
-    public void CProfileClicked(ActionEvent event) throws IOException {
-        profileButton.setDisable(true);
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
-        Cprofile.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
     public void initialize() throws IOException {
         CName.setText(Customer.selectedCustomer.getName());
