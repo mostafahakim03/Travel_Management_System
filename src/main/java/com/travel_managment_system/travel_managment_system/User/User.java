@@ -2,6 +2,9 @@ package com.travel_managment_system.travel_managment_system.User;
 
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.Serializable;
 
@@ -97,5 +100,15 @@ public abstract class User implements Serializable {
 
     public void setAge(String age) {
         this.age = age;
+    }
+    public  static FadeTransition fade_Screen(double start, double end, AnchorPane parent){
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(5000));
+        fadeTransition.setNode(parent);
+        fadeTransition.setFromValue(start);
+        fadeTransition.setToValue(end);
+        fadeTransition.play();
+        return fadeTransition;
+
     }
 }

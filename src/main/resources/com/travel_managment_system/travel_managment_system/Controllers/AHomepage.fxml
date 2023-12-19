@@ -266,7 +266,7 @@
             <FontAwesomeIcon fill="#fa8b02" glyphName="GEARS" layoutX="19.0" layoutY="57.14285659790039" size="3em" />
             <AnchorPane fx:id="DashAnch" layoutX="285.0" prefHeight="649.0" prefWidth="783.0">
                <children>
-                  <AnchorPane fx:id="Dashview" layoutX="-1.0" layoutY="51.0" prefHeight="595.0" prefWidth="783.0" visible="false">
+                  <AnchorPane fx:id="Dashview" layoutX="-1.0" layoutY="51.0" prefHeight="595.0" prefWidth="783.0">
                      <children>
                         <Button layoutX="89.0" layoutY="102.0" mnemonicParsing="false" onAction="#Hotel_Page" prefHeight="185.0" prefWidth="265.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px;" styleClass="DashButton" stylesheets="@../Style.css" text="Hotels">
                            <font>
@@ -425,7 +425,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cars_anch" layoutY="110.0" prefHeight="554.0" prefWidth="800.0">
+                  <AnchorPane fx:id="cars_anch" layoutY="110.0" prefHeight="554.0" prefWidth="800.0" visible="false">
                      <children>
                         <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0" visible="false">
                            <content>
