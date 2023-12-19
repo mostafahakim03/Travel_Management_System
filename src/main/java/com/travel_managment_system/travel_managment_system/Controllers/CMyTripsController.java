@@ -132,56 +132,5 @@ public class CMyTripsController implements Loadfxml {
 
     }
 
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("Uhello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            CMyTrips.getScene().getWindow().hide();
-        }
-    }
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("CHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        CMyTrips.getScene().getWindow().hide();
-    }
-
-    public void CProfileClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("UCprofile.fxml"));
-        //profile profile=new profile();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        CMyTrips.getScene().getWindow().hide();
-        //profile.initialize();
-
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("CMyTrips.fxml"));
-        CMyTrips.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-
-    }
 
 }

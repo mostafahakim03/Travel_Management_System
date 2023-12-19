@@ -32,38 +32,6 @@ public class TicketPaymentController implements Loadfxml, Initializable {
     @FXML
     private Label paymentLabel;
 
-    @FXML
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            lodafxmlfile("Uhello-view.fxml");
-            paymentAnchor.getScene().getWindow().hide();
-        }
-    }
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        lodafxmlfile("CHomepage.fxml");
-        paymentAnchor.getScene().getWindow().hide();
-    }
-
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyProfile.fxml");
-        paymentAnchor.getScene().getWindow().hide();
-
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
-        paymentAnchor.getScene().getWindow().hide();
-    }
-
     public void CancelTrip() throws IOException {
 
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

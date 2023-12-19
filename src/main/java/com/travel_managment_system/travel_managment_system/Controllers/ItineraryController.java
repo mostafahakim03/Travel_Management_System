@@ -88,42 +88,4 @@ public class ItineraryController implements Loadfxml {
 
     }
 
-    @FXML
-    void CProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("UCprofile.fxml");
-        Itinerary.getScene().getWindow().hide();
-        UCProfileController UCProfileController = new UCProfileController();
-        UCProfileController.initialize();
-    }
-
-    @FXML
-    void HomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        lodafxmlfile("CHomepage.fxml");
-        Itinerary.getScene().getWindow().hide();
-    }
-
-    @FXML
-    void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            lodafxmlfile("Uhello-view.fxml");
-            Itinerary.getScene().getWindow().hide();
-
-        }
-    }
-
-    @FXML
-    void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
-        Itinerary.getScene().getWindow().hide();
-    }
-
 }

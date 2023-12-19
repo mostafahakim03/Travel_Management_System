@@ -29,46 +29,6 @@ public class TGTripsController implements Loadfxml {
     @FXML
     private VBox tripsVBox;
 
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        MyTripsButton.setDisable(true);
-    }
-
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            lodafxmlfile("Uhello-view.fxml");
-            TripsAnchor.getScene().getWindow().hide();
-
-        }
-    }
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("TGHomepage.fxml");
-        TripsAnchor.getScene().getWindow().hide();
-    }
-
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("UTprofile.fxml");
-        TripsAnchor.getScene().getWindow().hide();
-        UTProfileController UTProfileController = new UTProfileController();
-        UTProfileController.initialize();
-    }
-
-    public void salaryClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("TGSalary.fxml");
-        UTProfileController UTProfileController = new UTProfileController();
-        TripsAnchor.getScene().getWindow().hide();
-        UTProfileController.initialize();
-    }
-
-
     @FXML
     private void initialize() throws IOException {
         try {

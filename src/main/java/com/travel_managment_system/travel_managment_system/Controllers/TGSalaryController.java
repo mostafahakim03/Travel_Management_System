@@ -150,42 +150,4 @@ public class TGSalaryController implements Loadfxml, Initializable {
         tripPayment.setStyle("-fx-font-weight:bold; -fx-text-alignment:right;");
     }
 
-
-    public void HomeClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("TGHomepage.fxml");
-        SalaryAnchor.getScene().getWindow().hide();
-    }
-
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("UTprofile.fxml");
-        SalaryAnchor.getScene().getWindow().hide();
-        UTProfileController UTProfileController = new UTProfileController();
-        UTProfileController.initialize();
-
-    }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        lodafxmlfile("TGTrips.fxml");
-        SalaryAnchor.getScene().getWindow().hide();
-    }
-
-    public void salaryClicked(ActionEvent event) {
-        salaryButton.setDisable(true);
-    }
-
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            lodafxmlfile("Uhello-view.fxml");
-            SalaryAnchor.getScene().getWindow().hide();
-        }
-    }
-
 }
