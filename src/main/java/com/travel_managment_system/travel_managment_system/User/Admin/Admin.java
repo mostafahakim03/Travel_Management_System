@@ -1,11 +1,12 @@
 package com.travel_managment_system.travel_managment_system.User.Admin;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
@@ -112,11 +113,21 @@ public class Admin {
         fadeTransition.play();
     }
 
-    public static void DeleteTour(String id) {
-        for (int i = 0; i < TourguideAcc.size(); i++) {
-            if (TourguideAcc.get(i).getGuideID().equals(id)) {
-                TourguideAcc.remove(i);
-                break;
+    public static void DeleteUser(User user) {
+        if(user instanceof TourGuide) {
+            for (int i = 0; i < TourguideAcc.size(); i++) {
+                if (TourguideAcc.get(i).getGuideID().equals(((TourGuide) user).getGuideID())) {
+                    TourguideAcc.remove(i);
+                    break;
+                }
+            }
+        }
+        else if(user instanceof Customer) {
+            for (Customer c : Customer.CoustomerAcc) {
+                if (user.getUsername().equals(c.getUsername())) {
+                    Customer.CoustomerAcc.remove(c);
+                    break;
+                }
             }
         }
     }
