@@ -4,17 +4,22 @@ import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class CarController implements Initializable, Loadfxml {
+    @FXML
+    private VBox Car_vbox;
     @FXML
     private HBox Nav_Box;
     @FXML
@@ -60,6 +65,7 @@ public class CarController implements Initializable, Loadfxml {
     public Integer[] NumOfRentalDays = new Integer[3];
 
     public void FillArr() {
+
         for (int i = 0; i < 3; i++) {
             NumOfRentalDays[i] = i + 1;
         }
@@ -68,21 +74,26 @@ public class CarController implements Initializable, Loadfxml {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         FillArr();
-        numOfDays.getItems().addAll(NumOfRentalDays);
-        numOfDays1.getItems().addAll(NumOfRentalDays);
-        numOfDays2.getItems().addAll(NumOfRentalDays);
-        CAr.cars.add(new CAr("BMW M4", 2022,""));
-        CAr.cars.add(new CAr("Nissan Qashqai", 2020,""));
-        CAr.cars.add(new CAr("Lada", 2011,""));
-        String carModelString1 = Integer.toString(CAr.cars.get(0).getCarmodel());
-        String carModelString2 = Integer.toString(CAr.cars.get(1).getCarmodel());
-        String carModelString3 = Integer.toString(CAr.cars.get(1).getCarmodel());
-        carName1.setText(CAr.cars.get(0).getCarname());
-        carName2.setText(CAr.cars.get(1).getCarname());
-        carName3.setText(CAr.cars.get(2).getCarname());
-        carModel1.setText(carModelString1);
-        carModel2.setText(carModelString2);
-        carModel3.setText(carModelString3);
+        try {
+            show_cars();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+//        numOfDays.getItems().addAll(NumOfRentalDays);
+//        numOfDays1.getItems().addAll(NumOfRentalDays);
+//        numOfDays2.getItems().addAll(NumOfRentalDays);
+//        CAr.cars.add(new CAr("BMW M4", 2022,""));
+//        CAr.cars.add(new CAr("Nissan Qashqai", 2020,""));
+//        CAr.cars.add(new CAr("Lada", 2011,""));
+//        String carModelString1 = Integer.toString(CAr.cars.get(0).getCarmodel());
+//        String carModelString2 = Integer.toString(CAr.cars.get(1).getCarmodel());
+//        String carModelString3 = Integer.toString(CAr.cars.get(1).getCarmodel());
+//        carName1.setText(CAr.cars.get(0).getCarname());
+//        carName2.setText(CAr.cars.get(1).getCarname());
+//        carName3.setText(CAr.cars.get(2).getCarname());
+//        carModel1.setText(carModelString1);
+//        carModel2.setText(carModelString2);
+//        carModel3.setText(carModelString3);
         progressBar3.setStyle("-fx-accent: #FA8B02;");
         try {
             Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
@@ -92,27 +103,38 @@ public class CarController implements Initializable, Loadfxml {
 
 
     }
+    public void show_cars() throws IOException {
+        for (int j=0;j<CAr.cars.size();j++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AcarCard.fxml"));
+            AnchorPane pane = fxmlLoader.load();
+            AcarCard acarCard = fxmlLoader.getController();
+            acarCard.setData(CAr.cars.get(j));
+            Car_vbox.getChildren().add(pane);
+        }
+    }
 
     public void Next() throws IOException {
         if (Ticket.selectedTicket.packageType == "Platinum") {
             lodafxmlfile("Intinerary.fxml");
+            ItineraryController itineraryController = new ItineraryController();
+            itineraryController.initialize();
         } else {
             lodafxmlfile("TicketPayment.fxml");
         }
         CarAnchor.getScene().getWindow().hide();
-
-        if (numOfDays.getValue() != null) {
-            Ticket.selectedTicket.car.setCarname(carName1.getText());
-            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel1.getText()));
-        } else if (numOfDays1.getValue() != null) {
-            Ticket.selectedTicket.car.setCarname(carName2.getText());
-            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel2.getText()));
-        } else if (numOfDays2.getValue() != null) {
-            Ticket.selectedTicket.car.setCarname(carName3.getText());
-            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel3.getText()));
-        }
+//
+//        if (numOfDays.getValue() != null) {
+//            Ticket.selectedTicket.car.setCarname(carName1.getText());
+//            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel1.getText()));
+//        } else if (numOfDays1.getValue() != null) {
+//            Ticket.selectedTicket.car.setCarname(carName2.getText());
+//            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel2.getText()));
+//        } else if (numOfDays2.getValue() != null) {
+//            Ticket.selectedTicket.car.setCarname(carName3.getText());
+//            Ticket.selectedTicket.car.setCarmodel(Integer.parseInt(carModel3.getText()));
+//        }
         System.out.println(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
-        ItineraryController itineraryController = new ItineraryController();
-        itineraryController.initialize();
+
     }
 }

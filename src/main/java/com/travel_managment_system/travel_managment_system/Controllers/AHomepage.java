@@ -202,6 +202,8 @@ public class AHomepage implements Loadfxml {
         ActivetiesView.setVisible(false);
         Customer_View.setVisible(false);
         Hotel_Page.setVisible(false);
+        cars_anch.setVisible(false);
+        newIDpane.setVisible(false);
         Admin.fade(DashAnch);
     }
 
@@ -810,8 +812,10 @@ public class AHomepage implements Loadfxml {
         Guide_ID.getItems().addAll(TourGuide.newidAcc);
     }
     @FXML
-    void Cars_page(ActionEvent event) {
-
+    void Cars_page(ActionEvent event) throws IOException {
+cars_anch.setVisible(true);
+Dashview.setVisible(false);
+        show_cars();
     }
     @FXML
     void show_add_car_form(ActionEvent event) {
@@ -840,18 +844,32 @@ public class AHomepage implements Loadfxml {
     }
 
     @FXML
-    void Add_car(ActionEvent event) {
+    void Add_car(ActionEvent event) throws IOException {
 if(Add_car_name.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Name ","Error");}
     else if(Add_car_model.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Model ","Error");}
 else if(imageSrc.equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Image ","Error");}
 else {
+    Add_New_cars_anch.setVisible(false);
     CAr car=new CAr(Add_car_name.getText(),Integer.parseInt(Add_car_model.getText()),imageSrc);
     CAr.cars.add(car);
+    show_cars();
 }
     }
     @FXML
     void Back_add_new_car(ActionEvent event) {
           Add_New_cars_anch.setVisible(false);
+    }
+    public void show_cars() throws IOException {
+        Carvbox.getChildren().clear();
+        for (int j = 0; j < CAr.cars.size(); j++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AcarCard.fxml"));
+            Pane pane = fxmlLoader.load();
+            AcarCard acarCard = fxmlLoader.getController();
+            acarCard.setData(CAr.cars.get(j));
+            Carvbox.getChildren().add(pane);
+
+        }
     }
 
 }

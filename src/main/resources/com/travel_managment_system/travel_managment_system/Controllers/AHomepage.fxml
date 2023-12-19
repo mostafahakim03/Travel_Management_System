@@ -425,9 +425,9 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cars_anch" layoutY="110.0" prefHeight="554.0" prefWidth="800.0" visible="false">
+                  <AnchorPane fx:id="cars_anch" layoutY="111.0" prefHeight="553.0" prefWidth="828.0" visible="false">
                      <children>
-                        <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0" visible="false">
+                        <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0">
                            <content>
                               <VBox fx:id="Carvbox" prefHeight="483.0" prefWidth="795.0" />
                            </content>
