@@ -6,15 +6,17 @@ import java.util.ArrayList;
 public class CAr implements Serializable {
     private String Carname;
     private int Carmodel;
+    private String Image;
     public static ArrayList<CAr> cars = new ArrayList<>();
 
     public CAr() {
 
     }
 
-    public CAr(String carname, int carmodel) {
+    public CAr(String carname, int carmodel,String image) {
         this.Carname = carname;
         this.Carmodel = carmodel;
+        this.Image=image;
     }
 
     public String getCarname() {

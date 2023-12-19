@@ -71,9 +71,9 @@ public class CarController implements Initializable, Loadfxml {
         numOfDays.getItems().addAll(NumOfRentalDays);
         numOfDays1.getItems().addAll(NumOfRentalDays);
         numOfDays2.getItems().addAll(NumOfRentalDays);
-        CAr.cars.add(new CAr("BMW M4", 2022));
-        CAr.cars.add(new CAr("Nissan Qashqai", 2020));
-        CAr.cars.add(new CAr("Lada", 2011));
+        CAr.cars.add(new CAr("BMW M4", 2022,""));
+        CAr.cars.add(new CAr("Nissan Qashqai", 2020,""));
+        CAr.cars.add(new CAr("Lada", 2011,""));
         String carModelString1 = Integer.toString(CAr.cars.get(0).getCarmodel());
         String carModelString2 = Integer.toString(CAr.cars.get(1).getCarmodel());
         String carModelString3 = Integer.toString(CAr.cars.get(1).getCarmodel());

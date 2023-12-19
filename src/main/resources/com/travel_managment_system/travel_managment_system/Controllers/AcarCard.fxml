@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="175.0" prefWidth="802.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.AcarCard">
+   <children>
+      <ImageView fx:id="Car1" fitHeight="105.0" fitWidth="202.0" layoutX="30.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/bmw.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="273.0" layoutY="70.0" prefHeight="26.0" prefWidth="135.0" text="Car Model :">
+         <font>
+            <Font name="Segoe Print Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="23.0" prefHeight="0.0" prefWidth="135.0" text="Car Name :">
+         <font>
+            <Font name="Segoe Print Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="273.0" layoutY="121.0" prefHeight="26.0" prefWidth="224.0" text="Rental Days :">
+         <font>
+            <Font name="Segoe Print Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="carName1" layoutX="408.0" layoutY="23.0" prefHeight="26.0" prefWidth="150.0" text="BMW  M4 " textFill="#fa8b02">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="carModel1" layoutX="408.0" layoutY="70.0" prefHeight="26.0" prefWidth="135.0" text="2022" textFill="#fa8b02">
+         <font>
+            <Font name="Segoe Print" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

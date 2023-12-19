@@ -4,6 +4,7 @@ import com.travel_managment_system.travel_managment_system.Itinerary.Activities;
 import com.travel_managment_system.travel_managment_system.Itinerary.Itinerary;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
+import com.travel_managment_system.travel_managment_system.User.Customer.CAr;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.Customer.Hotel;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
@@ -30,6 +31,21 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public class AHomepage implements Loadfxml {
+    @FXML
+    private VBox Carvbox;
+    @FXML
+    private AnchorPane cars_anch;
+    @FXML
+    private AnchorPane Add_New_cars_anch;
+    @FXML
+    private ImageView Add_new_car_image;
+
+    @FXML
+    private TextField Add_car_model;
+
+    @FXML
+    private TextField Add_car_name;
+
     @FXML
     private AnchorPane Admin_Page_Anch;
     @FXML
@@ -633,6 +649,7 @@ public class AHomepage implements Loadfxml {
         Add_to_List_id();
         newIDpane.setVisible(true);
         newTourID_Text.setText("");
+        Guide_ID.setStyle("-fx-accent: #fa8b02;");
     }
 
     @FXML
@@ -791,6 +808,50 @@ public class AHomepage implements Loadfxml {
     public void Add_to_List_id() {
         Guide_ID.getItems().clear();
         Guide_ID.getItems().addAll(TourGuide.newidAcc);
+    }
+    @FXML
+    void Cars_page(ActionEvent event) {
+
+    }
+    @FXML
+    void show_add_car_form(ActionEvent event) {
+     Add_New_cars_anch.setVisible(true);
+     Add_car_name.setText("");
+     Add_car_model.setText("");
+     Add_new_car_image.setImage(null);
+     imageSrc="";
+    }
+    @FXML
+    void Add_car_photo(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(new File("C:\\"));
+        File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
+        if (file != null) {
+            file = Admin.cobyFile(file);
+            String s = file.toString();
+            int index = s.indexOf("src");
+            s = s.substring(index);
+            FileInputStream imageInput = new FileInputStream(s);
+            Image image = new Image(imageInput);
+            Add_new_car_image.setImage(image);
+            imageSrc = s;
+
+        }
+    }
+
+    @FXML
+    void Add_car(ActionEvent event) {
+if(Add_car_name.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Name ","Error");}
+    else if(Add_car_model.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Model ","Error");}
+else if(imageSrc.equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Image ","Error");}
+else {
+    CAr car=new CAr(Add_car_name.getText(),Integer.parseInt(Add_car_model.getText()),imageSrc);
+    CAr.cars.add(car);
+}
+    }
+    @FXML
+    void Back_add_new_car(ActionEvent event) {
+          Add_New_cars_anch.setVisible(false);
     }
 
 }
