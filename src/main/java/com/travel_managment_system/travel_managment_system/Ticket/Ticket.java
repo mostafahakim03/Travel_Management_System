@@ -19,7 +19,7 @@ public class Ticket implements Serializable {
     public ArrayList<Integer> seatNumber = new ArrayList<>();
     public CAr car = new CAr();
     public String roomType;
-    public String packageType;
+    public String packageType; //platinum , silver , gold
 
 
     public Ticket() {

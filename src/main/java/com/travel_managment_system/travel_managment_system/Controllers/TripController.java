@@ -102,7 +102,10 @@ public class TripController implements Initializable, Loadfxml {
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
-
+if(numbersOfTickets > Trip.selectedTrip.getNumberOfAvailableSeats())
+{
+    NoOfTicketsMessageLabel1.setText("There's only " + Trip.selectedTrip.getNumberOfAvailableSeats() + " seats");
+}
         if (tripTypeLabel.getText().equalsIgnoreCase("family") && numbersOfTickets < 3) {
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
         } else if (tripTypeLabel.getText().equalsIgnoreCase("couple") && numbersOfTickets % 2 != 0) {

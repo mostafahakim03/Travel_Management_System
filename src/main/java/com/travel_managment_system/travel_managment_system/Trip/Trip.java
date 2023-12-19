@@ -126,7 +126,6 @@ public class Trip implements Serializable {
         this.location = location;
     }
 
-
     public boolean isTourGuideComplete() {
         return isTouGuideComplete;
     }

@@ -49,23 +49,23 @@ public class TicketPaymentController implements Loadfxml, Initializable {
             alertLabel.setVisible(true);
         } else {
             Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
-            double overallPrice = Ticket.selectedTicket.numberOfReservedTickets * Trip.selectedTrip.getPrice();
+            double overallPrice = Ticket.selectedTicket.numberOfReservedTickets * Trip.selectedTrip.getPrice(); //reserved tickets * the ticket price
             if (Ticket.selectedTicket.ticket_price < (overallPrice)) {
                 DiscountLabel.setVisible(true);
             }
-            Customer.selectedCustomer.myTrips.add(Trip.selectedTrip);
+            Customer.selectedCustomer.myTrips.add(Trip.selectedTrip); //save the selected trip to selected customer
             lodafxmlfile("Ticket.fxml");
             paymentAnchor.getScene().getWindow().hide();
             for (Customer customer : Customer.CoustomerAcc) {
                 if (customer.getUsername().equals(Customer.selectedCustomer.getUsername())) {
-                    customer.tickets.add(Ticket.selectedTicket);
+                    customer.tickets.add(Ticket.selectedTicket); //save the selected ticket to selected trip
                     customer.myTrips = Customer.selectedCustomer.myTrips;
                     break;
                 }
             }
             Trip.selectedTrip.tickets.add(Ticket.selectedTicket);
             for (Trip trip : Trip.trips) {
-                if (trip.getTrip_id() == Trip.selectedTrip.getTrip_id()) {
+                if (trip.getTrip_id() == Trip.selectedTrip.getTrip_id()) { //removing the reserved seats from bus & plane
                     if (trip.getTransportation() == "Plane") {
                         for (Integer seat : Ticket.selectedTicket.seatNumber) {
                             trip.flight.Seats.remove(seat);
@@ -95,7 +95,6 @@ public class TicketPaymentController implements Loadfxml, Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
     }
 }
 

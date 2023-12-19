@@ -53,18 +53,6 @@ public class ItineraryController implements Loadfxml {
         Trip.selectedTrip.setItinerary(new Itinerary());
         Trip trip = Trip.selectedTrip;
 
-//        FileInputStream imageInput1 = new FileInputStream(trip.getItinerary().getActivities()[0].getImg());
-//        Image image1 = new Image(imageInput1);
-//        ActivityImg1.setImage(image1);
-//
-//        FileInputStream imageInput2 = new FileInputStream(trip.getItinerary().getActivities()[1].getImg());
-//        Image image2 = new Image(imageInput2);
-//        ActivityImg1.setImage(image2);
-//
-//        FileInputStream imageInput3 = new FileInputStream(trip.getItinerary().getActivities()[2].getImg());
-//        Image image3 = new Image(imageInput3);
-//        ActivityImg1.setImage(image3);
-
         ActivityLocationLabel1.setText(trip.getItinerary().getActivities()[0].getLocation());
         ActivityLocationLabel2.setText(trip.getItinerary().getActivities()[1].getLocation());
         ActivityLocationLabel3.setText(trip.getItinerary().getActivities()[2].getLocation());
