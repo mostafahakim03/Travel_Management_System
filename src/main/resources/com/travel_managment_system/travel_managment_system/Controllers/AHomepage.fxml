@@ -117,7 +117,7 @@
                               <Font size="17.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="TaadidText" layoutX="104.0" layoutY="365.0" prefHeight="45.0" prefWidth="63.0" styleClass="textField" stylesheets="@../Style.css">
+                        <TextField fx:id="TaddidText" layoutX="104.0" layoutY="365.0" prefHeight="45.0" prefWidth="63.0" styleClass="textField" stylesheets="@../Style.css">
                            <font>
                               <Font size="17.0" />
                            </font>
@@ -163,7 +163,7 @@
                   </AnchorPane>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="ATripAnch" layoutX="290.0" layoutY="7.0" prefHeight="556.0" prefWidth="734.0" visible="false">
+            <AnchorPane fx:id="ATrip_page" layoutX="290.0" layoutY="7.0" prefHeight="556.0" prefWidth="734.0" visible="false">
                <children>
                   <AnchorPane fx:id="allTrips" layoutX="10.0" layoutY="88.0" prefHeight="545.0" prefWidth="731.0">
                      <children>
@@ -188,7 +188,7 @@
                         <TextField fx:id="TpriceText" layoutX="145.0" layoutY="283.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
                         <TextField fx:id="TpayText" layoutX="435.0" layoutY="286.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
                         <ComboBox fx:id="TtypeText" layoutX="430.0" layoutY="157.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
-                        <ComboBox fx:id="TLocText" editable="true" layoutX="440.0" layoutY="352.0" onAction="#Activties_Location" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
+                        <ComboBox fx:id="TLocText" editable="true" layoutX="440.0" layoutY="352.0" onAction="#Location_Trip" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
                         <Label layoutX="454.0" layoutY="55.0" prefHeight="26.0" prefWidth="57.0" text="Name">
                            <font>
                               <Font name="System Bold" size="17.0" />
@@ -233,7 +233,7 @@
                         <ImageView fx:id="Tripphoto" fitHeight="113.0" fitWidth="211.0" layoutX="23.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
                         <Button layoutX="502.0" layoutY="456.0" mnemonicParsing="false" onAction="#saveTrip" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Save" />
                         <Button layoutX="440.0" layoutY="455.0" minWidth="52.0" mnemonicParsing="false" onAction="#backAddTrip" prefHeight="34.0" prefWidth="54.0" style="-fx-background-radius: 40px; -fx-border-radius: 40px;" styleClass="backBTN" stylesheets="@../Style.css" text="Back" />
-                        <Button layoutX="286.0" layoutY="79.0" mnemonicParsing="false" onAction="#importImage" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Import Photo" />
+                        <Button layoutX="286.0" layoutY="79.0" mnemonicParsing="false" onAction="#import_Trip_Image" prefHeight="29.0" prefWidth="103.0" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Import Photo" />
                         <Label fx:id="ErrorAddtrip" layoutX="35.0" layoutY="476.0" prefHeight="18.0" prefWidth="356.0" textFill="RED" />
                         <ComboBox fx:id="add_Transportation" layoutX="154.0" layoutY="344.0" prefHeight="28.0" prefWidth="150.0" styleClass="textField" stylesheets="@../Style.css" />
                         <Label layoutX="25.0" layoutY="346.0" text="Transportation">
@@ -389,7 +389,7 @@
                               <Button layoutX="8.0" layoutY="18.0" mnemonicParsing="false" onAction="#Add_Hotel_Form" prefHeight="34.0" prefWidth="158.0" styleClass="addtripformBtn" text="Add Hotel" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="Hotel_Form" layoutX="545.0" layoutY="62.0" prefHeight="449.0" prefWidth="246.0" style="-fx-background-color: #ffffff; -fx-border-color: #fa8b02; -fx-border-width: 5px; -fx-border-radius: 5px;" visible="false">
+                        <AnchorPane fx:id="Add_Hotel_Form" layoutX="545.0" layoutY="62.0" prefHeight="449.0" prefWidth="246.0" style="-fx-background-color: #ffffff; -fx-border-color: #fa8b02; -fx-border-width: 5px; -fx-border-radius: 5px;" visible="false">
                            <children>
                               <FontAwesomeIcon fill="#fa8b02" glyphName="IMAGE" layoutX="94.0" layoutY="105.0" size="5em" />
                               <ImageView fx:id="Add_Hotel_Image" fitHeight="130.0" fitWidth="177.0" layoutX="40.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
@@ -425,7 +425,7 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cars_anch" layoutY="111.0" prefHeight="553.0" prefWidth="828.0" visible="false">
+                  <AnchorPane fx:id="cars_page" layoutY="111.0" prefHeight="553.0" prefWidth="828.0" visible="false">
                      <children>
                         <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0">
                            <content>

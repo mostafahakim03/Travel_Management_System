@@ -22,7 +22,7 @@ public class Admin {
     public static ArrayList<String> Locations = new ArrayList<>();
     private static String Username = "admin";
     private static String Password = "1234";
-    public static Boolean Refresh_admin = false, Admin_is_Opned = false;
+    public static Boolean  Admin_is_Opned = false;
 
 
     public static String getUsername() {

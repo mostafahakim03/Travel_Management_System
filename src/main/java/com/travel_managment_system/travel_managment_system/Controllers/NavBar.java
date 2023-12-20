@@ -67,6 +67,7 @@ public class NavBar implements Loadfxml {
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
             if (Admin.Admin_is_Opned) {
+                ACustomer_Card.Booking=false;
                 AHomepage aHomepage = new AHomepage();
                 aHomepage.showAhome();
             } else

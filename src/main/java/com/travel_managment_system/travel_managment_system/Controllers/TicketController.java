@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system.Controllers;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -96,7 +97,13 @@ public class TicketController implements Loadfxml {
 
     @FXML
     public void ConfirmButtonClicked() throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
+        if(Admin.Admin_is_Opned){
+            ACustomer_Card.Booking=false;
+            AHomepage aHomepage = new AHomepage();
+            aHomepage.showAhome();
+
+        }else
+        { lodafxmlfile("CMyTrips.fxml");}
         TicketAnchor.getScene().getWindow().hide();
     }
 }

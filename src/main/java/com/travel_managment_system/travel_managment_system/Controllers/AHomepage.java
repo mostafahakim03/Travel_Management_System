@@ -31,182 +31,141 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 public class AHomepage implements Loadfxml {
-    @FXML
-    private VBox Carvbox;
-    @FXML
-    private AnchorPane cars_anch;
-    @FXML
-    private AnchorPane Add_New_cars_anch;
-    @FXML
-    private ImageView Add_new_car_image;
 
+    //////////////////////---Dash View----///////////////////////////////////////////////
     @FXML
-    private TextField Add_car_model;
+    private AnchorPane DashAnch, Dashview;
+    ////////////////////////////////////////////////
 
-    @FXML
-    private TextField Add_car_name;
+    ///////////// ----- New Id to tour Guides----------////////////
 
-    @FXML
-    private AnchorPane Admin_Page_Anch;
     @FXML
     private ListView<Integer> Guide_ID = new ListView<>();
     @FXML
-    private ComboBox<String> Trip_Hotel;
+    private Pane newIDpane;
+    @FXML
+    private TextField newTourID_Text;
+    //////////////////////////////////////////////////////////////////
+
+    //////////////////////// ------ activity ------///////////////////////////
+    @FXML
+    private VBox ActivitiesBox;
+    @FXML
+    private AnchorPane ActivetiesView, AddActiveties;
+    @FXML
+    private Spinner<Integer> SpinnerEndHour, SpinnerStartHour, SpinnerEndMin, SpinnerStartMin;
+    @FXML
+    private ImageView ActivitieImage;
+    @FXML  //-----------------PM or AM///////////////////
+    private ComboBox<String> EndTimeCompo, StartTimeCompo, Activities_Location_compo;
+    @FXML
+    private Label ErrorAddActitie;
+////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////------------Hotel---------/////////////////////////////////
+    @FXML
+    private AnchorPane Hotel_Page, Add_Hotel_Form;
+    @FXML
+    private ComboBox<String> Add_Hotel_Location;
     @FXML
     private GridPane Hotel_grid = new GridPane();
 
     @FXML
-    private AnchorPane Hotel_Page;
-
-    @FXML
-    private AnchorPane Hotel_Form;
-    @FXML
     private ImageView Add_Hotel_Image;
-
-    @FXML
-    private ComboBox<String> Add_Hotel_Location;
-
     @FXML
     private TextField Add_Hotel_Name;
 
-    @FXML
-    private AnchorPane Customer_View;
-    @FXML
-    private TextField Customer_AgeText;
 
-    @FXML
-    private TextField Customer_NameText;
+////////////////////////////////////////////////////////////////////////////////////////////
 
+    ///////////--------------Cars-------/////////////////////////////
     @FXML
-    private TextField Customer_PassText;
+    private AnchorPane cars_page, Add_New_cars_anch;
+    @FXML
+    private VBox Carvbox;
+    @FXML
+    private ImageView Add_new_car_image;
+    @FXML
+    private TextField Add_car_model, Add_car_name;
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
+    ////////////////---------Trips----------//////////////////////////////////////////////
     @FXML
-    private TextField Customer_PhoneText;
-
+    private AnchorPane ATrip_page, newTripForm, allTrips;
     @FXML
-    private TextField Customer_UserText;
-    @FXML
-    private Label Error_Add_customer;
-    @FXML
-    private AnchorPane Add_Customer_Pane;
-    @FXML
-    private AnchorPane show_Customer_Pane;
-
+    private VBox TripVbox;
     @FXML
     private DatePicker TendDate, TstartDate;
-
     @FXML
     private TextField TidText, TnameText, TpayText, TpriceText;
-
     @FXML
-    private ComboBox<String> TLocText = new ComboBox<String>(), TtypeText = new ComboBox<String>();
-    @FXML
-    private ComboBox<String> add_Transportation;
+    private ComboBox<String> Trip_Hotel, TLocText = new ComboBox<String>(), TtypeText = new ComboBox<String>(), add_Transportation;
     @FXML
     private ComboBox<Integer> add_Itinerary;
     @FXML
-    private AnchorPane ATripAnch, newTripForm, allTrips, ATourPage = new AnchorPane(), AddnewTOUR = new AnchorPane();
-    @FXML
-    private TextField TaadidText;
-
-    @FXML
-    private TextField TaddUserText;
-
-    @FXML
-    private Pane newIDpane;
-    @FXML
-    private VBox Customer_Vbox;
-
-
-    @FXML
-    private TextField TaddageText;
-
-    @FXML
-    private TextField TaddnameText;
-    @FXML
-    private TextField newTourID_Text;
-
-
-    @FXML
-    private TextField TaddpassText;
-
-    @FXML
-    private TextField TaddphoneText;
-
-    public static Boolean Refresh = false;
-
-    @FXML
-    private VBox TouVbox = new VBox(), TripVbox;
-    @FXML
-    private Button ATourBTN;
-    @FXML
-    public AnchorPane TOURPAne = new AnchorPane();
-    @FXML
-    private AnchorPane AddActiveties;
-
-    @FXML
-    private Spinner<Integer> SpinnerEndHour;
-
-    @FXML
-    private Spinner<Integer> SpinnerEndMin;
-
-    @FXML
-    private Spinner<Integer> SpinnerStartHour;
-
-    @FXML
-    private Spinner<Integer> SpinnerStartMin;
-    @FXML
-    private VBox ActivitiesBox;
-
-
-    @FXML
-    private AnchorPane DashAnch, Dashview, ActivetiesView;
-    Boolean TourView = false;
-    @FXML
-    private Label ErrorAddtrip, ErrorAddTour, ErrorAddActitie;
-
-
-    @FXML
     private ImageView Tripphoto;
-    String imageSrc;
     @FXML
-    private Pane Admin_Page;
-    @FXML
-    private ComboBox<String> EndTimeCompo;
-    @FXML
-    private ComboBox<String> StartTimeCompo;
-    @FXML
-    private ImageView ActivitieImage;
-    @FXML
-    private ComboBox<String> Activities_Location_compo;
+    private Label ErrorAddtrip;
+
     int itinerary = 3;
     @FXML
     private Button add_ActivtiesToTrip;
     Activities[] activities = new Activities[3];
-    public static Boolean Refresh_Customer = false;
 
+    ////////////////////////////////////////////////////////////////////////////////////////////
 
+    ///////////////////////------------Tour Guides---------/////////////////////////////////
+    @FXML
+    private AnchorPane ATourPage = new AnchorPane(), AddnewTOUR = new AnchorPane(), TOURPAne = new AnchorPane();
+
+    @FXML
+    private TextField TaddidText, TaddageText, TaddnameText, TaddpassText, TaddphoneText, TaddUserText;
+    public static Boolean Refresh_Tourguide = false;
+    @FXML
+    private VBox TouVbox = new VBox();
+    @FXML
+    private Label ErrorAddTour;
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ///////////////////////------------ Customer ---------/////////////////////////////////
+    @FXML
+    private AnchorPane Customer_View, Add_Customer_Pane, show_Customer_Pane;
+    @FXML
+    private TextField Customer_AgeText, Customer_NameText, Customer_PassText, Customer_PhoneText, Customer_UserText;
+    @FXML
+    private Label Error_Add_customer;
+    @FXML
+    private VBox Customer_Vbox;
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    String imageSrc;
+
+    public static Boolean Refresh_Customer = false, Refresh_admin = false;
+
+    ////////// loading
     public void showAhome() throws IOException {
         lodafxmlfile("AHomepage.fxml");
-        Admin.Refresh_admin = true;
+        Refresh_admin = true;
 
     }
 
+
+    ////////////Dash view////////////
     @FXML
     void Dashview(ActionEvent event) {
         ATourPage.setVisible(false);
-        ATripAnch.setVisible(false);
+        ATrip_page.setVisible(false);
         DashAnch.setVisible(true);
         Dashview.setVisible(true);
-        AddActiveties.setVisible(false);
         ActivetiesView.setVisible(false);
         Customer_View.setVisible(false);
         Hotel_Page.setVisible(false);
-        cars_anch.setVisible(false);
+        cars_page.setVisible(false);
         newIDpane.setVisible(false);
         Admin.fade(DashAnch);
     }
 
+
+    //////// Activities//////////
     @FXML
     void Show_Activities(ActionEvent event) throws IOException {
 
@@ -256,14 +215,15 @@ public class AHomepage implements Loadfxml {
     }
 
     @FXML
-    void backAddActivties(ActionEvent event) {
+    void back_add_Activitie(ActionEvent event) {
         AddActiveties.setVisible(false);
     }
 
     @FXML
     void importActivtieImage(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("C:\\"));
+     //   fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.png"));
         File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
         if (file != null) {
             file = Admin.cobyFile(file);
@@ -277,11 +237,6 @@ public class AHomepage implements Loadfxml {
 
 
         }
-    }
-
-    @FXML
-    void back_add_Activitie(ActionEvent event) {
-        AddActiveties.setVisible(false);
     }
 
     @FXML
@@ -300,82 +255,238 @@ public class AHomepage implements Loadfxml {
         }
     }
 
+    /////// new tour guide ID/////////
+    @FXML
+    void OpenNewTour_ID(ActionEvent event) {
+        Add_to_List_id();
+        newIDpane.setVisible(true);
+        newTourID_Text.setText("");
+        Guide_ID.setStyle("-fx-accent: #fa8b02;");
+    }
 
     @FXML
-    void ShowTours(ActionEvent event) {
-        Customer_View.setVisible(false);
-        ATripAnch.setVisible(false);
-        AddnewTOUR.setVisible(false);
-        ATourPage.setVisible(true);
-        TouVbox.getChildren().clear();
-        TOURPAne.setVisible(true);
-        DashAnch.setVisible(false);
-        TourView = true;
+    void AddnewTourID(ActionEvent event) {
+        boolean test = true;
+        int id = -1;
         try {
-            for (int j = 0; j < TourGuide.TourguideAcc.size(); j++) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
-                fxmlLoader.setLocation(getClass().getResource("ATour.fxml"));
-                Pane pane = fxmlLoader.load();
-                Atourcontrol atourcontrol = fxmlLoader.getController();
-                atourcontrol.setdata(TourGuide.TourguideAcc.get(j));
-                TouVbox.getChildren().add(pane);
+            id = Integer.parseInt(newTourID_Text.getText());
 
+        } catch (NumberFormatException e) {
+            test = false;
+            Admin.Error_Alert(newTourID_Text.getScene().getWindow(), "Invalid ID", "Error");
+        }
+        if (test) {
+            if (id > 0) {
+                for (TourGuide tourGuide : TourGuide.TourguideAcc) {
+                    if (newTourID_Text.getText().equals(tourGuide.getGuideID())) {
+                        test = false;
+                        break;
+                    }
+                }
+                if (test && !(TourGuide.newidAcc.contains(id))) {
+                    TourGuide.newidAcc.add(id);
+
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.initOwner(newTourID_Text.getScene().getWindow());
+                    alert.getDialogPane().setContentText("ID Added Successful");
+                    alert.getDialogPane().setHeaderText("Successful");
+                    alert.showAndWait();
+                    //refresh ID list
+                    Add_to_List_id();
+
+                } else {
+                    Admin.Error_Alert(newTourID_Text.getScene().getWindow(), "ID is already exist", "Error");
+                }
+            } else {
+                Admin.Error_Alert(newTourID_Text.getScene().getWindow(), "Envaild ID", "Error");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //  Refresh = true;
-        Admin.fade(ATourPage);
-    }
-
-    @FXML
-    void AddNEWTOUR(ActionEvent event) {
-        TOURPAne.setVisible(false);
-        AddnewTOUR.setVisible(true);
-        Initilaize_AddTOUR_Form();
-    }
-
-    public void Initilaize_AddTOUR_Form() {
-        TaadidText.setText("");
-        TaddphoneText.setText("");
-        TaddnameText.setText("");
-        TaddpassText.setText("");
-        TaddUserText.setText("");
-        TaddageText.setText("");
-        ErrorAddTour.setText("");
-    }
-
-    @FXML
-    void SaveNewTour(ActionEvent event) {
-        System.out.println(TaddageText.getText());
-        TourGuide tourGuide = new TourGuide(TaddnameText.getText(), TaddUserText.getText(), TaddpassText.getText(), TaddphoneText.getText(), TaddageText.getText(), TaadidText.getText());
-        String test = Admin.Check_Add_or_edit_tour(tourGuide, true);
-        if (test.equals("done")) {
-
-            Admin.add_User(tourGuide);
-            ShowTours(event);
-            Refresh = true;
         } else {
-            ErrorAddTour.setText(test);
+            Admin.Error_Alert(newTourID_Text.getScene().getWindow(), "Envaild ID", "Error");
+        }
+
+
+    }
+
+    public void Add_to_List_id() {
+        Guide_ID.getItems().clear();
+        Guide_ID.getItems().addAll(TourGuide.newidAcc);
+    }
+
+    @FXML
+    void newIDback(ActionEvent event) {
+        newIDpane.setVisible(false);
+    }
+
+    /////////// Hotel  //////////////////////
+    @FXML
+    void Hotel_Page(ActionEvent event) throws IOException {
+        show_Hotels();
+        Add_Hotel_Form.setVisible(false);
+        Hotel_Page.setVisible(true);
+        Dashview.setVisible(false);
+    }
+
+    public void show_Hotels() throws IOException {
+
+        int col = 0, row = 1;
+        for (int i = 0; i < Hotel.Hotels.size(); i++) {
+
+
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AHotel_Card.fxml"));
+            Pane pane = fxmlLoader.load();
+            AHotel_Card hotelCard = fxmlLoader.getController();
+            hotelCard.set_data(Hotel.Hotels.get(i));
+            if (col == 3) {
+                col = 0;
+                row++;
+            }
+            Hotel_grid.add(pane, col++, row);
+            GridPane.setMargin(pane, new Insets(10));
+        }
+    }
+
+    @FXML
+    void Add_Hotel_Form(ActionEvent event) {
+        Add_Hotel_Form.setVisible(true);
+        Add_Hotel_Image.setImage(null);
+        Add_Hotel_Name.setText("");
+        imageSrc = "";
+        Add_Hotel_Location.getItems().clear();
+        Add_Hotel_Location.setValue("");
+        Add_Hotel_Location.getItems().addAll(Admin.Locations);
+    }
+
+
+    @FXML
+    void Back_Add_Hotel(ActionEvent event) {
+        Add_Hotel_Form.setVisible(false);
+    }
+
+    @FXML
+    void Add_Hotel(ActionEvent event) throws IOException {
+        if (Add_Hotel_Name.getText().equals(""))
+            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Name", "Error");
+        else if (Add_Hotel_Location.getValue().equals(""))
+            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Location", "Error");
+        else if (imageSrc.equals(""))
+            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Image", "Error");
+        else {
+            Hotel hotel = new Hotel(Add_Hotel_Name.getText(), Add_Hotel_Location.getValue(), imageSrc);
+            if (!(Admin.Locations.contains(Add_Hotel_Location.getValue()))) {
+                Admin.Locations.add(Add_Hotel_Location.getValue());
+            }
+            Hotel.Hotels.add(hotel);
+            Add_Hotel_Form.setVisible(false);
+            show_Hotels();
         }
 
     }
 
     @FXML
-    void refresh(MouseEvent event) {
-        if (Refresh) {
-            ShowTours(new ActionEvent());
-            System.out.println("yes");
-            Refresh = false;
+    void Import_Hotel_Image(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+      //  fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.png"));
+        File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
+        if (file != null) {
+            file = Admin.cobyFile(file);
+            String s = file.toString();
+            int index = s.indexOf("src");
+            s = s.substring(index);
+            FileInputStream imageInput = new FileInputStream(s);
+            Image image = new Image(imageInput);
+            Add_Hotel_Image.setImage(image);
+            imageSrc = s;
+
+
         }
-        if (Refresh_Customer) {
-            Show_Customer();
-            Refresh_Customer = false;
+
+    }
+///////// cars ////////////
+
+
+    @FXML
+    void Cars_page(ActionEvent event) throws IOException {
+        cars_page.setVisible(true);
+        Dashview.setVisible(false);
+        show_cars();
+    }
+
+    public void show_cars() throws IOException {
+        Carvbox.getChildren().clear();
+        for (int j = 0; j < CAr.cars.size(); j++) {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource("AcarCard.fxml"));
+            Pane pane = fxmlLoader.load();
+            AcarCard acarCard = fxmlLoader.getController();
+            acarCard.setData(CAr.cars.get(j));
+            Carvbox.getChildren().add(pane);
+
         }
-        if (Admin.Refresh_admin) {
-            //  Admin.fade(Admin_Page);
-            Admin.Refresh_admin = false;
+    }
+
+    @FXML
+    void show_add_car_form(ActionEvent event) {
+        Add_New_cars_anch.setVisible(true);
+        Add_car_name.setText("");
+        Add_car_model.setText("");
+        Add_new_car_image.setImage(null);
+        imageSrc = "";
+    }
+
+    @FXML
+    void Add_car(ActionEvent event) throws IOException {
+        if (Add_car_name.getText().equals("")) {
+            Admin.Error_Alert(cars_page.getScene().getWindow(), "please Input Car Name ", "Error");
+        } else if (Add_car_model.getText().equals("")) {
+            Admin.Error_Alert(cars_page.getScene().getWindow(), "please Input Car Model ", "Error");
+        } else if (imageSrc.equals("")) {
+            Admin.Error_Alert(cars_page.getScene().getWindow(), "please Input Car Image ", "Error");
+        } else {
+            Add_New_cars_anch.setVisible(false);
+            CAr car = new CAr(Add_car_name.getText(), Integer.parseInt(Add_car_model.getText()), imageSrc);
+            CAr.cars.add(car);
+            show_cars();
         }
+    }
+
+    @FXML
+    void Back_add_new_car(ActionEvent event) {
+        Add_New_cars_anch.setVisible(false);
+    }
+
+    @FXML
+    void Add_car_photo(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+       // fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.png"));
+        File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
+        if (file != null) {
+            file = Admin.cobyFile(file);
+            String s = file.toString();
+            int index = s.indexOf("src");
+            s = s.substring(index);
+            FileInputStream imageInput = new FileInputStream(s);
+            Image image = new Image(imageInput);
+            Add_new_car_image.setImage(image);
+            imageSrc = s;
+
+        }
+    }
+
+    ///////////  Trips//////////////
+    @FXML
+    void initializeTrips(ActionEvent event) {
+        TOURPAne.setVisible(false);
+        ATourPage.setVisible(false);
+        ATrip_page.setVisible(true);
+        allTrips.setVisible(true);
+        newTripForm.setVisible(false);
+        DashAnch.setVisible(false);
+        Customer_View.setVisible(false);
+        showTrips(event);
+        Admin.fade(ATrip_page);
     }
 
     @FXML
@@ -401,19 +512,6 @@ public class AHomepage implements Loadfxml {
             e.printStackTrace();
         }
 
-    }
-
-    @FXML
-    void initializeTrips(ActionEvent event) {
-        TOURPAne.setVisible(false);
-        ATourPage.setVisible(false);
-        ATripAnch.setVisible(true);
-        allTrips.setVisible(true);
-        newTripForm.setVisible(false);
-        DashAnch.setVisible(false);
-        Customer_View.setVisible(false);
-        showTrips(event);
-        Admin.fade(ATripAnch);
     }
 
     @FXML
@@ -452,11 +550,6 @@ public class AHomepage implements Loadfxml {
     }
 
     @FXML
-    void showadd_Itinerary(ActionEvent event) {
-        add_ActivtiesToTrip.setVisible(true);
-    }
-
-    @FXML
     void addActivtiesToTrip(ActionEvent event) {
 
         if (itinerary > 0 && add_Itinerary.getValue() != null) {
@@ -475,8 +568,14 @@ public class AHomepage implements Loadfxml {
 
     }
 
+    //// when choose activity
     @FXML
-    void Activties_Location(ActionEvent event) {
+    void showadd_Itinerary(ActionEvent event) {
+        add_ActivtiesToTrip.setVisible(true);
+    }
+
+    @FXML
+    void Location_Trip(ActionEvent event) {
         Trip_Hotel.getItems().clear();
         Trip_Hotel.setValue("");
         for (Hotel hotel : Hotel.Hotels) {
@@ -506,7 +605,7 @@ public class AHomepage implements Loadfxml {
     @FXML
     void saveTrip(ActionEvent event) {
         String check = Check_add_Trip();
-        if (check .equals( "Done")) {
+        if (check.equals("Done")) {
             initializeTrips(event);
         } else ErrorAddtrip.setText(check);
     }
@@ -569,15 +668,21 @@ public class AHomepage implements Loadfxml {
         }
         Trip.trips.add(trip);
         Admin.addLocation(TLocText.getValue());
-
+       for (int i=0;i<3;i++)
+       {
+           System.out.println( trip.getItinerary().getActivities()[0].getLocation());
+           System.out.println( trip.getItinerary().getActivities()[0].getId());
+           System.out.println( trip.getItinerary().getActivities()[0].getImg());
+       }
         return "Done";
 
     }
 
     @FXML
-    void importImage(ActionEvent event) throws IOException {
+    void import_Trip_Image(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("C:\\"));
+        // fileChooser.setInitialDirectory(new File("C:\\"));
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("All Images", "*.jpg", "*.png"));
         File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
         if (file != null) {
             file = Admin.cobyFile(file);
@@ -593,66 +698,83 @@ public class AHomepage implements Loadfxml {
         }
     }
 
+//////////////// Tour Guide /////////////////
+
     @FXML
-    void AddnewTourID(ActionEvent event) {
-        boolean test = true;
-        int id = -1;
+    void ShowTours(ActionEvent event) {
+        Customer_View.setVisible(false);
+        ATrip_page.setVisible(false);
+        AddnewTOUR.setVisible(false);
+        ATourPage.setVisible(true);
+        TOURPAne.setVisible(true);
+        DashAnch.setVisible(false);
+        TouVbox.getChildren().clear();
+
         try {
-            id = Integer.parseInt(newTourID_Text.getText());
+            for (int j = 0; j < TourGuide.TourguideAcc.size(); j++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("ATour.fxml"));
+                Pane pane = fxmlLoader.load();
+                Atourcontrol atourcontrol = fxmlLoader.getController();
+                atourcontrol.setdata(TourGuide.TourguideAcc.get(j));
+                TouVbox.getChildren().add(pane);
 
-        } catch (NumberFormatException e) {
-            test = false;
-            Admin.Error_Alert(newTourID_Text.getScene().getWindow(), "Invalid ID", "Error");
-        }
-        if (test) {
-            if (id > 0) {
-                for (TourGuide tourGuide : TourGuide.TourguideAcc) {
-                    if (newTourID_Text.getText().equals(tourGuide.getGuideID())) {
-                        test = false;
-                        break;
-                    }
-                }
-                if (test && !(TourGuide.newidAcc.contains(id))) {
-                    TourGuide.newidAcc.add(id);
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.initOwner(newTourID_Text.getScene().getWindow());
-                    alert.getDialogPane().setContentText("ID Added Successful");
-                    alert.getDialogPane().setHeaderText("Successful");
-                    alert.showAndWait();
-                    Add_to_List_id();
-
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.initOwner(newTourID_Text.getScene().getWindow());
-                    alert.getDialogPane().setContentText("ID is already exist");
-                    alert.getDialogPane().setHeaderText("Error");
-                    alert.showAndWait();
-                }
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.initOwner(newTourID_Text.getScene().getWindow());
-                alert.getDialogPane().setContentText("Envaild ID");
-                alert.getDialogPane().setHeaderText("Error");
-                alert.showAndWait();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //  Refresh = true;
+        Admin.fade(ATourPage);
+    }
+
+    @FXML
+    void AddNEWTOUR(ActionEvent event) {
+        TOURPAne.setVisible(false);
+        AddnewTOUR.setVisible(true);
+        Initilaize_AddTOUR_Form();
+    }
+
+    public void Initilaize_AddTOUR_Form() {
+        TaddidText.setText("");
+        TaddphoneText.setText("");
+        TaddnameText.setText("");
+        TaddpassText.setText("");
+        TaddUserText.setText("");
+        TaddageText.setText("");
+        ErrorAddTour.setText("");
+    }
+
+    @FXML
+    void SaveNewTour(ActionEvent event) {
+        TourGuide tourGuide = new TourGuide(TaddnameText.getText(), TaddUserText.getText(), TaddpassText.getText(), TaddphoneText.getText(), TaddageText.getText(), TaddidText.getText());
+        String test = Admin.Check_Add_or_edit_tour(tourGuide, true);
+        if (test.equals("done")) {
+
+            Admin.add_User(tourGuide);
+            ShowTours(event);
+            Refresh_Tourguide = true;
+        } else {
+            ErrorAddTour.setText(test);
         }
 
-
     }
 
     @FXML
-    void newIDback(ActionEvent event) {
-        newIDpane.setVisible(false);
+    void refresh(MouseEvent event) {
+        if (Refresh_Tourguide) {
+            ShowTours(new ActionEvent());
+            System.out.println("yes");
+            Refresh_Tourguide = false;
+        }
+        if (Refresh_Customer) {
+            Show_Customer();
+            Refresh_Customer = false;
+        }
+        if (Refresh_admin) {
+            Refresh_admin = false;
+        }
     }
-
-    @FXML
-    void OpenNewTour_ID(ActionEvent event) {
-        Add_to_List_id();
-        newIDpane.setVisible(true);
-        newTourID_Text.setText("");
-        Guide_ID.setStyle("-fx-accent: #fa8b02;");
-    }
+////////  Customer  ///////////
 
     @FXML
     void Customer_View(ActionEvent event) {
@@ -660,7 +782,7 @@ public class AHomepage implements Loadfxml {
         show_Customer_Pane.setVisible(true);
         Add_Customer_Pane.setVisible(false);
         ATourPage.setVisible(false);
-        ATripAnch.setVisible(false);
+        ATrip_page.setVisible(false);
         DashAnch.setVisible(false);
         Show_Customer();
         Admin.fade(Customer_View);
@@ -723,153 +845,5 @@ public class AHomepage implements Loadfxml {
         }
     }
 
-    @FXML
-    void Add_Hotel(ActionEvent event) throws IOException {
-        if (Add_Hotel_Name.getText().equals(""))
-            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Name", "Error");
-        else if (Add_Hotel_Location.getValue().equals(""))
-            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Location", "Error");
-        else if (imageSrc.equals(""))
-            Admin.Error_Alert(Add_Hotel_Name.getScene().getWindow(), "Please Add Hotel Image", "Error");
-        else {
-            Hotel hotel = new Hotel(Add_Hotel_Name.getText(), Add_Hotel_Location.getValue(), imageSrc);
-            if (!(Admin.Locations.contains(Add_Hotel_Location.getValue()))) {
-                Admin.Locations.add(Add_Hotel_Location.getValue());
-            }
-            Hotel.Hotels.add(hotel);
-            Hotel_Form.setVisible(false);
-            show_Hotels();
-        }
-
-    }
-
-    @FXML
-    void Import_Hotel_Image(ActionEvent event) throws IOException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("C:\\"));
-        File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
-        if (file != null) {
-            file = Admin.cobyFile(file);
-            String s = file.toString();
-            int index = s.indexOf("src");
-            s = s.substring(index);
-            FileInputStream imageInput = new FileInputStream(s);
-            Image image = new Image(imageInput);
-            Add_Hotel_Image.setImage(image);
-            imageSrc = s;
-
-
-        }
-
-    }
-
-    @FXML
-    void Add_Hotel_Form(ActionEvent event) {
-        Hotel_Form.setVisible(true);
-        Add_Hotel_Image.setImage(null);
-        Add_Hotel_Name.setText("");
-        imageSrc = "";
-        Add_Hotel_Location.getItems().clear();
-        Add_Hotel_Location.setValue("");
-        Add_Hotel_Location.getItems().addAll(Admin.Locations);
-    }
-
-    @FXML
-    void Hotel_Page(ActionEvent event) throws IOException {
-        show_Hotels();
-        Hotel_Form.setVisible(false);
-        Hotel_Page.setVisible(true);
-        Dashview.setVisible(false);
-    }
-
-    public void show_Hotels() throws IOException {
-
-        int col = 0, row = 1;
-        for (int i = 0; i < Hotel.Hotels.size(); i++) {
-
-
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("AHotel_Card.fxml"));
-            Pane pane = fxmlLoader.load();
-            AHotel_Card hotelCard = fxmlLoader.getController();
-            hotelCard.set_data(Hotel.Hotels.get(i));
-            if (col == 4) {
-                col = 0;
-                row++;
-            }
-            Hotel_grid.add(pane, col++, row);
-            GridPane.setMargin(pane, new Insets(10));
-        }
-    }
-
-    @FXML
-    void Back_Add_Hotel(ActionEvent event) {
-        Hotel_Form.setVisible(false);
-    }
-
-    public void Add_to_List_id() {
-        Guide_ID.getItems().clear();
-        Guide_ID.getItems().addAll(TourGuide.newidAcc);
-    }
-    @FXML
-    void Cars_page(ActionEvent event) throws IOException {
-cars_anch.setVisible(true);
-Dashview.setVisible(false);
-        show_cars();
-    }
-    @FXML
-    void show_add_car_form(ActionEvent event) {
-     Add_New_cars_anch.setVisible(true);
-     Add_car_name.setText("");
-     Add_car_model.setText("");
-     Add_new_car_image.setImage(null);
-     imageSrc="";
-    }
-    @FXML
-    void Add_car_photo(ActionEvent event) throws IOException {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File("C:\\"));
-        File file = fileChooser.showOpenDialog(TOURPAne.getScene().getWindow());
-        if (file != null) {
-            file = Admin.cobyFile(file);
-            String s = file.toString();
-            int index = s.indexOf("src");
-            s = s.substring(index);
-            FileInputStream imageInput = new FileInputStream(s);
-            Image image = new Image(imageInput);
-            Add_new_car_image.setImage(image);
-            imageSrc = s;
-
-        }
-    }
-
-    @FXML
-    void Add_car(ActionEvent event) throws IOException {
-if(Add_car_name.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Name ","Error");}
-    else if(Add_car_model.getText().equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Model ","Error");}
-else if(imageSrc.equals("")){Admin.Error_Alert(cars_anch.getScene().getWindow(),"please Input Car Image ","Error");}
-else {
-    Add_New_cars_anch.setVisible(false);
-    CAr car=new CAr(Add_car_name.getText(),Integer.parseInt(Add_car_model.getText()),imageSrc);
-    CAr.cars.add(car);
-    show_cars();
-}
-    }
-    @FXML
-    void Back_add_new_car(ActionEvent event) {
-          Add_New_cars_anch.setVisible(false);
-    }
-    public void show_cars() throws IOException {
-        Carvbox.getChildren().clear();
-        for (int j = 0; j < CAr.cars.size(); j++) {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("AcarCard.fxml"));
-            Pane pane = fxmlLoader.load();
-            AcarCard acarCard = fxmlLoader.getController();
-            acarCard.setData(CAr.cars.get(j));
-            Carvbox.getChildren().add(pane);
-
-        }
-    }
-
+///////////////   Done ///////////////////////////////////////
 }

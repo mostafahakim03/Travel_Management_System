@@ -36,7 +36,7 @@ public class AcarCard implements Loadfxml{
     public void setData(CAr cAr) throws FileNotFoundException {
         carName.setText(cAr.getCarname());
         carModel.setText(String.valueOf(cAr.getCarmodel()));
-        if(Admin.Admin_is_Opned)next_anch.setVisible(false);
+        if(Admin.Admin_is_Opned&&!(ACustomer_Card.Booking))next_anch.setVisible(false);
         FileInputStream fileInputStream = new FileInputStream(cAr.getImage());
         Image image = new Image(fileInputStream);
         CarImageView.setImage(image);

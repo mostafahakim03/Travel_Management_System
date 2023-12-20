@@ -105,7 +105,7 @@ public class Atourcontrol {
             Tphone.setVisible(true);
             Tpas.setVisible(true);
 
-            AHomepage.Refresh = true;
+            AHomepage.Refresh_Tourguide = true;
             editANCH.setVisible(false);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -142,7 +142,7 @@ public class Atourcontrol {
         Optional<ButtonType> check = Admin.confirmation_alert(Tname.getScene().getWindow(), "Are You Sure", "Delete Account");
         if (check.get() == ButtonType.OK) {
           Admin.DeleteUser(tourGuide);
-            AHomepage.Refresh = true;
+            AHomepage.Refresh_Tourguide = true;
         }
     }
     @FXML

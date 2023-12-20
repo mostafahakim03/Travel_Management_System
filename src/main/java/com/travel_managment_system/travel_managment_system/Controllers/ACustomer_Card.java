@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class ACustomer_Card implements Loadfxml {
+  public static Boolean Booking=false;
 
     @FXML
     private Label Age;
@@ -148,6 +149,7 @@ public class ACustomer_Card implements Loadfxml {
         if (check.get() == ButtonType.OK) {
             Customer.selectedCustomer = customer;
             User.isTourGuide = false;
+            Booking=true;
             lodafxmlfile("CHomepage.fxml");
             Phone.getScene().getWindow().hide();
         }
