@@ -6,6 +6,6 @@ import javafx.scene.layout.VBox;
 import java.io.FileNotFoundException;
 
 abstract public class ParentController {
-    public abstract void displayTrips() throws FileNotFoundException;
-    public abstract VBox createTripVBox(Trip trip) throws FileNotFoundException;
+    public abstract void displayTrips() throws FileNotFoundException; //Display the final vbox when called in the initialize function
+    public abstract VBox createTripVBox(Trip trip) throws FileNotFoundException; //creates the vbox's children.
 }

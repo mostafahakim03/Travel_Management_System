@@ -10,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -35,9 +36,6 @@ public class TGHomepageController extends ParentController implements Loadfxml {
 
     @FXML
     private VBox tripsVBox = new VBox();
-    @FXML
-    private final Button HomeButton = new Button();
-
 
     public void thomepage() throws IOException {
         TGHomepageController homepage = new TGHomepageController();
@@ -48,24 +46,24 @@ public class TGHomepageController extends ParentController implements Loadfxml {
 
     public void initialize() throws IOException {
         tripsVBox.getChildren().clear();
-        displayTrips(); // Update the ListView with available trips
+        displayTrips(); // Update the VBox with available trips
         Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 
     }
 
     public void displayTrips() throws FileNotFoundException {
 
-        ArrayList<Trip> filteredTrips = new ArrayList<>();
+        ArrayList<Trip> filteredTrips; //the updated, filtered ArrayList.
         if (User.isTourGuide) {
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> !trip.isTourGuideComplete())
+                    .filter(trip -> !trip.isTourGuideComplete()) //filters the trips that have empty places for tour guides.
                     .collect(Collectors.toCollection(ArrayList::new));
         } else {
             filteredTrips = Trip.trips.stream()
-                    .filter(trip -> trip.getNumberOfAvailableSeats() > 0)
+                    .filter(trip -> trip.getNumberOfAvailableSeats() > 0) //filters the trips that have available seats.
                     .collect(Collectors.toCollection(ArrayList::new));
         }
-        for (Trip trip : filteredTrips) {
+        for (Trip trip : filteredTrips) { //a foreach loop that adds each tripbox that contains a trip inside the tripsVBox
 
             VBox tripBox = createTripVBox(trip);
             tripsVBox.getChildren().add(tripBox);
@@ -75,15 +73,15 @@ public class TGHomepageController extends ParentController implements Loadfxml {
 
     public VBox createTripVBox(Trip trip) throws FileNotFoundException {
         Trip.selectedTrip = trip;
-        VBox tripBox = new VBox();  //returned VBox
+        VBox tripBox = new VBox();  //returned VBox, the one that is added to the tripvbox
         VBox detailsBox = new VBox(); //VBox that contains all important details
         VBox finalBox = new VBox(); //VBox that contains view/assign buttons and the payment/price
 
         HBox stylingBox = new HBox(); //HBox that aligns the detailsBox and finalBox
 
-        FileInputStream imageInput = new FileInputStream(trip.getTripImage());
-        Image image = new Image(imageInput);
-        ImageView tripImage = new ImageView(image);
+        FileInputStream imageInput = new FileInputStream(trip.getTripImage()); //gets the url string.
+        Image image = new Image(imageInput); //puts the input inside an image.
+        ImageView tripImage = new ImageView(image); //puts the image inside the imageview.
 
         String PriceText = Double.toString(trip.getPrice());
         String PaymentText = Double.toString(trip.getPayment());
@@ -103,14 +101,7 @@ public class TGHomepageController extends ParentController implements Loadfxml {
         Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Trip.fxml"));
-                Parent tripDetailsParent = loader.load();
-                TripController tripDetailsController = loader.getController();
-                tripDetailsController.ViewTripDetails(trip);
-                Scene scene = new Scene(tripDetailsParent);
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
+                lodafxmlfile("Trip.fxml");
                 CHomepageAnchor.getScene().getWindow().hide();
             } catch (IOException e) {
                 throw new RuntimeException(e);
@@ -146,15 +137,16 @@ public class TGHomepageController extends ParentController implements Loadfxml {
                         trip.FillAssignedTourGuides(tourguide);
                         trip.setTouGuideComplete(trip.getAssignedTourGuides().size() == 2);
 
-                        //                                alert.setHeaderText("Trip added");
-                        //                                alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
-                        try {
-                            lodafxmlfile("TGHomepage.fxml");
-                            THomepageAnchor.getScene().getWindow().hide();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
+                                                        alert.setHeaderText("Trip added");
+                                                        alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
+                        if (alert.showAndWait().get() == ButtonType.OK) {
+                            try {
+                                lodafxmlfile("TGHomepage.fxml");
+                                THomepageAnchor.getScene().getWindow().hide();
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
-
                         break;
                     }
 
