@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Controllers;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,49 +48,11 @@ public class UTProfileController implements Loadfxml {
     private TextField TphoneText = new TextField();
 
     @FXML
-    private AnchorPane Tprofile;
-
-    @FXML
     private AnchorPane labanchor;
 
     @FXML
     private AnchorPane labanchor2;
-    @FXML
-    private Button profileButton;
 
-    public void logoutButtonClicked(ActionEvent event) throws IOException {
-        System.out.println("Logout pending!");
-        //alert code
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle("Logout");
-        alert.setHeaderText("You are logging out...");
-        alert.setContentText("Are you sure you want to logout?");
-
-        if (alert.showAndWait().get() == ButtonType.OK) {
-            //logging out code
-            Parent root = FXMLLoader.load(getClass().getResource("Uhello-view.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            Tprofile.getScene().getWindow().hide();
-        }
-    }
-
-    public void THomeClicked(ActionEvent event) throws IOException {
-        System.out.println("Going home!");
-        Parent root = FXMLLoader.load(getClass().getResource("TGHomepage.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Tprofile.getScene().getWindow().hide();
-    }
-
-    public void TProfileClicked(ActionEvent event) throws IOException {
-        profileButton.setDisable(true);
-
-    }
 
     public void initialize() throws IOException {
         TName.setText(TourGuide.selectedTourGuide.getName());
@@ -109,24 +72,30 @@ public class UTProfileController implements Loadfxml {
     }
 
     public void Update() {
+        TourGuide tourGuide1;
+        if (TUsername.getText().equals(TUserText.getText()))
+            tourGuide1 = new TourGuide(TnameText.getText(), "-1", TpassText.getText(), TphoneText.getText(), TageText.getText(), TourGuide.selectedTourGuide.getGuideID());
+        else
+            tourGuide1 = new TourGuide(TnameText.getText(), TUserText.getText(), TpassText.getText(), TphoneText.getText(), TageText.getText(), TourGuide.selectedTourGuide.getGuideID());
+        String check = tourGuide1.check_signup(true);
+        if (check.equals("done")) {
+            TourGuide.selectedTourGuide.setName(TnameText.getText());
+            TourGuide.selectedTourGuide.setAge(TageText.getText());
+            TourGuide.selectedTourGuide.setPass(TpassText.getText());
+            TourGuide.selectedTourGuide.setPhone(TphoneText.getText());
+            TourGuide.selectedTourGuide.setUsername(TUserText.getText());
 
-        TourGuide.selectedTourGuide.setName(TnameText.getText());
-        TourGuide.selectedTourGuide.setAge(TageText.getText());
-        TourGuide.selectedTourGuide.setPass(TpassText.getText());
-        TourGuide.selectedTourGuide.setPhone(TphoneText.getText());
-        TourGuide.selectedTourGuide.setUsername(TUserText.getText());
-
-        for (TourGuide tourguide : TourGuide.TourguideAcc) {
-            if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
-                tourguide.setName(TourGuide.selectedTourGuide.getName());
-                tourguide.setAge(TourGuide.selectedTourGuide.getAge());
-                tourguide.setAge(TourGuide.selectedTourGuide.getAge());
-                tourguide.setPhone(TourGuide.selectedTourGuide.getPhone());
-                tourguide.setUsername(TourGuide.selectedTourGuide.getUsername());
-                break;
+            for (TourGuide tourguide : TourGuide.TourguideAcc) {
+                if (TourGuide.selectedTourGuide.getGuideID().equals(tourguide.getGuideID())) {
+                    tourguide.setName(TourGuide.selectedTourGuide.getName());
+                    tourguide.setAge(TourGuide.selectedTourGuide.getAge());
+                    tourguide.setAge(TourGuide.selectedTourGuide.getAge());
+                    tourguide.setPhone(TourGuide.selectedTourGuide.getPhone());
+                    tourguide.setUsername(TourGuide.selectedTourGuide.getUsername());
+                    break;
+                }
             }
-
-        }
+        } else Admin.Error_Alert(TAge.getScene().getWindow(), check, "Error");
     }
 
 
@@ -146,28 +115,5 @@ public class UTProfileController implements Loadfxml {
 
 
     }
-
-    public void myTripsClicked(ActionEvent event) throws IOException {
-        Parent root;
-
-        root = FXMLLoader.load(getClass().getResource("TGTrips.fxml"));
-        Tprofile.getScene().getWindow().hide();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-
-    }
-
-    public void salaryClicked(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("TGSalary.fxml"));
-        UTProfileController UTProfileController = new UTProfileController();
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        Tprofile.getScene().getWindow().hide();
-        UTProfileController.initialize();
-    }
-
 }
+

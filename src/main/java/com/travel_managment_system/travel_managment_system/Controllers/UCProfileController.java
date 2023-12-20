@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Controllers;
 
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,6 +13,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class UCProfileController implements Loadfxml {
     @FXML
@@ -74,20 +76,34 @@ public class UCProfileController implements Loadfxml {
     }
 
     public void Update() {
+        Customer customer1;
+        if(CUsername.getText().equals(CUserText.getText()))
+ customer1=new Customer(CnameText.getText(),"-1",CpassText.getText(),CphoneText.getText(),CageText.getText());
+        else  customer1=new Customer(CnameText.getText(),CUserText.getText(),CpassText.getText(),CphoneText.getText(),CageText.getText());
 
-        Customer.selectedCustomer.setName(CnameText.getText());
-        Customer.selectedCustomer.setAge(CageText.getText());
-        Customer.selectedCustomer.setPass(CpassText.getText());
-        Customer.selectedCustomer.setPhone(CphoneText.getText());
-        Customer.selectedCustomer.setUsername(CUserText.getText());
-
-        for (Customer customer : Customer.CoustomerAcc) {
-            customer.setName(Customer.selectedCustomer.getName());
-            customer.setAge(Customer.selectedCustomer.getAge());
-            customer.setAge(Customer.selectedCustomer.getAge());
-            customer.setPhone(Customer.selectedCustomer.getPhone());
-            customer.setUsername(Customer.selectedCustomer.getUsername());
+        String check= customer1.check_signup();
+        if(check.equals("done")) {
+            Customer.selectedCustomer.setName(CnameText.getText());
+            Customer.selectedCustomer.setAge(CageText.getText());
+            Customer.selectedCustomer.setPass(CpassText.getText());
+            Customer.selectedCustomer.setPhone(CphoneText.getText());
+            Customer.selectedCustomer.setUsername(CUserText.getText());
+            for (Customer customer : Customer.CoustomerAcc) {
+                if(customer.getUsername().equals(CUsername.getText())) {
+                    customer.setName(Customer.selectedCustomer.getName());
+                    customer.setAge(Customer.selectedCustomer.getAge());
+                    customer.setAge(Customer.selectedCustomer.getAge());
+                    customer.setPhone(Customer.selectedCustomer.getPhone());
+                    customer.setUsername(Customer.selectedCustomer.getUsername());
+                }
+            }
         }
+        else {
+              Admin.Error_Alert(CAge.getScene().getWindow(),check,"Error");
+        }
+
+
+
 
     }
 

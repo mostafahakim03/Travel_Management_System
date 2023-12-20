@@ -8,10 +8,12 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ItineraryController implements Loadfxml {
@@ -50,7 +52,6 @@ public class ItineraryController implements Loadfxml {
 
     public void initialize() throws IOException {
 
-        Trip.selectedTrip.setItinerary(new Itinerary());
         Trip trip = Trip.selectedTrip;
 
         ActivityLocationLabel1.setText(trip.getItinerary().getActivities()[0].getLocation());
@@ -64,6 +65,16 @@ public class ItineraryController implements Loadfxml {
         EndTimeLabel1.setText(trip.getItinerary().getActivities()[0].getEndTime());
         EndTimeLabel2.setText(trip.getItinerary().getActivities()[1].getEndTime());
         EndTimeLabel3.setText(trip.getItinerary().getActivities()[2].getEndTime());
+
+        FileInputStream fileInputStream = new FileInputStream(trip.getItinerary().getActivities()[0].getImg());
+        Image image = new Image(fileInputStream);
+        ActivityImg1.setImage(image);
+         fileInputStream = new FileInputStream(trip.getItinerary().getActivities()[1].getImg());
+         image = new Image(fileInputStream);
+        ActivityImg2.setImage(image);
+        fileInputStream = new FileInputStream(trip.getItinerary().getActivities()[2].getImg());
+        image = new Image(fileInputStream);
+        ActivityImg3.setImage(image);
 
         Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
 

@@ -35,5 +35,8 @@ public class CAr implements Serializable {
         Carmodel = carmodel;
     }
 
+    public String getImage() {
+        return Image;
+    }
 }
 

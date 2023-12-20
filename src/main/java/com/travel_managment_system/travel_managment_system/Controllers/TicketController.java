@@ -2,6 +2,7 @@ package com.travel_managment_system.travel_managment_system.Controllers;
 
 import com.travel_managment_system.travel_managment_system.Ticket.Ticket;
 import com.travel_managment_system.travel_managment_system.Trip.Trip;
+import com.travel_managment_system.travel_managment_system.User.Admin.Admin;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -70,7 +71,10 @@ public class TicketController implements Loadfxml {
         tripTypeLabel.setText(trip.getTripType());
         priceLabel.setText(Ticket.selectedTicket.ticket_price + "EGP");
         numOfTickets.setText(String.valueOf(Ticket.selectedTicket.numberOfReservedTickets));
-        carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
+        if(Ticket.selectedTicket.car.getCarname() != null && Ticket.selectedTicket.car.getCarmodel() != 0){
+            carDetails.setText(Ticket.selectedTicket.car.getCarname() + " " + Ticket.selectedTicket.car.getCarmodel());
+        }
+        else carDetails.setText("There is no car ");
         hotelDetails.setText(Ticket.selectedTicket.roomType);
         packageType.setText(Ticket.selectedTicket.packageType);
         BookingDate.setText(String.valueOf(Ticket.selectedTicket.booking_date));
@@ -93,7 +97,13 @@ public class TicketController implements Loadfxml {
 
     @FXML
     public void ConfirmButtonClicked() throws IOException {
-        lodafxmlfile("CMyTrips.fxml");
+        if(Admin.Admin_is_Opned){
+            ACustomer_Card.Booking=false;
+            AHomepage aHomepage = new AHomepage();
+            aHomepage.showAhome();
+
+        }else
+        { lodafxmlfile("CMyTrips.fxml");}
         TicketAnchor.getScene().getWindow().hide();
     }
 }

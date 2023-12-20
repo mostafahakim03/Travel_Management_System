@@ -105,7 +105,7 @@ public class Atourcontrol {
             Tphone.setVisible(true);
             Tpas.setVisible(true);
 
-            AHomepage.Refresh = true;
+            AHomepage.Refresh_Tourguide = true;
             editANCH.setVisible(false);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -134,29 +134,15 @@ public class Atourcontrol {
         editANCH.setVisible(false);
     }
 
-    @FXML
-    void ActionOnTour(ActionEvent event) throws IOException {
-        TourGuide.DeleteTour(Tid.getText());
-        ParentANCH.setVisible(false);
 
-        AHomepage.Refresh = true;
-        deleteANCH.setVisible(false);
-    }
-
-    @FXML
-    void disDeleteAnch(ActionEvent event) {
-
-        deleteANCH.setVisible(false);
-
-    }
 
     @FXML
     void inDeleteAnch(ActionEvent event) {
         //   deleteANCH.setVisible(true);
         Optional<ButtonType> check = Admin.confirmation_alert(Tname.getScene().getWindow(), "Are You Sure", "Delete Account");
         if (check.get() == ButtonType.OK) {
-            TourGuide.DeleteTour(Tid.getText());
-            AHomepage.Refresh = true;
+          Admin.DeleteUser(tourGuide);
+            AHomepage.Refresh_Tourguide = true;
         }
     }
     @FXML

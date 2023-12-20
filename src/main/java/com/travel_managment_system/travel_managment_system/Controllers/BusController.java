@@ -47,6 +47,7 @@ public class BusController implements Initializable, Loadfxml {
         Select_seat.getItems().addAll(Trip.selectedTrip.bus.Seats);
         BnumberOfSeats = Ticket.selectedTicket.numberOfReservedTickets;
         busprogressBar.setStyle("-fx-accent: #FA8B02;");
+        BusNumber.setText("1965");
         try {
             Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
         } catch (IOException e) {

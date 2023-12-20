@@ -1,5 +1,6 @@
 package com.travel_managment_system.travel_managment_system.Controllers;
 
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
@@ -39,7 +40,7 @@ public class UScreen implements Initializable ,Loadfxml{
 
 
     public void start(){
-        FadeTransition fadeTransition=Admin.fade_Screen(0,1,parent);
+        FadeTransition fadeTransition= User.fade_Screen(0,1,parent);
         fadeTransition.onFinishedProperty().set(new EventHandler<ActionEvent>() {
 
             @Override

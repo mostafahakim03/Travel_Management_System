@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 public class ACustomer_Card implements Loadfxml {
+  public static Boolean Booking=false;
 
     @FXML
     private Label Age;
@@ -59,10 +60,10 @@ public class ACustomer_Card implements Loadfxml {
 
     @FXML
     private AnchorPane editANCH;
-    private Customer Customer_Card;
+    private Customer customer;
 
     public void Set_data(Customer customer) {
-        Customer_Card = customer;
+        this.customer = customer;
         Name.setText(customer.getName());
         User_Name.setText(customer.getUsername());
         Pass.setText(customer.getPass());
@@ -74,6 +75,7 @@ public class ACustomer_Card implements Loadfxml {
         }
         Tickets.setText(String.valueOf(num_Tickets));
         dis_edit();
+
     }
 
     public void dis_edit() {
@@ -106,13 +108,7 @@ public class ACustomer_Card implements Loadfxml {
     void delete_Account(ActionEvent event) {
         Optional<ButtonType> check = Admin.confirmation_alert(Name.getScene().getWindow(), "Are You Sure", "Delete Account");
         if (check.get() == ButtonType.OK) {
-            for (Customer c : Customer.CoustomerAcc) {
-                if (User_Name.getText().equals(c.getUsername())) {
-                    System.out.println("Yes");
-                    Customer.CoustomerAcc.remove(c);
-                    break;
-                }
-            }
+           Admin.DeleteUser(customer);
             AHomepage.Refresh_Customer = true;
         }
     }
@@ -125,13 +121,13 @@ public class ACustomer_Card implements Loadfxml {
 
     @FXML
     void saveEditCust(ActionEvent event) {
-        Customer customer;
+        Customer editcustomer;
         if (User_text.getText().equals(User_Name.getText()))
-            customer = new Customer(Name.getText(), "-1", Pass_Text.getText(), Phone_text.getText(), Age.getText());
+            editcustomer = new Customer(Name.getText(), "-1", Pass_Text.getText(), Phone_text.getText(), Age.getText());
         else
-            customer = new Customer(Name.getText(), User_text.getText(), Pass_Text.getText(), Phone_text.getText(), Age.getText());
+            editcustomer = new Customer(Name.getText(), User_text.getText(), Pass_Text.getText(), Phone_text.getText(), Age.getText());
 
-        String check = customer.check_signup();
+        String check = editcustomer.check_signup();
 
         if (check.equals("done")) {
             for (Customer c : Customer.CoustomerAcc) {
@@ -151,8 +147,9 @@ public class ACustomer_Card implements Loadfxml {
     void Booking(ActionEvent event) throws IOException {
         Optional<ButtonType> check = Admin.confirmation_alert(Phone.getScene().getWindow(), "Are you sure book a ticket?", "Booking");
         if (check.get() == ButtonType.OK) {
-            Customer.selectedCustomer = Customer_Card;
+            Customer.selectedCustomer = customer;
             User.isTourGuide = false;
+            Booking=true;
             lodafxmlfile("CHomepage.fxml");
             Phone.getScene().getWindow().hide();
         }

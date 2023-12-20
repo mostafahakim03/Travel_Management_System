@@ -18,54 +18,34 @@ public class Trip implements Serializable {
     private String tripName;
     private LocalDate startDate;
     private LocalDate endDate;
-
-    private double price;
-    private double payment;
+    private double price;  // customer
+    private double payment; // tour guide
     private String tripImage;
     private String tripType;   // family , couple, general
     private String packageType;  // silver , golden , platinum
-    private int numbersOfTickets;  // the customer booking
     private String location;
     private String Transportation; //bus, flight
     private int numberOfAvailableSeats = 50;
-
-    public static Trip selectedTrip;
     private Itinerary itinerary;
 
+    public static Trip selectedTrip;   // trip used during the program
+
+
+    public static ArrayList<Trip> trips = new ArrayList<>();
     public ArrayList<Ticket> tickets = new ArrayList<>();
+    private final ArrayList<TourGuide> AssignedTourGuides = new ArrayList<>();   // trip may have 1 or more tour guides
+    private boolean isTouGuideComplete = false;
 
     public Bus bus = new Bus();
     public Flight flight = new Flight();
     private Hotel hotel = new Hotel();
 
-    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
-        this.numberOfAvailableSeats = numberOfAvailableSeats;
-    }
-
-    public void setHotel(Hotel hotel) {
-        this.hotel = hotel;
-    }
-
-    public static ArrayList<Trip> trips = new ArrayList<>();
-
-    private final ArrayList<TourGuide> AssignedTourGuides = new ArrayList<>();
-
-    private boolean isTouGuideComplete = false;
-
-    public String getTransportation() {
-        return Transportation;
-    }
-
-    public int getNumberOfAvailableSeats() {
-        return numberOfAvailableSeats;
-    }
 
     public Trip() {
-
+        System.out.println("Trip is created");
     }
 
-    public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate,
-                double price, double payment, String tripImage, String location, String Transportation) {
+    public Trip(String tripName, int trip_id, String tripType, LocalDate startDate, LocalDate endDate, double price, double payment, String tripImage, String location, String Transportation) {
         this.tripName = tripName;
         this.trip_id = trip_id;
         this.tripType = tripType;
@@ -80,6 +60,27 @@ public class Trip implements Serializable {
     }
 
 
+
+    public boolean isTourGuideComplete() {
+        return isTouGuideComplete;
+    }
+
+    // returns AssignedTourGuides arrayList
+    public ArrayList<TourGuide> getAssignedTourGuides() {
+        return AssignedTourGuides;
+    }
+
+    // Assign tour guide to the trip
+    public void FillAssignedTourGuides(TourGuide guide) {
+        AssignedTourGuides.add(guide);
+    }
+
+
+
+    public void setTouGuideComplete(boolean tourGuideComplete) {
+        isTouGuideComplete = tourGuideComplete;
+    }
+
     public Itinerary getItinerary() {
         return itinerary;
     }
@@ -92,7 +93,6 @@ public class Trip implements Serializable {
         return trip_id;
     }
 
-
     public String getTripName() {
         return tripName;
     }
@@ -100,7 +100,6 @@ public class Trip implements Serializable {
     public double getPrice() {
         return price;
     }
-
 
     public double getPayment() {
         return payment;
@@ -126,22 +125,6 @@ public class Trip implements Serializable {
         this.location = location;
     }
 
-    public boolean isTourGuideComplete() {
-        return isTouGuideComplete;
-    }
-
-    public ArrayList<TourGuide> getAssignedTourGuides() {
-        return AssignedTourGuides;
-    }
-
-    public void FillAssignedTourGuides(TourGuide guide) {
-        AssignedTourGuides.add(guide);
-    }
-
-    public void setTouGuideComplete(boolean tourGuideComplete) {
-        isTouGuideComplete = tourGuideComplete;
-    }
-
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -153,5 +136,22 @@ public class Trip implements Serializable {
     public Hotel getHotel() {
         return hotel;
     }
+
+    public void setNumberOfAvailableSeats(int numberOfAvailableSeats) {
+        this.numberOfAvailableSeats = numberOfAvailableSeats;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+
+    public String getTransportation() {
+        return Transportation;
+    }
+
+    public int getNumberOfAvailableSeats() {
+        return numberOfAvailableSeats;
+    }
+
 }
 

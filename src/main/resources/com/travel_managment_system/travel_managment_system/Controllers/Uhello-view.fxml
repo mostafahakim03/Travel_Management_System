@@ -19,7 +19,7 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Button fx:id="btn1" layoutX="401.0" layoutY="174.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#btn" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #fc8805; -fx-background-radius: 45;" text="login" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btn1" layoutX="398.0" layoutY="192.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#btn" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #fc8805; -fx-background-radius: 45;" text="login" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
@@ -27,17 +27,24 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <Button layoutX="165.0" layoutY="174.0" mnemonicParsing="false" onAction="#signup_btn" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #fc8805; -fx-background-radius: 45;" text="sign up" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="162.0" layoutY="192.0" mnemonicParsing="false" onAction="#signup_btn" prefHeight="43.0" prefWidth="110.0" style="-fx-background-color: #fc8805; -fx-background-radius: 45;" text="sign up" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Button>
-      <Label layoutX="73.0" layoutY="31.0" prefHeight="98.0" prefWidth="567.0" text="Enjoy in the best way!" textFill="WHITE">
+      <Label layoutX="33.0" layoutY="56.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="98.0" prefWidth="567.0" text="Enjoy Travelling, Enjoy " textFill="WHITE">
          <font>
-            <Font name="Brush Script MT Italic" size="72.0" />
+            <Font name="Brush Script MT Italic" size="57.0" />
          </font>
+         <graphic>
+            <ImageView fitHeight="80.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/سواح.png" />
+               </image>
+            </ImageView>
+         </graphic>
       </Label>
-      <AnchorPane fx:id="signup_anch" layoutX="87.0" layoutY="217.0" prefHeight="98.0" prefWidth="267.0" visible="false">
+      <AnchorPane fx:id="signup_anch" layoutX="84.0" layoutY="235.0" prefHeight="98.0" prefWidth="267.0" visible="false">
          <children>
             <Button fx:id="sign_tour1" layoutX="22.0" layoutY="36.0" mnemonicParsing="false" onAction="#sign_tour" prefHeight="26.0" prefWidth="89.0" style="-fx-background-radius: 45; -fx-background-color: #ffae00;" text="Tourguide">
                <font>

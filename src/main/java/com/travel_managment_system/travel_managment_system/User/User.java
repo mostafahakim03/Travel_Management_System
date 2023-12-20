@@ -1,9 +1,14 @@
 package com.travel_managment_system.travel_managment_system.User;
 
+import com.travel_managment_system.travel_managment_system.Trip.Trip;
 import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public abstract class User implements Serializable {
     protected String name;
@@ -50,12 +55,25 @@ public abstract class User implements Serializable {
         } catch (NumberFormatException e) {
             ValidAge = -1;
         }
-        if (ValidAge == -1 || ValidAge < 10 || ValidAge > 99) {
+        if (ValidAge == -1 || ValidAge < 16 || ValidAge > 99) {
             return "Enter a valid Age";
         }
 
         return "done";
 
+    }
+
+    public boolean checkExists(ArrayList<Trip> assignedTrips ) {
+        Boolean checks=false;
+        for (Trip assignedTrip: assignedTrips) {
+            if(assignedTrip.getTrip_id()==Trip.selectedTrip.getTrip_id())
+            {
+                checks=true;
+            }
+            else
+                checks=false;
+        }
+        return checks;
     }
 
     public String getName() {
@@ -97,5 +115,15 @@ public abstract class User implements Serializable {
 
     public void setAge(String age) {
         this.age = age;
+    }
+    public  static FadeTransition fade_Screen(double start, double end, AnchorPane parent){
+        FadeTransition fadeTransition=new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(5000));
+        fadeTransition.setNode(parent);
+        fadeTransition.setFromValue(start);
+        fadeTransition.setToValue(end);
+        fadeTransition.play();
+        return fadeTransition;
+
     }
 }

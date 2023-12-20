@@ -1,11 +1,12 @@
 package com.travel_managment_system.travel_managment_system.User.Admin;
 
+import com.travel_managment_system.travel_managment_system.User.Customer.Customer;
 import com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide;
+import com.travel_managment_system.travel_managment_system.User.User;
 import javafx.animation.FadeTransition;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.stage.Window;
 import javafx.util.Duration;
 
@@ -15,11 +16,13 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import static com.travel_managment_system.travel_managment_system.User.TourGuide.TourGuide.TourguideAcc;
+
 public class Admin {
     public static ArrayList<String> Locations = new ArrayList<>();
     private static String Username = "admin";
     private static String Password = "1234";
-    public static Boolean Refresh_admin = false, Admin_is_Opned = false;
+    public static Boolean  Admin_is_Opned = false;
 
 
     public static String getUsername() {
@@ -97,8 +100,29 @@ public class Admin {
 
     }
 
-    public static void add_Tour(TourGuide tourGuide) {
-        TourGuide.TourguideAcc.add(tourGuide);
+    public static void add_User(User user) {
+
+        if(user instanceof TourGuide)
+        {
+            TourguideAcc.add((TourGuide) user);
+        }
+        else if(user instanceof Customer)Customer.CoustomerAcc.add((Customer) user);
+    }
+    public static double checkDiscount(int numberofTickets, double tripPrice, String packageType,Customer customer) {
+        double overallPrice = numberofTickets * tripPrice;
+        if (packageType.equals("Platinum")) {
+            overallPrice = overallPrice + (overallPrice * 0.25);
+        } else if (packageType.equals("Golden")) {
+            overallPrice = overallPrice + (overallPrice * 0.1);
+        }
+
+        if (customer.myTrips.size() % 2 == 0 && !customer.myTrips.isEmpty()) {
+            System.out.println("Discount applied , whoo hoo!!");
+            return overallPrice - (overallPrice * 0.15);
+        } else {
+            return overallPrice;
+        }
+
     }
 
     public static void fade(AnchorPane anchorPane) {
@@ -110,24 +134,24 @@ public class Admin {
         fadeTransition.play();
     }
 
-    public static void fade(Pane pane) {
-        FadeTransition fadeTransition = new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(1500));
-        fadeTransition.setNode(pane);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
+    public static void DeleteUser(User user) {
+        if(user instanceof TourGuide) {
+            for (int i = 0; i < TourguideAcc.size(); i++) {
+                if (TourguideAcc.get(i).getGuideID().equals(((TourGuide) user).getGuideID())) {
+                    TourguideAcc.remove(i);
+                    break;
+                }
+            }
+        }
+        else if(user instanceof Customer) {
+            for (Customer c : Customer.CoustomerAcc) {
+                if (user.getUsername().equals(c.getUsername())) {
+                    Customer.CoustomerAcc.remove(c);
+                    break;
+                }
+            }
+        }
     }
 
-   public  static FadeTransition fade_Screen(double start, double end,AnchorPane parent){
-        FadeTransition fadeTransition=new FadeTransition();
-        fadeTransition.setDuration(Duration.millis(5000));
-        fadeTransition.setNode(parent);
-        fadeTransition.setFromValue(start);
-        fadeTransition.setToValue(end);
-        fadeTransition.play();
-        return fadeTransition;
-
-    }
 }
 

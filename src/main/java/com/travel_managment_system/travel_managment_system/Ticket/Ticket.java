@@ -25,4 +25,8 @@ public class Ticket implements Serializable {
     public Ticket() {
         this.booking_date = LocalDate.now();
     }
+
+    public void setCar(CAr car) {
+        this.car = car;
+    }
 }

@@ -9,16 +9,16 @@
 
 <AnchorPane fx:id="CHomepageAnchor" prefHeight="638.0" prefWidth="865.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TGHomepageController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutX="9.0" layoutY="81.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="542.0" prefWidth="846.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" hvalue="0.5" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pannable="true" prefHeight="592.0" prefWidth="875.0" vbarPolicy="ALWAYS">
          <content>
-            <AnchorPane prefHeight="794.0" prefWidth="729.0">
+            <AnchorPane prefHeight="794.0" prefWidth="858.0">
                <children>
                   <Label layoutX="50.0" layoutY="31.0" text="All Trips">
                      <font>
-                        <Font name="Segoe Print Bold" size="26.0" />
+                        <Font name="Segoe Print Bold" size="28.0" />
                      </font>
                   </Label>
-                  <VBox fx:id="tripsVBox" layoutX="50.0" layoutY="99.0" prefHeight="158.0" prefWidth="607.0" />
+                  <VBox fx:id="tripsVBox" layoutX="125.0" layoutY="97.0" prefHeight="158.0" prefWidth="607.0" />
                </children>
             </AnchorPane>
          </content>

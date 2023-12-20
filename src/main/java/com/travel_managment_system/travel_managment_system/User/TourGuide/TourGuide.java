@@ -48,6 +48,8 @@ public class TourGuide extends User implements Serializable {
         return super.check_signup();
     }
 
+
+
     public Double getSalary() {
         return Salary;
     }
@@ -80,14 +82,7 @@ public class TourGuide extends User implements Serializable {
         AssignedTrips.add(assignedTrips);
     }
 
-    public static void DeleteTour(String id) {
-        for (int i = 0; i < TourguideAcc.size(); i++) {
-            if (TourguideAcc.get(i).GuideID.equals(id)) {
-                TourguideAcc.remove(i);
-                break;
-            }
-        }
-    }
+
 }
 
 

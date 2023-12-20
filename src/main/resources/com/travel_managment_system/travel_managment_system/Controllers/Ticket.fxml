@@ -17,11 +17,11 @@
 
 <AnchorPane fx:id="TicketAnchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="749.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.travel_managment_system.travel_managment_system.Controllers.TicketController">
    <children>
-      <ScrollPane hbarPolicy="NEVER" layoutX="-8.0" layoutY="65.0" prefHeight="690.0" prefWidth="751.0" vbarPolicy="ALWAYS">
+      <ScrollPane hbarPolicy="NEVER" layoutX="-8.0" layoutY="50.0" prefHeight="734.0" prefWidth="774.0" vbarPolicy="ALWAYS">
          <content>
             <AnchorPane prefHeight="772.0" prefWidth="757.0">
                <children>
-                  <AnchorPane prefHeight="303.0" prefWidth="750.0">
+                  <AnchorPane layoutX="33.0" layoutY="1.0" prefHeight="303.0" prefWidth="706.0">
                      <children>
                         <Label layoutX="14.0" layoutY="14.0" prefHeight="70.0" prefWidth="290.0" text="Trip Details">
                            <font>
@@ -98,6 +98,11 @@
                                     <Shadow />
                                  </bumpInput>
                                  <light>
+                                    <Light.Distant>
+                                       <color>
+                                          <Color red="0.9098039269447327" green="0.4117647111415863" blue="0.10196078568696976" />
+                                       </color>
+                                    </Light.Distant>
                                  </light>
                               </Lighting>
                            </effect>
@@ -107,18 +112,6 @@
                               <Font name="Lucida Bright Demibold" size="19.0" />
                            </font>
                         </Label>
-                        <Separator layoutX="193.0" layoutY="150.0" prefHeight="2.0" prefWidth="494.0">
-                           <effect>
-                              <Lighting>
-                                 <bumpInput>
-                                    <Shadow />
-                                 </bumpInput>
-                                 <light>
-
-                                 </light>
-                              </Lighting>
-                           </effect>
-                        </Separator>
                         <Label layoutX="499.0" layoutY="114.0" prefHeight="30.0" prefWidth="62.0" text="Price">
                            <font>
                               <Font name="Lucida Bright Demibold" size="19.0" />
@@ -170,9 +163,25 @@
                               <Font name="Lucida Bright Demibold" size="18.0" />
                            </font>
                         </Label>
+                        <Separator layoutX="193.0" layoutY="150.0" prefHeight="2.0" prefWidth="494.0">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant>
+                                       <color>
+                                          <Color red="0.9098039269447327" green="0.4117647111415863" blue="0.10196078568696976" />
+                                       </color>
+                                    </Light.Distant>
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Separator>
                      </children>
                   </AnchorPane>
-                  <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="637.0" layoutY="661.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ConfirmButtonClicked" style="-fx-background-color: #ffae00; -fx-background-radius: 15px; -fx-border-radius: 15px;" text="Confirm" textFill="WHITE">
+                  <Button fx:id="confirmButton" alignment="CENTER" contentDisplay="RIGHT" layoutX="637.0" layoutY="628.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#ConfirmButtonClicked" style="-fx-background-color: #ffae00; -fx-background-radius: 15px; -fx-border-radius: 15px;" text="Confirm" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

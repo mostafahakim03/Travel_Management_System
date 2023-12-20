@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.ImageView;
 
 import java.io.IOException;
 
@@ -22,6 +23,8 @@ public class NavBar implements Loadfxml {
     @FXML
     private Button MyTrip_btn;
 
+    @FXML
+    private ImageView logo;
 
     public void set() {
         if (User.isTourGuide) Salary.setVisible(true);
@@ -64,6 +67,7 @@ public class NavBar implements Loadfxml {
         if (alert.showAndWait().get() == ButtonType.OK) {
             //logging out code
             if (Admin.Admin_is_Opned) {
+                ACustomer_Card.Booking=false;
                 AHomepage aHomepage = new AHomepage();
                 aHomepage.showAhome();
             } else
