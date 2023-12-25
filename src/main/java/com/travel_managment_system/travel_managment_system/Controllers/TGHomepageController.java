@@ -120,11 +120,11 @@ public class TGHomepageController extends ParentController implements Loadfxml {
         assignTrip.setOnAction(event -> {
 
             Boolean tripClashes = false;
-//
+
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Trip");
             alert.setHeaderText("Trip cannot be added");
-//           alert.show();
+
 
             for (Trip trips : TourGuide.selectedTourGuide.getAssignedTrips()) {
                 if ((trip.getStartDate().isAfter(trips.getStartDate()) && trip.getStartDate().isBefore(trips.getEndDate())) || (trip.getEndDate().isAfter(trips.getStartDate()) && trip.getEndDate().isBefore(trips.getEndDate()))) {
