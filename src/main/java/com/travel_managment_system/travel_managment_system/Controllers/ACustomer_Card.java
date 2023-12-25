@@ -145,7 +145,7 @@ public class ACustomer_Card implements Loadfxml {
 
     @FXML
     void Booking(ActionEvent event) throws IOException {
-        Optional<ButtonType> check = Admin.confirmation_alert(Phone.getScene().getWindow(), "Are you sure book a ticket?", "Booking");
+        Optional<ButtonType> check = Admin.confirmation_alert(Phone.getScene().getWindow(), "Are You Sure", "Log in");
         if (check.get() == ButtonType.OK) {
             Customer.selectedCustomer = customer;
             User.isTourGuide = false;

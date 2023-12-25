@@ -33,9 +33,7 @@ public class NavBar implements Loadfxml {
 
     public void dis_Button() {
         Salary.setDisable(true);
-        MyTrip_btn.setDisable(true);
         MyProfile_btn.setDisable(true);
-        HomeButton.setDisable(true);
     }
 
     @FXML

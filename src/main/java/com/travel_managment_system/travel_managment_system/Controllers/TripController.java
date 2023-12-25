@@ -63,12 +63,16 @@ public class TripController implements Initializable, Loadfxml {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        try {
+            ViewTripDetails(Trip.selectedTrip);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void ViewTripDetails(Trip trip) throws IOException {
 
-        Trip.selectedTrip = trip;
+
 
         FileInputStream imageInput = new FileInputStream(trip.getTripImage());
         Image image = new Image(imageInput);
@@ -114,10 +118,9 @@ public class TripController implements Initializable, Loadfxml {
         } catch (NumberFormatException e) {
             System.out.println(e);
         }
-if(numbersOfTickets > Trip.selectedTrip.getNumberOfAvailableSeats())
-{
-    NoOfTicketsMessageLabel1.setText("There's only " + Trip.selectedTrip.getNumberOfAvailableSeats() + " seats");
-}
+        if (numbersOfTickets > Trip.selectedTrip.getNumberOfAvailableSeats()) {
+            NoOfTicketsMessageLabel1.setText("There's only " + Trip.selectedTrip.getNumberOfAvailableSeats() + " seats");
+        }
         if (tripTypeLabel.getText().equalsIgnoreCase("family") && numbersOfTickets < 3) {
 
             NoOfTicketsMessageLabel1.setText("The minimum number for the tickets is 3");
@@ -143,58 +146,59 @@ if(numbersOfTickets > Trip.selectedTrip.getNumberOfAvailableSeats())
             Ticket.selectedTicket.packageType = packageTypeChoice.getValue();
             Ticket.selectedTicket.trip_id = Trip.selectedTrip.getTrip_id();
             Ticket.selectedTicket.TicketID = Trip.selectedTrip.tickets.size() + 1;
-            Ticket.selectedTicket.ticket_price = Admin.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType,Customer.selectedCustomer);
+            Ticket.selectedTicket.ticket_price = Admin.checkDiscount(Ticket.selectedTicket.numberOfReservedTickets, Trip.selectedTrip.getPrice(), Ticket.selectedTicket.packageType, Customer.selectedCustomer);
 
-//
-//            for (Ticket ticket: Customer.selectedCustomer.tickets) {
-//
-//                if(ticket == Ticket.selectedTicket){
-//
-//                    if(Customer.selectedCustomer.checkTicket(ticket.TicketID)) {
-//
-//                        checkTicket.setVisible(true);
-//                        checkLabel.setVisible(true);
-//
-//                        if (Trip.selectedTrip.getTransportation().equals("Plane")) {
-//
-//                            FlightController flight = new FlightController();
-//                            flight.trip_flightSwitch();
-//                            TripHome.getScene().getWindow().hide();
-//
-//                        } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
-//
-//                            BusController bus = new BusController();
-//                            bus.trip_busSwitch();
-//                            TripHome.getScene().getWindow().hide();
-//
-//                        }
-//                    }
-//                }
-//            }
 
-//            if(numbersOfTickets != 0 && String.valueOf(packageTypeChoice.getValue()) != "Select Package")
+            for (Ticket ticket : Customer.selectedCustomer.tickets) {
 
-//            if(!Objects.equals(String.valueOf(packageTypeChoice.getValue()), "Select Package")){
+                if (ticket == Ticket.selectedTicket) {
 
-                System.out.println(numbersOfTickets);
-                System.out.println(String.valueOf(packageTypeChoice.getValue()));
+                    if (Customer.selectedCustomer.checkTicket(ticket.TicketID)) {
 
-                if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+                        checkTicket.setVisible(true);
+                        checkLabel.setVisible(true);
 
-                    FlightController flight = new FlightController();
-                    flight.trip_flightSwitch();
-                    TripHome.getScene().getWindow().hide();
+                        if (Trip.selectedTrip.getTransportation().equals("Plane")) {
 
-                } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+                            FlightController flight = new FlightController();
+                            flight.trip_flightSwitch();
+                            TripHome.getScene().getWindow().hide();
 
-                    BusController bus = new BusController();
-                    bus.trip_busSwitch();
-                    TripHome.getScene().getWindow().hide();
+                        } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
 
+                            BusController bus = new BusController();
+                            bus.trip_busSwitch();
+                            TripHome.getScene().getWindow().hide();
+
+                        }
+                    }
                 }
+            }
+
+            if (numbersOfTickets != 0 && String.valueOf(packageTypeChoice.getValue()) != "Select Package")
+
+                if (!Objects.equals(String.valueOf(packageTypeChoice.getValue()), "Select Package")) {
+
+                    System.out.println(numbersOfTickets);
+                    System.out.println(String.valueOf(packageTypeChoice.getValue()));
+
+                    if (Trip.selectedTrip.getTransportation().equals("Plane")) {
+
+                        FlightController flight = new FlightController();
+                        flight.trip_flightSwitch();
+                        TripHome.getScene().getWindow().hide();
+
+                    } else if (Trip.selectedTrip.getTransportation().equals("Bus")) {
+
+                        BusController bus = new BusController();
+                        bus.trip_busSwitch();
+                        TripHome.getScene().getWindow().hide();
+
+                    }
 //            }
+                }
+
         }
 
     }
-
 }

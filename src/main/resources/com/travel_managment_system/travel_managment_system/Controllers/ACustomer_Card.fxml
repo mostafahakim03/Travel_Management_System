@@ -37,7 +37,7 @@
             <Font name="System Bold Italic" size="12.0" />
          </font></Label>
       <Button layoutX="476.0" layoutY="126.0" mnemonicParsing="false" onAction="#delete_Account" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Delete" />
-      <Button layoutX="363.0" layoutY="126.0" mnemonicParsing="false" onAction="#Booking" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Book Trip" />
+      <Button layoutX="327.0" layoutY="126.0" mnemonicParsing="false" onAction="#Booking" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Log in As Admin" />
       <Button layoutX="435.0" layoutY="126.0" mnemonicParsing="false" onAction="#Edit_Account" styleClass="addtripformBtn" stylesheets="@../Style.css" text="Edit" />
       <AnchorPane fx:id="deleteANCH" layoutX="279.0" layoutY="157.0" prefHeight="39.0" prefWidth="248.0" style="-fx-background-radius: 40px; -fx-background-color: #ffffff;" visible="false">
          <children>

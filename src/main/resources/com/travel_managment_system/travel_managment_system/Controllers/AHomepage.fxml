@@ -425,16 +425,16 @@
                         </Label>
                      </children>
                   </AnchorPane>
-                  <AnchorPane fx:id="cars_page" layoutY="111.0" prefHeight="553.0" prefWidth="828.0" visible="false">
+                  <AnchorPane fx:id="cars_page" layoutY="111.0" prefHeight="553.0" prefWidth="828.0" style="-fx-border-color: #fa8b02; -fx-border-width: 5px;" visible="false">
                      <children>
-                        <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0">
+                        <ScrollPane layoutX="5.0" layoutY="65.0" prefHeight="485.0" prefWidth="792.0" style="-fx-background-color: #ffffff;">
                            <content>
-                              <VBox fx:id="Carvbox" prefHeight="483.0" prefWidth="795.0" />
+                              <VBox fx:id="Carvbox" prefHeight="483.0" prefWidth="795.0" style="-fx-background-color: #ffffff;" />
                            </content>
                         </ScrollPane>
-                        <Label prefHeight="59.0" prefWidth="177.0" text="Cars" textFill="#fa8b02">
+                        <Label layoutX="22.0" layoutY="-14.0" prefHeight="59.0" prefWidth="177.0" text="Cars" textFill="#fa8b02">
                            <font>
-                              <Font name="Harlow Solid Italic" size="41.0" />
+                              <Font name="Harlow Solid Italic" size="46.0" />
                            </font>
                         </Label>
                         <Button layoutX="601.0" layoutY="484.0" mnemonicParsing="false" onAction="#show_add_car_form" prefHeight="39.0" prefWidth="177.0" styleClass="addtripformBtn" text="Add Car">

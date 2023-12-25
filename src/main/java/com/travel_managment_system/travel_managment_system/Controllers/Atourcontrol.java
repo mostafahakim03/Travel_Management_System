@@ -147,7 +147,7 @@ public class Atourcontrol {
     }
     @FXML
     void Assign_to_trip(ActionEvent event) throws IOException {
-        Optional<ButtonType> check= Admin.confirmation_alert(Tname.getScene().getWindow(),"Are You Sure","Assign Trip");
+        Optional<ButtonType> check= Admin.confirmation_alert(Tname.getScene().getWindow(),"Are You Sure","Log in");
         if(check.get()==ButtonType.OK)
         {
             TourGuide.selectedTourGuide=tourGuide;

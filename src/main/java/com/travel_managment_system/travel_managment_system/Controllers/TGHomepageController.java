@@ -101,6 +101,15 @@ public class TGHomepageController extends ParentController implements Loadfxml {
         Button assignTrip = new Button("Assign Trip");
         viewTrip.setOnAction(event -> {
             try {
+
+                int id= Integer.parseInt(tripID.getText().substring(4));
+                for (Trip trip1:Trip.trips)
+                {
+                    if(id==trip1.getTrip_id()){
+                        Trip.selectedTrip=trip1;
+                        break;
+                    }
+                }
                 lodafxmlfile("Trip.fxml");
                 CHomepageAnchor.getScene().getWindow().hide();
             } catch (IOException e) {
@@ -111,11 +120,11 @@ public class TGHomepageController extends ParentController implements Loadfxml {
         assignTrip.setOnAction(event -> {
 
             Boolean tripClashes = false;
-
+//
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Trip");
             alert.setHeaderText("Trip cannot be added");
-            alert.show();
+//           alert.show();
 
             for (Trip trips : TourGuide.selectedTourGuide.getAssignedTrips()) {
                 if ((trip.getStartDate().isAfter(trips.getStartDate()) && trip.getStartDate().isBefore(trips.getEndDate())) || (trip.getEndDate().isAfter(trips.getStartDate()) && trip.getEndDate().isBefore(trips.getEndDate()))) {
@@ -125,10 +134,11 @@ public class TGHomepageController extends ParentController implements Loadfxml {
             }
             if (TourGuide.selectedTourGuide.checkExists(TourGuide.selectedTourGuide.getAssignedTrips())) {
                 alert.setContentText("You are already assigned to this trip. You can find it in My Trips.");
+            alert.showAndWait();
             }
             else if (tripClashes) {
                 alert.setContentText("You have time clash between this trip and another.");
-
+             alert.showAndWait();
             } else {
                 for (TourGuide tourguide : TourGuide.TourguideAcc) {
                     if (tourguide.getGuideID().equals(TourGuide.selectedTourGuide.getGuideID())) {
@@ -139,7 +149,8 @@ public class TGHomepageController extends ParentController implements Loadfxml {
 
                                                         alert.setHeaderText("Trip added");
                                                         alert.setContentText("You're now assigned to this trip. You can find it in My Trips.");
-                        if (alert.showAndWait().get() == ButtonType.OK) {
+                                                        alert.showAndWait();
+                              if (alert.showAndWait().get() == ButtonType.OK) {
                             try {
                                 lodafxmlfile("TGHomepage.fxml");
                                 THomepageAnchor.getScene().getWindow().hide();
