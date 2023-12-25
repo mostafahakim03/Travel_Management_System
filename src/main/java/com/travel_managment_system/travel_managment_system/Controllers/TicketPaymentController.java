@@ -49,10 +49,7 @@ public class TicketPaymentController implements Loadfxml, Initializable {
             alertLabel.setVisible(true);
         } else {
             Trip.selectedTrip.setNumberOfAvailableSeats(Trip.selectedTrip.getNumberOfAvailableSeats() - Ticket.selectedTicket.numberOfReservedTickets);
-            double overallPrice = Ticket.selectedTicket.numberOfReservedTickets * Trip.selectedTrip.getPrice(); //reserved tickets * the ticket price
-            if (Ticket.selectedTicket.ticket_price < (overallPrice)) {
-                DiscountLabel.setVisible(true);
-            }
+
             Customer.selectedCustomer.myTrips.add(Trip.selectedTrip); //save the selected trip to selected customer
             lodafxmlfile("Ticket.fxml");
             paymentAnchor.getScene().getWindow().hide();
@@ -90,6 +87,15 @@ public class TicketPaymentController implements Loadfxml, Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         progressBar4.setStyle("-fx-accent: #FA8B02;");
         paymentLabel.setText("This trip will cost you: " + Ticket.selectedTicket.ticket_price + " EGP");
+        double overallPrice = Ticket.selectedTicket.numberOfReservedTickets * Trip.selectedTrip.getPrice(); //reserved tickets * the ticket price
+        if (Ticket.selectedTicket.packageType.equals("Platinum")) {
+            overallPrice = overallPrice + (overallPrice * 0.25);
+        } else if (Ticket.selectedTicket.packageType.equals("Golden")) {
+            overallPrice = overallPrice + (overallPrice * 0.1);
+        }
+        if (Ticket.selectedTicket.ticket_price < (overallPrice)) {
+            DiscountLabel.setVisible(true);
+        }
         try {
             Nav_Box.getChildren().add(Load_navBar(getClass().getResource("NavBar.fxml")));
         } catch (IOException e) {
