@@ -9,9 +9,6 @@
   <h3 align="center">Sawah Mangement System</h3>
 
   <p align="center">
-    
-    ![image](https://github.com/mostafahakim03/Travel_Management_System/assets/111656299/4c0019cd-bd96-4247-9e2f-7969776cbe52)
-
      <br/> 
     <br/> 
     Brought to you by team 40, OOP course, Sophmore year, faculty of Computer and Information Science, Ain Shams University.
@@ -52,9 +49,9 @@ The system supports different interfaces created for the Admin, tour guides, and
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-![image](https://github.com/mostafahakim03/Travel_Management_System/assets/111656299/dc10df88-4dbc-49ca-bca0-79de8cd47853)
-
+<div align="center">
+      <img src="https://github.com/mostafahakim03/Travel_Management_System/assets/111656299/dc10df88-4dbc-49ca-bca0-79de8cd47853" alt="getting started">
+</div>
 To start navigating Sawah, you will have to go through the welcome page first. It's easy, just decide if you would like to play the role of an admin, a customer, or a tour guide.
 
 
@@ -108,4 +105,6 @@ credibility and integrity are our most important values in Sawah, that's why we 
   <li>As an admin, make sure to choose the location for all activities and the trip correctly as it binds everything together.</li>
 </ol>
 
-
+<div align="center" >
+<img src="https://github.com/mostafahakim03/Travel_Management_System/assets/111656299/4c0019cd-bd96-4247-9e2f-7969776cbe52" alt="Logo" width="800" height="500">
+</div>
