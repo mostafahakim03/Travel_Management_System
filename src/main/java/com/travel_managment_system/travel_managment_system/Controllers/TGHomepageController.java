@@ -33,7 +33,6 @@ public class TGHomepageController extends ParentController implements Loadfxml {
     public AnchorPane THomepageAnchor = new AnchorPane();
     @FXML
     public AnchorPane CHomepageAnchor = new AnchorPane();
-
     @FXML
     private VBox tripsVBox = new VBox();
 
